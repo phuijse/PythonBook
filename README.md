@@ -1,9 +1,10 @@
-### Universidad Austral de Chile
-### Profesor: Pablo Huijse Heise: phuijse at inf dot uach dot cl
+## Universidad Austral de Chile
 
 # INFO147: Computación Científica con Python
 
-Un electivo profesional para el pregrado de Ingeniería Informática y curso de nivelación para el magister de Ingeniería Informática de la UACh 
+### Responsable: Pablo Huijse H, phuijse@inf.uach.cl
+
+Un electivo profesional para el pregrado de Ingeniería Informática y curso de nivelación para el magister de Ingeniería Informática de la UACh
 
 ***
 ## Abstract
