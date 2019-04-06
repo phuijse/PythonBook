@@ -16,8 +16,11 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 ## Contenidos
 
 - **Unidad 1:** Ambiente de desarrollo y manejo de datos
-    - [Introducción](unidad1/intro.ipynb)
-    - [Clase 1](unidad1/clase1.ipynb)
+    - [Introducción](unidad1/introduccion.ipynb)
+    - [IPython y Jupyter](unidad1/clase_ipython.ipynb)
+    - [Repaso de Python 3](unidad1/clase_repaso_python.ipynb)
+    - [Numpy](unidad1/clase_numpy.ipynb)
+    - [Matplotlib](unidad1/clase_matplotlib.ipynb)
 - **Unidad 2:** Computación científica con Python
 - **Unidad 3:** Procesamiento de señales con Python y aceleración de cómputos
 
