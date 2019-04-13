@@ -1,0 +1,12 @@
+blockdiag {
+    #orientation = portrait
+    default_fontsize = 12; 
+    A [label="Jupyter"]
+    B [label="IPython"]
+    C [label="NumPy/pandas/Scipy"]
+    D [label="BLAS/LAPACK/MKL"]
+    A -> B 
+    B -> C 
+    C -> D [style = "dashed"]
+
+}
