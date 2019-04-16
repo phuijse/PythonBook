@@ -1,0 +1,17 @@
+blockdiag {
+    #orientation = portrait
+    default_fontsize = 14; 
+    A [label="SPLIT"]
+    B [label="APPLY"]
+    C [label="COMBINE"]
+    A -> B 
+    B -> C 
+    group {
+          color = "#CCCCCC";
+          fontsize = 20;
+          
+          A -> B;
+          B -> C; 
+      }
+
+}
