@@ -23,6 +23,7 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Matplotlib](unidad1/clase_matplotlib.ipynb)
     - [Pandas 1](unidad1/clase_pandas_1.ipynb)[y 2](unidad1/clase_pandas_2.ipynb)
     - [Serialización](unidad1/clase_serialización.ipynb)
+    - [IPython avanzado](unidad1/clase_ipython_avanzado.ipynb)
 - **Unidad 2:** Computación científica con Python
 - **Unidad 3:** Procesamiento de señales con Python y aceleración de cómputos
 
