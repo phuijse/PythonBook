@@ -25,7 +25,8 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Serialización](unidad1/clase_serialización.ipynb)
     - [IPython avanzado](unidad1/clase_ipython_avanzado.ipynb)
 - **Unidad 2:** Computación científica con Python
-    - [Sistemas de ecuaciones lineales](unidad2/clase_sistemas_lineales.ipynb)
+    - [Sistemas de ecuaciones lineales](unidad2/clase_sistemas_lineales.ipynb) y [Regresión lineal](unidad2/clase_regresión_lineal.ipynb)
+    - [Optimización](unidad2/clase_optimización.ipynb) y [Regresión logística]()
 - **Unidad 3:** Procesamiento de señales con Python y aceleración de cómputos
 
 ***
