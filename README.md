@@ -31,9 +31,9 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Vectores propios y factorización](unidad2/5_valores_propios_pca.ipynb)
     - [Sistemas de ecuaciones diferenciales e Integración](unidad2/6_ode_integración.ipynb)
 - **Unidad 3:** Procesamiento de señales con Python y Aceleración de cómputos
-    - [Procesamiento de señales](unidad3/1_procesamiento_de_señales.ipynb)
     - [Profiling](unidad3/3_profiling.ipynb)
     - [Optimización](unidad3/4_optimización.ipynb)
+    - [Paralelismo](unidad3/5_paralelismo.ipynb)
 
 ***
 ## Bibliografía 
