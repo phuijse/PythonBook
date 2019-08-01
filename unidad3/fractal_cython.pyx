@@ -24,13 +24,10 @@ cdef TIPOI_t evaluate_z(TIPOF_t zi, TIPOF_t zr, int maxiters=50, TIPOF_t cr=-0.8
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def make_fractal_cython(int N, int maxiters=50):
-    image = np.zeros(shape=(N, 2*N), dtype=np.int64) 
+def make_fractal_cython(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
     cdef:
         Py_ssize_t i, j
-        TIPOI_t [:, ::1] image_view = image        
-    
+    # Los ndarray no se copian, los podemos modificar inplace desde Cython
     for i in range(N):
         for j in range(2*N):
             image_view[i, j] = evaluate_z(-1.+i*2./N, -2.+j*2./N, maxiters)
-    return image
