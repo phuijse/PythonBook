@@ -16,9 +16,9 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 ## Contenidos
 
 - **Unidad 1:** Ambiente de desarrollo y manejo de datos
-    - [Introducción](unidad1/introduccion.ipynb)
+    - [Introducción](unidad1/clase_introduccion.ipynb)
     - [IPython y Jupyter](unidad1/clase_ipython.ipynb)
-    - [Repaso de Python 3](unidad1/clase_repaso_python.ipynb)
+    - [Repaso de Python 3](unidad1/clase_repaso_python3.ipynb)
     - [Numpy](unidad1/clase_numpy.ipynb)
     - [Matplotlib](unidad1/clase_matplotlib.ipynb)
     - [Pandas 1](unidad1/clase_pandas_1.ipynb)[y 2](unidad1/clase_pandas_2.ipynb)
@@ -48,6 +48,7 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 ### Complementaria
 1. [Brett Slakin, "Effective Python", *Addison-Wesley*, 2015](https://effectivepython.com/)
 1. [Lorena A. Barva, et al., "Teaching and Learning with Jupyter", 2019](https://jupyter4edu.github.io/jupyter-edu-book/)
+1. [Adam Rule, et al. "Ten simple rules for writing and sharing computational analyses in Jupyter Notebook", 2019](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007007)
 
 
 ***
@@ -56,7 +57,7 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 
 - Lenguaje: [Python3](https://docs.python.org/3/)
 - Ambiente: [IPython](https://ipython.org), [Jupyter](https://jupyter.org/)
-- Librerías para computación científica: [Numpy](http://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Scipy](https://www.scipy.org/), [Scikit-learn](https://bokeh.pydata.org/en/latest/)
+- Librerías para computación científica: [Numpy](http://www.numpy.org/), [Pandas](https://pandas.pydata.org/), [Scipy](https://www.scipy.org/), [Scikit-learn](https://scikit-learn.org/stable/)
 - Librerías para visualización: [Matplotlib](https://matplotlib.org/), [bokeh](https://bokeh.pydata.org/en/latest/)
 
 
