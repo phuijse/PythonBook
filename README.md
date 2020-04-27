@@ -1,6 +1,6 @@
 ## Universidad Austral de Chile
 
-# INFO147: Computación Científica con Python
+# INFO147: Computación Científica con Python 2020
 
 ### Responsable: Pablo Huijse H, phuijse@inf.uach.cl
 
