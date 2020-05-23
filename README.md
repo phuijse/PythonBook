@@ -22,6 +22,7 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Control de versiones](unidad1/03_control_de_versiones.ipynb)
     - [Arreglos y operaciones vectoriales con NumPy](unidad1/05_numpy.ipynb)
     - [Visualización de datos con Matplotlib](unidad1/06_matplotlib.ipynb)
+    - [Jupyter: Consejos y buenas prácticas](https://docs.google.com/presentation/d/1TKOjhFsYM4R_iIhMGPuS5h3fY_AxHpzxPQ3MKVwmzOc/edit?usp=sharing)
 <!--    - [Pandas 1](unidad1/clase_pandas_1.ipynb)[y 2](unidad1/clase_pandas_2.ipynb)
     - [Serialización](unidad1/clase_serialización.ipynb)
     - [IPython avanzado](unidad1/clase_ipython_avanzado.ipynb) -->
