@@ -24,7 +24,7 @@ A = np.ones(shape=(temperatura.shape[0], 2))
 A[:, 1] = temperatura
 
 x, _, _, _ = np.linalg.lstsq(A, consumo, rcond=None)
-
+display(x)
 
 
 fig, ax = plt.subplots(figsize=(4, 4), tight_layout=True)
