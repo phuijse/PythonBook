@@ -13,7 +13,7 @@ x, _, _, _ = np.linalg.lstsq(A, consumo, rcond=None)
 display(x)
 
 from mpl_toolkits.mplot3d import Axes3D
-plt.close('all'); fig = plt.figure(figsize=(6, 5))
+fig = plt.figure(figsize=(6, 5))
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter(temperatura, precio, consumo); 
 ax.set_xlabel('Temperatura [F]'); 
