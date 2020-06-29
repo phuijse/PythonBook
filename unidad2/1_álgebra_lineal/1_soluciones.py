@@ -3,8 +3,10 @@
 A = np.array([[-1., 5.], [2., 3.]])
 b = np.array([2., 1.])
 
-display(np.linalg.det(A), np.linalg.matrix_rank(A),
-        np.dot(np.linalg.inv(A), A))
+assert not np.linalg.det(A) == 0, "Determinante igual a cero"
+assert np.linalg.matrix_rank(A) == A.shape[1], "Matriz no LI"
+
+display(np.dot(np.linalg.inv(A), A))
 
 fig, ax = plt.subplots(figsize=(6, 4), tight_layout=True)
 x1 = np.linspace(-0.5, 0.5, num=100)
