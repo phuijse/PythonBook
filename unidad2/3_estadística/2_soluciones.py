@@ -34,9 +34,13 @@ for diag in ["M", "B"]:
     print(diag, ECDF(sample)(20.) - ECDF(sample)(10.))
     
 #5.
+# Fe de erratas: Estoy asumiendo P(A y B) = P(A)P(B) Es decir que las probabilidades de ambos eventos son independientes
+# Pero en la práctica es un supuesto que debemos comprobar
 for diag in ["M", "B"]:
     sample = df.loc[df.diagnosis==diag][["radius1", "texture1"]].values
     print(diag, ECDF(sample[:, 0])(15.)*(ECDF(sample[:, 1])(20.) - ECDF(sample[:, 1])(10.)))
+    
+
 
 # Histogramas
 
