@@ -19,9 +19,6 @@ ax.legend();
 
 # Optimización sin restricciones 2
 
-from mpl_toolkits.mplot3d import Axes3D  
-import scipy.optimize
-
 def fun(x):
     return dromedario(x[0], x[1])
 
@@ -31,10 +28,10 @@ def dromedario(x, y):
 x = np.linspace(-2, 2, num=20)
 y = np.linspace(-1, 1, num=20)
 X, Y = np.meshgrid(x, y)
-F = (4 -2.1*A**2+A**4/3)*A**2 +A*B + (4*B**2 -4)*B**2
+F = dromedario(X, Y)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(X, Y, dromedario(X, Y), cmap=plt.cm.Blues);
+ax.plot_surface(X, Y, F, cmap=plt.cm.Blues);
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 
@@ -47,26 +44,32 @@ ax.legend();
 
 # Optimización con restricciones
 
-import scipy.optimize
+def f(z):
+    return -(2*z[0]*z[1] + 2*z[0] - z[0]**2 - 2*z[1]**2)
 
-def f(x):
-    return -(2*x[0]*x[1] + 2*x[0] - x[0]**2 - 2*x[1]**2)
+def df(z):
+    return np.array([-2*z[1] - 2 + 2*z[0],
+                     -2*z[0] + 4*z[1]])
 
-cons = ({'type': 'eq',
-         'fun' : lambda x: np.array([x[0]**3 - x[1]]),
-         'jac' : lambda x: np.array([3.0*(x[0]**2.0), -1.0])},
+cons = ({'type': 'eq', 
+         'fun': lambda z: z[0]**3 - z[1], 
+         'jac': lambda z: np.array([3*z[0]**2, -1.])
+        },
         {'type': 'ineq',
-         'fun' : lambda x: np.array([x[1] - (x[0]-1)**4 - 2])})
+         'fun': lambda z: z[1] - (z[0]-1)**4 - 2,
+         'jac': lambda z: np.array([-4*(z[0]-1)**3, 1.])
+        })
 
 bnds = ((0.5, 1.5), (1.5, 2.5))
+
 x0 = np.array([0, 1])
-res1 = scipy.optimize.minimize(f, x0, method='BFGS', 
-                              options={'disp':True})
-res2 = scipy.optimize.minimize(f, x0, method='L-BFGS-B', bounds=bnds,
-                              options={'disp':True})
-res3 = scipy.optimize.minimize(f, x0, method='SLSQP', 
-                              constraints=cons, bounds=bnds,
-                              options={'disp':True})
+
+res1 = scipy.optimize.minimize(f, x0, jac=df)
+res2 = scipy.optimize.minimize(f, x0, jac=df, 
+                               method='L-BFGS-B', bounds=bnds)
+res3 = scipy.optimize.minimize(f, x0, jac=df,
+                               method='SLSQP', bounds=bnds, constraints=cons)
+
 display(res1.x, res2.x, res3.x)
 
 x = np.linspace(0, 3, 100)
