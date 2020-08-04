@@ -23,15 +23,16 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Arreglos y operaciones vectoriales con NumPy](unidad1/05_numpy.ipynb)
     - [Visualización de datos con Matplotlib](unidad1/06_matplotlib.ipynb)
     - [Jupyter: Consejos y buenas prácticas](https://docs.google.com/presentation/d/1TKOjhFsYM4R_iIhMGPuS5h3fY_AxHpzxPQ3MKVwmzOc/edit?usp=sharing)
-<!--    - [Pandas 1](unidad1/clase_pandas_1.ipynb)[y 2](unidad1/clase_pandas_2.ipynb)
-    - [Serialización](unidad1/clase_serialización.ipynb)
-    - [IPython avanzado](unidad1/clase_ipython_avanzado.ipynb) -->
+    - [Pandas básico](unidad1/07_pandas_básico.ipynb)
+    - [Pandas avanzado](unidad1/08_pandas_avanzado.ipynb)
+    - [Interfaces de usuario](unidad1/09_interfaces_de_usuario.ipynb)
 - **Unidad 2:** Computación científica con Python
-<!--    - [Sistemas de ecuaciones lineales](unidad2/1_sistemas_lineales.ipynb) y [Regresión lineal](unidad2/2_regresión_lineal.ipynb)
-    - [Optimización](unidad2/3_optimización.ipynb)
-    - [Probabilidades y estadística](unidad2/4_estadística.ipynb)
-    - [Vectores propios y factorización](unidad2/5_valores_propios_pca.ipynb)
-    - [Sistemas de ecuaciones diferenciales e Integración](unidad2/6_ode_integración.ipynb) -->
+    - [Sistemas de ecuaciones lineales](unidad2/1_álgebra_lineal/1_sistemas_lineales.ipynb) 
+    - [Regresión lineal](unidad2/1_álgebra_lineal/2_regresión_lineal.ipynb)
+    - [Optimización](unidad2/2_cálculo/1_optimización.ipynb)
+    - [Fundamentos de Probabilidades](unidad2/3_estadística/1_fundamentos.ipynb)
+    - [Estadística descriptiva](unidad2/3_estadística/2_estadística_descriptiva.ipynb)
+    - [Estadística inferencial](unidad2/3_estadística/3_estadística_inferencial.ipynb)
 - **Unidad 3:** Procesamiento de señales con Python y Aceleración de cómputos
 <!--    - [Profiling](unidad3/3_profiling.ipynb)
     - [Optimización](unidad3/4_optimización.ipynb)
