@@ -8,7 +8,7 @@ def create_data(N):
     x, y = make_moons(n_samples=N, shuffle=True, noise=0.25, random_state=1234)
     x = (x - np.mean(x, axis=0, keepdims=True))/np.std(x, axis=0, keepdims=True)
     
-    return (x[:N//4], y[:N//4]), (x[N//4:], y[N//4])
+    return (x[:N//4], y[:N//4]), (x[N//4:], y[N//4:])
 
 
 def KNN(X, Y, Z, k=5, p=2.):
