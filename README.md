@@ -1,8 +1,8 @@
 ## Universidad Austral de Chile
 
-# INFO147: Computación Científica con Python, 2020
+# INFO147: Computación Científica con Python, 2021
 
-### Responsable: Pablo Huijse H, phuijse@inf.uach.cl
+### Responsable: Pablo Huijse H, phuijse at inf dot uach dot cl
 
 Un electivo de especialización para el pregrado de Ingeniería Informática y curso de nivelación para el magister de Ingeniería Informática de la UACh. Se recomienda mantener una copia local del material del curso clonando este repositorio. 
 
@@ -15,8 +15,7 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 ***
 ## Contenidos
 
-- **Unidad 1:** Ambiente de desarrollo y manejo de datos
-    - (Complementario)[Repaso de Python 3](unidad1/00_repaso_python3.ipynb)
+- **Unidad 1:** Manejo de datos con Python
     - [Introducción](unidad1/01_introduccion.ipynb)
     - [IPython y Jupyter](unidad1/02_ambientes_virtuales.ipynb)
     - [Control de versiones](unidad1/03_control_de_versiones.ipynb)
@@ -25,7 +24,6 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Jupyter: Consejos y buenas prácticas](https://docs.google.com/presentation/d/1TKOjhFsYM4R_iIhMGPuS5h3fY_AxHpzxPQ3MKVwmzOc/edit?usp=sharing)
     - [Pandas básico](unidad1/07_pandas_básico.ipynb)
     - [Pandas avanzado](unidad1/08_pandas_avanzado.ipynb)
-    - [Interfaces de usuario](unidad1/09_interfaces_de_usuario.ipynb)
 - **Unidad 2:** Computación científica con Python
     - [Sistemas de ecuaciones lineales](unidad2/1_álgebra_lineal/1_sistemas_lineales.ipynb) 
     - [Regresión lineal](unidad2/1_álgebra_lineal/2_regresión_lineal.ipynb)
@@ -33,10 +31,13 @@ La asignatura de **Computación científica con Python** introduce al estudiante
     - [Fundamentos de Probabilidades](unidad2/3_estadística/1_fundamentos.ipynb)
     - [Estadística descriptiva](unidad2/3_estadística/2_estadística_descriptiva.ipynb)
     - [Estadística inferencial](unidad2/3_estadística/3_estadística_inferencial.ipynb)
-- **Unidad 3:** Procesamiento de señales con Python y Aceleración de cómputos
+- **Unidad 3:**
 <!--    - [Profiling](unidad3/3_profiling.ipynb)
     - [Optimización](unidad3/4_optimización.ipynb)
     - [Paralelismo](unidad3/5_paralelismo.ipynb) -->
+- **Anexos:**
+    - (Complementario)[Repaso de Python 3](unidad1/00_repaso_python3.ipynb)
+    - [Interfaces de usuario](unidad1/09_interfaces_de_usuario.ipynb)
 
 ***
 ## Bibliografía 

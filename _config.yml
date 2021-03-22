@@ -1,0 +1,39 @@
+# Book settings
+title: INFO147 Computación científica con Python
+author: Pablo Huijse Heise 
+logo: logo.png
+only_build_toc_files: true
+exclude_patterns : [_build, "**.ipynb_checkpoints"]
+
+execute:
+  execute_notebooks: force
+
+
+repository:
+  url: https://github.com/magister-informatica-uach/INFO147
+
+html:
+  home_page_in_navbar: false
+  use_repository_button: false
+  use_issues_button: false
+  use_edit_page_button: false
+
+sphinx:
+  extra_extensions: [bokeh.sphinxext.bokeh_plot]
+  config:
+    html_show_copyright: false
+    language: es
+    myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+latex:
+  latex_documents:
+    targetname: book.tex
