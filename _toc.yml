@@ -6,6 +6,7 @@
 - part: Manipulación de datos
   chapters:
     - file: clases/unidad1/01_introduccion
+    - file: clases/unidad1/02_ambientes_virtuales
     - file: clases/unidad1/04_jupyter_y_ipython
 #    - file: clases/unidad1/05_numpy
 #    - file: clases/unidad1/06_matplotlib
@@ -25,7 +26,6 @@
 - part: Anexos
   chapters:
     - file: clases/unidad1/00_repaso_python3  
-    - file: clases/unidad1/02_ambientes_virtuales
     - file: clases/unidad1/03_control_de_versiones
 
 
