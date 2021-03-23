@@ -214,8 +214,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-son-los-ambientes-virtuales">
-   2.1. ¿Qué son los ambientes virtuales?
+  <a class="reference internal nav-link" href="#introduccion">
+   2.1. Introducción
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -279,56 +279,22 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-<span class="n">YTVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="ambientes-virtuales-de-python">
+  <div class="section" id="ambientes-virtuales-de-python">
 <h1><span class="section-number">2. </span>Ambientes virtuales de Python<a class="headerlink" href="#ambientes-virtuales-de-python" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Esta lección es autocontenida y puede revisarse de forma autónoma. El siguiente video opcional presenta la lección de forma guiada y con comentarios</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YTVideo_formato</span><span class="p">(</span><span class="s1">&#39;gi6VhCtKnxg&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="640"
-            height="400"
-            src="https://www.youtube.com/embed/gi6VhCtKnxg?rel=0&modestbranding=1"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        </div></div>
-</div>
-<div class="section" id="que-son-los-ambientes-virtuales">
-<h2><span class="section-number">2.1. </span>¿Qué son los ambientes virtuales?<a class="headerlink" href="#que-son-los-ambientes-virtuales" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Imaginemos que</p>
-<blockquote>
-<div><p>necesitamos usar una librería que funciona con una versión de Python distinta a la mi sistema operativo</p>
-</div></blockquote>
-<p>o tal vez</p>
-<blockquote>
-<div><p>trabajamos en varios proyectos y cada uno requiere una versión de Python distinta</p>
-</div></blockquote>
+<div class="section" id="introduccion">
+<h2><span class="section-number">2.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Muchas veces necesitaremos usar una librería específica para un proyecto de programación en particular</p>
+<p>Entonces si trabajamos en más de un proyecto surge la necesidad de hacer coexistir distintas versiones de librerías en nuestro sistema</p>
 <p>En estos escenarios conviene utilizar <strong>ambientes virtuales</strong></p>
 <blockquote>
 <div><p>Un ambiente virtual es un ambiente de desarrollo aislado</p>
 </div></blockquote>
-<p>Podemos crear uno para cada proyecto en que trabajemos:</p>
+<p>Podemos crear uno para cada proyecto en que trabajemos</p>
 <blockquote>
 <div><p>Cada ambiente puede tener su propia versión de interprete y librerias sin entrar en conflicto</p>
 </div></blockquote>
+<p>Esto también nos abstrae de las librerías que están instaladas en nuestro sistema operativo</p>
+<p>En esta lección veremos como instalar ambientes virtuales de desarrollo en lenguaje Python que nos permitan realizar cómputo interactivo</p>
 </div>
 <div class="section" id="como-instalo-un-ambiente-de-desarrollo-basado-en-python">
 <h2><span class="section-number">2.2. </span>¿Cómo instalo un ambiente de desarrollo basado en Python?<a class="headerlink" href="#como-instalo-un-ambiente-de-desarrollo-basado-en-python" title="Enlazar permanentemente con este título">¶</a></h2>
