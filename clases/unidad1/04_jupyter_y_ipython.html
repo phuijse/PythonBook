@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Jupyter y IPython &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="1. Repaso de Python 3" href="00_repaso_python3.html" />
+    <link rel="prev" title="1. Introducción: Computación científica y ciencia de datos" href="01_introduccion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Jupyter y IPython
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_control_de_versiones.html">
+   3. Control de versiones
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/04_jupyter_y_ipython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/04_jupyter_y_ipython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#montando-nuestro-ambiente-de-computo-interactivo">
+   2.1. Montando nuestro ambiente de cómputo interactivo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#componentes-de-nuestro-ambiente">
+   2.2. Componentes de nuestro ambiente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explorando-nuestro-ambiente-basado-en-jupyter-notebook">
+   2.3. Explorando nuestro ambiente basado en jupyter notebook
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editando-y-ejecutando-un-bloque-de-codigo">
+   2.4. Editando y ejecutando un bloque de código
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ayuda-y-autocompletacion-en-jupyter">
+   2.5. Ayuda y autocompletación en Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magias-de-ipython">
+   2.6. “Magias” de IPython
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#corriendo-un-script-python-externo">
+     2.6.1. Corriendo un script Python externo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errores-y-debugging">
+     2.6.2. Errores y debugging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accediendo-al-sistema-operativo">
+     2.6.3. Accediendo al sistema operativo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="jupyter-y-ipython">
+<h1><span class="section-number">2. </span>Jupyter y IPython<a class="headerlink" href="#jupyter-y-ipython" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="montando-nuestro-ambiente-de-computo-interactivo">
+<h2><span class="section-number">2.1. </span>Montando nuestro ambiente de cómputo interactivo<a class="headerlink" href="#montando-nuestro-ambiente-de-computo-interactivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se sugiere revisar el anexo “Ambientes virtuales de Python” antes de continuar</p>
+</div>
+<p>Escoge un directorio y clona el repositorio del curso</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/magister-informatica-uach/INFO147.git
+</pre></div>
+</div>
+<p>Luego, utilizando conda creamos un ambiente</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n info147
+</pre></div>
+</div>
+<p>Activa el ambiente</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate info147
+</pre></div>
+</div>
+<p>E instala jupyter y sus dependencias</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install jupyter
+</pre></div>
+</div>
+<p>Finalmente inicia jupyter escribiendo en la terminal</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>Esto abrirá una pestaña de navegador (browser) apuntada en la dirección</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>localhost:8888
+</pre></div>
+</div>
+</div>
+<div class="section" id="componentes-de-nuestro-ambiente">
+<h2><span class="section-number">2.2. </span>Componentes de nuestro ambiente<a class="headerlink" href="#componentes-de-nuestro-ambiente" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>El <strong>servidor jupyter</strong> es el encargado de administrar los <strong>cuadernillos o notebooks</strong></p></li>
+<li><p>Los usuarios interactuan con los cuadernillos a través de un frontend o interfaz web</p></li>
+<li><p>El proceso encargado de correr los códigos se denomina <strong>kernel</strong>. En este caso usaremos el <strong>kernel de IPython</strong></p></li>
+<li><p>El servidor conecta los notebooks con el kernel usando la librería de mensajería ZeroMQ</p></li>
+</ul>
+<a class="reference internal image-reference" href="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png"><img alt="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png" src="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png" style="width: 600px;" /></a>
+<p>Notas:</p>
+<ul class="simple">
+<li><p>Existen otros frontends como por ejemplo <a class="reference external" href="https://jupyter.org/">jupyter lab</a></p></li>
+<li><p>Se puede acceder al kernel de ipython desde la terminal escribiendo el comando <em>ipython</em></p></li>
+</ul>
+<p>Las figuras provienen de la documentación de jupyter, donde además encontrarán más detalles: <a class="reference external" href="https://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html">https://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html</a></p>
+</div>
+<div class="section" id="explorando-nuestro-ambiente-basado-en-jupyter-notebook">
+<h2><span class="section-number">2.3. </span>Explorando nuestro ambiente basado en jupyter notebook<a class="headerlink" href="#explorando-nuestro-ambiente-basado-en-jupyter-notebook" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Pestañas: Files, Running y Clusters</p></li>
+<li><p>Encabezado: File, Edit, View, Insert, Cell, Kernel, Widgets, Help</p></li>
+<li><p>Tipo de celda: Código y Markdown</p></li>
+<li><p>Modos: Edición (verde) y Comando (azul)</p></li>
+<li><p>Atajos de texto (shortcuts)</p>
+<ul>
+<li><p>Ejecución: <kbd>Shift+Enter</kbd> y <kbd>Ctrl+Enter</kbd></p></li>
+<li><p>Creación: <kbd>a</kbd> y <kbd>b</kbd></p></li>
+<li><p>Copiar y pegar celdas: <kbd>c</kbd> y  <kbd>v</kbd></p></li>
+<li><p>Cambio de tipo: <kbd>m</kbd> y <kbd>y</kbd></p></li>
+<li><p>Salvar: <kbd>Ctrl+s</kbd></p></li>
+</ul>
+</li>
+<li><p>Editor de texto y terminales (solo UNIX)</p></li>
+</ul>
+</div>
+<div class="section" id="editando-y-ejecutando-un-bloque-de-codigo">
+<h2><span class="section-number">2.4. </span>Editando y ejecutando un bloque de código<a class="headerlink" href="#editando-y-ejecutando-un-bloque-de-codigo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La última línea de ejecución de un bloque se imprime como salida</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1412043130</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1412043130
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las variables y módulos que se crean/importan en un bloque puede ser llamados desde otro bloque</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1412043130
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para imprimir otras lineas usamos print o display</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2824086260
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4236129390
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se puede suprimir la salida terminando la expresión con ;</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ayuda-y-autocompletacion-en-jupyter">
+<h2><span class="section-number">2.5. </span>Ayuda y autocompletación en Jupyter<a class="headerlink" href="#ayuda-y-autocompletacion-en-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Si escribes <code class="docutils literal notranslate"><span class="pre">?</span></code> después de un módulo se levantará el docstring de ese módulo</p></li>
+<li><p>Si escribes <code class="docutils literal notranslate"><span class="pre">??</span></code> después de un módulo se levantará el código fuente de ese código</p></li>
+<li><p>También puedes obtener ayuda con la función <code class="docutils literal notranslate"><span class="pre">help</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>from collections import Counter
+Counter?
+Counter??
+help(Counter)
+</pre></div>
+</div>
+<p>Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_interesante</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Esta es una función interesante que suma sus argumentos</span>
+<span class="sd">    Argumentos: x, y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si escribes <code class="docutils literal notranslate"><span class="pre">funcion_interesante??</span></code> deberías ver una pestaña como la siguiente</p>
+<a class="reference internal image-reference" href="../../_images/jupyter2.png"><img alt="../../_images/jupyter2.png" src="../../_images/jupyter2.png" style="width: 850px;" /></a>
+<p>En un bloque de código puedes usar <kbd>TAB</kbd> para autocompletar nombres de variables, módulos o rutas</p>
+<p>También puedes usar <kbd>Shift+TAB</kbd> para levantar el docstring de una función</p>
+<p>Si usas esto con <code class="docutils literal notranslate"><span class="pre">funcion_interesante</span></code> deberías ver algo como</p>
+<a class="reference internal image-reference" href="../../_images/jupyter1.png"><img alt="../../_images/jupyter1.png" src="../../_images/jupyter1.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="magias-de-ipython">
+<h2><span class="section-number">2.6. </span>“Magias” de IPython<a class="headerlink" href="#magias-de-ipython" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las magias son comandos especiales de IPython que se llama con el operador <code class="docutils literal notranslate"><span class="pre">%</span></code></p>
+<p>Las “magias” disponibles son</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available line magics:
+%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %colors  %conda  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %man  %matplotlib  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por ejemplo podemos medir el tiempo de ejecución de un bloque usando</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
+CPU times: user 235 µs, sys: 30 µs, total: 265 µs
+Wall time: 224 µs
+</pre></div>
+</div>
+</div>
+</div>
+<p>O mostrar las variables y librerías que hemos importado a nuestro entorno</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a	 funcion_interesante	 i	 x	 
+</pre></div>
+</div>
+</div>
+</div>
+<p>O los comandos que hemos escrito</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">history</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 1412043130
+x
+x
+print(2*x)
+3*x
+x;
+def funcion_interesante(x, y):
+    &quot;&quot;&quot;
+    Esta es una función interesante que suma sus argumentos
+    Argumentos: x, y
+    &quot;&quot;&quot;
+    return x + y
+%lsmagic
+%%time 
+a = &#39;&#39;
+for i in range(10):
+    a += str(i)
+print(a)
+%who
+%history
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos borrar las variables creadas y módulos importados con</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y setear variables de entorno</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">env</span> OMP_NUM_THREADS=4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>env: OMP_NUM_THREADS=4
+</pre></div>
+</div>
+</div>
+</div>
+<p>entre mutras otras opciones útiles que iremos viendo a lo largo del curso</p>
+<div class="section" id="corriendo-un-script-python-externo">
+<h3><span class="section-number">2.6.1. </span>Corriendo un script Python externo<a class="headerlink" href="#corriendo-un-script-python-externo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos usar la magia <code class="docutils literal notranslate"><span class="pre">%run</span></code> para ejecutar un script externo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> script_interesante.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">9</span><span class="o">*</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos importar una función dentro de un módulo con</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">script_interesante</span> <span class="kn">import</span> <span class="n">funcion_interesante</span>
+
+<span class="n">funcion_interesante</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si estamos trabajando en el módulo <code class="docutils literal notranslate"><span class="pre">script_interesante</span></code> es conveniente importarlo dinamicamente</p>
+<p>De esta forma cualquier cambio que hagamos en el script se vera reflejado inmediatamente en el cuadernillo</p>
+<p>Para uso debemos usar la magia <code class="docutils literal notranslate"><span class="pre">%autoreload</span></code></p>
+<p>Puedes consultar la ayuda de esta magia con <code class="docutils literal notranslate"><span class="pre">%autoreload?</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># Todo lo que importe a continuación podrá ser modificado dinamicamente</span>
+<span class="kn">from</span> <span class="nn">script_interesante</span> <span class="kn">import</span> <span class="n">funcion_interesante</span>
+<span class="n">funcion_interesante</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="errores-y-debugging">
+<h3><span class="section-number">2.6.2. </span>Errores y debugging<a class="headerlink" href="#errores-y-debugging" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La magia <code class="docutils literal notranslate"><span class="pre">%debug</span></code> nos permite hacer debugging a nivel de bloque</p>
+<p>Si se detecta un error se levanta automáticamente una interfaz de ipdb</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">debug</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># Esto lanzará ipdb</span>
+</pre></div>
+</div>
+<p>El anexo “Repaso de Python” tiene instrucciones breves para aprender a usar pdb/ipdb</p>
+</div>
+<div class="section" id="accediendo-al-sistema-operativo">
+<h3><span class="section-number">2.6.3. </span>Accediendo al sistema operativo<a class="headerlink" href="#accediendo-al-sistema-operativo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Usando el operador <code class="docutils literal notranslate"><span class="pre">!</span></code> podemos hacer llamados al sistema operativo dentro de nuestros bloques de código</p>
+<p>Podemos usar <code class="docutils literal notranslate"><span class="pre">$</span></code> dentro de un comando para entregar variables de nuestro cuadernillo</p>
+<p>Algunos ejemplos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_variable_interesante</span> <span class="o">=</span> <span class="s1">&#39;asd&#39;</span>
+<span class="o">!</span>pwd
+<span class="o">!</span><span class="nb">echo</span> <span class="nv">$mi_variable_interesante</span>
+<span class="o">!</span>cat script_interesante.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phuijse/WORK/Cursos/INFO147/clases/unidad1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>asd
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>def funcion_interesante(n):
+    &quot;&quot;&quot;
+    Este script es interesante
+    &quot;&quot;&quot;
+    if n == 1:
+        return 1
+
+    else:
+        return n * funcion_interesante(n-1)
+
+if __name__ == &#39;__main__&#39;:
+    print(funcion_interesante(10))
+        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">echo</span> <span class="nv">$mi_variable_intersante</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos usar la magía <code class="docutils literal notranslate"><span class="pre">%%bash</span></code> para acceder a comandos del sistema</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+echo &quot;Estoy usando:&quot; $SHELL
+echo &quot;Mi path es:&quot; $PATH
+free -m
+df -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
+Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+              total        used        free      shared  buff/cache   available
+Mem:          16010        7564        4105         620        4340        7499
+Swap:          1023           8        1015
+Filesystem      Size  Used Avail Use% Mounted on
+dev             7.9G     0  7.9G   0% /dev
+run             7.9G  1.2M  7.9G   1% /run
+/dev/sdb1       118G   93G   20G  83% /
+tmpfs           7.9G   12M  7.9G   1% /dev/shm
+tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
+/dev/sda1       118G   79G   34G  71% /home
+tmpfs           7.9G  3.1M  7.9G   1% /tmp
+tmpfs           1.6G  148K  1.6G   1% /run/user/1000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos capturar el retorno de las funciónes llamadas con <code class="docutils literal notranslate"><span class="pre">!</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_archivos</span> <span class="o">=</span> <span class="o">!</span>ls
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lista_archivos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;00_repaso_python3.ipynb&#39;, &#39;01_introduccion.ipynb&#39;, &#39;02_ambientes_virtuales.ipynb&#39;, &#39;03_control_de_versiones.ipynb&#39;, &#39;04_jupyter_y_ipython.ipynb&#39;, &#39;05_numpy.ipynb&#39;, &#39;06_extras_visualización.ipynb&#39;, &#39;06_matplotlib_extras.ipynb&#39;, &#39;06_matplotlib.ipynb&#39;, &#39;07_pandas_básico.ipynb&#39;, &#39;08_pandas_avanzado.ipynb&#39;, &#39;08_soluciones.py&#39;, &#39;09_interfaces_de_usuario.ipynb&#39;, &#39;09_soluciones.py&#39;, &#39;Cantidad-de-Viviendas-por-Tipo.xlsx&#39;, &#39;clase_serialización.ipynb&#39;, &#39;covid19_extract.csv&#39;, &#39;diagramas.ipynb&#39;, &#39;dow_jones_index.data&#39;, &#39;dow_jones_index.names&#39;, &#39;dow_jones_index.zip&#39;, &#39;file.txt&#39;, &#39;img&#39;, &#39;magister.mp4&#39;, &#39;__pycache__&#39;, &#39;rrl.dat&#39;, &#39;script_interesante.py&#39;, &#39;X_más_allá_de_Python.ipynb&#39;, &#39;zen.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunas funciones básicas de UNIX a tener con consideración:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code>: Retorna la ruta del directorio actual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">foo</span></code>: Lista de los archivos y directorios en <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">foo</span></code>: Borrar el archivo <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">foo</span></code>: Moverse al directorio <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">foo</span> <span class="pre">bar</span></code>: Copiar el archivo <code class="docutils literal notranslate"><span class="pre">foo</span></code> como <code class="docutils literal notranslate"><span class="pre">bar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir/rmdir</span> <span class="pre">foo</span></code> Crear/Borrar directorio <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">foo</span></code>: Imprimir el contenido del archivo <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head/tail</span> <span class="pre">-n10</span> <span class="pre">foo</span></code>: Imprimir las primeras/últimas 10 lineas de <code class="docutils literal notranslate"><span class="pre">foo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">more</span> <span class="pre">foo</span></code>: Imprimir <code class="docutils literal notranslate"><span class="pre">foo</span></code> por partes</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01_introduccion.html" title="previous page"><span class="section-number">1. </span>Introducción: Computación científica y ciencia de datos</a>
+    <a class='right-next' id="next-link" href="00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

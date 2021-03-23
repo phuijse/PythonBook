@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Control de versiones &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="2. Ambientes virtuales de Python" href="02_ambientes_virtuales.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_jupyter_y_ipython.html">
+   2. Jupyter y IPython
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Control de versiones
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/03_control_de_versiones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/03_control_de_versiones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software">
+   3.1. ¿Por qué usar un manejador de versiones en un proyecto de software?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion-de-git-y-configuracion-inicial-de-git">
+   3.2. Instalación de Git y configuración inicial de GIT
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#glosario">
+     3.2.1. Glosario
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uso-basico-de-git">
+   3.3. Uso básico de Git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creando-un-proyecto-local">
+     3.3.1. Creando un proyecto local…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estructura-y-flujo-de-trabajo">
+     3.3.2. Estructura y flujo de trabajo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flujo-de-trabajo-hacia-la-derecha">
+     3.3.3. Flujo de trabajo “hacia la derecha”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flujo-de-trabajo-hacia-la-izquierda">
+     3.3.4. Flujo de trabajo “hacia la izquierda”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajando-con-un-repositorio-remoto">
+   3.4. Trabajando con un repositorio remoto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuacion-flujo-de-trabajo-hacia-la-derecha">
+   3.5. Continuación: Flujo de trabajo “hacia la derecha”
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuacion-flujo-de-trabajo-hacia-la-izquierda">
+   3.6. Continuación: Flujo de trabajo “hacia la izquierda”
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resolviendo-conflictos">
+   3.7. Resolviendo conflictos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ramas-branches">
+   3.8. Ramas/Branches
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extras">
+   3.9. Extras
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="control-de-versiones">
+<h1><span class="section-number">3. </span>Control de versiones<a class="headerlink" href="#control-de-versiones" title="Enlazar permanentemente con este título">¶</a></h1>
+<table><tr><td>
+    <img src="https://1.bp.blogspot.com/_LK0TXTVax_M/R5SuZQWVbYI/AAAAAAAAAR0/4g3NKY3FLzo/s400/tesis.JPG">
+    </td><td>
+    <img src="http://s3.media.squarespace.com/production/2129687/19317774/.a/6a00d8341d3df553ef017c330f2ae8970b-pi" width="300">
+    </td></tr><tr><td>
+    Alguien que no sabe manejo de versiones trabajando en su tesis
+    </td><td>
+    Historieta de <a href="http://geek-and-poke.com">geek-and-poke.com</a>
+</td></tr></table><div class="section" id="por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software">
+<h2><span class="section-number">3.1. </span>¿Por qué usar un manejador de versiones en un proyecto de software?<a class="headerlink" href="#por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Desafio 1: Los proyectos de software no son estáticos</strong></p>
+<ul class="simple">
+<li><p>Se agregan, modifican y eliminan funcionalidades y archivos</p></li>
+<li><p>A veces nos arrepentimos de una modificación</p></li>
+<li><p>A veces agregamos un bug sin darnos cuenta</p></li>
+</ul>
+<blockquote>
+<div><p>¿Cómo volver atrás de forma fácil y sin romper nuestro proyecto?</p>
+</div></blockquote>
+<p>Los manejadores de versiones mantienen un <strong>historial de cambios</strong></p>
+<p>Un <strong>cambio</strong> es una modificación a nuestro proyecto que se acompaña con un (1) Mensaje que explica el cambio y (2) Nombre del autor del cambio</p>
+<blockquote>
+<div><p><strong>Solución:</strong> Los manejadores de versiones nos permiten saltar entre cambios facilmente</p>
+</div></blockquote>
+<p><strong>Desafío 2: Muchos desarrolladores que trabajan en un mismo proyecto</strong></p>
+<ul class="simple">
+<li><p>Dos o más desarrolladores podrían trabajar en una misma funcionalidad</p></li>
+<li><p>Un cambio realizado por un desarrollador puede romper el proyecto para otros</p></li>
+</ul>
+<blockquote>
+<div><p>¿Cómo se puede trabajar de forma sincronizada entre varios desarrolladores?</p>
+</div></blockquote>
+<p>Los manejadores de versiones mantienen <strong>ramas</strong></p>
+<p>Una rama es un puntero asociado a un <strong>cambio</strong> en particular. Podemos trabajar en la rama sin afectar el trabajo de otros</p>
+<blockquote>
+<div><p><strong>Solución:</strong> Los manejadores de versiones permiten la convivencia de multiples ramas  que eventualmente se fusionarán sin conflictos</p>
+</div></blockquote>
+<p>(Mantener ramas también es útil si trabajamos en solitario)</p>
+<p><strong>En resumen el control de versiones hace que</strong></p>
+<ul class="simple">
+<li><p>nuestros proyectos sean más fáciles de mantener</p></li>
+<li><p>sean más fácil colaborar con múltiples desarrolladores</p></li>
+<li><p>nuestros proyectos sean trazables</p></li>
+<li><p>nuestros resultados sean más fáciles de reproducir</p></li>
+</ul>
+<blockquote>
+<div><p><strong>En esta lección vamos a aprender a usar el controlador de versiones Git</strong></p>
+</div></blockquote>
+<p>¿Qué es <a class="reference external" href="https://git-scm.com/">Git</a>?</p>
+<blockquote>
+<div><p>Es un sistema libre y gratis de <strong>manejo de versiones distribuido</strong></p>
+</div></blockquote>
+<p>¿Qué significa distribuido?</p>
+<blockquote>
+<div><p>No es necesario que una unidad central mantega el código del proyecto</p>
+</div></blockquote>
+<p>Todos los que participan del proyecto tienen <strong>copias locales completas</strong> de la historia del proyecto. Los cambios se pueden compartir sin un servidor central</p>
+<p>¿Ventajas de Git?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/about/small-and-fast">Ligero y rápido en comparación a sus competidores</a></p></li>
+<li><p>Flexible: Soporta flujos de trabajo muy diversos</p></li>
+<li><p>Gran grado de adopción: Integrado en IDE y plataformas remotas</p></li>
+</ul>
+<p>¿Qué otros manejadores de versiones existen?</p>
+<ul class="simple">
+<li><p>Distribuidos: Mercurial</p></li>
+<li><p>Centralizados: Subversion (SVN)</p></li>
+</ul>
+<p>¿y Dropbox?</p>
+<ul class="simple">
+<li><p>Dropbox hace el control de versiones sin preguntar</p></li>
+<li><p>El historial de dropbox es breve y hay que pagar para acceder a él</p></li>
+<li><p>Dropbox no funciona sin internet</p></li>
+</ul>
+</div>
+<div class="section" id="instalacion-de-git-y-configuracion-inicial-de-git">
+<h2><span class="section-number">3.2. </span>Instalación de Git y configuración inicial de GIT<a class="headerlink" href="#instalacion-de-git-y-configuracion-inicial-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Linux:</strong> Instala desde tu repositorio</p>
+<ul class="simple">
+<li><p>Ubuntu: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
+<li><p>Fedora: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
+<li><p>Arch Linux: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">git</span></code></p></li>
+</ul>
+<p><strong>Windows:</strong> Descarga e instala</p>
+<ul class="simple">
+<li><p>Git BASH: <a class="reference external" href="https://gitforwindows.org/">https://gitforwindows.org/</a></p></li>
+</ul>
+<p><strong>Editor de texto por defecto</strong></p>
+<p>Con esta opción se selecciona el editor de texto que usará git por defecto (vim, emacs, nano, etc)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global core.editor &lt;editor&gt;
+</pre></div>
+</div>
+<p><strong>Revizar la configuración</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global --list
+</pre></div>
+</div>
+<p><strong>Texto con colores (opcional)</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global color.ui true
+</pre></div>
+</div>
+<div class="section" id="glosario">
+<h3><span class="section-number">3.2.1. </span>Glosario<a class="headerlink" href="#glosario" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Cambios: <em>commits</em></p></li>
+<li><p>Proyectos: <em>repositorios</em></p></li>
+<li><p>Ramas: <em>branches</em></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="uso-basico-de-git">
+<h2><span class="section-number">3.3. </span>Uso básico de Git<a class="headerlink" href="#uso-basico-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<ol class="simple">
+<li><p>Como crear proyectos (repositorios)</p></li>
+<li><p>Estructura y flujo de trabajo del proyecto</p></li>
+<li><p>Verificando el “estado” del proyecto</p></li>
+<li><p>Agregar cambios al proyecto</p></li>
+<li><p>Deshaciendo cambios</p></li>
+<li><p>Crear y seleccionar ramas</p></li>
+<li><p>Crear e integrar un proyecto con github</p></li>
+<li><p>Actualizar a los cambios remotos</p></li>
+<li><p>Empujar los cambios locales a un servidor remoto</p></li>
+</ol>
+<div class="section" id="creando-un-proyecto-local">
+<h3><span class="section-number">3.3.1. </span>Creando un proyecto local…<a class="headerlink" href="#creando-un-proyecto-local" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>1. …desde cero</strong></p>
+<p>Abrimos un terminal y creamos una nueva carpeta</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir mi_proyecto_nuevo
+cd mi_proyecto_nuevo
+</pre></div>
+</div>
+<p>Creamos el repositorio con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git init
+</pre></div>
+</div>
+<p>Se creará una carpeta oculta que mantiene la configuración e historia del repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ls -la .git
+</pre></div>
+</div>
+<p><strong>2. …clonando otro proyecto local</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone /path/a/mi/otro/proyecto
+</pre></div>
+</div>
+<p><strong>3. …clonando otro proyecto remoto</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone usuario@servidor:/path/a/otro/proyecto
+</pre></div>
+</div>
+<p>Más adelante veremos como se combina esta opción con la plataforma <code class="docutils literal notranslate"><span class="pre">github</span></code></p>
+</div>
+<div class="section" id="estructura-y-flujo-de-trabajo">
+<h3><span class="section-number">3.3.2. </span>Estructura y flujo de trabajo<a class="headerlink" href="#estructura-y-flujo-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La siguiente <a class="reference external" href="https://www.diegocmartin.com/tutorial-git/">figura</a> resume muy bien el flujo de trabajo con Git</p>
+<a class="reference internal image-reference" href="../../_images/git-workflow.png"><img alt="../../_images/git-workflow.png" src="../../_images/git-workflow.png" style="width: 600px;" /></a>
+<p><strong>Secciones principales</strong></p>
+<ol class="simple">
+<li><p>Workspace o Working directory (Directorio de trabajo): Es la carpeta donde está copiado nuestro proyecto, aquí es donde hacemos nuestros cambios y pruebas</p></li>
+<li><p>Index, Stage o Staging Area (Área de preparación): Almacena información de tu próximo cambio</p></li>
+<li><p>El repositorio local (HEAD): Es donde está la historia de tu proyecto con todos sus cambios</p></li>
+<li><p>(opcional) El repositorio remoto: Copia remota de la historia de tu proyecto</p></li>
+</ol>
+<p><strong>Un archivo del proyecto puede estar en uno de los siguientes tres estados</strong></p>
+<ol class="simple">
+<li><p><em>Untracked:</em> Archivo creado o modificado que no está en el repositorio</p></li>
+<li><p><em>Unstaged:</em> Archivo modificado que es parte del repositorio pero que no está en al área de preparación</p></li>
+<li><p><em>Staged</em>: Archivo modificado que es parte del repositorio y que ha sido marcado para entrar al próximo commit con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="flujo-de-trabajo-hacia-la-derecha">
+<h3><span class="section-number">3.3.3. </span>Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos <em>trackear</em> o añadir un archivo modificado al área de preparación</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<p>(Usar con cautela) Si quiero añadir todos los archivos del directorio modificados al área de preparación</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add .
+</pre></div>
+</div>
+<p>Si ya tenemos todas nuestras modificaciones listas podemos hacer un commit/cambio en el repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit -m &quot;Un mensaje que explica el cambio y por qué fue necesario&quot;
+</pre></div>
+</div>
+<blockquote>
+<div><p>Recomendado: Escribe buenos mensajes. Esto hará más fácil explorar la historia para ti y para otros desarrolladores</p>
+</div></blockquote>
+<p>Si queremos modificar el mensaje del último commit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit --amend
+</pre></div>
+</div>
+<p><strong>Verificando el “estado” del proyecto</strong></p>
+<p>Podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<p>para ver el estado de los archivos del directorio de trabajo</p>
+<p><strong>Analizando los cambios en un archivo</strong></p>
+<p>Podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git diff nombre_de_archivo
+</pre></div>
+</div>
+<p>Para ver resaltadas las lineas que fueron modificadas con respecto al último commit/cambio</p>
+<p><strong>Verificando la “historia” del proyecto</strong></p>
+<p>Podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git log
+</pre></div>
+</div>
+<p>Para ver los <em>commits</em> realizados hasta ahora</p>
+<p>Las opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--author=nombreusuario</span></code> muestra sólo los commits de un usuario particular</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--stat</span></code> muestra solo los archivos cambiaron</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--patch</span></code> muestra además las líneas agregadas/eliminadas</p></li>
+</ul>
+</div>
+<div class="section" id="flujo-de-trabajo-hacia-la-izquierda">
+<h3><span class="section-number">3.3.4. </span>Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos descartar los cambios locales que hemos realizado a un archivo (copiar desde stage al directorio de trabajo)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout -- nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<p>Si quiero sacar un archivo modificado del próximo commit/cambio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git reset nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<p>(Usar con cautela) Si queremos descartar todos los cambios y devolver el proyecto completo al último commit</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git reset --hard
+</pre></div>
+</div>
+<p>Si quiero que git ya no “siga” un archivo de mi directorio local</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git rm --cached nombre_archivo
+</pre></div>
+</div>
+<p>Si quiero revertir mi último commit (hay que escribir un nuevo mensaje)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git revert HEAD
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="trabajando-con-un-repositorio-remoto">
+<h2><span class="section-number">3.4. </span>Trabajando con un repositorio remoto<a class="headerlink" href="#trabajando-con-un-repositorio-remoto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los repositorios remotos son versiones de tu proyecto que están almacenados en Internet</p>
+<p>Cuando trabajamos en grupo un repositorio permite que todos estén de acuerdo en una versión de la historia</p>
+<p>Existen proveedores de hosting para proyectos administrados con Git, los más famosos son <a class="reference external" href="http://www.github.com">GitHub</a> y <a class="reference external" href="https://about.gitlab.com/">GitLab</a></p>
+<p>A continuación usaremos GitHub para almancenar una versión remota de nuestro repositorio</p>
+<p><strong>Crearse una cuenta en GitHub</strong></p>
+<ul class="simple">
+<li><p>Visita el sitio web: <a class="reference external" href="https://github.com/join">https://github.com/join</a></p></li>
+<li><p>Crea una cuenta (es gratis)</p></li>
+</ul>
+<p><strong>Creando mi identidad en Git:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;MI NOMBRE DE USUARIO DE GITHUB&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;MI CORREO DE GITHUB&quot;</span>
+</pre></div>
+</div>
+<p>La opción –global setea las configuraciones para todos nuestros proyectos</p>
+<p>Si se usa –local la configuración será para un proyecto en particular</p>
+<p><strong>Creando un repositorio en GitHub</strong></p>
+<p>En el sitio web de GitHub, una vez que estés logeado en tu cuenta</p>
+<ul class="simple">
+<li><p>Haz click en el signo + en la esquina superior derecha</p></li>
+<li><p>Selecciona “New repository”</p></li>
+<li><p>Escoge un nombre y una descripción</p></li>
+<li><p>Escoge repositorio público</p></li>
+<li><p>Inicializa el repositorio con un archivo <code class="docutils literal notranslate"><span class="pre">README</span></code> y un archivo <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> para Python</p></li>
+<li><p>Selecciona Create Repository</p></li>
+</ul>
+<p><strong>¿Qué es <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>?</strong></p>
+<p>Es un archivo oculto que contiene una lista de archivos y extensiones que no queremos que se agreguen a nuestro repositorio</p>
+<p>Por ejemplo código fuente compilado (.s, .o, .a, .pyc) o archivos temporales</p>
+<p><strong>Clonando un repositorio remoto de GitHub a mi computador</strong></p>
+<ul>
+<li><p>Accede al repositorio</p></li>
+<li><p>Selecciona el botón verde: “Clone or download”</p></li>
+<li><p>Copia la dirección del repositorio</p></li>
+<li><p>Escribe el comando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  git clone https://github.com/nombre_de_usuario/nombre_de_repositorio.git
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Esto creará una carpeta llamada “nombre_de_repositorio” en el directorio local</p>
+</div>
+<div class="section" id="continuacion-flujo-de-trabajo-hacia-la-derecha">
+<h2><span class="section-number">3.5. </span>Continuación: Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Luego de añadir archivos y hacer un commit podemos “empujar los cambios” a GitHub usando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git push
+</pre></div>
+</div>
+<p>Cada vez que hagamos un push git nos pedirá nuestras credenciales</p>
+<blockquote>
+<div><p>No podemos hacer un push en un repositorio que no es nuestro o donde no somos colaboradores</p>
+</div></blockquote>
+<p>Para evitar escribir nuestra clave muchas veces podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config credential.helper &#39;cache --timeout=3600&#39;
+</pre></div>
+</div>
+<p>Por ejemplo con el comando de arriba no se nos pedirá nuevamente la clave hasta que haya pasado 1 hora</p>
+</div>
+<div class="section" id="continuacion-flujo-de-trabajo-hacia-la-izquierda">
+<h2><span class="section-number">3.6. </span>Continuación: Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para actualizar nuestro directorio al último commit del repositorio remoto</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git pull
+</pre></div>
+</div>
+<p>Esta operación corresponde a dos operaciones juntas</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git fetch
+</pre></div>
+</div>
+<p>que trae al repositorio local los cambios del repositorio remoto y</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git merge
+</pre></div>
+</div>
+<p>que trae al directorio de trabajo los contenidos del repositorio local</p>
+<ul class="simple">
+<li><p>Si estamos trabajando sólos y desde un solo directorio de trabajo estos comandos no deberían resultar en error</p></li>
+<li><p>Si estamos trabajando usando varios directorios de trabajo o en grupo puede ocurrir que <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> encuentre <strong>conflictos</strong> que deberemos resolver</p></li>
+</ul>
+<p>Para ver los cambios luego de hacer <code class="docutils literal notranslate"><span class="pre">fetch</span></code> podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git diff origin/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="resolviendo-conflictos">
+<h2><span class="section-number">3.7. </span>Resolviendo conflictos<a class="headerlink" href="#resolviendo-conflictos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Digamos que dos personas están trabajando en un mismo proyecto y tienen una copia local hasta el último <em>commit</em></p>
+<ul class="simple">
+<li><p>La primera persona hace modificaciones y las empuja al repositorio</p>
+<ul>
+<li><p>Esto funciona ok</p></li>
+</ul>
+</li>
+<li><p>La segunda persona hace modificaciones y las empuja al repositorio</p>
+<ul>
+<li><p>Esto podría no funcionar ya que pueden haber conflictos con lo que se empujo anteriormente</p></li>
+</ul>
+</li>
+</ul>
+<p>Lo que debe hacer la segunda persona es</p>
+<ul>
+<li><p>Hacer un pull del repositorio con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p></li>
+<li><p>Git detectará los conflictos y se mostrarán como</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  &lt;&lt;&lt;&lt;&lt; HEAD 
+  Esto lo escribio persona 2 y no está en el commit de persona 1
+  ========
+  Esto lo escribio persona 1 y no estába en el directorio de persona 2
+  &gt;&gt;&gt;&gt;&gt; origin/master
+</pre></div>
+</div>
+</li>
+<li><p>Persona 2 tiene que decidir que se queda y que se va</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/git-workflow2.svg"><img alt="../../_images/git-workflow2.svg" src="../../_images/git-workflow2.svg" width="500" /></a>
+<p><a class="reference external" href="https://www.atlassian.com/es/git/tutorials/comparing-workflows">Figura tomada del tutorial de Attlasian</a></p>
+</div>
+<div class="section" id="ramas-branches">
+<h2><span class="section-number">3.8. </span>Ramas/Branches<a class="headerlink" href="#ramas-branches" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las ramas son muy útiles cuando queremos desarrollar nuevas funcionalidades en base al estado actual del repositorio</p>
+<p>Son particularmente importantes cuando trabajamos en grupo</p>
+<p>Podemos mostrar las ramas que existen en el repositorio con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch -a
+</pre></div>
+</div>
+<p>Por defecto tenemos sólo una rama: <code class="docutils literal notranslate"><span class="pre">master</span></code></p>
+<p>Podemos crear una rama nueva con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch &quot;nombre_nueva_rama&quot;
+</pre></div>
+</div>
+<p>Puedo cambiar entre ramas con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout &quot;nombre_nueva_rama&quot;
+
+git checkout &quot;master&quot;
+</pre></div>
+</div>
+<p>Un ejemplo de trabajo colaborativo usando ramas:</p>
+<a class="reference internal image-reference" href="../../_images/git-workflow3.svg"><img alt="../../_images/git-workflow3.svg" src="../../_images/git-workflow3.svg" width="500" /></a>
+<p><a class="reference external" href="https://github.com/doapps/software/wiki/Gitflow">Figura tomada de GitFlow</a></p>
+</div>
+<div class="section" id="extras">
+<h2><span class="section-number">3.9. </span>Extras<a class="headerlink" href="#extras" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para estudiar más a fondo sobre Git recomiendo</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://help.github.com/es/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Agregar un proyecto local a github</a></p></li>
+<li><p>Muy completo tutorial de <a class="reference external" href="https://www.atlassian.com/es/git/tutorials">Git de Atlassian</a></p></li>
+<li><p>Clases 2 y 3 del curso <a class="reference external" href="https://harvard-iacs.github.io/2019-CS207/category/lectures.html">CS207 del IACS, Harvard</a></p></li>
+<li><p>Libro <a class="reference external" href="https://git-scm.com/book/en/v2/">Pro Git</a> (libre)</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02_ambientes_virtuales.html" title="previous page"><span class="section-number">2. </span>Ambientes virtuales de Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

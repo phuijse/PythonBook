@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Introducción: Computación científica y ciencia de datos &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="2. Jupyter y IPython" href="04_jupyter_y_ipython.html" />
+    <link rel="prev" title="INFO147: Computación Científica con Python" href="../../cover.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_jupyter_y_ipython.html">
+   2. Jupyter y IPython
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_control_de_versiones.html">
+   3. Control de versiones
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/01_introduccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/01_introduccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#los-paradigmas-de-la-ciencia">
+   1.1. Los paradigmas de la ciencia:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tercer-paradigma-computacion-cientifica">
+   1.2. Tercer paradigma: Computación Científica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cuarto-paradigma-ciencia-de-los-datos">
+   1.3. Cuarto paradigma: Ciencia de los Datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-podemos-esperar-de-este-curso">
+   1.4. ¿Qué podemos esperar de este curso?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-python">
+   1.5. ¿Qué es Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python2-o-python3">
+   1.6. ¿Python2 o Python3?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-pep-8">
+   1.7. ¿Qué es PEP 8?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-ipython">
+   1.8. ¿Qué es IPython?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-jupyter">
+   1.9. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-de-capas-de-nuestro-ambiente-de-trabajo">
+   1.10. Modelo de capas de nuestro ambiente de trabajo:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduccion-computacion-cientifica-y-ciencia-de-datos">
+<h1><span class="section-number">1. </span>Introducción: Computación científica y ciencia de datos<a class="headerlink" href="#introduccion-computacion-cientifica-y-ciencia-de-datos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><em>Ciencia: Scientia: Conocimiento</em></p>
+<div class="section" id="los-paradigmas-de-la-ciencia">
+<h2><span class="section-number">1.1. </span>Los paradigmas de la ciencia:<a class="headerlink" href="#los-paradigmas-de-la-ciencia" title="Enlazar permanentemente con este título">¶</a></h2>
+<a class="reference internal image-reference" href="https://www.researchgate.net/profile/Marcio_Costa13/publication/331216708/figure/fig4/AS:728393284870152&#64;1550673900958/The-four-science-paradigms-empirical-theoretical-computational-and-data-driven-Each.png"><img alt="https://www.researchgate.net/profile/Marcio_Costa13/publication/331216708/figure/fig4/AS:728393284870152&#64;1550673900958/The-four-science-paradigms-empirical-theoretical-computational-and-data-driven-Each.png" src="https://www.researchgate.net/profile/Marcio_Costa13/publication/331216708/figure/fig4/AS:728393284870152&#64;1550673900958/The-four-science-paradigms-empirical-theoretical-computational-and-data-driven-Each.png" style="width: 600px;" /></a>
+<ul class="simple">
+<li><p>El primer paradigma es basado en observación y experimentación</p></li>
+<li><p>El segundo paradigma agregó es el teórico, se basa en probar modelos y refutar hipótesis</p></li>
+<li><p>El tercer paradigma es basado en simulaciones: Probamos modelos y análisamos fenómenos utilizando simulaciones computacionales</p></li>
+<li><p>El <a class="reference external" href="https://en.wikipedia.org/wiki/The_Fourth_Paradigm">cuarto paradigma</a> es basado en los datos: Entender fenómenos en base a datos masivos generados por sensores o simulaciones</p></li>
+</ul>
+</div>
+<div class="section" id="tercer-paradigma-computacion-cientifica">
+<h2><span class="section-number">1.2. </span>Tercer paradigma: Computación Científica<a class="headerlink" href="#tercer-paradigma-computacion-cientifica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hoy en día muchos trabajos científicos e ingenieriles incluyen al menos uno de los siguientes aspectos</p>
+<ul class="simple">
+<li><p>cálculos numéricos</p></li>
+<li><p>simulaciones</p></li>
+<li><p>modelamiento computacional</p></li>
+<li><p>análisis de datos</p></li>
+</ul>
+<p>En resumen</p>
+<blockquote>
+<div><p>El computador se ha vuelto esencial para hacer ciencia</p>
+</div></blockquote>
+<p>y por ende</p>
+<blockquote>
+<div><p>El software se ha vuelto esencial para hacer ciencia</p>
+</div></blockquote>
+<p>En este escenario surge</p>
+<blockquote>
+<div><p>La <strong>computación científica</strong> es la disciplina que se encarga de desarrollar la teoría y las técnicas necesarias para resolver problemas matemáticos complejos de ciencias e ingeniería de forma eficiente</p>
+</div></blockquote>
+<p><strong>Ejemplo:</strong> Simulación de la unión de dos agujeros negros utilizando datos de LIGO</p>
+<a class="reference internal image-reference" href="https://2.bp.blogspot.com/-h3SA26JUbB4/Vt86wugg1rI/AAAAAAAAzWE/DYuiVN4B8QA/s400/Two-Black-Holes-Merge-into-One.gif"><img alt="https://2.bp.blogspot.com/-h3SA26JUbB4/Vt86wugg1rI/AAAAAAAAzWE/DYuiVN4B8QA/s400/Two-Black-Holes-Merge-into-One.gif" src="https://2.bp.blogspot.com/-h3SA26JUbB4/Vt86wugg1rI/AAAAAAAAzWE/DYuiVN4B8QA/s400/Two-Black-Holes-Merge-into-One.gif" style="width: 500px;" /></a>
+</div>
+<div class="section" id="cuarto-paradigma-ciencia-de-los-datos">
+<h2><span class="section-number">1.3. </span>Cuarto paradigma: Ciencia de los Datos<a class="headerlink" href="#cuarto-paradigma-ciencia-de-los-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los avances tecnológicos han permitido la generación y captura de una enorme cantidad de datos</p>
+<p>Considere por ejemplo las Redes sociales, el internet de las cosas o los proyectos smart-city</p>
+<p>Esto también ocurre en las ciencias</p>
+<ul class="simple">
+<li><p>Simulaciones con cada vez mayor nivel de resolución</p></li>
+<li><p>Telescopios que cubren mayores áreas del cielo y con mayor profunidad</p></li>
+<li><p>Digitalización de exámenes médicos</p></li>
+</ul>
+<p>El término <a class="reference external" href="https://www.ibmbigdatahub.com/infographic/four-vs-big-data"><em>Big Data</em></a> se ocupa para describir el escenario tecnológico actual respecto a la abundancia, altas tazas de generación y variedad de datos</p>
+<p>En este escenario surge:</p>
+<blockquote>
+<div><p>La <strong>ciencia de datos</strong> es la disciplina que busca extraer conocimiento (información) a partir de datos (masivos)</p>
+</div></blockquote>
+<p><strong>Ejemplo:</strong> <a class="reference external" href="https://academic.oup.com/mnrasl/article/467/1/L110/2931732">Super-resolución en imágenes astronómicas usando modelo adversario generativo entrenado en datos de SDSS</a></p>
+<a class="reference internal image-reference" href="https://scx1.b-cdn.net/csz/news/800/2017/1-neuralnetwor.png"><img alt="https://scx1.b-cdn.net/csz/news/800/2017/1-neuralnetwor.png" src="https://scx1.b-cdn.net/csz/news/800/2017/1-neuralnetwor.png" style="width: 500px;" /></a>
+<p><strong>Competencias</strong></p>
+<p>La computación científica y la ciencia de los datos combinan competencias de</p>
+<ul class="simple">
+<li><p>Ciencias de la computación: Diseñar algoritmos eficientes y escalables para procesar grandes bases de datos</p></li>
+<li><p>Matemáticas aplicadas y estadística: Diseñar modelos que caractericen y resuman los datos</p></li>
+</ul>
+<p><strong>Interdiscipina</strong></p>
+<p>La computación científica y la ciencia de los datos son paradigmas naturalmente <strong>interdisciplinares</strong></p>
+<blockquote>
+<div><p>Se debe colaborar con expertos del dominio para formular preguntas científicas e intepretar los resultados de nuestros rutinas computacionales</p>
+</div></blockquote>
+<p><strong>Reproducibilidad</strong></p>
+<blockquote>
+<div><p>Un buen software científico debe permitir la replicación y reproducibilidad de los resultados de los experimentos</p>
+</div></blockquote>
+</div>
+<div class="section" id="que-podemos-esperar-de-este-curso">
+<h2><span class="section-number">1.4. </span>¿Qué podemos esperar de este curso?<a class="headerlink" href="#que-podemos-esperar-de-este-curso" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este curso aprenderemos a manejar librerías de computación científica basadas en el lenguaje de programación <strong>Python</strong></p>
+</div>
+<div class="section" id="que-es-python">
+<h2><span class="section-number">1.5. </span>¿Qué es Python?<a class="headerlink" href="#que-es-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Python es un lenguaje de programación interpretado y multi-paradigma liberado en 1991 y ampliamente usado en ciencia de los datos</p>
+<p>¿Por qué?</p>
+<ul class="simple">
+<li><p>Enfoque en la simpleza, lo cual resulta en código más fácil de mantener y desarrollo más rápido</p></li>
+<li><p>Menor curva de aprendizaje</p></li>
+<li><p>Rico ecosistema de librerías abiertas para computo científico: <a class="reference external" href="http://www.numpy.org/"><em>Numpy</em></a>, <a class="reference external" href="https://www.scipy.org/"><em>Scipy</em></a>, <a class="reference external" href="https://pandas.pydata.org/"><em>Pandas</em></a>, entre otras que serán estudiadas en este curso</p></li>
+</ul>
+<p>¿Y que hay del desempeño de mis algoritmos versus lenguajes de programación de más bajo nivel?</p>
+<ol class="simple">
+<li><p>Trade-off entre tiempo de cómputo y horas hombre de programación</p></li>
+<li><p>Librerías de cómputo científico de Python: Están compiladas con librerías optimizadas de bajo nivel (<em>e.g.</em> BLAS, LAPACK)</p></li>
+<li><p>Si la función que necesito no está en las librerias: Integrar Python con lenguajes de bajo nivel (<em>e.g.</em> C++, Fortran)</p></li>
+</ol>
+</div>
+<div class="section" id="python2-o-python3">
+<h2><span class="section-number">1.6. </span>¿Python2 o Python3?<a class="headerlink" href="#python2-o-python3" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Python 2.7 sigue existiendo (y “compitiendo” con Python 3)</p></li>
+<li><p><a class="reference external" href="https://wiki.python.org/moin/Python2orPython3">Un 95% de las librerias han sido portadas Python 3</a></p></li>
+<li><p>Python 2 ya no se sigue desarrollando</p></li>
+<li><p>En este curso usaremos <strong>Python 3</strong> como lenguaje oficial</p></li>
+</ul>
+</div>
+<div class="section" id="que-es-pep-8">
+<h2><span class="section-number">1.7. </span>¿Qué es PEP 8?<a class="headerlink" href="#que-es-pep-8" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">Python Enhancement Proposal (PEP)</a> es una especificación técnica que busca mejorar el lenguaje Python</p>
+<p>PEP 0 es el índice de todos los PEP existentes.</p>
+<blockquote>
+<div><p>El PEP 8 es una guia de buenas prácticas para dar formato a nuestros códigos en Python</p>
+</div></blockquote>
+<p>El objetivo de PEP 8 es mantener un estándar que facilite la lectura de código escrito en Python</p>
+</div>
+<div class="section" id="que-es-ipython">
+<h2><span class="section-number">1.8. </span>¿Qué es IPython?<a class="headerlink" href="#que-es-ipython" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Interactive Python (IPython) es un interprete de Python que ofrece varias mejoras tales como</p>
+<ul class="simple">
+<li><p>autocompletación de path y modulos</p></li>
+<li><p>acceso desde terminal a documentación y código fuente</p></li>
+<li><p>búsqueda histórica de comandos</p></li>
+<li><p>y las <em>magics</em> que serán vistas más adelante.</p></li>
+</ul>
+<p>IPython puede usarse desde un terminal como remplazo del intérprete convencioanl de Python</p>
+<p>También puede usarse a través de un <strong>jupyter notebook</strong></p>
+</div>
+<div class="section" id="que-es-jupyter">
+<h2><span class="section-number">1.9. </span>¿Qué es Jupyter?<a class="headerlink" href="#que-es-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="https://jupyter.org/"><em>Jupyter</em></a> es un ambiente interactivo de cómputo basado en web</p>
+<p>El motor de jupyter (kernel) corre en un servidor (local o remoto) al cual el usuario accede a través de un navegador (browser)</p>
+<p>En nuestro caso el motor (kernel) está basado en <strong>IPython</strong> pero también existe jupyter para otros lenguajes</p>
+<p>El servidor de jupyter nos permite crear documentos en formato JSON llamados <em>notebooks</em></p>
+<p>El <em>jupyter notebook</em> puede contener</p>
+<ul class="simple">
+<li><p>código</p></li>
+<li><p>gráficas interactivas</p></li>
+<li><p>texto con formato markdown</p></li>
+<li><p>ecuaciones</p></li>
+<li><p>GUIs</p></li>
+<li><p>elementos HTML (tablas, imágenes, audio, video)</p></li>
+</ul>
+<p>es decir que podemos mantener un experimento científico completo en un notebook</p>
+<p>Para desarrollar módulos o librerías de Python se puede complementar con otras IDEs tales como <a class="reference external" href="https://www.jetbrains.com/pycharm/"><em>pycharm</em></a> o <a class="reference external" href="https://www.spyder-ide.org/"><em>Spyder</em></a> o editores de texto como <a class="reference external" href="https://www.vim.org/"><em>vim</em></a> o <a class="reference external" href="https://www.gnu.org/software/emacs/"><em>emacs</em></a>, todas estas disponibles en los repositorios de su distribución de Linux preferida</p>
+</div>
+<div class="section" id="modelo-de-capas-de-nuestro-ambiente-de-trabajo">
+<h2><span class="section-number">1.10. </span>Modelo de capas de nuestro ambiente de trabajo:<a class="headerlink" href="#modelo-de-capas-de-nuestro-ambiente-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h2>
+<img alt="../../_images/intro.svg" src="../../_images/intro.svg" /></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../cover.html" title="previous page">INFO147: Computación Científica con Python</a>
+    <a class='right-next' id="next-link" href="04_jupyter_y_ipython.html" title="next page"><span class="section-number">2. </span>Jupyter y IPython</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
