@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Control de versiones &#8212; INFO147 Computación científica con Python</title>
+    <title>2. Control de versiones &#8212; INFO147 Computación científica con Python</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="2. Ambientes virtuales de Python" href="02_ambientes_virtuales.html" />
+    <link rel="prev" title="1. Repaso de Python 3" href="00_repaso_python3.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,8 +98,13 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="04_jupyter_y_ipython.html">
-   2. Jupyter y IPython
+   3. Jupyter y IPython
   </a>
  </li>
 </ul>
@@ -114,14 +119,9 @@
    1. Repaso de Python 3
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_ambientes_virtuales.html">
-   2. Ambientes virtuales de Python
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Control de versiones
+   2. Control de versiones
   </a>
  </li>
 </ul>
@@ -214,76 +214,76 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software">
-   3.1. ¿Por qué usar un manejador de versiones en un proyecto de software?
+   2.1. ¿Por qué usar un manejador de versiones en un proyecto de software?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#instalacion-de-git-y-configuracion-inicial-de-git">
-   3.2. Instalación de Git y configuración inicial de GIT
+   2.2. Instalación de Git y configuración inicial de GIT
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#glosario">
-     3.2.1. Glosario
+     2.2.1. Glosario
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uso-basico-de-git">
-   3.3. Uso básico de Git
+   2.3. Uso básico de Git
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creando-un-proyecto-local">
-     3.3.1. Creando un proyecto local…
+     2.3.1. Creando un proyecto local…
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#estructura-y-flujo-de-trabajo">
-     3.3.2. Estructura y flujo de trabajo
+     2.3.2. Estructura y flujo de trabajo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#flujo-de-trabajo-hacia-la-derecha">
-     3.3.3. Flujo de trabajo “hacia la derecha”
+     2.3.3. Flujo de trabajo “hacia la derecha”
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#flujo-de-trabajo-hacia-la-izquierda">
-     3.3.4. Flujo de trabajo “hacia la izquierda”
+     2.3.4. Flujo de trabajo “hacia la izquierda”
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trabajando-con-un-repositorio-remoto">
-   3.4. Trabajando con un repositorio remoto
+   2.4. Trabajando con un repositorio remoto
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#continuacion-flujo-de-trabajo-hacia-la-derecha">
-   3.5. Continuación: Flujo de trabajo “hacia la derecha”
+   2.5. Continuación: Flujo de trabajo “hacia la derecha”
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#continuacion-flujo-de-trabajo-hacia-la-izquierda">
-   3.6. Continuación: Flujo de trabajo “hacia la izquierda”
+   2.6. Continuación: Flujo de trabajo “hacia la izquierda”
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resolviendo-conflictos">
-   3.7. Resolviendo conflictos
+   2.7. Resolviendo conflictos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ramas-branches">
-   3.8. Ramas/Branches
+   2.8. Ramas/Branches
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#extras">
-   3.9. Extras
+   2.9. Extras
   </a>
  </li>
 </ul>
@@ -299,7 +299,7 @@
               <div>
                 
   <div class="section" id="control-de-versiones">
-<h1><span class="section-number">3. </span>Control de versiones<a class="headerlink" href="#control-de-versiones" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">2. </span>Control de versiones<a class="headerlink" href="#control-de-versiones" title="Enlazar permanentemente con este título">¶</a></h1>
 <table><tr><td>
     <img src="https://1.bp.blogspot.com/_LK0TXTVax_M/R5SuZQWVbYI/AAAAAAAAAR0/4g3NKY3FLzo/s400/tesis.JPG">
     </td><td>
@@ -309,7 +309,7 @@
     </td><td>
     Historieta de <a href="http://geek-and-poke.com">geek-and-poke.com</a>
 </td></tr></table><div class="section" id="por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software">
-<h2><span class="section-number">3.1. </span>¿Por qué usar un manejador de versiones en un proyecto de software?<a class="headerlink" href="#por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.1. </span>¿Por qué usar un manejador de versiones en un proyecto de software?<a class="headerlink" href="#por-que-usar-un-manejador-de-versiones-en-un-proyecto-de-software" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Desafio 1: Los proyectos de software no son estáticos</strong></p>
 <ul class="simple">
 <li><p>Se agregan, modifican y eliminan funcionalidades y archivos</p></li>
@@ -376,7 +376,7 @@
 </ul>
 </div>
 <div class="section" id="instalacion-de-git-y-configuracion-inicial-de-git">
-<h2><span class="section-number">3.2. </span>Instalación de Git y configuración inicial de GIT<a class="headerlink" href="#instalacion-de-git-y-configuracion-inicial-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Instalación de Git y configuración inicial de GIT<a class="headerlink" href="#instalacion-de-git-y-configuracion-inicial-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Linux:</strong> Instala desde tu repositorio</p>
 <ul class="simple">
 <li><p>Ubuntu: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
@@ -401,7 +401,7 @@
 </pre></div>
 </div>
 <div class="section" id="glosario">
-<h3><span class="section-number">3.2.1. </span>Glosario<a class="headerlink" href="#glosario" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>Glosario<a class="headerlink" href="#glosario" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p>Cambios: <em>commits</em></p></li>
 <li><p>Proyectos: <em>repositorios</em></p></li>
@@ -410,7 +410,7 @@
 </div>
 </div>
 <div class="section" id="uso-basico-de-git">
-<h2><span class="section-number">3.3. </span>Uso básico de Git<a class="headerlink" href="#uso-basico-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Uso básico de Git<a class="headerlink" href="#uso-basico-de-git" title="Enlazar permanentemente con este título">¶</a></h2>
 <ol class="simple">
 <li><p>Como crear proyectos (repositorios)</p></li>
 <li><p>Estructura y flujo de trabajo del proyecto</p></li>
@@ -423,7 +423,7 @@
 <li><p>Empujar los cambios locales a un servidor remoto</p></li>
 </ol>
 <div class="section" id="creando-un-proyecto-local">
-<h3><span class="section-number">3.3.1. </span>Creando un proyecto local…<a class="headerlink" href="#creando-un-proyecto-local" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>Creando un proyecto local…<a class="headerlink" href="#creando-un-proyecto-local" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><strong>1. …desde cero</strong></p>
 <p>Abrimos un terminal y creamos una nueva carpeta</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir mi_proyecto_nuevo
@@ -449,7 +449,7 @@ cd mi_proyecto_nuevo
 <p>Más adelante veremos como se combina esta opción con la plataforma <code class="docutils literal notranslate"><span class="pre">github</span></code></p>
 </div>
 <div class="section" id="estructura-y-flujo-de-trabajo">
-<h3><span class="section-number">3.3.2. </span>Estructura y flujo de trabajo<a class="headerlink" href="#estructura-y-flujo-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span>Estructura y flujo de trabajo<a class="headerlink" href="#estructura-y-flujo-de-trabajo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La siguiente <a class="reference external" href="https://www.diegocmartin.com/tutorial-git/">figura</a> resume muy bien el flujo de trabajo con Git</p>
 <a class="reference internal image-reference" href="../../_images/git-workflow.png"><img alt="../../_images/git-workflow.png" src="../../_images/git-workflow.png" style="width: 600px;" /></a>
 <p><strong>Secciones principales</strong></p>
@@ -467,7 +467,7 @@ cd mi_proyecto_nuevo
 </ol>
 </div>
 <div class="section" id="flujo-de-trabajo-hacia-la-derecha">
-<h3><span class="section-number">3.3.3. </span>Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si queremos <em>trackear</em> o añadir un archivo modificado al área de preparación</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add nombre_de_archivo_cambiado
 </pre></div>
@@ -513,7 +513,7 @@ cd mi_proyecto_nuevo
 </ul>
 </div>
 <div class="section" id="flujo-de-trabajo-hacia-la-izquierda">
-<h3><span class="section-number">3.3.4. </span>Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span>Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si queremos descartar los cambios locales que hemos realizado a un archivo (copiar desde stage al directorio de trabajo)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout -- nombre_de_archivo_cambiado
 </pre></div>
@@ -537,7 +537,7 @@ cd mi_proyecto_nuevo
 </div>
 </div>
 <div class="section" id="trabajando-con-un-repositorio-remoto">
-<h2><span class="section-number">3.4. </span>Trabajando con un repositorio remoto<a class="headerlink" href="#trabajando-con-un-repositorio-remoto" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Trabajando con un repositorio remoto<a class="headerlink" href="#trabajando-con-un-repositorio-remoto" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los repositorios remotos son versiones de tu proyecto que están almacenados en Internet</p>
 <p>Cuando trabajamos en grupo un repositorio permite que todos estén de acuerdo en una versión de la historia</p>
 <p>Existen proveedores de hosting para proyectos administrados con Git, los más famosos son <a class="reference external" href="http://www.github.com">GitHub</a> y <a class="reference external" href="https://about.gitlab.com/">GitLab</a></p>
@@ -581,7 +581,7 @@ cd mi_proyecto_nuevo
 <p>Esto creará una carpeta llamada “nombre_de_repositorio” en el directorio local</p>
 </div>
 <div class="section" id="continuacion-flujo-de-trabajo-hacia-la-derecha">
-<h2><span class="section-number">3.5. </span>Continuación: Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Continuación: Flujo de trabajo “hacia la derecha”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-derecha" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Luego de añadir archivos y hacer un commit podemos “empujar los cambios” a GitHub usando</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git push
 </pre></div>
@@ -597,7 +597,7 @@ cd mi_proyecto_nuevo
 <p>Por ejemplo con el comando de arriba no se nos pedirá nuevamente la clave hasta que haya pasado 1 hora</p>
 </div>
 <div class="section" id="continuacion-flujo-de-trabajo-hacia-la-izquierda">
-<h2><span class="section-number">3.6. </span>Continuación: Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Continuación: Flujo de trabajo “hacia la izquierda”<a class="headerlink" href="#continuacion-flujo-de-trabajo-hacia-la-izquierda" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para actualizar nuestro directorio al último commit del repositorio remoto</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git pull
 </pre></div>
@@ -621,7 +621,7 @@ cd mi_proyecto_nuevo
 </div>
 </div>
 <div class="section" id="resolviendo-conflictos">
-<h2><span class="section-number">3.7. </span>Resolviendo conflictos<a class="headerlink" href="#resolviendo-conflictos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.7. </span>Resolviendo conflictos<a class="headerlink" href="#resolviendo-conflictos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Digamos que dos personas están trabajando en un mismo proyecto y tienen una copia local hasta el último <em>commit</em></p>
 <ul class="simple">
 <li><p>La primera persona hace modificaciones y las empuja al repositorio</p>
@@ -653,7 +653,7 @@ cd mi_proyecto_nuevo
 <p><a class="reference external" href="https://www.atlassian.com/es/git/tutorials/comparing-workflows">Figura tomada del tutorial de Attlasian</a></p>
 </div>
 <div class="section" id="ramas-branches">
-<h2><span class="section-number">3.8. </span>Ramas/Branches<a class="headerlink" href="#ramas-branches" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.8. </span>Ramas/Branches<a class="headerlink" href="#ramas-branches" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Las ramas son muy útiles cuando queremos desarrollar nuevas funcionalidades en base al estado actual del repositorio</p>
 <p>Son particularmente importantes cuando trabajamos en grupo</p>
 <p>Podemos mostrar las ramas que existen en el repositorio con</p>
@@ -676,7 +676,7 @@ git checkout &quot;master&quot;
 <p><a class="reference external" href="https://github.com/doapps/software/wiki/Gitflow">Figura tomada de GitFlow</a></p>
 </div>
 <div class="section" id="extras">
-<h2><span class="section-number">3.9. </span>Extras<a class="headerlink" href="#extras" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">2.9. </span>Extras<a class="headerlink" href="#extras" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para estudiar más a fondo sobre Git recomiendo</p>
 <ol class="simple">
 <li><p><a class="reference external" href="https://help.github.com/es/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Agregar un proyecto local a github</a></p></li>
@@ -712,7 +712,7 @@ git checkout &quot;master&quot;
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="02_ambientes_virtuales.html" title="previous page"><span class="section-number">2. </span>Ambientes virtuales de Python</a>
+    <a class='left-prev' id="prev-link" href="00_repaso_python3.html" title="previous page"><span class="section-number">1. </span>Repaso de Python 3</a>
 
         </div>
         
