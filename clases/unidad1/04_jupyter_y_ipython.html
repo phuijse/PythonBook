@@ -214,38 +214,43 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-y-como-funciona-jupyter">
-   3.1. ¿Qué es y como funciona Jupyter?
+  <a class="reference internal nav-link" href="#que-es-jupyter">
+   3.1. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-funciona-jupyter">
+   3.2. ¿Cómo funciona Jupyter?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#montando-nuestro-ambiente-de-computo-interactivo">
-   3.2. Montando nuestro ambiente de cómputo interactivo
+   3.3. Montando nuestro ambiente de cómputo interactivo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorial-de-jupyter">
-   3.3. Tutorial de Jupyter
+   3.4. Tutorial de Jupyter
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#componentes-principales-y-atajos">
-     3.3.1. Componentes principales y atajos
+     3.4.1. Componentes principales y atajos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#editando-y-ejecutando-un-bloque-de-codigo">
-     3.3.2. Editando y ejecutando un bloque de código
+     3.4.2. Editando y ejecutando un bloque de código
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ayuda-y-autocompletacion-en-jupyter">
-     3.3.3. Ayuda y autocompletación en Jupyter
+     3.4.3. Ayuda y autocompletación en Jupyter
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magias-de-ipython">
-     3.3.4. “Magias” de IPython
+     3.4.4. “Magias” de IPython
     </a>
    </li>
   </ul>
@@ -265,8 +270,8 @@
   <div class="section" id="jupyter-y-ipython">
 <h1><span class="section-number">3. </span>Jupyter y IPython<a class="headerlink" href="#jupyter-y-ipython" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En esta lección se presenta un ambiente de cómputo interactivo basado en el interprete <a class="reference external" href="https://ipython.org/">IPython</a> y su integración con las herramientas del proyecto <a class="reference external" href="https://jupyter.org/">Jupyter</a></p>
-<div class="section" id="que-es-y-como-funciona-jupyter">
-<h2><span class="section-number">3.1. </span>¿Qué es y como funciona Jupyter?<a class="headerlink" href="#que-es-y-como-funciona-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="que-es-jupyter">
+<h2><span class="section-number">3.1. </span>¿Qué es Jupyter?<a class="headerlink" href="#que-es-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Jupyter es un proyecto que incorpora</p>
 <ul class="simple">
 <li><p>El formato <code class="docutils literal notranslate"><span class="pre">notebook</span></code></p></li>
@@ -289,7 +294,11 @@
 <li><p>comunicar y compartir resultados</p></li>
 <li><p>crear “<a class="reference external" href="https://github.com/mcburton/computational-narratives-with-jupyter">narrativas científicas</a>” interactivas</p></li>
 </ul>
-<p>Sin embargo Jupyter no es recomendable para tareas de producción y puede fomentar malas prácticas. Veremos esto en detalle más adelante en el curso</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>En general Jupyter no es recomendable para tareas de producción. El flujo más correcto consiste en experimentar con Jupyter y luego escribir módulos. Veremos esto en detalle en una próxima sesión síncrona.</p>
+</div>
+<p>Jupyter no es un reemplazo para una IDE completa como <a class="reference external" href="https://www.jetbrains.com/pycharm/"><em>pycharm</em></a> o <a class="reference external" href="https://code.visualstudio.com/"><em>vscode</em></a> o editores de texto como <a class="reference external" href="https://www.vim.org/"><em>vim</em></a> o <a class="reference external" href="https://www.gnu.org/software/emacs/"><em>emacs</em></a>. Jupyter es un complemento.</p>
 <p><strong>Ejemplos</strong></p>
 <p>Revisa uno o más de los siguientes ejemplos para hacerte una idea de lo que se puede hacer con Jupyter</p>
 <ul class="simple">
@@ -298,7 +307,9 @@
 <li><p>Un libro de ciencia de datos escrito en jupyter: <a class="reference external" href="https://nbviewer.jupyter.org/github/gumption/Python_for_Data_Science/blob/master/Python_for_Data_Science_all.ipynb">https://nbviewer.jupyter.org/github/gumption/Python_for_Data_Science/blob/master/Python_for_Data_Science_all.ipynb</a></p></li>
 <li><p>Un tutorial de GIT escrito en jupyter: <a class="reference external" href="https://nbviewer.jupyter.org/github/fperez/reprosw/blob/master/Version%20Control.ipynb">https://nbviewer.jupyter.org/github/fperez/reprosw/blob/master/Version Control.ipynb</a></p></li>
 </ul>
-<p><strong>¿Cómo funciona Jupyter?</strong></p>
+</div>
+<div class="section" id="como-funciona-jupyter">
+<h2><span class="section-number">3.2. </span>¿Cómo funciona Jupyter?<a class="headerlink" href="#como-funciona-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>El <strong>servidor jupyter</strong> es el encargado de administrar los <code class="docutils literal notranslate"><span class="pre">notebooks</span></code></p></li>
 <li><p>Los usuarios interactuan con los <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> a través de un frontend o interfaz web</p></li>
@@ -309,7 +320,14 @@
 <a class="reference internal image-reference" href="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png"><img alt="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png" src="https://jupyter.readthedocs.io/en/latest/_images/notebook_components.png" style="width: 600px;" /></a>
 <p><strong>¿Qué lenguajes puedo usar?</strong></p>
 <p>Existen <code class="docutils literal notranslate"><span class="pre">kernels</span></code> de Python, Julia, Ruby, C y otros lenguajes</p>
-<p>En este curso nos enfocaremos en el kernel IPython</p>
+<p>En este curso nos enfocaremos en el kernel Interactive Python (IPython)</p>
+<p>IPython es un interprete de Python que ofrece varias mejoras tales como</p>
+<ul class="simple">
+<li><p>autocompletación de path y modulos</p></li>
+<li><p>acceso desde terminal a documentación y código fuente</p></li>
+<li><p>búsqueda histórica de comandos</p></li>
+<li><p>y las <em>magics</em> que serán vistas más adelante.</p></li>
+</ul>
 <p><strong>Notas</strong></p>
 <ul class="simple">
 <li><p>Existen otros frontends como por ejemplo <a class="reference external" href="https://jupyter.org/">jupyter lab</a></p></li>
@@ -318,7 +336,7 @@
 </ul>
 </div>
 <div class="section" id="montando-nuestro-ambiente-de-computo-interactivo">
-<h2><span class="section-number">3.2. </span>Montando nuestro ambiente de cómputo interactivo<a class="headerlink" href="#montando-nuestro-ambiente-de-computo-interactivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Montando nuestro ambiente de cómputo interactivo<a class="headerlink" href="#montando-nuestro-ambiente-de-computo-interactivo" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Escoge un directorio y clona el repositorio del curso</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/magister-informatica-uach/INFO147.git
 </pre></div>
@@ -345,9 +363,9 @@
 </div>
 </div>
 <div class="section" id="tutorial-de-jupyter">
-<h2><span class="section-number">3.3. </span>Tutorial de Jupyter<a class="headerlink" href="#tutorial-de-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Tutorial de Jupyter<a class="headerlink" href="#tutorial-de-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="componentes-principales-y-atajos">
-<h3><span class="section-number">3.3.1. </span>Componentes principales y atajos<a class="headerlink" href="#componentes-principales-y-atajos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Componentes principales y atajos<a class="headerlink" href="#componentes-principales-y-atajos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p>Pestañas: Files, Running y Clusters</p></li>
 <li><p>Encabezado: File, Edit, View, Insert, Cell, Kernel, Widgets, Help</p></li>
@@ -366,7 +384,7 @@
 </ul>
 </div>
 <div class="section" id="editando-y-ejecutando-un-bloque-de-codigo">
-<h3><span class="section-number">3.3.2. </span>Editando y ejecutando un bloque de código<a class="headerlink" href="#editando-y-ejecutando-un-bloque-de-codigo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>Editando y ejecutando un bloque de código<a class="headerlink" href="#editando-y-ejecutando-un-bloque-de-codigo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La última línea de ejecución de un bloque se imprime como salida</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -421,7 +439,7 @@
 </div>
 </div>
 <div class="section" id="ayuda-y-autocompletacion-en-jupyter">
-<h3><span class="section-number">3.3.3. </span>Ayuda y autocompletación en Jupyter<a class="headerlink" href="#ayuda-y-autocompletacion-en-jupyter" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.4.3. </span>Ayuda y autocompletación en Jupyter<a class="headerlink" href="#ayuda-y-autocompletacion-en-jupyter" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p>Si escribes <code class="docutils literal notranslate"><span class="pre">?</span></code> después de un módulo se levantará el docstring de ese módulo</p></li>
 <li><p>Si escribes <code class="docutils literal notranslate"><span class="pre">??</span></code> después de un módulo se levantará el código fuente de ese código</p></li>
@@ -454,7 +472,7 @@ help(Counter)
 <a class="reference internal image-reference" href="../../_images/jupyter1.png"><img alt="../../_images/jupyter1.png" src="../../_images/jupyter1.png" style="width: 700px;" /></a>
 </div>
 <div class="section" id="magias-de-ipython">
-<h3><span class="section-number">3.3.4. </span>“Magias” de IPython<a class="headerlink" href="#magias-de-ipython" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.4.4. </span>“Magias” de IPython<a class="headerlink" href="#magias-de-ipython" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Las magias son comandos especiales de IPython que se llama con el operador <code class="docutils literal notranslate"><span class="pre">%</span></code></p>
 <p>Las “magias” disponibles son</p>
 <div class="cell docutils container">
@@ -488,8 +506,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
-CPU times: user 150 µs, sys: 19 µs, total: 169 µs
-Wall time: 129 µs
+CPU times: user 276 µs, sys: 19 µs, total: 295 µs
+Wall time: 262 µs
 </pre></div>
 </div>
 </div>
@@ -683,7 +701,7 @@ df -h
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
 Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
               total        used        free      shared  buff/cache   available
-Mem:          16010        4008        7146         476        4855       11199
+Mem:          16010        3968        7173         492        4868       11223
 Swap:          1023           7        1016
 Filesystem      Size  Used Avail Use% Mounted on
 dev             7.9G     0  7.9G   0% /dev
