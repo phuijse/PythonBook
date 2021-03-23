@@ -15,10 +15,12 @@ La asignatura de **Computación científica con Python** introduce al estudiante
 **Principal**
 1. [Jake VanderPlas, "Python Data Science Handbook", *O'Reilly*, 2016](https://jakevdp.github.io/PythonDataScienceHandbook/)
 1. [Cyrille Rossant, "IPython Cookbook", 2ed, *Packt*, 2018](https://ipython-books.github.io/)
+
 **Complementaria**
 1. [Robert Johansson, "Numerical Python", 2ed, *Apress*, 2018](https://link.springer.com/book/10.1007%2F978-1-4842-4246-9)
 1. [Greg Wilson, et al., "Best Practices for Scientific Computing", PLOS Biology, 2014](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 1. [Adam Rule, et al. "Ten simple rules for writing and sharing computational analyses in Jupyter Notebook", PLOS Computational Biology, 2019](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007007)
+
 **Sugerida**
 1. [K. Reith y T. Schulesser, "The Hitchhiker's guide to Python", *O'Reilly*, 2016](https://docs.python-guide.org)
 1. [J. VanderPlas, "Whirlwind Tour of Python", *O'Reilly*, 2016](https://github.com/jakevdp/WhirlwindTourOfPython)
