@@ -2,7 +2,7 @@
 
 **Responsable:** Pablo Huijse H, phuijse at inf dot uach dot cl
 
-Un electivo de especialización para el pregrado de Ingeniería Informática y curso de nivelación para el magister de Ingeniería Informática de la UACh. Se recomienda mantener una copia local del material del curso clonando este repositorio. 
+Un electivo de especialización para el pregrado de Ingeniería Informática y curso de nivelación para el magister de Ingeniería Informática de la UACh. 
 
 
 ## Abstract
