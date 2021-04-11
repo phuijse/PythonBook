@@ -9,7 +9,7 @@
     - file: clases/unidad1/02_ambientes_virtuales
     - file: clases/unidad1/04_jupyter_y_ipython
     - file: clases/unidad1/05_numpy
-#    - file: clases/unidad1/06_matplotlib
+    - file: clases/unidad1/06_matplotlib
 #    - file: clases/unidad1/07_pandas_básico
 #    - file: clases/unidad1/08_pandas_avanzado
 #    - file: clases/unidad1/09_interfaces_de_usuario
