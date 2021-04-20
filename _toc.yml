@@ -28,5 +28,6 @@
     - file: clases/unidad1/00_repaso_python3  
     - file: clases/unidad1/03_control_de_versiones
     - file: clases/unidad1/10_pandas_anexos
+    - file: clases/unidad1/11_ipython_display
 
 

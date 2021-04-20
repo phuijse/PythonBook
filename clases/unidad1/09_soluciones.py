@@ -1,20 +1,3 @@
-# Ejercicio display
-
-from IPython.display import Code, Image, Audio, Video, HTML, YouTubeVideo
-
-display(Image('img/valdivia.png'))
-
-Fs = 48000
-time = np.arange(0, 2, step=1./Fs)
-data = 0.1*np.cos(2.0*np.pi*time*440)
-
-display(Audio(data, rate=Fs, normalize=False))
-display(Video("magister.mp4", width=426, height=240))
-display(YouTubeVideo("ywWBy6J5gz8"))
-display(HTML('<p style="font-size:20pt;color:blue;">Pablo Huijse\n</p>'))
-display(Code("script_interesante.py"))
-
-
 # Ejercicio interact
 
 fig, ax = plt.subplots(figsize=(6, 3), tight_layout=True)
@@ -26,7 +9,7 @@ line = ax.plot(time, 3*np.cos(twopift))
 def plot_sinewave(A1, A2, A3, phi):
     data = A1*np.cos(twopift + phi) + A2*np.cos(2*twopift + phi) + A3*np.cos(3*twopift + phi)
     line[0].set_ydata(data)
-    
+
 slider_layout = widgets.Layout(width='600px', height='20px')
 A = [widgets.FloatSlider(description=r'$A_{0}$'.format(i), min=0.0, max=1.0, 
                          step=0.01, value=0.0, layout=slider_layout) for i in range(3)]
@@ -46,7 +29,7 @@ def update_plot():
     x = np.arange(-2, 2, step=0.1)
     ax.plot(x, poly['a']*x**2 + poly['b']*x+ poly['c'])
     ax.set_title(f"{poly['a']}$x^2$ + {poly['b']}$x$ + {poly['c']}")
-       
+
 update_plot()        
 
 def handler(change):    
