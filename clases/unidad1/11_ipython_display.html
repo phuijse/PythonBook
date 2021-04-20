@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Módulo IPython.display &#8212; INFO147 Computación científica con Python</title>
+    <title>5. Módulo IPython.display &#8212; INFO147 Computación científica con Python</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -60,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="3. Pandas: Tópicos extra" href="10_pandas_anexos.html" />
+    <link rel="prev" title="4. Interfaces de usuario en Jupyter con ipywidgets" href="09_interfaces_de_usuario.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -139,16 +139,6 @@
    </code>
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09_interfaces_de_usuario.html">
-   8. Interfaces de usuario en Jupyter con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ipywidgets
-    </span>
-   </code>
-  </a>
- </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -171,9 +161,19 @@
    3. Pandas: Tópicos extra
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_interfaces_de_usuario.html">
+   4. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Módulo
+   5. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -271,7 +271,7 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#los-atributos-str-y-repr">
-   4.1. Los atributos
+   5.1. Los atributos
    <code class="docutils literal notranslate">
     <span class="pre">
      __str__
@@ -287,7 +287,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imprimiendo-imagenes-con-el-objeto-image">
-   4.2. Imprimiendo imágenes con el objeto
+   5.2. Imprimiendo imágenes con el objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      Image
@@ -297,7 +297,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reproduccion-de-sonido-con-el-objeto-audio">
-   4.3. Reproducción de sonido con el objeto
+   5.3. Reproducción de sonido con el objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      Audio
@@ -307,7 +307,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reproduccion-de-video-con-el-objeto-video">
-   4.4. Reproducción de video con el objeto
+   5.4. Reproducción de video con el objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      Video
@@ -317,7 +317,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#codigo-fuente-formateado-con-el-objeto-code">
-   4.5. Código fuente formateado con el objeto
+   5.5. Código fuente formateado con el objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      Code
@@ -327,7 +327,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mostrando-objeto-html">
-   4.6. Mostrando Objeto
+   5.6. Mostrando Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      HTML
@@ -337,7 +337,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ejercicios-practicos">
-   4.7. Ejercicios prácticos
+   5.7. Ejercicios prácticos
   </a>
  </li>
 </ul>
@@ -366,7 +366,7 @@
 </div>
 </div>
 <div class="section" id="modulo-ipython-display">
-<h1><span class="section-number">4. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code><a class="headerlink" href="#modulo-ipython-display" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">5. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code><a class="headerlink" href="#modulo-ipython-display" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>El módulo <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html"><code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a> está instalado por defecto con el kernel de IPython</p>
 <p>Hasta ahora sólo hemos usando la función <code class="docutils literal notranslate"><span class="pre">display</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="o">*</span><span class="n">objs</span><span class="p">,</span> <span class="c1"># Una tupla de objetos de Python</span>
@@ -376,7 +376,7 @@
 <p>Hemos visto que, al igual que <code class="docutils literal notranslate"><span class="pre">print</span></code>, esta función imprime el valor de los objetos de Python</p>
 <p>Sin embargo, <code class="docutils literal notranslate"><span class="pre">display</span></code> permite adicionalmente imprimir/mostrar objetos multimedia como imágenes, audio, video y HTML: esto es lo que llamamos “salida enriquecida”</p>
 <div class="section" id="los-atributos-str-y-repr">
-<h2><span class="section-number">4.1. </span>Los atributos <code class="docutils literal notranslate"><span class="pre">__str__</span></code> y <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><a class="headerlink" href="#los-atributos-str-y-repr" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Los atributos <code class="docutils literal notranslate"><span class="pre">__str__</span></code> y <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><a class="headerlink" href="#los-atributos-str-y-repr" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La forma en que se imprime un objeto con <code class="docutils literal notranslate"><span class="pre">print</span></code> o <code class="docutils literal notranslate"><span class="pre">display</span></code> está dado por los atributos internos <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__str__"><code class="docutils literal notranslate"><span class="pre">__str__</span></code></a> y <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a> de dicho objeto, respectivamente</p>
 <p>Los objetos básicos de <code class="docutils literal notranslate"><span class="pre">Python</span></code> (por ejemplo las listas) ya tienen estos atributos definidos</p>
 <p>Adicionalmente display acepta el atributo <code class="docutils literal notranslate"><span class="pre">_repr_html_</span></code> que permite imprimir con formato HTML</p>
@@ -395,10 +395,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta object at 0x7f9129e16590&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta object at 0x7ff1fb6da350&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta at 0x7f9129e16590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta at 0x7ff1fb6da350&gt;
 </pre></div>
 </div>
 </div>
@@ -419,7 +419,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Soy una manzana de color rojo
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_str at 0x7f911002d6d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_str at 0x7ff1fb38a810&gt;
 </pre></div>
 </div>
 </div>
@@ -458,14 +458,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_repr_nice object at 0x7f911004e250&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_repr_nice object at 0x7ff1fb3ab290&gt;
 </pre></div>
 </div>
 <div class="output text_html"><p style="color:blue">Soy una manzana de color rojo</p></div></div>
 </div>
 </div>
 <div class="section" id="imprimiendo-imagenes-con-el-objeto-image">
-<h2><span class="section-number">4.2. </span>Imprimiendo imágenes con el objeto <code class="docutils literal notranslate"><span class="pre">Image</span></code><a class="headerlink" href="#imprimiendo-imagenes-con-el-objeto-image" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Imprimiendo imágenes con el objeto <code class="docutils literal notranslate"><span class="pre">Image</span></code><a class="headerlink" href="#imprimiendo-imagenes-con-el-objeto-image" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Usando este objeto podemos mostrar una imagen en formato JPG, PNG o GIF que esté en nuestro disco duro o una URL (dirección web)</p>
 <p>Para mostrar una imagen llamada <code class="docutils literal notranslate"><span class="pre">mi_imagen.jpg</span></code> en nuestro directorio local</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -500,7 +500,7 @@
 <p>El computador interpreta valores más altos como más brillantes (más cercanos al blanco) y valores más bajos como más oscuros (más cercanos al negro)</p>
 </div>
 <div class="section" id="reproduccion-de-sonido-con-el-objeto-audio">
-<h2><span class="section-number">4.3. </span>Reproducción de sonido con el objeto <code class="docutils literal notranslate"><span class="pre">Audio</span></code><a class="headerlink" href="#reproduccion-de-sonido-con-el-objeto-audio" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Reproducción de sonido con el objeto <code class="docutils literal notranslate"><span class="pre">Audio</span></code><a class="headerlink" href="#reproduccion-de-sonido-con-el-objeto-audio" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Este objeto crea un reproductor de sonido con controles play/pause a partir de un archivo de audio, una URL o un arreglo de datos, por ejemplo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">display</span><span class="p">(</span><span class="n">Audio</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;mi_audio.ogg&quot;</span><span class="p">))</span>
@@ -553,14 +553,14 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 </div>
 </div>
 <div class="section" id="reproduccion-de-video-con-el-objeto-video">
-<h2><span class="section-number">4.4. </span>Reproducción de video con el objeto  <code class="docutils literal notranslate"><span class="pre">Video</span></code><a class="headerlink" href="#reproduccion-de-video-con-el-objeto-video" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Reproducción de video con el objeto  <code class="docutils literal notranslate"><span class="pre">Video</span></code><a class="headerlink" href="#reproduccion-de-video-con-el-objeto-video" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Crea un reproductor con los mismos controles del objeto <code class="docutils literal notranslate"><span class="pre">Audio</span></code> para un archivo de video</p>
 <p>El archivo puede estar en nuestro disco duro en una URL</p>
 <p>Se usa de forma equivalente a <code class="docutils literal notranslate"><span class="pre">Image</span></code> (mismos argumentos)</p>
 <p>Adicionalmente existen los objetos <code class="docutils literal notranslate"><span class="pre">YouTubeVideo</span></code> y <code class="docutils literal notranslate"><span class="pre">VimeoVideo</span></code> para embeber videos de estas plataformas</p>
 </div>
 <div class="section" id="codigo-fuente-formateado-con-el-objeto-code">
-<h2><span class="section-number">4.5. </span>Código fuente formateado con el objeto <code class="docutils literal notranslate"><span class="pre">Code</span></code><a class="headerlink" href="#codigo-fuente-formateado-con-el-objeto-code" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.5. </span>Código fuente formateado con el objeto <code class="docutils literal notranslate"><span class="pre">Code</span></code><a class="headerlink" href="#codigo-fuente-formateado-con-el-objeto-code" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Este objeto imprime código fuente con colores la sintáxis, sus argumentos son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Un string con código fuente</span>
      <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># Una URL a un archivo de código fuente en un servidor</span>
@@ -571,7 +571,7 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 </div>
 </div>
 <div class="section" id="mostrando-objeto-html">
-<h2><span class="section-number">4.6. </span>Mostrando Objeto <code class="docutils literal notranslate"><span class="pre">HTML</span></code><a class="headerlink" href="#mostrando-objeto-html" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.6. </span>Mostrando Objeto <code class="docutils literal notranslate"><span class="pre">HTML</span></code><a class="headerlink" href="#mostrando-objeto-html" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Muestra una página web o un fragmento de página web escrito en HTML</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># String, texto plano en lenguaje HTML</span>
      <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Una URL a un archivo HTML</span>
@@ -592,7 +592,7 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 </div>
 </div>
 <div class="section" id="ejercicios-practicos">
-<h2><span class="section-number">4.7. </span>Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">5.7. </span>Ejercicios prácticos<a class="headerlink" href="#ejercicios-practicos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Muestre la imagen <code class="docutils literal notranslate"><span class="pre">img/valdivia.png</span></code> usando el objeto <code class="docutils literal notranslate"><span class="pre">Image</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -818,7 +818,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="10_pandas_anexos.html" title="previous page"><span class="section-number">3. </span>Pandas: Tópicos extra</a>
+    <a class='left-prev' id="prev-link" href="09_interfaces_de_usuario.html" title="previous page"><span class="section-number">4. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a>
 
         </div>
         
