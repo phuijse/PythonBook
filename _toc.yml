@@ -12,7 +12,6 @@
     - file: clases/unidad1/06_matplotlib
     - file: clases/unidad1/07_pandas_básico
     - file: clases/unidad1/08_pandas_avanzado
-    - file: clases/unidad1/09_interfaces_de_usuario
 #- part: Computación científica
 #  chapters:
 #    - file: clases/unidad2/1_algebra_lineal/1_sistemas_lineales
@@ -28,6 +27,7 @@
     - file: clases/unidad1/00_repaso_python3  
     - file: clases/unidad1/03_control_de_versiones
     - file: clases/unidad1/10_pandas_anexos
+    - file: clases/unidad1/09_interfaces_de_usuario
     - file: clases/unidad1/11_ipython_display
 
 
