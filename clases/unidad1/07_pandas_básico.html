@@ -47,6 +47,8 @@
     <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="1. Repaso de Python 3" href="00_repaso_python3.html" />
+    <link rel="next" title="7. Interfaces de usuario en Jupyter con ipywidgets" href="09_interfaces_de_usuario.html" />
     <link rel="prev" title="5. Visualización de datos usando Matplotlib" href="06_matplotlib.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -124,6 +126,16 @@
    <em>
     pandas
    </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_interfaces_de_usuario.html">
+   7. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -470,11 +482,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.59676584,  0.47373534, -0.71470875, -1.01536514,  0.13560428],
-       [ 0.45901299, -0.36166606, -0.36885552, -0.1455146 ,  0.33500987],
-       [ 0.63773117, -0.11226227, -0.37709567,  0.3226204 , -0.26379302],
-       [ 0.38901824,  0.96372332, -1.02003612, -0.62717447, -2.15208358],
-       [-1.38017486, -0.70151809,  0.41614344, -0.84585458,  0.50780924]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.42818146, -1.27319256, -0.21896614, -0.17002638, -1.76976843],
+       [ 0.98840087,  0.91313425,  2.81030642, -1.73707779,  0.72553919],
+       [ 0.18074369, -0.13147411, -0.37414796,  0.89154137,  1.10030678],
+       [-0.65187051, -2.80353477,  0.6093529 ,  0.32476049,  0.94088491],
+       [-0.88555712,  0.80126412, -0.6679134 , -0.38335753, -0.34376522]])
 </pre></div>
 </div>
 </div>
@@ -1066,13 +1078,13 @@
       <th>1</th>
       <td>James</td>
       <td>INFO147</td>
-      <td>3</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Ash</td>
       <td>INFO147</td>
-      <td>1</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1116,19 +1128,19 @@
       <th>1</th>
       <td>James</td>
       <td>INFO147</td>
-      <td>2</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Jeese</td>
       <td>INFO335</td>
-      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Brock</td>
       <td>INFO335</td>
-      <td>3</td>
+      <td>6</td>
     </tr>
   </tbody>
 </table>
@@ -1344,7 +1356,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="06_matplotlib.html" title="previous page"><span class="section-number">5. </span>Visualización de datos usando Matplotlib</a>
-    <a class='right-next' id="next-link" href="00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+    <a class='right-next' id="next-link" href="09_interfaces_de_usuario.html" title="next page"><span class="section-number">7. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a>
 
         </div>
         

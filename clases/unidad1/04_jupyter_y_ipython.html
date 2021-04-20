@@ -47,6 +47,8 @@
     <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -124,6 +126,16 @@
    <em>
     pandas
    </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_interfaces_de_usuario.html">
+   7. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -539,8 +551,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
-CPU times: user 106 µs, sys: 14 µs, total: 120 µs
-Wall time: 105 µs
+CPU times: user 121 µs, sys: 17 µs, total: 138 µs
+Wall time: 122 µs
 </pre></div>
 </div>
 </div>
@@ -734,7 +746,7 @@ df -h
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
 Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
                total        used        free      shared  buff/cache   available
-Mem:           16002        7116        2299         599        6586        7958
+Mem:           16002        7011        2439         575        6551        8087
 Swap:           1023           0        1023
 Filesystem      Size  Used Avail Use% Mounted on
 dev             7.9G     0  7.9G   0% /dev
@@ -744,7 +756,7 @@ tmpfs           7.9G  265M  7.6G   4% /dev/shm
 tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
 /dev/sda1       118G   98G   15G  88% /home
 tmpfs           7.9G  6.4M  7.9G   1% /tmp
-tmpfs           1.6G   92K  1.6G   1% /run/user/1000
+tmpfs           1.6G   96K  1.6G   1% /run/user/1000
 </pre></div>
 </div>
 </div>

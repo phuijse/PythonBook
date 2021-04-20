@@ -47,6 +47,8 @@
     <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -57,7 +59,7 @@
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="2. Control de versiones" href="03_control_de_versiones.html" />
-    <link rel="prev" title="6. Procesamiento de datos con pandas" href="07_pandas_b%C3%A1sico.html" />
+    <link rel="prev" title="7. Interfaces de usuario en Jupyter con ipywidgets" href="09_interfaces_de_usuario.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -124,6 +126,16 @@
    <em>
     pandas
    </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09_interfaces_de_usuario.html">
+   7. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
   </a>
  </li>
 </ul>
@@ -838,9 +850,7 @@ asd
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;UN&#39;, &#39;DÍA&#39;, &#39;VI&#39;, &#39;UNA&#39;, &#39;VACA&#39;, &#39;VESTIDA&#39;, &#39;DE&#39;, &#39;UNIFORME&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;UN&#39;, &#39;DÍA&#39;, &#39;VI&#39;, &#39;UNA&#39;, &#39;VACA&#39;, &#39;VESTIDA&#39;, &#39;DE&#39;, &#39;UNIFORME&#39;]
+[&#39;UN&#39;, &#39;DÍA&#39;, &#39;VI&#39;, &#39;UNA&#39;, &#39;VACA&#39;, &#39;VESTIDA&#39;, &#39;DE&#39;, &#39;UNIFORME&#39;]
 </pre></div>
 </div>
 </div>
@@ -856,9 +866,6 @@ asd
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>También se pueden aplicar condicionales en el iterador y/o en los valores</p>
@@ -871,9 +878,6 @@ asd
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -955,8 +959,10 @@ asd
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.8 ns ± 15.5 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
-3.07 µs ± 18.1 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68.1 ns ± 15.5 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1 µs ± 23.3 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
 </pre></div>
 </div>
 </div>
@@ -1132,7 +1138,7 @@ uniforme
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f3dc8b6b050&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f6678200050&gt;
 Un
 día
 vi
@@ -1543,7 +1549,7 @@ saludo(nombre: &#39;Esto debería ser un string&#39; = None)
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="07_pandas_b%C3%A1sico.html" title="previous page"><span class="section-number">6. </span>Procesamiento de datos con <em>pandas</em></a>
+    <a class='left-prev' id="prev-link" href="09_interfaces_de_usuario.html" title="previous page"><span class="section-number">7. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a>
     <a class='right-next' id="next-link" href="03_control_de_versiones.html" title="next page"><span class="section-number">2. </span>Control de versiones</a>
 
         </div>
