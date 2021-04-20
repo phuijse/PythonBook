@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Procesamiento de datos con pandas &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="1. Repaso de Python 3" href="00_repaso_python3.html" />
+    <link rel="prev" title="5. Visualización de datos usando Matplotlib" href="06_matplotlib.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_jupyter_y_ipython.html">
+   3. Jupyter y IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05_numpy.html">
+   4. Arreglos y operaciones vectoriales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06_matplotlib.html">
+   5. Visualización de datos usando Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Procesamiento de datos con
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_control_de_versiones.html">
+   2. Control de versiones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_pandas_anexos.html">
+   3. Pandas: Tópicos extra
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/clases/unidad1/07_pandas_básico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/07_pandas_básico.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-dataframe">
+   6.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construccion-de-un-dataframe">
+     6.1.1. Construcción de un
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributos-basicos-de-un-dataframe">
+     6.1.2. Atributos básicos de un
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexado-y-slicing-de-un-dataframe">
+   6.2. Indexado y
+   <em>
+    slicing
+   </em>
+   de un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexado-rapido-de-un-elemento">
+     6.2.1. Indexado rápido de un elemento
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
+   6.3. Combinación y manipulación de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operando-con-dataframes">
+   6.4. Operando con DataFrames
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="procesamiento-de-datos-con-pandas">
+<h1><span class="section-number">6. </span>Procesamiento de datos con <a class="reference external" href="https://pandas.pydata.org/"><em>pandas</em></a><a class="headerlink" href="#procesamiento-de-datos-con-pandas" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Pandas es una librería de Python para <strong>leer, manipular y analizar datos</strong> que se combina muy bien con NumPy y Matplotlib</p>
+<p>Pandas nos provee de:</p>
+<ul class="simple">
+<li><p>Dos nuevas estructuras de datos: <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></li>
+<li><p>Herramientas de análisis de datos que operan sobre estas estructuras de datos</p></li>
+</ul>
+<p>En esta lección nos enfocaremos en la creación y manipulación de objetos tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p>Para instalar pandas activa tu ambiente de conda y luego</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install pandas
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">SVG</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YouTubeVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disablekb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                               <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">autoplay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">showinfo</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Versión de pandas &quot;</span><span class="o">+</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Versión de pandas 1.2.3&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="objeto-pandas-dataframe">
+<h2><span class="section-number">6.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#objeto-pandas-dataframe" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> es la estructura de datos principal de pandas</p>
+<ul class="simple">
+<li><p>Es un arreglo de dos dimensiones (matriz) que <strong>representa una tabla</strong></p></li>
+<li><p>Las filas y columnas de la tabla se identifican con un índice etiquetado denominado <em>label</em></p></li>
+<li><p>Cada columna puede tener tipo distinto</p></li>
+</ul>
+<p><strong>Ejemplo:</strong> Considere el siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que representa datos de la bolsa de Santiago:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Monto [M$]</p></th>
+<th class="head"><p>Variación [%]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGUAS-A</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSANTANDER</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>CMPC</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENTEL</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>En este ejemplo</p>
+<ul class="simple">
+<li><p>La etiqueta de las filas son los nombres de las empresas</p></li>
+<li><p>La etiqueta de las columnas son los nombres de los atributos medidas por la bolsa</p></li>
+<li><p>El atributo <em>Monto</em> es un entero</p></li>
+<li><p>El atributo <em>Variación</em> es un flotante</p></li>
+</ul>
+<p>A continuación veremos como crear un manipular objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<div class="section" id="construccion-de-un-dataframe">
+<h3><span class="section-number">6.1.1. </span>Construcción de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#construccion-de-un-dataframe" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Se usa el constructor</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">columns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ExtensionDtype</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El argumento más importante es <code class="docutils literal notranslate"><span class="pre">data</span></code>, que puede ser un iterable (lista), un diccionario, un ndarray, entre otros</p>
+<p>Consideremos lo siguiente</p>
+<ul class="simple">
+<li><p>Si usamos un diccionario los <code class="docutils literal notranslate"><span class="pre">keys</span></code> se interpretan como etiquetas de columnas</p></li>
+<li><p>Si usamos un diccionario de diccionarios los <code class="docutils literal notranslate"><span class="pre">keys</span></code> más internos se interpretan como etiquetas de filas</p></li>
+<li><p>Si usamos un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> y no especificamos <code class="docutils literal notranslate"><span class="pre">index</span></code> y/o <code class="docutils literal notranslate"><span class="pre">columns</span></code> se crean etiquetas por defecto</p></li>
+</ul>
+<p><strong>Ejercicio 1:</strong></p>
+<p>Construya un dataframe en base a esta información</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">clientes</span><span class="p">,</span> <span class="n">ventas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pablo&#39;, &#39;Marianna&#39;, &#39;Matthieu&#39;, &#39;Luis&#39;, &#39;Eliana&#39;, &#39;Cristobal&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;lechugas [unidades]&#39;: [1, 0, 1, 2, 0, 0],
+ &#39;papas [kilos]&#39;: [0.5, 2, 1.5, 1.2, 0, 5]}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio 2:</strong></p>
+<p>Construye un dataframe a partir del <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> aleatorio <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.03882466, -0.84759538,  0.8068676 ,  0.7009101 ,  0.6680039 ],
+       [-1.02020777,  0.2145522 ,  0.42618322, -0.08853234,  0.65782793],
+       [-1.29469784, -0.58244093, -0.32994245,  0.56078807, -0.80835841],
+       [-0.53956164, -1.0792742 ,  2.38235881, -0.7551674 , -2.9174167 ],
+       [ 0.85378223,  0.87579822,  1.99697829,  1.41207596, -0.14976117]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Comentarios y soluciones:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;5P0wL3dpavI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/5P0wL3dpavI?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="atributos-basicos-de-un-dataframe">
+<h3><span class="section-number">6.1.2. </span>Atributos básicos de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#atributos-basicos-de-un-dataframe" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una vez que haz creado un DataFrame es conveniente revisarlo</p>
+<p>Si tu DataFrame se llama <code class="docutils literal notranslate"><span class="pre">df</span></code>, puedes usar</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.head(5)</span></code> y <code class="docutils literal notranslate"><span class="pre">df.tail(5)</span></code> para imprimir las 5 primeras  y 5 últimas filas, respectivamente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.columns</span></code> para recuperar un objeto <code class="docutils literal notranslate"><span class="pre">pandas.Index</span></code> con las etiquetas de columna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.index</span></code> para recuperar un objeto <code class="docutils literal notranslate"><span class="pre">pandas.Index</span></code> con las etiquetas de fila</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.shape</span></code> para recuperar una tupla con el número de filas y número de columnas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code> para recuperar una lista con los tipos asignados a cada columna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> nos da un resumen de lo anterior</p></li>
+</ul>
+<p><strong>Ejercicio</strong></p>
+<p>Considere el dataframe anterior y experimente con estos atributos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ventas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">clientes</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lechugas [unidades]</th>
+      <th>papas [kilos]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pablo</th>
+      <td>1</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>Marianna</th>
+      <td>0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Matthieu</th>
+      <td>1</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>Luis</th>
+      <td>2</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>Eliana</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Cristobal</th>
+      <td>0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Comentarios y solución:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;BLJzYfY41VA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/BLJzYfY41VA?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="indexado-y-slicing-de-un-dataframe">
+<h2><span class="section-number">6.2. </span>Indexado y <em>slicing</em>  de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#indexado-y-slicing-de-un-dataframe" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Indexado en base a etiquetas</strong></p>
+<p>Podemos usar las etiquetas para indexar un DataFrame ya sea en sus filas o en sus columnas</p>
+<p>También podemos hacer <em>slicing</em>, es decir recuperar un subconjunto de un DataFrame</p>
+<blockquote>
+<div><p>Se usa la función <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> para <strong>indexar y hacer slicing en base a la etiqueta</strong></p>
+</div></blockquote>
+<p>Notar que se ocupa paréntesis cuadrado</p>
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos el siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> guardado en la variable <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Monto [M$]</p></th>
+<th class="head"><p>Variación [%]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGUAS-A</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSANTANDER</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>CMPC</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENTEL</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="simple">
+<li><p>Recuperamos la fila de la empresa Entel con</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Recuperamos un slice con las filas de Aguas andina, Banco Santander y CMPC usando el operador <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;AGUAS-A&quot;</span><span class="p">:</span><span class="s2">&quot;CMPC&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>El operador <code class="docutils literal notranslate"><span class="pre">A:B</span></code> indica una secuencia que empieza con A y termina con B</p>
+</div></blockquote>
+<ol class="simple">
+<li><p>Recuperamos un slice con las filas Entel y Aguas Andina usando <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code> es indexar en base a una lista (o ndarray) que contiene los índices</p>
+</div></blockquote>
+<ol class="simple">
+<li><p>Recuperamos un slice con las filas anteriores pero sólo con la columna monto total usando</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Si una etiqueta está mal escrita pandas retornará un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p>
+</div></blockquote>
+<p>Si un nombre es complicado de escribir o tiene caracteres especiales podemos usar en su lugar <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>, por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># Es equivalente a df.loc[[&quot;ENTEL&quot;, &quot;AGUAS-A&quot;], &quot;Monto [M$]&quot;]</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Recuperamos la columna de monto completa de forma eficiente con</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+<p>Te presente la siguiente “ambigüedad” de pandas para no confudirte:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>  <span class="c1"># Esto es equivalente a df.loc[:, &quot;Monto [M$]&quot;]  </span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">:]</span>  <span class="c1"># Esto retorna error</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;BSANTANDER&quot;</span><span class="p">]</span>  <span class="c1"># Esto retorna error</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;BSANTANDER&quot;</span><span class="p">:]</span>  <span class="c1"># Esto es equivalente a df.loc[&quot;BSANTANDER&quot;:]</span>
+</pre></div>
+</div>
+<p><strong>Indexado en base a posición</strong></p>
+<p>Internamente, pandas asigna un número entero a cada fila y cada columna que corresponde a su posición</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Se puede usar la función <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> para <strong>indexar y hacer slicing en base a la posición</strong></p>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>y</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>son equivalentes. Notar que <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> soporta todo lo que vimos anteriormente</p>
+<p><strong>Ejercicio</strong></p>
+<p>Considerando el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> anterior</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ventas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">clientes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Recupere e imprima la fila del cliente Luis</p></li>
+<li><p>Recupere e imprima la columna de las papas</p></li>
+<li><p>Recupere e imprima el sub dataframe de los clientes Pablo, Marianna y Matthieu</p></li>
+<li><p>Recupere e imprima el sub dataframe de los clientes Pablo y Cristobal</p></li>
+<li><p>Repita lo anterior pero sólo para la columna lechugas</p></li>
+</ul>
+<p>Compare el resultado de <code class="docutils literal notranslate"><span class="pre">loc[&quot;Matthieu&quot;]</span></code> y <code class="docutils literal notranslate"><span class="pre">iloc[2]</span></code> ¿Son equivalentes? ¿Cuál retorna más rápido?</p>
+<p><strong>Comentarios y solución:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;6M3P7ivflsw&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/6M3P7ivflsw?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="section" id="indexado-rapido-de-un-elemento">
+<h3><span class="section-number">6.2.1. </span>Indexado rápido de un elemento<a class="headerlink" href="#indexado-rapido-de-un-elemento" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos recuperar sólo un elemento del DataFrame se recomienda usar las funciones <code class="docutils literal notranslate"><span class="pre">at[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iat[]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Son mucho más rápidas que <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> pero no permiten hacer <em>slicing</em> ni <em>fancy indexing</em></p>
+</div>
+</div>
+<div class="section" id="combinacion-y-manipulacion-de-dataframes">
+<h2><span class="section-number">6.3. </span>Combinación y manipulación de DataFrames<a class="headerlink" href="#combinacion-y-manipulacion-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Existen atributos y funciones que nos permiten combinar DataFrames, por ejemplo</p>
+<ul class="simple">
+<li><p>Extender nuestra tabla con filas o columnas nuevas</p></li>
+<li><p>Unir dos tablas</p></li>
+<li><p>Intersectar dos tablas</p></li>
+<li><p>Eliminar filas y columnas de nuestra tabla</p></li>
+</ul>
+<p><strong>Agregando filas y columnas</strong></p>
+<p>Podemos anexar un DataFrame al final de otro usando el atributo <code class="docutils literal notranslate"><span class="pre">append</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_nuevo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mf">30.0</span><span class="p">]],</span> 
+                        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;JabonCopito&#39;</span><span class="p">],</span> 
+                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Monto [M]&#39;</span><span class="p">,</span> <span class="s1">&#39;variación [%]&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_nuevo</span><span class="p">,</span> 
+          <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># La combinación usa las etiquetas de df y df_nuevo</span>
+          <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># No verifica si existen índices duplicados</span>
+         <span class="p">)</span>
+</pre></div>
+</div>
+<p>Notar que <code class="docutils literal notranslate"><span class="pre">df1.append(df2)</span></code> retorna un nuevo DataFrame</p>
+<p>También se puede lograr algo similar usando la función <code class="docutils literal notranslate"><span class="pre">pandas.concat</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_nuevo</span><span class="p">],</span> 
+          <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Eje de concatenación 0:filas, 1: columnas</span>
+          <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># Especifica que se hace con el eje que no se une</span>
+          <span class="n">ignore_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Igual que append</span>
+          <span class="n">verify_integrity</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Igual que append</span>
+</pre></div>
+</div>
+<p>El argumento principal es una secuencia de DataFrames</p>
+<ul class="simple">
+<li><p>Podemos juntar más de dos DataFrames</p></li>
+<li><p>Podemos juntarlos en filas o en columnas con <code class="docutils literal notranslate"><span class="pre">axis</span></code></p></li>
+<li><p>Podemos especificar que ocurre cuando las filas/columnas no calzan con <code class="docutils literal notranslate"><span class="pre">join</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Por defecto, cuando usamos <code class="docutils literal notranslate"><span class="pre">append</span></code> o <code class="docutils literal notranslate"><span class="pre">concat</span></code> los valores que no se alinean al juntar dos dataframes se llenarán con NaNs</p>
+</div>
+<p>Finalmente podemos agregar una columna nueva usando el atributo <code class="docutils literal notranslate"><span class="pre">insert</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span>  <span class="c1"># Ubicación de la nueva columna</span>
+          <span class="n">column</span><span class="p">,</span> <span class="c1"># Nombre de la nueva columna</span>
+          <span class="n">value</span><span class="p">,</span>  <span class="c1"># Lista o ndarray con valores</span>
+          <span class="n">allow_duplicates</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># Impide agregar una columna con una etiqueta existente</span>
+         <span class="p">)</span>
+                  
+</pre></div>
+</div>
+<p>La operación <code class="docutils literal notranslate"><span class="pre">insert</span></code> es por defecto <em>inplace</em> es decir que modifica directamente a <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<p><strong>Ejercicio</strong></p>
+<ul class="simple">
+<li><p>Utilice <code class="docutils literal notranslate"><span class="pre">append</span></code> para  agregar <code class="docutils literal notranslate"><span class="pre">df2</span></code> a <code class="docutils literal notranslate"><span class="pre">df</span></code></p></li>
+<li><p>Utilice <code class="docutils literal notranslate"><span class="pre">concat</span></code> para combinar <code class="docutils literal notranslate"><span class="pre">df</span></code> y <code class="docutils literal notranslate"><span class="pre">df2</span></code>. Pruebe la opción axis 0 y 1</p></li>
+<li><p>Utilice <code class="docutils literal notranslate"><span class="pre">concat</span></code> para combinar <code class="docutils literal notranslate"><span class="pre">df</span></code> y <code class="docutils literal notranslate"><span class="pre">df3</span></code>. Pruebe la opción <code class="docutils literal notranslate"><span class="pre">inner</span></code> y <code class="docutils literal notranslate"><span class="pre">outer</span></code></p></li>
+<li><p>Utilice <code class="docutils literal notranslate"><span class="pre">insert</span></code> para agregar a <code class="docutils literal notranslate"><span class="pre">df</span></code> una columna llamada “platanos [kilos]” con valores [2, 1.5, 3, 4, 0, 1.5]</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ventas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">clientes</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hector&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Christian&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">,</span> <span class="s1">&#39;platanos [kilos]&#39;</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lechugas [unidades]</th>
+      <th>papas [kilos]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pablo</th>
+      <td>1</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>Marianna</th>
+      <td>0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Matthieu</th>
+      <td>1</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>Luis</th>
+      <td>2</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <th>Eliana</th>
+      <td>0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Cristobal</th>
+      <td>0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lechugas [unidades]</th>
+      <th>papas [kilos]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hector</th>
+      <td>3</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lechugas [unidades]</th>
+      <th>platanos [kilos]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Christian</th>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Comentarios y solución</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;TzEuBC5bwUY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/TzEuBC5bwUY?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Unión e intersección de DataFrames</strong></p>
+<p>Podemos combinar DataFrames de acuerdo a sus contenidos con la función <code class="docutils literal notranslate"><span class="pre">pandas.merge</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="c1"># Primer DataFrame</span>
+             <span class="n">right</span><span class="p">,</span> <span class="c1"># Segundo DataFrame</span>
+             <span class="n">how</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># Especifica como se uniran los DataFrames</span>
+             <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Especifica la columna que se usa para combinar la DataFrames</span>
+             <span class="o">...</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+<p>Algunos detalles</p>
+<ul class="simple">
+<li><p>La columna que se especifica en <code class="docutils literal notranslate"><span class="pre">on</span></code> debe existir en ambos DataFrames</p></li>
+<li><p>El argumento <code class="docutils literal notranslate"><span class="pre">how</span></code> tiene las siguientes opciones</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Se usan las llaves del primer DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Se usan las llaves del segundo DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inner</span></code>: Se usa una intersección de las llaves de ambos DataFrames</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outer</span></code>: Se usa una unión de las llaves de ambos DataFrames</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Ejercicio</strong></p>
+<p>Considere los DataFrames <code class="docutils literal notranslate"><span class="pre">dfa</span></code> y <code class="docutils literal notranslate"><span class="pre">dfb</span></code></p>
+<ul class="simple">
+<li><p>Estudie la diferencia de usar <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> y <code class="docutils literal notranslate"><span class="pre">pd.merge</span></code></p></li>
+<li><p>Para <code class="docutils literal notranslate"><span class="pre">merge</span></code> compare la opción <code class="docutils literal notranslate"><span class="pre">on=Alumno</span></code> con <code class="docutils literal notranslate"><span class="pre">on=Curso</span></code></p></li>
+<li><p>Para <code class="docutils literal notranslate"><span class="pre">merge</span></code> compare la opción <code class="docutils literal notranslate"><span class="pre">join=inner</span></code>, <code class="docutils literal notranslate"><span class="pre">join=outer</span></code> y <code class="docutils literal notranslate"><span class="pre">join=left</span></code></p></li>
+</ul>
+<p>Ahora considera el DataFrame <code class="docutils literal notranslate"><span class="pre">dfc</span></code></p>
+<ul class="simple">
+<li><p>Fusiónelo con <code class="docutils literal notranslate"><span class="pre">dfa</span></code> y <code class="docutils literal notranslate"><span class="pre">dfb</span></code> comparando las opciones vistas anteriormente</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Alumno&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jeese&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Ash&#39;</span><span class="p">,</span> <span class="s1">&#39;Misty&#39;</span><span class="p">],</span> 
+                    <span class="s1">&#39;Curso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;INFO335&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO147&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO147&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO185&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;NotaP1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)})</span>
+
+<span class="n">dfb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Alumno&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ash&#39;</span><span class="p">,</span> <span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Jeese&#39;</span><span class="p">,</span> <span class="s1">&#39;Brock&#39;</span><span class="p">],</span> 
+                    <span class="s1">&#39;Curso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;INFO147&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO147&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO335&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO335&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;NotaP2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)})</span>
+
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Curso&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;INFO335&#39;</span><span class="p">,</span> <span class="s1">&#39;INFO147&#39;</span><span class="p">,</span> <span class="s1">&#39;INFOXXX&#39;</span><span class="p">],</span> 
+                    <span class="s1">&#39;Profesor&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cristobal&#39;</span><span class="p">,</span> <span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;ProfesorX&#39;</span><span class="p">]})</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">dfa</span><span class="p">,</span> <span class="n">dfb</span><span class="p">,</span> <span class="n">dfc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Alumno</th>
+      <th>Curso</th>
+      <th>NotaP1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jeese</td>
+      <td>INFO335</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>James</td>
+      <td>INFO147</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ash</td>
+      <td>INFO147</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Misty</td>
+      <td>INFO185</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Alumno</th>
+      <th>Curso</th>
+      <th>NotaP2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ash</td>
+      <td>INFO147</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>James</td>
+      <td>INFO147</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jeese</td>
+      <td>INFO335</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Brock</td>
+      <td>INFO335</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Curso</th>
+      <th>Profesor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>INFO335</td>
+      <td>Cristobal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>INFO147</td>
+      <td>Pablo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>INFOXXX</td>
+      <td>ProfesorX</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Comentarios y solución</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;65JAu1y9pJo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/65JAu1y9pJo?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><strong>Eliminando filas y columnas</strong></p>
+<p>Podemos eliminar filas o columnas de un DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> con el atributo <code class="docutils literal notranslate"><span class="pre">drop</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Etiquetas que quiero elimina, un string o una lista</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Eliminar la etiqueta de las filas: 0 o de las columnas: 1</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># No modifica df, en su lugar retorna un DataFrame nuevo</span>
+        <span class="o">...</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>También podemos extraer y eliminar una columna usando el atributo <code class="docutils literal notranslate"><span class="pre">pop</span></code></p>
+<p><strong>Ordenando DataFrames</strong></p>
+<p>Se puede ordenar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> según los valores de una columna usando el atributo <code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="c1"># Columna que guia el ordenamiento </span>
+               <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Se ordena según 0: filas o 1:columnas</span>
+               <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Se ordenan los valores de menor a mayor</span>
+               <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># No se modifica df, se retorna un nuevo DataFrame</span>
+</pre></div>
+</div>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">by</span></code> recibe una etiqueta o una lista de etiquetas</p>
+<p>En el segundo caso se ordenan jerarquicamente</p>
+<p>También existe el atributo <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> que permite ordenar filas y columnas según su etiqueta</p>
+</div>
+<div class="section" id="operando-con-dataframes">
+<h2><span class="section-number">6.4. </span>Operando con DataFrames<a class="headerlink" href="#operando-con-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Operaciones aritméticas y lógicas</strong></p>
+<p>Podemos hacer operaciones aritméticas simples sobre DataFrames con los atributos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code> y <code class="docutils literal notranslate"><span class="pre">sub</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mul</span></code> y <code class="docutils literal notranslate"><span class="pre">div</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pow</span></code></p></li>
+<li><p>y sus versiones reversas <code class="docutils literal notranslate"><span class="pre">radd</span></code>, <code class="docutils literal notranslate"><span class="pre">rdiv</span></code>, <code class="docutils literal notranslate"><span class="pre">rpow</span></code> etc</p></li>
+</ul>
+<p>También podemos hacer operaciones lógicas con los atributos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eq</span></code> y <code class="docutils literal notranslate"><span class="pre">nq</span></code> (igual y no igual)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lt</span></code>, <code class="docutils literal notranslate"><span class="pre">gt</span></code> (menor que y mayor que)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">le</span></code>, <code class="docutils literal notranslate"><span class="pre">ge</span></code> (menor o igual y mayor o igual</p></li>
+</ul>
+<p>Todos estos atributos tienen argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code> para especificar si la operación es en fila o columna</p>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># Le suma 10 a todos los valores de df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1"># Le suma 0 a la primera columna y 2 a la segunda columna de df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="c1"># Suma los valores de df y df2 siguiendo los índices</span>
+</pre></div>
+</div>
+<p>Si usamos una lista tiene que ser tan larga como columnas tenga el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p>También podemos extraer un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> a partir de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> usando el atributo <code class="docutils literal notranslate"><span class="pre">values</span></code>. Esto permite aplicar cualquiera de las funciones de NumPy que vimos en lecciones anteriores</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Returna un ndarray</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si nuestro DataFrame tiene <em>strings</em> entonces <code class="docutils literal notranslate"><span class="pre">values</span></code> no retornará un arreglo de tipo numérico</p>
+</div>
+<p>En este caso tenemos dos opciones:</p>
+<ul class="simple">
+<li><p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.select_dtypes.html"><code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code></a> para obtener un nuevo DataFrame con columnas de tipo numérico</p></li>
+<li><p>Podemos  convertir los atributos string a numérico (más adelante detallaremos esto)</p></li>
+</ul>
+<p>En general las operaciones entre columnas se guian por el índice de fila</p>
+<ul class="simple">
+<li><p>Si un índice no es compartido se rellena con un NaN</p></li>
+<li><p>También podemos especificar <code class="docutils literal notranslate"><span class="pre">fill_value</span></code></p></li>
+</ul>
+<p>Si tenemos NaN en filas o columnas podemos</p>
+<ul class="simple">
+<li><p>Eliminarlos con el atributo <code class="docutils literal notranslate"><span class="pre">dropna(axis='columns',</span> <span class="pre">how='any')</span></code></p></li>
+<li><p>Rellenarlos con el atributo <code class="docutils literal notranslate"><span class="pre">fillna(valor)</span></code></p></li>
+</ul>
+<p><strong>Operaciones de reducciones</strong></p>
+<p>Se pueden aplicar las reducciones que vimos en NumPy directamente sobre las columnas</p>
+<p>Algunos atributos para hacer reducción son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> y <code class="docutils literal notranslate"><span class="pre">prod()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean()</span></code> y <code class="docutils literal notranslate"><span class="pre">std()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code> e <code class="docutils literal notranslate"><span class="pre">idxmax()</span></code></p></li>
+<li><p>entre otros</p></li>
+</ul>
+<p>También podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">describe()</span></code> que nos entrega varios estadísticos de nuestras columnas</p>
+<p><strong>Ejercicio</strong></p>
+<p>Considera el dataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<ul class="simple">
+<li><p>La pesa de la frutería  mide 0.1 Kg de más, obtenga un nuevo DataFrame que corrija este error</p></li>
+<li><p>Encuentre los clientes que compraron más lechugas y más kilos de papas</p></li>
+<li><p>Calcule el total de lechugas y kilos de papas vendidos</p></li>
+<li><p>Calcule el promedio de lechugas y kilos de papa vendidos</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ventas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">clientes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Comentarios y solución</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;wBQNPVPjNHE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/wBQNPVPjNHE?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="06_matplotlib.html" title="previous page"><span class="section-number">5. </span>Visualización de datos usando Matplotlib</a>
+    <a class='right-next' id="next-link" href="00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
