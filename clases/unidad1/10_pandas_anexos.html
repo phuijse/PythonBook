@@ -306,10 +306,10 @@
 <ul class="simple">
 <li><p>Los elementos de la secuencia se identifican con un índice etiquetado <code class="docutils literal notranslate"><span class="pre">index</span></code></p></li>
 <li><p>Todos los elementos son de un mismo tipo <code class="docutils literal notranslate"><span class="pre">dtype</span></code></p></li>
-<li><p>La serie se indentifica con un nombre <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p>La serie se identifica con un nombre <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
 </ul>
 <p>A continuación veremos algunas formas de crear <code class="docutils literal notranslate"><span class="pre">Series</span></code></p>
-<p><strong><code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de un dataframe</strong></p>
+<p><strong>Construyendo un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de un dataframe</strong></p>
 <p>Cuando pedimos <strong>una columna</strong> de un DataFrame el objeto retornado es de tipo <code class="docutils literal notranslate"><span class="pre">Series</span></code></p>
 <p>Tecnicamente, <strong>una fila</strong> de un DataFrame también retorna como <code class="docutils literal notranslate"><span class="pre">Series</span></code> sin embargo los tipos se mezclan</p>
 <div class="cell docutils container">
@@ -350,7 +350,7 @@
 </div>
 </div>
 </div>
-<p><strong><code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de otras estructuras de datos</strong></p>
+<p><strong>Construyendo un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de otras estructuras de datos</strong></p>
 <p>Un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede crear de forma más general usando el constructor</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
               <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -543,7 +543,7 @@ Name: mi planificación de hoy, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-04-19 21:23:14--  http://www.censo2017.cl/wp-content/uploads/2017/12/Cantidad-de-Viviendas-por-Tipo.xlsx
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-04-19 21:37:50--  http://www.censo2017.cl/wp-content/uploads/2017/12/Cantidad-de-Viviendas-por-Tipo.xlsx
 Resolving www.censo2017.cl (www.censo2017.cl)... 172.67.212.115, 104.21.23.177, 2606:4700:3031::6815:17b1, ...
 Connecting to www.censo2017.cl (www.censo2017.cl)|172.67.212.115|:80... 
 </pre></div>

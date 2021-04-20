@@ -281,13 +281,6 @@
     </span>
    </code>
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indexado-rapido-de-un-elemento">
-     6.2.1. Indexado rápido de un elemento
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
@@ -405,7 +398,10 @@
 <li><p>Si usamos un diccionario de diccionarios los <code class="docutils literal notranslate"><span class="pre">keys</span></code> más internos se interpretan como etiquetas de filas</p></li>
 <li><p>Si usamos un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> y no especificamos <code class="docutils literal notranslate"><span class="pre">index</span></code> y/o <code class="docutils literal notranslate"><span class="pre">columns</span></code> se crean etiquetas por defecto</p></li>
 </ul>
-<p><strong>Ejercicio 1:</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <p>Construya un dataframe en base a esta información</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -430,8 +426,7 @@
 </div>
 </div>
 </div>
-<p><strong>Ejercicio 2:</strong></p>
-<p>Construye un dataframe a partir del <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> aleatorio <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+<p>Construya un dataframe a partir del <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> aleatorio <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
@@ -440,11 +435,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.03882466, -0.84759538,  0.8068676 ,  0.7009101 ,  0.6680039 ],
-       [-1.02020777,  0.2145522 ,  0.42618322, -0.08853234,  0.65782793],
-       [-1.29469784, -0.58244093, -0.32994245,  0.56078807, -0.80835841],
-       [-0.53956164, -1.0792742 ,  2.38235881, -0.7551674 , -2.9174167 ],
-       [ 0.85378223,  0.87579822,  1.99697829,  1.41207596, -0.14976117]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.83062483, -1.3189174 ,  0.13926478, -1.40001618,  0.57817912],
+       [ 1.66928971, -0.9736082 ,  2.25557685, -0.53724467, -0.09929149],
+       [-0.08947743,  0.79576223,  0.8800804 , -0.26065974, -0.52786551],
+       [ 0.60941454, -0.69922772, -0.59435432, -0.46499105, -1.68063857],
+       [ 0.82522869, -1.54343868,  0.75982048, -0.17272479,  0.4241735 ]])
 </pre></div>
 </div>
 </div>
@@ -480,7 +475,10 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code> para recuperar una lista con los tipos asignados a cada columna</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> nos da un resumen de lo anterior</p></li>
 </ul>
-<p><strong>Ejercicio</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <p>Considere el dataframe anterior y experimente con estos atributos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -583,7 +581,7 @@
 <div><p>Se usa la función <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> para <strong>indexar y hacer slicing en base a la etiqueta</strong></p>
 </div></blockquote>
 <p>Notar que se ocupa paréntesis cuadrado</p>
-<p><strong>Ejemplo</strong></p>
+<p><strong>Ejemplos</strong></p>
 <p>Consideremos el siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> guardado en la variable <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
 <table class="colwidths-auto table">
 <thead>
@@ -611,50 +609,37 @@
 </tr>
 </tbody>
 </table>
-<ol class="simple">
-<li><p>Recuperamos la fila de la empresa Entel con</p></li>
-</ol>
+<p><strong>1</strong> Recuperamos la fila de la empresa Entel con</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Recuperamos un slice con las filas de Aguas andina, Banco Santander y CMPC usando el operador <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
-</ol>
+<p><strong>2</strong> Recuperamos un slice con las filas de Aguas andina, Banco Santander y CMPC usando el operador <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;AGUAS-A&quot;</span><span class="p">:</span><span class="s2">&quot;CMPC&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>El operador <code class="docutils literal notranslate"><span class="pre">A:B</span></code> indica una secuencia que empieza con A y termina con B</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>Recuperamos un slice con las filas Entel y Aguas Andina usando <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code></p></li>
-</ol>
+<p>En este caso el operador <code class="docutils literal notranslate"><span class="pre">A:B</span></code> indica una secuencia que empieza con A y termina con B</p>
+<p><strong>3</strong> Recuperamos un slice con las filas Entel y Aguas Andina usando <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code> es indexar en base a una lista (o ndarray) que contiene los índices</p>
-</div></blockquote>
-<ol class="simple">
-<li><p>Recuperamos un slice con las filas anteriores pero sólo con la columna monto total usando</p></li>
-</ol>
+<p>Recordemos que <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code> es indexar en base a una lista (o ndarray) que contiene los índices</p>
+<p><strong>4</strong> Recuperamos un slice con las filas anteriores pero sólo con la columna monto total usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>Si una etiqueta está mal escrita pandas retornará un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p>
-</div></blockquote>
-<p>Si un nombre es complicado de escribir o tiene caracteres especiales podemos usar en su lugar <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>, por ejemplo</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># Es equivalente a df.loc[[&quot;ENTEL&quot;, &quot;AGUAS-A&quot;], &quot;Monto [M$]&quot;]</span>
+<p>Si una etiqueta está mal escrita pandas retornará un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>. Si un nombre es complicado de escribir o tiene caracteres especiales podemos usar en su lugar <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>, por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> 
 </pre></div>
 </div>
-<ol class="simple">
-<li><p>Recuperamos la columna de monto completa de forma eficiente con</p></li>
-</ol>
+<p>es equivalente a</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>5</strong> Recuperamos la columna de monto completa de forma eficiente con</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span> 
 </pre></div>
 </div>
-<p>Te presente la siguiente “ambigüedad” de pandas para no confudirte:</p>
+<p>Tenga presente la siguiente “ambigüedad” de pandas para no confudirse:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>  <span class="c1"># Esto es equivalente a df.loc[:, &quot;Monto [M$]&quot;]  </span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">:]</span>  <span class="c1"># Esto retorna error</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;BSANTANDER&quot;</span><span class="p">]</span>  <span class="c1"># Esto retorna error</span>
@@ -699,7 +684,10 @@
 </pre></div>
 </div>
 <p>son equivalentes. Notar que <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> soporta todo lo que vimos anteriormente</p>
-<p><strong>Ejercicio</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <p>Considerando el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> anterior</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -741,15 +729,13 @@
 ></iframe>
 </div></div>
 </div>
-<div class="section" id="indexado-rapido-de-un-elemento">
-<h3><span class="section-number">6.2.1. </span>Indexado rápido de un elemento<a class="headerlink" href="#indexado-rapido-de-un-elemento" title="Enlazar permanentemente con este título">¶</a></h3>
+<p><strong>Indexado rápido de un elemento</strong></p>
 <p>Si queremos recuperar sólo un elemento del DataFrame se recomienda usar las funciones <code class="docutils literal notranslate"><span class="pre">at[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iat[]</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Son mucho más rápidas que <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> pero no permiten hacer <em>slicing</em> ni <em>fancy indexing</em></p>
-</div>
 </div>
 <div class="section" id="combinacion-y-manipulacion-de-dataframes">
 <h2><span class="section-number">6.3. </span>Combinación y manipulación de DataFrames<a class="headerlink" href="#combinacion-y-manipulacion-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -800,7 +786,10 @@
 </pre></div>
 </div>
 <p>La operación <code class="docutils literal notranslate"><span class="pre">insert</span></code> es por defecto <em>inplace</em> es decir que modifica directamente a <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
-<p><strong>Ejercicio</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <ul class="simple">
 <li><p>Utilice <code class="docutils literal notranslate"><span class="pre">append</span></code> para  agregar <code class="docutils literal notranslate"><span class="pre">df2</span></code> a <code class="docutils literal notranslate"><span class="pre">df</span></code></p></li>
 <li><p>Utilice <code class="docutils literal notranslate"><span class="pre">concat</span></code> para combinar <code class="docutils literal notranslate"><span class="pre">df</span></code> y <code class="docutils literal notranslate"><span class="pre">df2</span></code>. Pruebe la opción axis 0 y 1</p></li>
@@ -981,7 +970,10 @@
 </ul>
 </li>
 </ul>
-<p><strong>Ejercicio</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <p>Considere los DataFrames <code class="docutils literal notranslate"><span class="pre">dfa</span></code> y <code class="docutils literal notranslate"><span class="pre">dfb</span></code></p>
 <ul class="simple">
 <li><p>Estudie la diferencia de usar <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> y <code class="docutils literal notranslate"><span class="pre">pd.merge</span></code></p></li>
@@ -1038,13 +1030,13 @@
       <th>0</th>
       <td>Jeese</td>
       <td>INFO335</td>
-      <td>2</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
       <td>James</td>
       <td>INFO147</td>
-      <td>3</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1056,7 +1048,7 @@
       <th>3</th>
       <td>Misty</td>
       <td>INFO185</td>
-      <td>6</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -1088,7 +1080,7 @@
       <th>0</th>
       <td>Ash</td>
       <td>INFO147</td>
-      <td>5</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1100,13 +1092,13 @@
       <th>2</th>
       <td>Jeese</td>
       <td>INFO335</td>
-      <td>3</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Brock</td>
       <td>INFO335</td>
-      <td>5</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -1250,14 +1242,11 @@
 <li><p>entre otros</p></li>
 </ul>
 <p>También podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">describe()</span></code> que nos entrega varios estadísticos de nuestras columnas</p>
-<p><strong>Ejercicio</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ejercicio práctico</p>
+</div>
 <p>Considera el dataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
-<ul class="simple">
-<li><p>La pesa de la frutería  mide 0.1 Kg de más, obtenga un nuevo DataFrame que corrija este error</p></li>
-<li><p>Encuentre los clientes que compraron más lechugas y más kilos de papas</p></li>
-<li><p>Calcule el total de lechugas y kilos de papas vendidos</p></li>
-<li><p>Calcule el promedio de lechugas y kilos de papa vendidos</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
@@ -1272,6 +1261,12 @@
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>Digamos que la pesa de la frutería retorna 0.1 Kg de más. Obtenga un nuevo DataFrame que corrija este error</p></li>
+<li><p>Encuentre los clientes que compraron más lechugas y más kilos de papas</p></li>
+<li><p>Calcule el total de lechugas y kilos de papas vendidos</p></li>
+<li><p>Calcule el promedio de lechugas y kilos de papa vendidos</p></li>
+</ul>
 <p><strong>Comentarios y solución</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
