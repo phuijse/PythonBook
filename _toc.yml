@@ -12,7 +12,7 @@
     - file: clases/unidad1/06_matplotlib
     - file: clases/unidad1/07_pandas_básico
 #    - file: clases/unidad1/08_pandas_avanzado
-#    - file: clases/unidad1/09_interfaces_de_usuario
+    - file: clases/unidad1/09_interfaces_de_usuario
 #- part: Computación científica
 #  chapters:
 #    - file: clases/unidad2/1_algebra_lineal/1_sistemas_lineales
