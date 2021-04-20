@@ -8,3 +8,5 @@ Z = np.zeros_like(C)
 
 for i in range(1000):
     Z = Z*Z + C
+
+FRACTAL = np.isnan(Z)

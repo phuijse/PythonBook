@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Ejercicio read_csv
 
 conv = dict.fromkeys(['open', 'close', 'high', 'low', 'next_weeks_open', 'next_weeks_close'], 
@@ -85,17 +86,5 @@ def normalizar(x):
         return (x - x.mean())/x.std()
     else:
         return x 
-    
+
 display(df.groupby(by="NOMBRE REGIÓN", sort=False)[mask].transform(normalizar).head(10))
-
-# Ejercicio SQL
-
-# Escribe tu solución aquí
-arg1 = "Viviendas Particulares Ocupadas con Moradores Presentes"
-arg2 = "NOMBRE COMUNA"
-arg3 = "NOMBRE PROVINCIA"
-sql_string = f"SELECT [{arg1}], [{arg2}] FROM censo_viviendas WHERE [{arg3}] = 'VALDIVIA'"
-display(sql_string)
-with sqlite3.connect('censo.db') as conn:    
-    df = pd.read_sql_query(sql_string, conn)
-display(df)
