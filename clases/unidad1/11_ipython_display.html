@@ -130,8 +130,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="08_pandas_avanzado.html">
+   7. Exploración y manipulación de datos con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="09_interfaces_de_usuario.html">
-   7. Interfaces de usuario en Jupyter con
+   8. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -385,10 +395,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta object at 0x7f35c2849e50&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta object at 0x7f25772d0810&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta at 0x7f35c2849e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta at 0x7f25772d0810&gt;
 </pre></div>
 </div>
 </div>
@@ -409,7 +419,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Soy una manzana de color rojo
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_str at 0x7f359b5a8290&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_str at 0x7f255c54f550&gt;
 </pre></div>
 </div>
 </div>
@@ -448,7 +458,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_repr_nice object at 0x7f359bfaeed0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Fruta_repr_nice object at 0x7f255c571050&gt;
 </pre></div>
 </div>
 <div class="output text_html"><p style="color:blue">Soy una manzana de color rojo</p></div></div>
@@ -586,7 +596,8 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Muestre la imagen <code class="docutils literal notranslate"><span class="pre">img/valdivia.png</span></code> usando el objeto <code class="docutils literal notranslate"><span class="pre">Image</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">Video</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;img/valdivia.png&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -598,7 +609,8 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Genere un tono fundamental con frecuencia <span class="math notranslate nohighlight">\(220Hz\)</span>, amplitud <span class="math notranslate nohighlight">\(0.25\)</span> y duración <span class="math notranslate nohighlight">\(0.5s\)</span> y reproduzcalo usando el objeto <code class="docutils literal notranslate"><span class="pre">Audio</span></code> con la opción <code class="docutils literal notranslate"><span class="pre">normalize=False</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo con audio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
 <span class="n">Fs</span> <span class="o">=</span> <span class="mi">48000</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">1.</span><span class="o">/</span><span class="n">Fs</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">time</span><span class="o">*</span><span class="mi">440</span><span class="p">)</span>
@@ -617,7 +629,9 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Reproduzca el video <code class="docutils literal notranslate"><span class="pre">magister.mp4</span></code> usando el objeto <code class="docutils literal notranslate"><span class="pre">Video</span></code> en un tamaño de 426×240</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Video</span><span class="p">(</span><span class="s2">&quot;magister.mp4&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">426</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">240</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Video</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Video</span><span class="p">(</span><span class="s2">&quot;magister.mp4&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">426</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">240</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -629,7 +643,9 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Reproduzca su video favorito de Youtube usando el objeto <code class="docutils literal notranslate"><span class="pre">YoutubeVideo</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;ywWBy6J5gz8&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">display</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;ywWBy6J5gz8&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -647,7 +663,9 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Escriba su nombre en tamaño <code class="docutils literal notranslate"><span class="pre">20pt</span></code> y de color azul usando <a class="reference external" href="https://www.w3schools.com/html/html_styles.asp">lenguaje HTML</a> y muestrelo usando el objeto <code class="docutils literal notranslate"><span class="pre">HTML</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p style=&quot;font-size:20pt;color:blue;&quot;&gt;Pablo Huijse</span><span class="se">\n</span><span class="s1">&lt;/p&gt;&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;p style=&quot;font-size:20pt;color:blue;&quot;&gt;Pablo Huijse</span><span class="se">\n</span><span class="s1">&lt;/p&gt;&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -658,7 +676,9 @@ s(t) = A \cos (2 \pi t f_0 + \phi)
 <p>Muestre el código de <code class="docutils literal notranslate"><span class="pre">script_interesante.py</span></code> usando el objeto <code class="docutils literal notranslate"><span class="pre">Code</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">Code</span><span class="p">(</span><span class="s2">&quot;script_interesante.py&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solución</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Code</span><span class="p">(</span><span class="s2">&quot;script_interesante.py&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
