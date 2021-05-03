@@ -14,8 +14,8 @@
     - file: clases/unidad1/08_pandas_avanzado
 - part: Computación científica
   chapters:
-    - file: clases/unidad2/1_algebra_lineal/1_sistemas_lineales
-    - file: clases/unidad2/1_algebra_lineal/2_regresión_lineal
+    - file: clases/unidad2/1_linearalgebra/1_sistemas_lineales
+    - file: clases/unidad2/1_linearalgebra/2_regresión_lineal
 #    - file: clases/unidad2/1_algebra_lineal/3_valores_propios
 #    - file: clases/unidad2/2_calculo/1_optimización
 #    - file: clases/unidad2/2_calculo/1_ode_integración
