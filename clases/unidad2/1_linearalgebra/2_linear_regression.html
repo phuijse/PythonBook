@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Regresión lineal, Sobreajuste y Validación &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="prev" title="1. Algebra lineal con NumPy" href="1_linear_algebra.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/04_jupyter_y_ipython.html">
+   3. Jupyter y IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/05_numpy.html">
+   4. Arreglos y operaciones vectoriales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/06_matplotlib.html">
+   5. Visualización de datos usando Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/07_pandas_b%C3%A1sico.html">
+   6. Procesamiento de datos con
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/08_pandas_avanzado.html">
+   7. Exploración y manipulación de datos con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación científica
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_linear_algebra.html">
+   1. Algebra lineal con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Regresión lineal, Sobreajuste y Validación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
+   2. Control de versiones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
+   3. Pandas: Tópicos extra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
+   4. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/11_ipython_display.html">
+   5. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/clases/unidad2/1_linearalgebra/2_linear_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad2/1_linearalgebra/2_linear_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   2.1. Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-lineal-multivariada">
+   2.2. Regresión lineal multivariada
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-practico">
+     2.2.1. Ejercicio práctico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-lineales-en-sus-parametros-pero-no-en-sus-entradas">
+   2.3. Modelos lineales en sus parámetros pero no en sus entradas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.3.1. Ejercicio práctico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistema-infradeterminado-caso-n-m">
+   2.4. Sistema infradeterminado (caso
+   <span class="math notranslate nohighlight">
+    \(N&gt;M\)
+   </span>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complejidad-sobreajuste-y-generalizacion">
+   2.5. Complejidad, sobreajuste y generalización
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validacion">
+     2.5.1. Validación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2.5.2. Ejercicio práctico
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extra-regularizacion">
+     2.5.3. (Extra) Regularización
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YouTubeVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disablekb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                               <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">autoplay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">showinfo</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regresion-lineal-sobreajuste-y-validacion">
+<h1><span class="section-number">2. </span>Regresión lineal, Sobreajuste y Validación<a class="headerlink" href="#regresion-lineal-sobreajuste-y-validacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="introduccion">
+<h2><span class="section-number">2.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una <strong>regresión</strong> consiste en <strong>ajustar</strong> un modelo paramétrico del tipo</p>
+<div class="math notranslate nohighlight">
+\[
+f_\theta: x \rightarrow y
+\]</div>
+<p>El ajuste de este modelo nos permite</p>
+<ul class="simple">
+<li><p>Entender como dos o más variables se relacionan</p></li>
+<li><p>Predecir una variable en función de otras</p></li>
+</ul>
+<p>Estos son los objetivos del <strong>análisis de regresión</strong></p>
+<p>Hablamos particularmente de <strong>regresión lineal</strong> cuando el modelo <span class="math notranslate nohighlight">\(f_\theta\)</span> es <strong>lineal en sus parámetros</strong>. Es decir que lo podemos escribir como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f_\theta(x) &amp;= \langle x, \theta \rangle \nonumber \\
+&amp;= \begin{pmatrix} x_1 &amp; x_2 &amp; \ldots &amp; x_M \end{pmatrix} \begin{pmatrix} \theta_1 \\ \theta_2 \\ \vdots \\ \theta_M \end{pmatrix} 
+\end{align}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(x\)</span> representa los atributos (variables independientes) y <span class="math notranslate nohighlight">\(\theta\)</span> los parámetros a ajustar. Ajustar el modelo se refiere a encontrar el valor óptimo de <span class="math notranslate nohighlight">\(\theta\)</span>. Como vimos la clase pasada</p>
+<ul class="simple">
+<li><p>Si nuestro sistema es cuadrado podemos usar inversión</p></li>
+<li><p>Si nuestro sistema es rectangular podemos usar <strong>mínimos cuadrados</strong></p></li>
+</ul>
+<p>El ajuste del modelo se realiza en base a <strong>datos</strong>, que podemos visualizar como un conjunto de <span class="math notranslate nohighlight">\(N\)</span> tuplas <span class="math notranslate nohighlight">\((\vec x_i, y_i)\)</span> con <span class="math notranslate nohighlight">\(i=1,2,\ldots,N\)</span>. Por otro lado la cantidad parámetros del modelo es <span class="math notranslate nohighlight">\(M\)</span>, es decir el largo del vector <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Luego</p>
+<ul class="simple">
+<li><p>Cada tupla o ejemplo aporta una ecuación al sistema</p></li>
+<li><p>Cada parámetro aporta una incognita al sistema</p></li>
+</ul>
+<p>A continuación generalizaremos algunos conceptos vistos en <span class="xref std std-doc">../1_linear_algebra</span></p>
+</div>
+<div class="section" id="regresion-lineal-multivariada">
+<h2><span class="section-number">2.2. </span>Regresión lineal multivariada<a class="headerlink" href="#regresion-lineal-multivariada" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En la lección anterior ajustamos el modelo</p>
+<div class="math notranslate nohighlight">
+\[
+f_\theta(x) = \theta_0 + \theta_1 x,
+\]</div>
+<p>con dos parámetros y una variable independiente. El modelo anterior corresponde al modelo lineal más básico: una recta.</p>
+<p>En un caso más general podríamos querer ajustar un modelo con un <span class="math notranslate nohighlight">\(x\)</span> multidimensional</p>
+<p>Si tenemos <span class="math notranslate nohighlight">\(d\)</span> atributos podemos construir un vector <span class="math notranslate nohighlight">\(\vec x = (x_1, x_2, \ldots, x_d)\)</span> y considerar el siguiente modelo lineal</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f_\theta(\vec x) &amp;= \theta_0  + \theta_1 x_1 + \theta_2 x_2 + \ldots \theta_d x_d  \nonumber \\
+&amp;= \theta_0  + \sum_{k=1}^d \theta_k x_k \nonumber \\
+\end{align}
+\end{split}\]</div>
+<p>Esto corresponde a ajustar un <strong>hiperplano</strong></p>
+<div class="section" id="ejercicio-practico">
+<h3><span class="section-number">2.2.1. </span>Ejercicio práctico<a class="headerlink" href="#ejercicio-practico" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para los datos de consumo de helados, encuentre los parámetros del <strong>hiperplano</strong> que ajuste mejor los datos</p>
+<div class="math notranslate nohighlight">
+\[
+\text{consumo} = \theta_0 + \theta_1 \cdot \text{temperatura} + \theta_2 \cdot \text{precio}
+\]</div>
+<ul class="simple">
+<li><p>Identifique y construya el vector <span class="math notranslate nohighlight">\(b\)</span> y la matriz <span class="math notranslate nohighlight">\(A\)</span> ¿Cuánto vale <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(M\)</span>?</p></li>
+<li><p>¿Es este un sistema cuadrado o rectangular? ¿ Es sobre o infra-determinado?</p></li>
+<li><p>Encuentre <span class="math notranslate nohighlight">\(\theta\)</span> que minimiza la suma de errores cuadráticos</p></li>
+<li><p>Grafique el plano encontrado</p></li>
+</ul>
+<p><strong>Solución paso a paso con comentarios</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;h6KrwiQv5qU&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/h6KrwiQv5qU?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="modelos-lineales-en-sus-parametros-pero-no-en-sus-entradas">
+<h2><span class="section-number">2.3. </span>Modelos lineales en sus parámetros pero no en sus entradas<a class="headerlink" href="#modelos-lineales-en-sus-parametros-pero-no-en-sus-entradas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una regresión lineal puede considerar transformaciones “no lineales” sobre la entrada <span class="math notranslate nohighlight">\(x\)</span></p>
+<p>Llamaremos función base <span class="math notranslate nohighlight">\(\phi_j(\cdot)\)</span> a estas transformaciones. Luego el modelo más general de regresión lineal en sus parámetros es</p>
+<div class="math notranslate nohighlight">
+\[
+y = f_\theta (x) = \sum_{j=0}^N \theta_j \phi_j (x)
+\]</div>
+<p><strong>Ejemplo 1: Regresión polinomial</strong></p>
+<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = x^j\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+y = f_\theta (x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \ldots
+\]</div>
+<p>obtenemos una regresión polinomial</p>
+<p><strong>Ejemplo 2: Regresión trigonométrica</strong></p>
+<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = \cos(2\pi j x)\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+y = f_\theta (x) = \theta_0 + \theta_1 \cos(2\pi x) + \theta_2 \cos(4 \pi x) + \ldots
+\]</div>
+<p>obtenemos una regresión trigonométrica</p>
+<div class="section" id="id1">
+<h3><span class="section-number">2.3.1. </span>Ejercicio práctico<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Considere los siguientes datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Realice una regresión polinomial sobre <span class="math notranslate nohighlight">\((x, y)\)</span></p></li>
+<li><p>Muestre graficamente los datos y el resultado de <span class="math notranslate nohighlight">\(f_\theta(x_{plot})\)</span></p></li>
+<li><p>Use Jupyter widgets para modificar dinamicamente el grado del polinomio entre <span class="math notranslate nohighlight">\(M\in[1, 15]\)</span></p></li>
+</ul>
+<p><strong>Solución paso a paso con comentarios</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;KvIyri8lVq4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/KvIyri8lVq4?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>¿Qué ocurre cuando <span class="math notranslate nohighlight">\(N\geq M\)</span>?</p>
+<blockquote>
+<div><p>Nuestro modelo se sobre ajusta a los datos</p>
+</div></blockquote>
+<p>Estudiaremos esto en detalle más adelante</p>
+</div>
+</div>
+<div class="section" id="sistema-infradeterminado-caso-n-m">
+<h2><span class="section-number">2.4. </span>Sistema infradeterminado (caso <span class="math notranslate nohighlight">\(N&gt;M\)</span>)<a class="headerlink" href="#sistema-infradeterminado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El caso del sistema infradeterminado es aquel que tiene más incognitas (parámetros) que ecuaciones. Este tipo de sistema tiene infinitas soluciones</p>
+<p>Considere por ejemplo las soluciones posibles de ajustar un sistema polinomial de segundo orden (tres parámetros)  con sólo dos ejemplos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">thetas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">a</span>  <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="n">x_plot</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">thetas</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="o">/</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2_linear_regression_16_0.png" src="../../../_images/2_linear_regression_16_0.png" />
+</div>
+</div>
+<p>Más en la práctica, la consecuencia de que el sistema sea infradeterminado es que <span class="math notranslate nohighlight">\(A^T A\)</span> no es invertible.</p>
+<p>Para resolver el problema infradeterminado se debe una restricción adicional. La más típica es que el vector solución tenga norma mínima, por ejemplo</p>
+<div class="math notranslate nohighlight">
+\[
+\min_\theta \| x \|_2^2 ~\text{s.a.}~ Ax =b
+\]</div>
+<p>que se resuelve usando <span class="math notranslate nohighlight">\(M\)</span> <a class="reference external" href="https://es.wikipedia.org/wiki/Multiplicadores_de_Lagrange">multiplicadores de Lagrange</a> <span class="math notranslate nohighlight">\(\lambda\)</span> como sigue</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{d}{dx} \| x\|_2^2 + \lambda^T (b - Ax) &amp;= 2x - \lambda^T A  \nonumber \\
+&amp;= 2Ax - A A^T \lambda \nonumber \\
+&amp;= 2b - A A^T \lambda = 0 
+\end{align}
+\end{split}\]</div>
+<p>De donde obtenemos que <span class="math notranslate nohighlight">\(\lambda = 2(AA^T)^{-1}b\)</span> y por lo tanto <span class="math notranslate nohighlight">\(x = \frac{1}{2} A^T \lambda = A^T (A A^T)^{-1} b\)</span>,  donde <span class="math notranslate nohighlight">\(A^T (A A^T)^{-1}\)</span> se conoce como la pseudo-inversa “por la derecha”</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq</span></code> usa la pseudo inversa izquierda automáticamente si <span class="math notranslate nohighlight">\(N&lt;M\)</span> o la pseudo inversa derecha si <span class="math notranslate nohighlight">\(N&gt;M\)</span></p>
+<p>Es decir que NumPy asume que la mejor solución del sistema infradeterminado es la de <strong>mínima norma euclidiana</strong></p>
+</div>
+<div class="section" id="complejidad-sobreajuste-y-generalizacion">
+<h2><span class="section-number">2.5. </span>Complejidad, sobreajuste y generalización<a class="headerlink" href="#complejidad-sobreajuste-y-generalizacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un modelo con más parámetros es más flexible pero también más complejo</p>
+<p><strong>Complejidad:</strong> grados de libertad de un modelo</p>
+<p>Como vimos en el ejercicio práctico anterior un exceso de flexibilidad puede producir un “ajuste perfecto”. Un ajuste perfecto es generalmente una mala idea pues nuestros datos casi siempre tendrán ruido</p>
+<p><strong>Sobreajuste:</strong> Ocurre cuando el modelo se ajusta al ruido de los datos</p>
+<p>Considere los siguientes datos ajustados con tres modelos de distinta complejidad</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_clean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> <span class="c1"># 2*x**2 -4*x +20</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_clean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">poly_basis</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">M</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="o">**</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> 
+                       <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;muy simple&quot;</span><span class="p">,</span> <span class="s2">&quot;adecuado&quot;</span><span class="p">,</span> <span class="s2">&quot;muy complejo&quot;</span><span class="p">])):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">y_clean</span><span class="p">(</span><span class="n">x_plot</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modelo real&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observaciones&#39;</span><span class="p">);</span> 
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">poly_basis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">M</span><span class="p">),</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">poly_basis</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">M</span><span class="p">),</span> <span class="n">theta</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Modelo apredido&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2_linear_regression_20_0.png" src="../../../_images/2_linear_regression_20_0.png" />
+</div>
+</div>
+<p>Del ejemplo podemos ver que cuando el modelo se sobreajusta pierde capacidad de generalización</p>
+<p><strong>Generalización:</strong> Capacidad de predecir adecuadamente los datos que no se usan en el ajuste</p>
+<p>Los siguientes mecanísmos se pueden usar para evitar el sobreajuste y mejorar la capacidad de generalización</p>
+<ul class="simple">
+<li><p>Validación: Escoger la complejidad mediante pruebas de validación</p></li>
+<li><p>Regularización: Penalizar la complejidad de forma adicional</p></li>
+</ul>
+<p>Se revisará en detalle la primera opción</p>
+<div class="section" id="validacion">
+<h3><span class="section-number">2.5.1. </span>Validación<a class="headerlink" href="#validacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Consiste en dividir el conjunto de datos en tres subconjuntos</p>
+<ol class="simple">
+<li><p>Entrenamiento: Datos que se ocupan para <strong>ajustar el modelo</strong></p></li>
+<li><p>Validación: Datos que se ocupan para <strong>calibrar el modelo</strong></p></li>
+<li><p>Prueba: Datos que se ocupan para <strong>comparar distintos modelos</strong></p></li>
+</ol>
+<p>La forma más simple de crear estos subconjuntos es <strong>particionar aleatoriamente</strong> la base de datos original. El objetivo de este particionamiento es que cada subconjunto sea <strong>representativo</strong> de la base de datos original.</p>
+<p>Para evaluar la calidad de nuestro modelo medimos el error en cada uno de estos conjuntos</p>
+<ol class="simple">
+<li><p>El ajuste de los parámetros se realiza minimizando el <strong>error de entrenamiento</strong></p></li>
+<li><p>Calibrar el modelo, es decir seleccionar los mejores hiperparámetros del modelo, se realiza minimizando el <strong>error de validación</strong>. En el caso particular de la regresión polinomial el hiperparámetro que debemos calibrar es el grado del polinomio.</p></li>
+<li><p>La capacidad de generalización del modelo final se mide usando el <strong>error de prueba</strong></p></li>
+</ol>
+<p>Usando este esquema podemos detectar facilmente un modelo sobreajustado ya que presentará un buen desempeño en entrenamiento pero un desempeño deficiente en validación</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">2.5.2. </span>Ejercicio práctico<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Considere los siguientes datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y_clean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> 
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_clean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">poly_basis</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">M</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="o">**</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Considere el modelo de regresión polinomial</p>
+<ul class="simple">
+<li><p>Separé los datos (x,y) aleatoriamente para crear conjuntos de entrenamiento y validación</p>
+<ul>
+<li><p>Puede usar <code class="docutils literal notranslate"><span class="pre">np.random.permutation</span></code></p></li>
+</ul>
+</li>
+<li><p>Entrene con el conjunto de entrenamiento</p></li>
+<li><p>Encuentre el grado de polinomio que mejor ajusta los datos en validación según el error cuadrático medio:
+$<span class="math notranslate nohighlight">\(
+\text{MSE} = \frac{1}{N} \sum_{i=1}^N e_i^2
+\)</span>$</p></li>
+</ul>
+<p>donde <span class="math notranslate nohighlight">\(e_i = y_i - f_\theta(x_i)\)</span></p>
+<p><strong>Solución paso a paso con comentarios</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;Ydl2g6w3Wog&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/Ydl2g6w3Wog?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="extra-regularizacion">
+<h3><span class="section-number">2.5.3. </span>(Extra) Regularización<a class="headerlink" href="#extra-regularizacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Consiste en agregar una penalización adicional al problema</p>
+<p>El ejemplo clásico es agregar que la solución tenga norma mínima</p>
+<div class="math notranslate nohighlight">
+\[
+\min_x \|Ax-b\|_2^2 + \lambda \|x\|_2^2
+\]</div>
+<p>En este caso la solución es</p>
+<div class="math notranslate nohighlight">
+\[
+\hat x = (A^T A + \lambda I)^{-1} A^T b
+\]</div>
+<p>que se conoce como <strong>ridge regression</strong> o <strong>regularización de Tikhonov</strong></p>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> es un hiper-parámetro del modelo y debe ser escogido por el usuario (usando validación)</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad2/1_linearalgebra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1_linear_algebra.html" title="previous page"><span class="section-number">1. </span>Algebra lineal con NumPy</a>
+    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
