@@ -331,8 +331,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#validacion">
-     2.5.1. Validación
+    <a class="reference internal nav-link" href="#introduccion-a-las-tecnicas-de-validacion-cruzada">
+     2.5.1. Introducción a las técnicas de validación cruzada
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -341,15 +341,15 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extra-regularizacion">
-     2.5.3. (Extra) Regularización
+    <a class="reference internal nav-link" href="#extra-en-que-consiste-la-regularizacion">
+     2.5.3. (Extra) ¿En qué consiste la regularización?
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#en-esta-leccion-hemos-aprendido-a">
-   2.6. En esta lección hemos aprendido a:
+  <a class="reference internal nav-link" href="#resumen-de-la-leccion">
+   2.6. Resumen de la lección
   </a>
  </li>
 </ul>
@@ -614,21 +614,25 @@ y = f_\theta (x) = \theta_0 + \theta_1 \cos(2\pi x) + \theta_2 \cos(4 \pi x) + \
 <li><p>Regularización: Penalizar la complejidad de forma adicional</p></li>
 </ul>
 <p>Se revisará en detalle la primera opción</p>
-<div class="section" id="validacion">
-<h3><span class="section-number">2.5.1. </span>Validación<a class="headerlink" href="#validacion" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Consiste en dividir el conjunto de datos en tres subconjuntos</p>
+<div class="section" id="introduccion-a-las-tecnicas-de-validacion-cruzada">
+<h3><span class="section-number">2.5.1. </span>Introducción a las técnicas de validación cruzada<a class="headerlink" href="#introduccion-a-las-tecnicas-de-validacion-cruzada" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Validación cruzada es un conjunto de técnicas donde se busca dividir el conjunto de datos en tres subconjuntos</p>
 <ol class="simple">
 <li><p>Entrenamiento: Datos que se ocupan para <strong>ajustar el modelo</strong></p></li>
 <li><p>Validación: Datos que se ocupan para <strong>calibrar el modelo</strong></p></li>
 <li><p>Prueba: Datos que se ocupan para <strong>comparar distintos modelos</strong></p></li>
 </ol>
-<p>La forma más simple de crear estos subconjuntos es <strong>particionar aleatoriamente</strong> la base de datos original. El objetivo de este particionamiento es que cada subconjunto sea <strong>representativo</strong> de la base de datos original.</p>
-<p>Para evaluar la calidad de nuestro modelo medimos el error en cada uno de estos conjuntos</p>
+<p>La forma más simple de crear estos subconjuntos es permutar aleatoriamente los índices de los elementos y dividir los índices en distintas proporciones. Tipicamente se usa una proporción 60/20/20 o 80/10/10 dependiendo del tamaño de la base de datos original. Este tipo de validación cruzada se llama <strong>hold-out</strong>.</p>
+<a class="reference internal image-reference" href="../../../_images/validation1.png"><img alt="../../../_images/validation1.png" src="../../../_images/validation1.png" style="width: 700px;" /></a>
+<p>El permutar produce un particionamiento aleatorio que busca que cada subconjunto sea <strong>representativo</strong> de la base de datos original. Más adelante veremos técnicas de validación cruzada más sofisticadas.</p>
+<p>Para evaluar la calidad de nuestro modelo medimos el error en cada uno de estos subconjuntos</p>
 <ol class="simple">
 <li><p>El ajuste de los parámetros se realiza minimizando el <strong>error de entrenamiento</strong></p></li>
 <li><p>Calibrar el modelo, es decir seleccionar los mejores hiperparámetros del modelo, se realiza minimizando el <strong>error de validación</strong>. En el caso particular de la regresión polinomial el hiperparámetro que debemos calibrar es el grado del polinomio.</p></li>
 <li><p>La capacidad de generalización del modelo final se mide usando el <strong>error de prueba</strong></p></li>
 </ol>
+<p>La siguiente figura muestra un esquema iterativo de validación</p>
+<a class="reference internal image-reference" href="../../../_images/validation2.png"><img alt="../../../_images/validation2.png" src="../../../_images/validation2.png" style="width: 700px;" /></a>
 <p>Usando este esquema podemos detectar facilmente un modelo sobreajustado ya que presentará un buen desempeño en entrenamiento pero un desempeño deficiente en validación</p>
 </div>
 <div class="section" id="id2">
@@ -648,17 +652,14 @@ y = f_\theta (x) = \theta_0 + \theta_1 \cos(2\pi x) + \theta_2 \cos(4 \pi x) + \
 </div>
 <p>Considere el modelo de regresión polinomial</p>
 <ul class="simple">
-<li><p>Separé los datos (x,y) aleatoriamente para crear conjuntos de entrenamiento y validación</p>
-<ul>
-<li><p>Puede usar <code class="docutils literal notranslate"><span class="pre">np.random.permutation</span></code></p></li>
-</ul>
-</li>
+<li><p>Separé los datos <span class="math notranslate nohighlight">\((x,y)\)</span> aleatoriamente para crear conjuntos de entrenamiento y validación. Se recomienda usar la función <code class="docutils literal notranslate"><span class="pre">np.random.permutation</span></code></p></li>
 <li><p>Entrene con el conjunto de entrenamiento</p></li>
-<li><p>Encuentre el grado de polinomio que mejor ajusta los datos en validación según el error cuadrático medio:
-$<span class="math notranslate nohighlight">\(
-\text{MSE} = \frac{1}{N} \sum_{i=1}^N e_i^2
-\)</span>$</p></li>
+<li><p>Encuentre el grado de polinomio que mejor ajusta los datos del conjunto de validación en base al error cuadrático medio:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+\text{MSE} = \frac{1}{N} \sum_{i=1}^N e_i^2
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(e_i = y_i - f_\theta(x_i)\)</span></p>
 <p><strong>Solución paso a paso con comentarios</strong></p>
 <div class="cell docutils container">
@@ -679,8 +680,8 @@ $<span class="math notranslate nohighlight">\(
 </div></div>
 </div>
 </div>
-<div class="section" id="extra-regularizacion">
-<h3><span class="section-number">2.5.3. </span>(Extra) Regularización<a class="headerlink" href="#extra-regularizacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="extra-en-que-consiste-la-regularizacion">
+<h3><span class="section-number">2.5.3. </span>(Extra) ¿En qué consiste la regularización?<a class="headerlink" href="#extra-en-que-consiste-la-regularizacion" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consiste en agregar una penalización adicional al problema</p>
 <p>El ejemplo clásico es agregar que la solución tenga norma mínima</p>
 <div class="math notranslate nohighlight">
@@ -696,8 +697,9 @@ $<span class="math notranslate nohighlight">\(
 <p><span class="math notranslate nohighlight">\(\lambda\)</span> es un hiper-parámetro del modelo y debe ser escogido por el usuario (usando validación)</p>
 </div>
 </div>
-<div class="section" id="en-esta-leccion-hemos-aprendido-a">
-<h2><span class="section-number">2.6. </span>En esta lección hemos aprendido a:<a class="headerlink" href="#en-esta-leccion-hemos-aprendido-a" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="resumen-de-la-leccion">
+<h2><span class="section-number">2.6. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En esta lección hemos aprendido a:</p>
 <ul class="simple">
 <li><p>Resolver la regresión lineal multivariada</p></li>
 <li><p>Generalizar la regresión lineal con funciones base (polinomios)</p></li>
