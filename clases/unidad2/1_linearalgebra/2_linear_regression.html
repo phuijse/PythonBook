@@ -347,6 +347,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#en-esta-leccion-hemos-aprendido-a">
+   2.6. En esta lección hemos aprendido a:
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -373,6 +378,7 @@
 </div>
 </div>
 </div>
+<p>=(unit2-linear-2)</p>
 <div class="section" id="regresion-lineal-sobreajuste-y-validacion">
 <h1><span class="section-number">2. </span>Regresión lineal, Sobreajuste y Validación<a class="headerlink" href="#regresion-lineal-sobreajuste-y-validacion" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion">
@@ -407,7 +413,7 @@ f_\theta(x) &amp;= \langle x, \theta \rangle \nonumber \\
 <li><p>Cada tupla o ejemplo aporta una ecuación al sistema</p></li>
 <li><p>Cada parámetro aporta una incognita al sistema</p></li>
 </ul>
-<p>A continuación generalizaremos algunos conceptos vistos en <span class="xref std std-doc">../1_linear_algebra</span></p>
+<p>A continuación generalizaremos algunos conceptos vistos en <a class="reference internal" href="1_linear_algebra.html#unit2-linear-1"><span class="std std-ref">Algebra lineal con NumPy</span></a></p>
 </div>
 <div class="section" id="regresion-lineal-multivariada">
 <h2><span class="section-number">2.2. </span>Regresión lineal multivariada<a class="headerlink" href="#regresion-lineal-multivariada" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -462,26 +468,28 @@ f_\theta(\vec x) &amp;= \theta_0  + \theta_1 x_1 + \theta_2 x_2 + \ldots \theta_
 </div>
 <div class="section" id="modelos-lineales-en-sus-parametros-pero-no-en-sus-entradas">
 <h2><span class="section-number">2.3. </span>Modelos lineales en sus parámetros pero no en sus entradas<a class="headerlink" href="#modelos-lineales-en-sus-parametros-pero-no-en-sus-entradas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Una regresión lineal puede considerar transformaciones “no lineales” sobre la entrada <span class="math notranslate nohighlight">\(x\)</span></p>
-<p>Llamaremos función base <span class="math notranslate nohighlight">\(\phi_j(\cdot)\)</span> a estas transformaciones. Luego el modelo más general de regresión lineal en sus parámetros es</p>
+<p>Una regresión lineal puede considerar transformaciones “no lineales” sobre la entrada <span class="math notranslate nohighlight">\(x\)</span>. Llamaremos función base <span class="math notranslate nohighlight">\(\phi_j(\cdot)\)</span> a estas transformaciones.</p>
+<p>Luego el modelo más general de regresión lineal en sus parámetros es</p>
 <div class="math notranslate nohighlight">
 \[
 y = f_\theta (x) = \sum_{j=0}^N \theta_j \phi_j (x)
 \]</div>
+<p>El modelo sigue siendo lineal en sus parámetros. Por ende lo podemos ajustarnos con las mismas herramientas que vimos anteriormente. La ventaja de usar funciones base es que el modelo es más flexible, es decir que podemos modelar comportamientos más diversos en los datos.</p>
+<p>Veamos algunos ejemplos concretos de regresión lineal con funciones base</p>
 <p><strong>Ejemplo 1: Regresión polinomial</strong></p>
-<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = x^j\)</span></p>
+<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = x^j\)</span> tendríamos</p>
 <div class="math notranslate nohighlight">
 \[
-y = f_\theta (x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \ldots
+y = f_\theta (x) = \theta_0 + \theta_1 x + \theta_2 x^2 + \ldots,
 \]</div>
-<p>obtenemos una regresión polinomial</p>
+<p>que nos puede servir cuando la relación entre las variables es cuadrática, cúbica o de orden superior</p>
 <p><strong>Ejemplo 2: Regresión trigonométrica</strong></p>
-<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = \cos(2\pi j x)\)</span></p>
+<p>Si usamos <span class="math notranslate nohighlight">\(\phi_j(x) = \cos(2\pi j x)\)</span> tendríamos</p>
 <div class="math notranslate nohighlight">
 \[
-y = f_\theta (x) = \theta_0 + \theta_1 \cos(2\pi x) + \theta_2 \cos(4 \pi x) + \ldots
+y = f_\theta (x) = \theta_0 + \theta_1 \cos(2\pi x) + \theta_2 \cos(4 \pi x) + \ldots,
 \]</div>
-<p>obtenemos una regresión trigonométrica</p>
+<p>que nos puede servir si queremos modelar funciones periódicas pares. Si usamos seno en lugar de coseno podríamos modelar funciones periódicas impares. Si usamos una combinación de seno y coseno podríamos modelar cualquier función periódica (serie de Fourier)</p>
 <div class="section" id="id1">
 <h3><span class="section-number">2.3.1. </span>Ejercicio práctico<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Considere los siguientes datos:</p>
@@ -687,6 +695,14 @@ $<span class="math notranslate nohighlight">\(
 <p>que se conoce como <strong>ridge regression</strong> o <strong>regularización de Tikhonov</strong></p>
 <p><span class="math notranslate nohighlight">\(\lambda\)</span> es un hiper-parámetro del modelo y debe ser escogido por el usuario (usando validación)</p>
 </div>
+</div>
+<div class="section" id="en-esta-leccion-hemos-aprendido-a">
+<h2><span class="section-number">2.6. </span>En esta lección hemos aprendido a:<a class="headerlink" href="#en-esta-leccion-hemos-aprendido-a" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>Resolver la regresión lineal multivariada</p></li>
+<li><p>Generalizar la regresión lineal con funciones base (polinomios)</p></li>
+<li><p>Calibrar nuestros modelos usando técnicas de validación</p></li>
+</ul>
 </div>
 </div>
 

@@ -293,8 +293,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-algebra-lineal">
-   1.2. ¿Qué es álgebra lineal?
+  <a class="reference internal nav-link" href="#que-es-el-algebra-lineal">
+   1.2. ¿Qué es el álgebra lineal?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -378,7 +378,7 @@
 </div>
 </div>
 <div class="section" id="algebra-lineal-con-numpy">
-<h1><span class="section-number">1. </span>Algebra lineal con NumPy<a class="headerlink" href="#algebra-lineal-con-numpy" title="Enlazar permanentemente con este título">¶</a></h1>
+<span id="unit2-linear-1"></span><h1><span class="section-number">1. </span>Algebra lineal con NumPy<a class="headerlink" href="#algebra-lineal-con-numpy" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion-bases-de-datos-como-matrices">
 <h2><span class="section-number">1.1. </span>Introducción: Bases de datos como Matrices<a class="headerlink" href="#introduccion-bases-de-datos-como-matrices" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una base de datos es una tabla donde cada fila corresponde a una medición/sujeto/evento y cada columna a un atributo</p>
@@ -458,43 +458,42 @@
 </table>
 </div></div></div>
 </div>
-<ul class="simple">
-<li><p>Cada medición es un vector de cuatro componentes</p></li>
-<li><p>Podemos representar la base de datos como una matriz <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{30 \times 4}\)</span></p></li>
-<li><p>Con esta interpretación de matriz podemos usar las <strong>herramientas de algebra lineal</strong> para analizar estos datos</p></li>
-</ul>
+<p>De la tabla podemos apreciar que cada medición es un vector de cuatro componentes. Es decir que podemos representar la base de datos como una matriz <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{30 \times 4}\)</span></p>
+<p>Con esta interpretación de matriz podemos usar las <strong>herramientas de algebra lineal</strong> para analizar estos datos</p>
 </div>
-<div class="section" id="que-es-algebra-lineal">
-<h2><span class="section-number">1.2. </span>¿Qué es álgebra lineal?<a class="headerlink" href="#que-es-algebra-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="que-es-el-algebra-lineal">
+<h2><span class="section-number">1.2. </span>¿Qué es el álgebra lineal?<a class="headerlink" href="#que-es-el-algebra-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es la rama de las matemáticas que analiza los sistemas de ecuaciones lineales de tipo</p>
 <div class="math notranslate nohighlight">
 \[
 Ax = b
 \]</div>
-<p>Es decir donde las incognitas <span class="math notranslate nohighlight">\(x\)</span> se relacionan entre si usando sólo <strong>adición</strong> y <strong>escalamiento (multiplicación por constante)</strong></p>
-<p>Usando herramientas de álgebra lineal podemos</p>
-<ul class="simple">
-<li><p>Medir que tan similares o distintos son dos ejemplos: <strong>Distancia vectorial</strong>
-$<span class="math notranslate nohighlight">\(
-d = \|\vec z - \vec y \|
-\)</span>$</p></li>
-<li><p>Comprimir nuestra base de datos: <strong>Factorización de matrices</strong>
-$<span class="math notranslate nohighlight">\(
+<p>Es decir donde las incognitas <span class="math notranslate nohighlight">\(x\)</span> se relacionan entre si usando sólo <strong>adiciones</strong> y <strong>multiplicaciones</strong></p>
+<p>Si nuestro ejemplos son vectores y nuestra base de datos es una matriz podemos usar herramientas de álgebra lineal para</p>
+<p><strong>1</strong> Medir que tan similares (o distintos) son dos ejemplos: <strong>Distancia vectorial</strong></p>
+<div class="math notranslate nohighlight">
+\[
+d_{ij} = \|\vec z_i - \vec z_j \|
+\]</div>
+<p><strong>2</strong> Comprimir nuestra base de datos: <strong>Factorización de matrices</strong></p>
+<div class="math notranslate nohighlight">
+\[
 A = L D L^T
-\)</span>$</p></li>
-<li><p>Predecir un atributo en función de otros: <strong>Regresión lineal</strong>
-$<span class="math notranslate nohighlight">\(
-y = m x + b = \begin{pmatrix} 1 &amp; x \end{pmatrix} \begin{pmatrix} b \\ m \end{pmatrix}
-\)</span>$</p></li>
-</ul>
+\]</div>
+<p><strong>3</strong> Predecir un atributo en función de otros: <strong>Regresión lineal</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_i = m x_i + b = \begin{pmatrix} 1 &amp; x_i \end{pmatrix} \begin{pmatrix} b \\ m \end{pmatrix} \quad \forall i
+\end{split}\]</div>
+<p>En la presente y siguiente lección nos enfocaremos en la regresión lineal como un caso particular de solución de un sistema de ecuaciones lineales</p>
 </div>
 <div class="section" id="sistemas-de-ecuaciones-lineales">
 <h2><span class="section-number">1.3. </span>Sistemas de ecuaciones lineales<a class="headerlink" href="#sistemas-de-ecuaciones-lineales" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Respecto al ejemplo anterior, la siguiente es una pregunta interesante</p>
+<p>Respecto al ejemplo de los helados, la siguiente es una pregunta interesante</p>
 <blockquote>
 <div><p>¿Es posible predecir el consumo de helados en función del ingreso, la temperatura y el precio?</p>
 </div></blockquote>
-<p>Para responder esta pregunta debemos primero proponer un <strong>modelo matemático</strong> de la forma</p>
+<p>Para responder esta pregunta podríamos proponer y estudiar un <strong>modelo matemático</strong> de la forma</p>
 <div class="math notranslate nohighlight">
 \[
 f(\text{ingreso}, \text{temperatura}, \text{precio}) \rightarrow \text{consumo}
@@ -524,7 +523,7 @@ a_{N1} x_{1} + a_{N2} x_{2} + \ldots + a_{NM} x_M &amp;= b_N  \nonumber \\
 \[
 A x = b
 \]</div>
-<p>El álgebra lineal nos da herramientas para resolver este sistema. Las soluciones dependen de las características del sistema en particular. Veremos tres casos, de los cuales son revisados en detalle en esta página y un tercero se revisará en la página siguiente.</p>
+<p>El álgebra lineal nos da herramientas para resolver este sistema. Las soluciones dependen de las características del sistema en particular. Veremos tres casos, de los cuales dos son revisados en detalle en esta lección y un tercero se revisará en la lección <span class="xref std std-ref">unit2-linear-2</span></p>
 <div class="section" id="sistema-de-ecuaciones-cuadrado-caso-n-m">
 <h3><span class="section-number">1.3.1. </span>Sistema de ecuaciones cuadrado (Caso <span class="math notranslate nohighlight">\(N=M\)</span>)<a class="headerlink" href="#sistema-de-ecuaciones-cuadrado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este es un caso particular donde la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene igual número de filas y columnas</p>
@@ -624,10 +623,10 @@ x &amp;= A^{-1} b \nonumber
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>663 ms ± 22.7 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>697 ms ± 43 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>173 ms ± 1.21 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203 ms ± 13.3 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
 </pre></div>
 </div>
 </div>
