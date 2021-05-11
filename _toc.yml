@@ -17,7 +17,7 @@
     - file: clases/unidad2/1_linearalgebra/1_linear_algebra
     - file: clases/unidad2/1_linearalgebra/2_linear_regression
 #    - file: clases/unidad2/1_algebra_lineal/3_valores_propios
-#    - file: clases/unidad2/2_calculo/1_optimización
+    - file: clases/unidad2/2_calculus/1_optimization
 #    - file: clases/unidad2/2_calculo/1_ode_integración
 #    - file: clases/unidad2/3_estadística/1_fundamentos
 #    - file: clases/unidad2/3_estadística/2_estadística_descriptiva
