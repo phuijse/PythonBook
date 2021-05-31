@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>6. Inferencia estadística &#8212; INFO147 Computación científica con Python</title>
+    <title>6. Estadística inferencial &#8212; INFO147 Computación científica con Python</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -174,7 +174,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   6. Inferencia estadística
+   6. Estadística inferencial
   </a>
  </li>
 </ul>
@@ -467,8 +467,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="inferencia-estadistica">
-<h1><span class="section-number">6. </span>Inferencia estadística<a class="headerlink" href="#inferencia-estadistica" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="estadistica-inferencial">
+<h1><span class="section-number">6. </span>Estadística inferencial<a class="headerlink" href="#estadistica-inferencial" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>La inferencia busca</p>
 <blockquote>
 <div><p>Extraer <strong>conclusiones</strong> a partir de <strong>hechos u observaciones</strong> a través de un <strong>método o premisa</strong></p>
@@ -600,17 +600,17 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 <li><p>multivariadas</p></li>
 </ul>
 <p>Las distribuciones comparten muchos de sus métodos, a continuación revisaremos los más importantes. A modo de ejemplo consideremos la distribución Gaussiana (Normal)</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">()</span> <span class="c1"># Esto crea una Gaussiana con media 0 y desviación estándar (std) 1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Esto crea una Gaussiana con media 2 y std 2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">()</span> <span class="c1"># Esto crea una Gaussiana con media 0 y desviación estándar (std) 1</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Esto crea una Gaussiana con media 2 y std 2</span>
 </pre></div>
 </div>
 <p><strong>Crear una muestra aleatoria con <code class="docutils literal notranslate"><span class="pre">rvs</span></code></strong></p>
 <p>Luego de crear un objeto distribución podemos obtener una muestra aleatoria usando el método el atributo <code class="docutils literal notranslate"><span class="pre">rvs</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># Cantidad de números aleatorios generados</span>
-<span class="go">             random_state=None #Semilla aleatoria</span>
-<span class="go">            )</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># Cantidad de números aleatorios generados</span>
+         <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span> <span class="c1">#Semilla aleatoria</span>
+        <span class="p">)</span>
 </pre></div>
 </div>
 <p>Esto retorna un arreglo de 10 números generados aleatoriamente a partir de <code class="docutils literal notranslate"><span class="pre">dist</span></code></p>
@@ -621,27 +621,27 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp \left( -\frac{1}{2\sigma^2} (x-\mu)^2 \right) 
 \]</div>
 <p>La densidad de un objeto distribución continuo puede obtenerse con el método <code class="docutils literal notranslate"><span class="pre">pdf</span></code> el cual es función de <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span> <span class="c1"># Un ndrray que representa x en la ecuación superior</span>
-<span class="go">                )</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># Luego podemos graficar la fdp</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span> <span class="c1"># Un ndrray que representa x en la ecuación superior</span>
+            <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># Luego podemos graficar la fdp</span>
 </pre></div>
 </div>
 <p>De forma equivalente, si deseamos la función de densidad acumulada usamos el método <code class="docutils literal notranslate"><span class="pre">cdf</span></code></p>
 <p>Para objetos distribución discretos debemos usar el atributo <code class="docutils literal notranslate"><span class="pre">pmf</span></code></p>
 <p><strong>Ajustar los parámetros con MLE</strong></p>
 <p>Para hacer el ajuste se usa el método <code class="docutils literal notranslate"><span class="pre">fit</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span> <span class="c1"># Un ndarray con los datos</span>
-<span class="go">                     ) </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span> <span class="c1"># Un ndarray con los datos</span>
+                 <span class="p">)</span> 
 </pre></div>
 </div>
 <p>En el caso de la Gaussiana el vector <code class="docutils literal notranslate"><span class="pre">params</span></code> tiene dos componentes <code class="docutils literal notranslate"><span class="pre">loc</span></code> y <code class="docutils literal notranslate"><span class="pre">scale</span></code>. La cantidad de parámetros depende de la distribución que estemos ajustando. También es importante notar que para ajustar se usa <code class="docutils literal notranslate"><span class="pre">norm</span></code> (clase abstracta) y no <code class="docutils literal notranslate"><span class="pre">norm()</span></code> (instancia)</p>
 <p>Una vez que tenemos los parámetros ajustados podemos usarlos con</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Para distribuciones que tienen más de dos parámetros podemos usar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -690,7 +690,7 @@ z = \frac{x - \mu_x}{\sigma_x}
 \]</div>
 <p>es decir los datos estándarizados tienen media cero y desviación estándar uno</p>
 <p>Esto puede hacerse fácilmente con NumPy usando</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="test-de-ks-con-scipy">
@@ -984,7 +984,7 @@ r^2 = 1 - \frac{\sum_i ( y_i - \hat y_i)^2}{\sum_i ( y_i - \bar y)^2} = 1 - \fra
 <p>En general un <span class="math notranslate nohighlight">\(r&gt;0.5\)</span> se considera una correlación importante</p>
 <p><strong>Calculando <span class="math notranslate nohighlight">\(r\)</span> con y los parámetros de la regresión lineal</strong></p>
 <p>Podemos usar el atributo de dataframe</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Que retorna la matriz de correlaciones lineales</p>
@@ -1239,7 +1239,7 @@ temperatura: 	 p-value:0.0000 	 ¿Menor que 0.05?: True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intervalo de confianza al 95% de r: [0.64620589 0.87391478]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intervalo de confianza al 95% de r: [0.6486985  0.87412114]
 </pre></div>
 </div>
 <img alt="../../../_images/stats3_41_1.png" src="../../../_images/stats3_41_1.png" />
