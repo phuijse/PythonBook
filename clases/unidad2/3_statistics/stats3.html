@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Inferencia estadística &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="prev" title="5. Estadística descriptiva" href="stats2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/04_jupyter_y_ipython.html">
+   3. Jupyter y IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/05_numpy.html">
+   4. Arreglos y operaciones vectoriales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/06_matplotlib.html">
+   5. Visualización de datos usando Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/07_pandas_b%C3%A1sico.html">
+   6. Procesamiento de datos con
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/08_pandas_avanzado.html">
+   7. Exploración y manipulación de datos con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación científica
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_linearalgebra/1_linear_algebra.html">
+   1. Algebra lineal con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_linearalgebra/2_linear_regression.html">
+   2. Regresión lineal, Sobreajuste y Validación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_calculus/optimization.html">
+   3. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats1.html">
+   4. Estadística: Fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats2.html">
+   5. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Inferencia estadística
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
+   2. Control de versiones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
+   3. Pandas: Tópicos extra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
+   4. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/11_ipython_display.html">
+   5. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/clases/unidad2/3_statistics/stats3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad2/3_statistics/stats3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ajuste-de-modelos-estimacion-de-maxima-verosimilitud">
+   6.1. Ajuste de modelos: Estimación de máxima verosimilitud
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-distribucion-ajustar">
+     6.1.1. ¿Qué distribución ajustar?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-ajustar-mi-modelo-estimacion-de-maxima-verosimilitud">
+     6.1.2. ¿Cómo ajustar mi modelo? Estimación de máxima verosimilitud
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimacion-mle-con-scipy">
+     6.1.3. Estimación MLE con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     6.1.4. Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificacion-de-modelos-tests-de-bondad-de-ajuste">
+   6.2. Verificación de modelos: Tests de bondad de ajuste
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-ks-con-scipy">
+     6.2.1. Test de KS con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     6.2.2. Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responder-preguntas-con-nuestro-modelo-test-de-hipotesis">
+   6.3. Responder preguntas con nuestro modelo: Test de hipótesis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-general-de-un-test-de-hipotesis">
+     6.3.1. Algoritmo general de un test de hipótesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-primer-test-de-hipotesis-el-t-test-de-una-muestra">
+     6.3.2. Un primer test de hipótesis: El t-test de una muestra
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aplicacion-de-t-test-para-probar-que-la-regresion-es-significativa">
+     6.3.3. Aplicación de t-test para probar que la regresión es significativa
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-formativo-regresion-lineal">
+   6.4. Ejercicio formativo: Regresión lineal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretacion-probabilistica-y-mle-de-la-regresion-lineal">
+     6.4.1. Interpretación probabilística y MLE de la regresión lineal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coeficiente-de-correlacion-de-pearson">
+     6.4.2. Coeficiente de correlación de Pearson
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-de-hipotesis-y-conclusiones">
+     6.4.3. Test de hipótesis y conclusiones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reflexion-final">
+     6.4.4. Reflexión final
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prueba-no-parametrica-bootstrap">
+   6.5. Prueba no-paramétrica:
+   <em>
+    Bootstrap
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementacion-con-numpy-y-scipy">
+     6.5.1. Implementación con Numpy y Scipy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intervalos-de-confianza-empiricos">
+     6.5.2. Intervalos de confianza empíricos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizando-la-incerteza-del-modelo">
+     6.5.3. Visualizando la incerteza del modelo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YouTubeVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disablekb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                               <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">autoplay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">showinfo</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inferencia-estadistica">
+<h1><span class="section-number">6. </span>Inferencia estadística<a class="headerlink" href="#inferencia-estadistica" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La inferencia busca</p>
+<blockquote>
+<div><p>Extraer <strong>conclusiones</strong> a partir de <strong>hechos u observaciones</strong> a través de un <strong>método o premisa</strong></p>
+</div></blockquote>
+<p>En el caso particular de la <strong>inferencia estadística</strong> podemos realizar las siguientes asociaciones</p>
+<ul class="simple">
+<li><p>Hechos: Datos</p></li>
+<li><p>Premisa: Modelo probabilístico</p></li>
+<li><p>Conclusión: Una cantidad no observada que es interesante</p></li>
+</ul>
+<p>Y lo que buscamos es</p>
+<blockquote>
+<div><p>Cuantificar la incerteza de la conclusión dado los datos y el modelo</p>
+</div></blockquote>
+<p>La inferencia estadística puede dividirse en los siguientes tres niveles</p>
+<ol class="simple">
+<li><p>Ajustar un modelo a nuestros datos</p></li>
+<li><p>Verificar que el modelo sea confiable</p></li>
+<li><p>Responder una pregunta usando el modelo</p></li>
+</ol>
+<p>En esta lección estudiaremos las herramientas más utilizadas asociadas a cada uno de estos niveles</p>
+<ol class="simple">
+<li><p><strong>Estimador de máxima verosimilitud</strong></p></li>
+<li><p><strong>Bondad de ajuste</strong> e <strong>Intervalos de confianza</strong></p></li>
+<li><p><strong>Test de hipótesis</strong></p></li>
+</ol>
+<div class="section" id="ajuste-de-modelos-estimacion-de-maxima-verosimilitud">
+<h2><span class="section-number">6.1. </span>Ajuste de modelos: Estimación de máxima verosimilitud<a class="headerlink" href="#ajuste-de-modelos-estimacion-de-maxima-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este nivel de inferencia se busca <strong>ajustar</strong> un modelo teórico sobre nuestros datos. En esta lección nos enfocaremos en <strong>modelos de tipo parámetrico</strong>. Un modelo parámetrico es aquel donde <strong>se explicita una distribución de probabilidad</strong>.</p>
+<p>Recordemos que una distribución tiene <strong>parámetros</strong>. Por ejemplo la distribución Gaussiana (univariada) se describe por su media <span class="math notranslate nohighlight">\(\mu\)</span> y su varianza <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Luego ajustar una distribución Gaussiana corresponde a encontrar el valor de <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span> que hace que el modelo se parezca lo más posible a la distribución empírica de los datos.</p>
+<p>A continuación veremos los pasos necesarios para ajustar una distribución a nuestros datos</p>
+<div class="section" id="que-distribucion-ajustar">
+<h3><span class="section-number">6.1.1. </span>¿Qué distribución ajustar?<a class="headerlink" href="#que-distribucion-ajustar" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Antes de ajustar debemos realizar un supuesto sobre la distribución para nuestro modelo. En general podemos ajustar cualquier distribución pero un mal supuesto podría invalidar nuestra inferencia</p>
+<p>Podemos usar las herramientas de <strong>estadística descriptiva</strong> para estudiar nuestros datos y tomar esta decisión de manera informada</p>
+<p>En el siguiente ejemplo, un histograma de los datos revela que un modelo gaussiano no es una buena decisión</p>
+<img alt="../../../_images/stats6.png" src="../../../_images/stats6.png" />
+<p>¿Por qué? La distribución empírica es claramente asimétrica, su cola derecha es más pesada que su cola izquierda. La distribución Gaussiana es simétrica por lo tanto no es apropiada en este caso ¿Qué distribución podría ser más apropiada?</p>
+</div>
+<div class="section" id="como-ajustar-mi-modelo-estimacion-de-maxima-verosimilitud">
+<h3><span class="section-number">6.1.2. </span>¿Cómo ajustar mi modelo? Estimación de máxima verosimilitud<a class="headerlink" href="#como-ajustar-mi-modelo-estimacion-de-maxima-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>A continuación describiremos un procedimiento para ajustar modelos paramétricos llamado <em>maximum likelihood estimation</em> (MLE)</p>
+<p>Sea un conjunto de datos <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span></p>
+<p><strong>Supuesto 1</strong> Los datos siguen el modelo <span class="math notranslate nohighlight">\(f(x;\theta)\)</span> donde <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es una distribución y <span class="math notranslate nohighlight">\(\theta\)</span> son sus parámetros</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_1, x_2, \ldots, x_N |\theta)
+\]</div>
+<p><strong>Supuesto 2</strong> Las observaciones son independientes e idénticamente distribuidas (iid)</p>
+<ul class="simple">
+<li><p>Si dos variables son independientes se cumple que <span class="math notranslate nohighlight">\(P(x, y) = P(x)P(y)\)</span></p></li>
+<li><p>Si son además idénticamente distribuidas entonces tienen <strong>la misma distribución y parámetros</strong></p></li>
+</ul>
+<p>Usando esto podemos escribir</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x_1, x_2, \ldots, x_N |\theta) &amp;= f(x_1|\theta) f(x_2|\theta) \ldots f(x_N|\theta) \nonumber \\
+&amp; = \prod_{i=1}^N f(x_i|\theta) \nonumber \\
+&amp; = \mathcal{L}(\theta)
+\end{align}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span> se conoce como la verosimilitud o probabilidad inversa de <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Si consideramos que los datos son fijos podemos buscar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> de máxima verosimilitud</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat \theta &amp;= \text{arg} \max_\theta \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta \log \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta \sum_{i=1}^N \log f(x_i|\theta) 
+\end{align}
+\end{split}\]</div>
+<p>El segundo paso es valido por que el máximo de <span class="math notranslate nohighlight">\(g(x)\)</span> y <span class="math notranslate nohighlight">\(\log(g(x))\)</span> es el mismo. El logaritmo es monoticamente creciente. Además aplicar el logaritmo es muy conveniente ya que convierte la multiplicatoria en una sumatoria.</p>
+<p>Ahora sólo falta encontrar el máximo. Podemos hacerlo</p>
+<ul class="simple">
+<li><p>Analíticamente, derivando con respecto a <span class="math notranslate nohighlight">\(\theta\)</span> e igualando a cero</p></li>
+<li><p>Usando técnicas de optimización iterativas como gradiente descedente</p></li>
+</ul>
+<p><strong>Ejemplo:</strong> La pesa defectuosa</p>
+<a class="reference internal image-reference" href="../../../_images/garfield.png"><img alt="../../../_images/garfield.png" src="../../../_images/garfield.png" style="width: 250px;" /></a>
+<p>Su profesor quiere medir su peso pero sospecha que su pesa está defectuosa. Para comprobarlo mide su peso <span class="math notranslate nohighlight">\(N\)</span> veces obteniendo un conjunto de observaciones <span class="math notranslate nohighlight">\(\{x_i\}\)</span>. ¿Es posible obtener un estimador del peso real <span class="math notranslate nohighlight">\(\hat x\)</span> a partir de estas observaciones?</p>
+<p>Modelaremos las observaciones como</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = \hat x + \varepsilon_i
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> corresponde al ruido o error del instrumento y asumiremos que <span class="math notranslate nohighlight">\(\varepsilon_i \sim \mathcal{N}(0, \sigma_\varepsilon^2)\)</span>, es decir que el ruido es <strong>independiente</strong> y <strong>Gaussiano</strong> con media cero y <strong>varianza</strong> <span class="math notranslate nohighlight">\(\sigma_\varepsilon^2\)</span> <strong>conocida</strong></p>
+<p>Entonces la distribución de <span class="math notranslate nohighlight">\(x_i\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
+\]</div>
+<p>Para encontrar <span class="math notranslate nohighlight">\(\hat x\)</span>, primero escribimos el logaritmo de la <strong>verosimilitud</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\log \mathcal{L}(\hat x) &amp;=  \sum_{i=1}^N \log f(x_i|\hat x) \nonumber \\
+&amp;= \sum_{i=1}^N  \log \frac{1}{\sqrt{2\pi\sigma_\varepsilon^2}}  \exp \left ( - \frac{1}{2\sigma_\varepsilon^2} (x_i - \hat x)^2 \right)  \nonumber \\
+&amp;= -\frac{N}{2}\log(2\pi\sigma_\varepsilon^2)  - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2  \nonumber
+\end{align}
+\end{split}\]</div>
+<p>Luego debemos resolver</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat \theta &amp;= \text{arg} \max_\theta \log \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2
+\end{align}
+\end{split}\]</div>
+<p>donde podemos ignorar el primer término de la verosimilitud ya que no depende de <span class="math notranslate nohighlight">\(\theta\)</span>. Para encontrar el máximo derivamos la expresión anterior e igualamos a cero</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2\sigma_\varepsilon^2} \sum_{i=1}^N 2(x_i - \hat x ) = 0.
+\]</div>
+<p>Finalmente si despejamos llegamos a que</p>
+<div class="math notranslate nohighlight">
+\[
+\hat x = \frac{1}{N} \sum_{i=1}^N x_i,
+\]</div>
+<p>que se conoce como el estimador de máxima verosimilitud <strong>para la media de una Gaussiana</strong></p>
+<p>Recordemos que podemos comprobar que es un máximo utilizando la segunda derivada</p>
+</div>
+<div class="section" id="estimacion-mle-con-scipy">
+<h3><span class="section-number">6.1.3. </span>Estimación MLE con <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#estimacion-mle-con-scipy" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Como vimos en la lección anterior el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a> provee de un gran número de distribuciones teóricas organizadas como</p>
+<ul class="simple">
+<li><p>continuas de una variable</p></li>
+<li><p>discretas de una variable</p></li>
+<li><p>multivariadas</p></li>
+</ul>
+<p>Las distribuciones comparten muchos de sus métodos, a continuación revisaremos los más importantes. A modo de ejemplo consideremos la distribución Gaussiana (Normal)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">()</span> <span class="c1"># Esto crea una Gaussiana con media 0 y desviación estándar (std) 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Esto crea una Gaussiana con media 2 y std 2</span>
+</pre></div>
+</div>
+<p><strong>Crear una muestra aleatoria con <code class="docutils literal notranslate"><span class="pre">rvs</span></code></strong></p>
+<p>Luego de crear un objeto distribución podemos obtener una muestra aleatoria usando el método el atributo <code class="docutils literal notranslate"><span class="pre">rvs</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># Cantidad de números aleatorios generados</span>
+<span class="go">             random_state=None #Semilla aleatoria</span>
+<span class="go">            )</span>
+</pre></div>
+</div>
+<p>Esto retorna un arreglo de 10 números generados aleatoriamente a partir de <code class="docutils literal notranslate"><span class="pre">dist</span></code></p>
+<p><strong>Evaluar la función de densidad de probabilidad</strong></p>
+<p>La función de densidad de la Gaussiana es</p>
+<div class="math notranslate nohighlight">
+\[
+f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp \left( -\frac{1}{2\sigma^2} (x-\mu)^2 \right) 
+\]</div>
+<p>La densidad de un objeto distribución continuo puede obtenerse con el método <code class="docutils literal notranslate"><span class="pre">pdf</span></code> el cual es función de <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span> <span class="c1"># Un ndrray que representa x en la ecuación superior</span>
+<span class="go">                )</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="c1"># Luego podemos graficar la fdp</span>
+</pre></div>
+</div>
+<p>De forma equivalente, si deseamos la función de densidad acumulada usamos el método <code class="docutils literal notranslate"><span class="pre">cdf</span></code></p>
+<p>Para objetos distribución discretos debemos usar el atributo <code class="docutils literal notranslate"><span class="pre">pmf</span></code></p>
+<p><strong>Ajustar los parámetros con MLE</strong></p>
+<p>Para hacer el ajuste se usa el método <code class="docutils literal notranslate"><span class="pre">fit</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span> <span class="c1"># Un ndarray con los datos</span>
+<span class="go">                     ) </span>
+</pre></div>
+</div>
+<p>En el caso de la Gaussiana el vector <code class="docutils literal notranslate"><span class="pre">params</span></code> tiene dos componentes <code class="docutils literal notranslate"><span class="pre">loc</span></code> y <code class="docutils literal notranslate"><span class="pre">scale</span></code>. La cantidad de parámetros depende de la distribución que estemos ajustando. También es importante notar que para ajustar se usa <code class="docutils literal notranslate"><span class="pre">norm</span></code> (clase abstracta) y no <code class="docutils literal notranslate"><span class="pre">norm()</span></code> (instancia)</p>
+<p>Una vez que tenemos los parámetros ajustados podemos usarlos con</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Para distribuciones que tienen más de dos parámetros podemos usar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio">
+<h3><span class="section-number">6.1.4. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Observe la siguiente distribución y reflexione ¿Qué características resaltan de la misma? ¿Qué distribución sería apropiado ajustar en este caso?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/cancer.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;diagnosis&quot;</span><span class="p">,</span> <span class="s2">&quot;radius1&quot;</span><span class="p">,</span> <span class="s2">&quot;texture1&quot;</span><span class="p">]]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;radius1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Radio del nucleo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/stats3_9_0.png" src="../../../_images/stats3_9_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Seleccione una distribución de <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>  ajustela a los datos</p></li>
+<li><p>Grafique la pdf teórica sobre el histograma</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="verificacion-de-modelos-tests-de-bondad-de-ajuste">
+<h2><span class="section-number">6.2. </span>Verificación de modelos: Tests de bondad de ajuste<a class="headerlink" href="#verificacion-de-modelos-tests-de-bondad-de-ajuste" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez que hemos ajustado un modelo es buena práctica verificar que tan confiable es este ajuste. Las herramientas más típicas para medir que tan bien se ajusta nuestra distribución teórica son</p>
+<ul class="simple">
+<li><p>el <a class="reference external" href="https://en.wikipedia.org/wiki/Akaike_information_criterion">test de Akaike</a></p></li>
+<li><p>los <a class="reference external" href="https://es.wikipedia.org/wiki/Gr%C3%A1fico_Q-Q">gráficos cuantil-cuantil</a> (QQ plot)</p></li>
+<li><p>el test no-paramétrico de Kolmogorov-Smirnov (KS)</p></li>
+</ul>
+<p>A continuación revisaremos el test de KS para bondad de ajuste</p>
+<p><strong>El test de Kolmogorov-Smirnov</strong></p>
+<p>Es un test no-paramétrico que compara una muestra de datos estandarizados (distribución empírica) con una distribución de densidad acumulada (CDF) teórica. Este test busca refutar la siguiente hipótesis</p>
+<blockquote>
+<div><p><strong>Hipótesis nula:</strong> Las distribuciones son idénticas</p>
+</div></blockquote>
+<p>Para aplicar el test primero debemos <strong>estandarizar</strong> los datos. Estandarizar se refiere a la transformación</p>
+<div class="math notranslate nohighlight">
+\[
+z = \frac{x - \mu_x}{\sigma_x}
+\]</div>
+<p>es decir los datos estándarizados tienen media cero y desviación estándar uno</p>
+<p>Esto puede hacerse fácilmente con NumPy usando</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="test-de-ks-con-scipy">
+<h3><span class="section-number">6.2.1. </span>Test de KS con <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#test-de-ks-con-scipy" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos realizar el test de KS con la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest</span></code></a> donde</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">rvs</span><span class="p">,</span> <span class="c1"># Una muestra de observaciones estandarizadas</span>
+                   <span class="n">cdf</span><span class="p">,</span> <span class="c1"># Una distribución acumulada teórica, por ejemplo scipy.stats.norm.cdf</span>
+                   <span class="o">...</span>
+                  <span class="p">)</span>
+</pre></div>
+</div>
+<p>Esta función retorna el valor del estadístico de KS y su <em>p-value</em> asociado. Mientras más cerca de cero sea el estadístico de KS mejor es el ajuste.</p>
+<p>Más adelante haremos un repaso de tests de hipótesis en detalle. De momento recordemos que si el <em>p-value</em> es menor que una confianza <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> entonces rechazamos la hipótesis nula con confianza <span class="math notranslate nohighlight">\(1-\alpha = 0.95\)</span> o <span class="math notranslate nohighlight">\(95\%\)</span></p>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">6.2.2. </span>Ejercicio<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Considere la muestra de datos anterior</p>
+<ul class="simple">
+<li><p>Seleccione un conjunto de distribuciones teóricas</p></li>
+<li><p>Encuentra la que tiene mejor ajuste usando <code class="docutils literal notranslate"><span class="pre">kstest</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="responder-preguntas-con-nuestro-modelo-test-de-hipotesis">
+<h2><span class="section-number">6.3. </span>Responder preguntas con nuestro modelo: Test de hipótesis<a class="headerlink" href="#responder-preguntas-con-nuestro-modelo-test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se aplica un tratamiento nuevo a una muestra de la población</p>
+<ul class="simple">
+<li><p>¿Es el tratamiento efectivo?</p></li>
+<li><p>¿Existe una diferencia entre los que tomaron el tratamiento y los que no?</p></li>
+</ul>
+<p>El test de hipótesis es un procedimiento estadístico para comprobar si el resultado de un experimento es significativo en la población</p>
+<p>Para esto formulamos dos escenarios cada uno con una hipótesis asociada</p>
+<ul class="simple">
+<li><p>Hipótesis nula (<span class="math notranslate nohighlight">\(H_0\)</span>): Por ejemplo</p>
+<ul>
+<li><p>“El experimento no produjo diferencia”</p></li>
+<li><p>“El experimento no tuvo efecto”</p></li>
+<li><p>“Las observaciones son producto del azar”</p></li>
+</ul>
+</li>
+<li><p>Hipótesis alternativa (<span class="math notranslate nohighlight">\(H_A\)</span>): Usualmente el complemento de <span class="math notranslate nohighlight">\(H_0\)</span></p></li>
+</ul>
+<blockquote>
+<div><p>El test de hipótesis se diseña para medir que tan fuerte es la evidencia <strong>en contra</strong> de la hipótesis nula</p>
+</div></blockquote>
+<div class="section" id="algoritmo-general-de-un-test-de-hipotesis">
+<h3><span class="section-number">6.3.1. </span>Algoritmo general de un test de hipótesis<a class="headerlink" href="#algoritmo-general-de-un-test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El siguiente es el algoritmo general de un test de hipótesis paramétrico</p>
+<ol class="simple">
+<li><p>Definimos <span class="math notranslate nohighlight">\(H_0\)</span> y <span class="math notranslate nohighlight">\(H_A\)</span></p></li>
+<li><p>Definimos un estadístico <span class="math notranslate nohighlight">\(T\)</span></p></li>
+<li><p>Asumimos una distribución para <span class="math notranslate nohighlight">\(T\)</span> dado que <span class="math notranslate nohighlight">\(H_0\)</span> es cierto</p></li>
+<li><p>Seleccionamos un nivel de significancia <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+<li><p>Calculamos el <span class="math notranslate nohighlight">\(T\)</span> para nuestros datos <span class="math notranslate nohighlight">\(T_{data}\)</span></p></li>
+<li><p>Calculamos el <strong>p-value</strong></p>
+<ul class="simple">
+<li><p>Si nuestro test es de una cola:</p>
+<ul>
+<li><p>Superior: <span class="math notranslate nohighlight">\(p = P(T&gt;T_{data})\)</span></p></li>
+<li><p>Inferior: <span class="math notranslate nohighlight">\(p = P(T&lt;T_{data})\)</span></p></li>
+</ul>
+</li>
+<li><p>Si nuestro test es dos colas: <span class="math notranslate nohighlight">\(p = P(T&gt;T_{data}) + P(T&lt;T_{data})\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>Finalmente:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Si</span></code>  <span class="math notranslate nohighlight">\(p &lt; \alpha\)</span></p>
+<blockquote>
+<div><p>Rechazamos la hipótesis nula con confianza (1-<span class="math notranslate nohighlight">\(\alpha\)</span>)</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">De</span> <span class="pre">lo</span> <span class="pre">contrario</span></code></p>
+<blockquote>
+<div><p>No hay suficiente evidencia para rechazar la hipótesis nula</p>
+</div></blockquote>
+<p>El valor de <span class="math notranslate nohighlight">\(\alpha\)</span> nos permite controlar el <strong><a class="reference external" href="https://es.wikipedia.org/wiki/Errores_de_tipo_I_y_de_tipo_II">Error tipo I</a></strong>, es decir el error que cometemos si rechazamos <span class="math notranslate nohighlight">\(H_0\)</span> cuando en realidad era cierta (falso positivo)</p>
+<p>Tipicamente se usa <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> o <span class="math notranslate nohighlight">\(\alpha=0.01\)</span></p>
+<p><strong>Errores de interpretación comunes</strong></p>
+<p>Muchas veces se asume que el p-value es la probabilidad de que <span class="math notranslate nohighlight">\(H_0\)</span> sea cierta dado nuestras observaciones</p>
+<div class="math notranslate nohighlight">
+\[
+p = P(H_0 | T&gt; T_{data})
+\]</div>
+<p>Esto es un <strong>grave error</strong>. Formálmente el <strong>p-value</strong> es la probabilidad de observar un valor de <span class="math notranslate nohighlight">\(T\)</span> más extremo que el observado, es decir</p>
+<div class="math notranslate nohighlight">
+\[
+p = P(T&gt; T_{data} | H_0) 
+\]</div>
+<p>Otro error común es creer que no ser capaz de rechazar <span class="math notranslate nohighlight">\(H_0\)</span> es lo mismo que aceptar <span class="math notranslate nohighlight">\(H_0\)</span></p>
+<p>No tener suficiente evidencia para rechazar no es lo mismo que aceptar</p>
+</div>
+<div class="section" id="un-primer-test-de-hipotesis-el-t-test-de-una-muestra">
+<h3><span class="section-number">6.3.2. </span>Un primer test de hipótesis: El t-test de una muestra<a class="headerlink" href="#un-primer-test-de-hipotesis-el-t-test-de-una-muestra" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Sea un conjunto de <span class="math notranslate nohighlight">\(N\)</span> observaciones iid <span class="math notranslate nohighlight">\(X = {x_1, x_2, \ldots, x_N}\)</span> con media muestral <span class="math notranslate nohighlight">\(\bar x = \sum_{i=1}^N x_i\)</span></p>
+<p>El t-test de una muestra es un test de hipótesis que busca verificar si <span class="math notranslate nohighlight">\(\bar x\)</span> es significativamente distinta de la <strong>media poblacional</strong> <span class="math notranslate nohighlight">\(\mu\)</span>, en el caso de que <strong>no conocemos la varianza poblacional</strong> <span class="math notranslate nohighlight">\(\sigma^2\)</span></p>
+<p>Las hipótesis son</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> <span class="math notranslate nohighlight">\(\bar x = \mu\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H_A:\)</span> <span class="math notranslate nohighlight">\(\bar x \neq \mu\)</span> (dos colas)</p></li>
+</ul>
+<p>El estadístico de prueba es</p>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{\bar x - \mu}{\hat \sigma /\sqrt{N-1}}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\hat \sigma = \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar x)^2}\)</span> es la desviación estándar muestral (sesgada)</p>
+<p>Si asumimos que <span class="math notranslate nohighlight">\(\bar x\)</span> se distribuye <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \frac{\sigma^2}{N})\)</span> entonces
+<span class="math notranslate nohighlight">\(t\)</span> se distribuye <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">t-student</a> con <span class="math notranslate nohighlight">\(N-1\)</span> grados de libertad</p>
+<ul class="simple">
+<li><p>Para muestras iid y <span class="math notranslate nohighlight">\(N\)</span> grande el supuesto se cumple por teorema central del límite</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(N\)</span> es pequeño debemos verificar la normalidad de los datos</p></li>
+</ul>
+</div>
+<div class="section" id="aplicacion-de-t-test-para-probar-que-la-regresion-es-significativa">
+<h3><span class="section-number">6.3.3. </span>Aplicación de t-test para probar que la regresión es significativa<a class="headerlink" href="#aplicacion-de-t-test-para-probar-que-la-regresion-es-significativa" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En un modelo de regresión lineal donde tenemos <span class="math notranslate nohighlight">\(N\)</span> ejemplos</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = x_i \theta_1 + \theta_0, ~ i=1, 2, \ldots, N
+\]</div>
+<p>Podemos probar que la correlación entre <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\(y\)</span> es significativa con un test sobre <span class="math notranslate nohighlight">\(\theta_1\)</span></p>
+<p>Por ejemplo podemos plantear las siguientes hipótesis</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> La pendiente es nula <span class="math notranslate nohighlight">\(\theta_1= 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(H_A:\)</span> La pendiente no es nula: <span class="math notranslate nohighlight">\(\theta_1\neq 0\)</span> (dos colas)</p></li>
+</ul>
+<p>Y asumiremos que <span class="math notranslate nohighlight">\(\theta_1\)</span> es normal pero que desconocemos su varianza. Bajo este supuesto se puede formular el siguiente estadístico de prueba</p>
+<div class="math notranslate nohighlight">
+\[
+t = \frac{(\theta_1-\theta^*) }{\text{SE}_{\theta_1}/\sqrt{N-2}} = \frac{ r\sqrt{N-2}}{\sqrt{1-r^2}},
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(r\)</span> es el coeficiente de correlación de Pearson (detalles más adelante) y la última expresión se obtiene reemplazando  <span class="math notranslate nohighlight">\(\theta^*=0\)</span> y <span class="math notranslate nohighlight">\(\text{SE}_{\theta_1} = \sqrt{ \frac{\frac{1}{N} \sum_i (y_i - \hat y_i)^2}{\text{Var}(x)}}\)</span>.</p>
+<p>El estadístico tiene distribución t-student con dos grados de libertad (modelo de dos parámetros)</p>
+</div>
+</div>
+<div class="section" id="ejercicio-formativo-regresion-lineal">
+<h2><span class="section-number">6.4. </span>Ejercicio formativo: Regresión lineal<a class="headerlink" href="#ejercicio-formativo-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En lecciones anteriores estudiamos el modelo de regresión lineal el cual nos permite estudiar si existe correlación entre variables continuas. También vimos como ajustar los parámetros del modelo usando el método de mínimos cuadrados. En este ejercicio formativo veremos como verificar si el modelo de regresión ajustado es correcto</p>
+<p>Luego de revisar este ejercicio usted habrá aprendido</p>
+<ul class="simple">
+<li><p>La interpretación probabilística de la regresión lineal y la relación entre mínimos cuadrados ordinarios y la estimación por máxima verosimilitud</p></li>
+<li><p>El estadístico <span class="math notranslate nohighlight">\(r\)</span> para medir la fuerza de la correlación entre dos variables</p></li>
+<li><p>Un test de hipótesis para verificar que la correlación encontrada es estadística significativa</p></li>
+</ul>
+<p>Usaremos el siguiente dataset de consumo de helados. Referencia: <a class="reference external" href="https://www.routledge.com/A-Handbook-of-Small-Data-Sets/Hand-Daly-McConway-Lunn-Ostrowski/p/book/9780367449667">A handbook of small datasets</a>, estudio realizado en los años 50</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/helados.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;consumo&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;temperatura&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>consumo</th>
+      <th>ingreso</th>
+      <th>precio</th>
+      <th>temperatura</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.386</td>
+      <td>78</td>
+      <td>0.270</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.374</td>
+      <td>79</td>
+      <td>0.282</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.393</td>
+      <td>81</td>
+      <td>0.277</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.425</td>
+      <td>80</td>
+      <td>0.280</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.406</td>
+      <td>76</td>
+      <td>0.272</td>
+      <td>69</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El dataset tiene la temperatura promedio del día (grados Fahrenheit), el precio promedio de los helados comprados (dolares), el ingreso promedio familiar semanal de las personas que compraron helado (dolares) y el consumo (<a class="reference external" href="https://en.wikipedia.org/wiki/Pint">pintas</a> per capita).</p>
+<p>A continuación se muestra un gráfico de dispersión del consumo en función de las demás variables. ¿Cree usted que existe correlación en este caso?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/stats3_23_0.png" src="../../../_images/stats3_23_0.png" />
+</div>
+</div>
+<div class="section" id="interpretacion-probabilistica-y-mle-de-la-regresion-lineal">
+<h3><span class="section-number">6.4.1. </span>Interpretación probabilística y MLE de la regresión lineal<a class="headerlink" href="#interpretacion-probabilistica-y-mle-de-la-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(y\)</span> el consumo y <span class="math notranslate nohighlight">\(x\)</span> la temperatura.</p>
+<p>Asumiremos errores gaussianos iid</p>
+<div class="math notranslate nohighlight">
+\[
+y_i = \hat y_i + \epsilon_i, \epsilon_i \sim \mathcal{N}(0, \sigma^2),
+\]</div>
+<p>y un modelo lineal de <strong>dos parámetros</strong> (linea recta)</p>
+<div class="math notranslate nohighlight">
+\[
+\hat y_i = \theta_0 + \theta_1 x_i
+\]</div>
+<p>Bajo estos supuestos el estimador de máxima verosimilitud es</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat \theta &amp;= \text{arg}\max_\theta \log \mathcal{L}(\theta) \nonumber \\
+&amp;=\text{arg}\max_\theta  - \frac{1}{2\sigma^2} \sum_{i=1}^N (y_i - \theta_0 - \theta_1 x_i)^2 \nonumber
+\end{align}
+\end{split}\]</div>
+<p>Es decir que el estimador de máxima verosimilitud es equivalente al de mínimos cuadrados ordanrios <span class="math notranslate nohighlight">\(\hat \theta= (X^T X)^{-1} X^T y\)</span> que vimos anteriormente</p>
+<p><strong>Importante:</strong> Cuando utilizamos la solución de mínimos cuadrados estamos asumiendo implicitamente que las observaciones son iid y que la verosimilitud es Gaussiana</p>
+<p>Derivando con respecto a los parámetros e igualado a cero tenemos que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\sum_i y_i  - N\theta_0 - \theta_1  \sum_i x_i &amp;= 0 \nonumber \\
+\sum_i y_i x_i - \theta_0 \sum_i x_i - \theta_1 \sum_i x_i^2 &amp;= 0 \nonumber
+\end{align}
+\end{split}\]</div>
+<p>Finalmente podemos despejar</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\theta_0 &amp;= \bar y - \theta_1 \bar x \nonumber \\
+\theta_1 &amp;= \frac{\sum_i x_i y_i - N \bar x \bar y}{\sum_i x_i^2 - M \bar x^2}  \nonumber \\
+&amp;= \frac{ \sum_i (y_i - \bar y)(x_i - \bar x)}{\sum_i (x_i - \bar x)^2}  = \frac{\text{COV}(x, y)}{\text{Var}(x)}
+\end{align}
+\end{split}\]</div>
+<p>de donde reconocemos las expresiones para la covarianza entre <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> y la varianza de <span class="math notranslate nohighlight">\(x\)</span></p>
+</div>
+<div class="section" id="coeficiente-de-correlacion-de-pearson">
+<h3><span class="section-number">6.4.2. </span>Coeficiente de correlación de Pearson<a class="headerlink" href="#coeficiente-de-correlacion-de-pearson" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La fuerza de la correlación se suele medir usando</p>
+<div class="math notranslate nohighlight">
+\[
+r^2 = 1 - \frac{\sum_i ( y_i - \hat y_i)^2}{\sum_i ( y_i - \bar y)^2} = 1 - \frac{\frac{1}{M} \sum_i (y_i - \hat y_i)^2}{\text{Var}(y)} = \frac{\text{COV}^2(x, y)}{\text{Var}(x) \text{Var}(y)}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(r = \frac{\text{COV}(x, y)}{\sqrt{\text{Var}(x) \text{Var}(y)}} \in [-1, 1]\)</span> se conoce como <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">coeficiente de correlación de Pearson</a></p>
+<p>donde</p>
+<ul class="simple">
+<li><p>si <span class="math notranslate nohighlight">\(r=1\)</span> existe una correlación lineal perfecta</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(r=-1\)</span> existe una anticorrelación lineal perfecta</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(r=0\)</span> no hay correlación lineal entre las variables</p></li>
+</ul>
+<p>En general un <span class="math notranslate nohighlight">\(r&gt;0.5\)</span> se considera una correlación importante</p>
+<p><strong>Calculando <span class="math notranslate nohighlight">\(r\)</span> con y los parámetros de la regresión lineal</strong></p>
+<p>Podemos usar el atributo de dataframe</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Que retorna la matriz de correlaciones lineales</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>consumo</th>
+      <th>ingreso</th>
+      <th>precio</th>
+      <th>temperatura</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>consumo</th>
+      <td>1.000000</td>
+      <td>0.047935</td>
+      <td>-0.259594</td>
+      <td>0.775625</td>
+    </tr>
+    <tr>
+      <th>ingreso</th>
+      <td>0.047935</td>
+      <td>1.000000</td>
+      <td>-0.107479</td>
+      <td>-0.324709</td>
+    </tr>
+    <tr>
+      <th>precio</th>
+      <td>-0.259594</td>
+      <td>-0.107479</td>
+      <td>1.000000</td>
+      <td>-0.108206</td>
+    </tr>
+    <tr>
+      <th>temperatura</th>
+      <td>0.775625</td>
+      <td>-0.324709</td>
+      <td>-0.108206</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Si queremos también el valor de los parámetros podemos usar la función de scipy</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Variable independiente unidimensional</span>
+                       <span class="n">y</span> <span class="c1"># Variable dependiente unidimensional</span>
+                      <span class="p">)</span>
+</pre></div>
+</div>
+<p>Esta función retorna una tupla con</p>
+<ul class="simple">
+<li><p>Valor de la pendiente: <span class="math notranslate nohighlight">\(\theta_1\)</span></p></li>
+<li><p>Valor de la intercepta: <span class="math notranslate nohighlight">\(\theta_0\)</span></p></li>
+<li><p>Coeficiente de correlación <span class="math notranslate nohighlight">\(r\)</span></p></li>
+<li><p>p-value</p></li>
+<li><p>Error estándar del ajuste</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">])</span>
+    <span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span> <span class="n">amax</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]),</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;datos&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">slope</span><span class="o">*</span><span class="n">x_plot</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">intercept</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;modelo&#39;</span><span class="p">);</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$r$: </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">rvalue</span><span class="si">:</span><span class="s2">0.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/stats3_29_0.png" src="../../../_images/stats3_29_0.png" />
+</div>
+</div>
+<p>Es decir que visualmente parece existir</p>
+<ul class="simple">
+<li><p>una correlación positiva alta entre consumo y temperatura</p></li>
+<li><p>una correlación negativa moderada entre consumo y precio</p></li>
+<li><p>una correlación cercana a cero entre consumo e ingreso</p></li>
+</ul>
+</div>
+<div class="section" id="test-de-hipotesis-y-conclusiones">
+<h3><span class="section-number">6.4.3. </span>Test de hipótesis y conclusiones<a class="headerlink" href="#test-de-hipotesis-y-conclusiones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">linregress</span></code> implementa el t-test sobre <span class="math notranslate nohighlight">\(\theta_1\)</span> que vimos anteriormente. Usemos estos resultados para verificar si las correlaciones son estadísticamente significativas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">: </span><span class="se">\t</span><span class="s2"> p-value:</span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">pvalue</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2"> ¿Menor que </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">?: </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ingreso: 	 p-value:0.8014 	 ¿Menor que 0.05?: False
+precio: 	 p-value:0.1660 	 ¿Menor que 0.05?: False
+temperatura: 	 p-value:0.0000 	 ¿Menor que 0.05?: True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como complemento visualizemos</p>
+<ul class="simple">
+<li><p>las distribuciones bajo la hipótesis nula: linea azul</p></li>
+<li><p>los límites dados por <span class="math notranslate nohighlight">\(\alpha\)</span>: linea punteada negra</p></li>
+<li><p>El valor del observado para cada una de las variables: linea roja</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># dos grados de libertad</span>
+
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">])</span>
+    <span class="n">t_data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">rvalue</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">res</span><span class="o">.</span><span class="n">rvalue</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">))],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">dist</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">))],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">t_data</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">dist</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t</span><span class="p">))],</span> <span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/stats3_34_0.png" src="../../../_images/stats3_34_0.png" />
+</div>
+</div>
+<p><strong>Conclusión</strong></p>
+<p>Basado en los p-values y considerando <span class="math notranslate nohighlight">\(\alpha=0.05\)</span></p>
+<p>¿Qué podemos decir de las correlaciones con el consumo de helados?</p>
+<blockquote>
+<div><p>Rechazamos la hipótesis nula de que no existe correlación entre temperatura y consumo con un 95% de confianza</p>
+</div></blockquote>
+<p>Para las variables ingreso y precio no existe suficiente evidencia para rechazar <span class="math notranslate nohighlight">\(H_0\)</span></p>
+</div>
+<div class="section" id="reflexion-final">
+<h3><span class="section-number">6.4.4. </span>Reflexión final<a class="headerlink" href="#reflexion-final" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En el ejercicio anterior usamos t-test para una regresión lineal entre dos variables ¿Qué prueba puedo usar si quiero hacer regresión lineal multivariada?</p>
+<blockquote>
+<div><p>Se puede usar <a class="reference external" href="https://pythonfordatascience.org/anova-python/">ANOVA</a></p>
+</div></blockquote>
+<p>¿Qué pasa si…</p>
+<ul class="simple">
+<li><p>mis datos tienen una relación que no es lineal?</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta_1\)</span> no es Gaussiano/normal?</p></li>
+<li><p>si el ruido no es Gaussiano?</p></li>
+<li><p>si el ruido es Gaussiano pero su varianza cambia en el tiempo?</p></li>
+</ul>
+<blockquote>
+<div><p>En estos casos no se cumplen los supuestos del modelo o del test, por ende el resultado no es confiable</p>
+</div></blockquote>
+<p>Si mis supuestos no se cumplen con ninguna prueba parámetrica, la opión es utilizar pruebas no-paramétricas</p>
+</div>
+</div>
+<div class="section" id="prueba-no-parametrica-bootstrap">
+<h2><span class="section-number">6.5. </span>Prueba no-paramétrica: <em>Bootstrap</em><a class="headerlink" href="#prueba-no-parametrica-bootstrap" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos estimar la incerteza de un estimador de forma no-paramétrica usando <strong>muestreo tipo <em>bootstrap</em></strong></p>
+<p>Esto consiste en tomar nuestro conjunto de datos de tamaño <span class="math notranslate nohighlight">\(N\)</span> y crear <span class="math notranslate nohighlight">\(T\)</span> nuevos conjuntos que “se le parezcan”. Luego se calcula el valor del estimador que estamos buscando en los <span class="math notranslate nohighlight">\(T\)</span> conjuntos. Con esto obtenemos una distribución para el estimador como muestra el siguiente diagrama</p>
+<img alt="https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2016/10/bootstrap-sample.png" src="https://www.statisticshowto.datasciencecentral.com/wp-content/uploads/2016/10/bootstrap-sample.png" />
+<p>Para crear los subconjuntos podríamos suponer independencia y utilizar <strong>muestreo con reemplazo</strong>. Esto consiste en tomar <span class="math notranslate nohighlight">\(N\)</span> muestras al azar permitiendo repeticiones, como muestra el siguiente diagrama</p>
+<a class="reference internal image-reference" href="../../../_images/stats7.png"><img alt="../../../_images/stats7.png" src="../../../_images/stats7.png" style="width: 700px;" /></a>
+<p>Si no es posible suponer indepdencia se puede realizar bootstrap basado en residuos y bootstrap dependiente. Puedes consultar más detalles sobre <a class="reference external" href="https://www.stat.cmu.edu/~cshalizi/402/lectures/08-bootstrap/lecture-08.pdf"><em>bootstrap</em></a> <a class="reference external" href="http://homepage.divms.uiowa.edu/~rdecook/stat3200/notes/bootstrap_4pp.pdf">aquí</a> y <a class="reference external" href="https://www.sagepub.com/sites/default/files/upm-binaries/21122_Chapter_21.pdf">acá</a>. A continuación nos enfocaremos en el clásico muestreo con reemplazo y como implementarlo en Python</p>
+<div class="section" id="implementacion-con-numpy-y-scipy">
+<h3><span class="section-number">6.5.1. </span>Implementación con Numpy y Scipy<a class="headerlink" href="#implementacion-con-numpy-y-scipy" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>La función <code class="docutils literal notranslate"><span class="pre">numpy.random.choice</span></code> permite remuestrear un conjunto de datos</p>
+<p>Por ejemplo para la regresión lineal debemos remuestrar las parejas/tuplas <span class="math notranslate nohighlight">\((x_i, y_i)\)</span></p>
+<p>Luego calculamos y guardamos los parámetros del modelo para cada remuestreo. En este ejemplo haremos <span class="math notranslate nohighlight">\(1000\)</span> repeticiones del conjunto de datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/helados.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;consumo&#39;</span><span class="p">,</span> <span class="s1">&#39;ingreso&#39;</span><span class="p">,</span> <span class="s1">&#39;precio&#39;</span><span class="p">,</span> <span class="s1">&#39;temperatura&#39;</span><span class="p">]</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temperatura&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;consumo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">muestreo_con_reemplazo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">boostrap_linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="c1"># Parámetros: t0, t1 y r</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> 
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="o">*</span><span class="n">muestreo_con_reemplazo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">params</span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">res</span><span class="o">.</span><span class="n">intercept</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">slope</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">rvalue</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">params</span>
+
+<span class="n">boostrap_params</span> <span class="o">=</span> <span class="n">boostrap_linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intervalos-de-confianza-empiricos">
+<h3><span class="section-number">6.5.2. </span>Intervalos de confianza empíricos<a class="headerlink" href="#intervalos-de-confianza-empiricos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Veamos la distribución empírica de <span class="math notranslate nohighlight">\(r\)</span> obtenida usando bootstrap</p>
+<p>En la figura de abajo tenemos</p>
+<ul class="simple">
+<li><p>Histograma azul: Distribución bootstrap de <span class="math notranslate nohighlight">\(r\)</span></p></li>
+<li><p>Linea roja: <span class="math notranslate nohighlight">\(r\)</span> de los datos</p></li>
+<li><p>Lineas punteadas negras: Intervalo de confianza empírico al 95%</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_bootstrap</span> <span class="o">=</span> <span class="n">boostrap_params</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hist_val</span><span class="p">,</span> <span class="n">hist_lim</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_bootstrap</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">params</span><span class="o">.</span><span class="n">rvalue</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_val</span><span class="p">)],</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">IC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">r_bootstrap</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">IC</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_val</span><span class="p">)],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">IC</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_val</span><span class="p">)],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intervalo de confianza al 95% de r: </span><span class="si">{</span><span class="n">IC</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intervalo de confianza al 95% de r: [0.64620589 0.87391478]
+</pre></div>
+</div>
+<img alt="../../../_images/stats3_41_1.png" src="../../../_images/stats3_41_1.png" />
+</div>
+</div>
+<p>De la figura podemos notar que el 95% de la distribución empírica esta sobre <span class="math notranslate nohighlight">\(r=0.5\)</span></p>
+<p>También podemos notar que la distribución empírica de <span class="math notranslate nohighlight">\(r\)</span> no es simétrica, por lo que aplicar un t-test parámetrico sobre <span class="math notranslate nohighlight">\(r\)</span> no hubiera sido correcto</p>
+</div>
+<div class="section" id="visualizando-la-incerteza-del-modelo">
+<h3><span class="section-number">6.5.3. </span>Visualizando la incerteza del modelo<a class="headerlink" href="#visualizando-la-incerteza-del-modelo" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Usando la distribución empírica de los parámetros <span class="math notranslate nohighlight">\(\theta_0\)</span> y <span class="math notranslate nohighlight">\(\theta_1\)</span> podemos visualizar la incerteza de nuestro modelo de regresión lineal</p>
+<p>En la figura de abajo tenemos</p>
+<ul class="simple">
+<li><p>Puntos azules: Datos</p></li>
+<li><p>Linea roja: Modelo de regresión lineal en los datos</p></li>
+<li><p>Sombra rojo claro: <span class="math notranslate nohighlight">\(\pm 2\)</span> desviaciones estándar del modelo en base a la distribución empírica</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Consumo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperatura&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;datos&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">theta0</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">theta1</span> <span class="o">+</span> <span class="n">theta0</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">model</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">intercept</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">slope</span><span class="p">,</span> <span class="n">x_plot</span><span class="p">),</span>
+        <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mejor ajuste&#39;</span><span class="p">)</span>
+
+<span class="n">dist_lines</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">boostrap_params</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">boostrap_params</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x_plot</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mean_lines</span><span class="p">,</span> <span class="n">std_lines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dist_lines</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dist_lines</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> 
+                <span class="n">mean_lines</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">std_lines</span><span class="p">,</span>
+                <span class="n">mean_lines</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">std_lines</span><span class="p">,</span> 
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;incerteza&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/stats3_44_0.png" src="../../../_images/stats3_44_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad2/3_statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="stats2.html" title="previous page"><span class="section-number">5. </span>Estadística descriptiva</a>
+    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
