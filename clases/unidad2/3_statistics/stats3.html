@@ -60,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="next" title="1. Machine Learning: Conceptos clave" href="../../unidad3/1_ML/ML1.html" />
     <link rel="prev" title="5. Estadística descriptiva" href="stats2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -175,6 +175,23 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    6. Estadística inferencial
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Aprendizaje de máquinas y computación de alto rendimiento
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad3/1_ML/ML1.html">
+   1. Machine Learning: Conceptos clave
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad3/1_ML/ML2.html">
+   2. Aprendizaje supervisado: Clasificación
   </a>
  </li>
 </ul>
@@ -660,7 +677,67 @@ f(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp \left( -\frac{1}{2\sig
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/stats3_9_0.png" src="../../../_images/stats3_9_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">b3712bf7c056</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/cancer.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;diagnosis&quot;</span><span class="p">,</span> <span class="s2">&quot;radius1&quot;</span><span class="p">,</span> <span class="s2">&quot;texture1&quot;</span><span class="p">]]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;radius1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span> 
+<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span> 
+<span class="g g-Whitespace">    </span><span class="mi">612</span> 
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> 
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span> 
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span> 
+<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">820</span> 
+<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
+<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>             <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1367</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="ne">-&gt; </span><span class="mi">1368</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">647</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/cancer.csv&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <ul class="simple">
@@ -1239,7 +1316,7 @@ temperatura: 	 p-value:0.0000 	 ¿Menor que 0.05?: True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intervalo de confianza al 95% de r: [0.6486985  0.87412114]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intervalo de confianza al 95% de r: [0.65222722 0.87290997]
 </pre></div>
 </div>
 <img alt="../../../_images/stats3_41_1.png" src="../../../_images/stats3_41_1.png" />
@@ -1314,7 +1391,7 @@ temperatura: 	 p-value:0.0000 	 ¿Menor que 0.05?: True
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="stats2.html" title="previous page"><span class="section-number">5. </span>Estadística descriptiva</a>
-    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+    <a class='right-next' id="next-link" href="../../unidad3/1_ML/ML1.html" title="next page"><span class="section-number">1. </span>Machine Learning: Conceptos clave</a>
 
         </div>
         
