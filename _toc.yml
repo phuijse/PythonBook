@@ -26,6 +26,7 @@
   chapters:
   - file: clases/unidad3/1_ML/ML1
   - file: clases/unidad3/1_ML/ML2
+  - file: clases/unidad3/1_ML/ML3
 - part: Anexos
   chapters:
     - file: clases/unidad1/00_repaso_python3  
