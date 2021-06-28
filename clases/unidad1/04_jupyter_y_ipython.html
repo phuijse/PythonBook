@@ -178,7 +178,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Aprendizaje de máquinas y computación de alto rendimiento
+  Aprendizaje de máquinas
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -197,9 +197,26 @@
    3. Aprendizaje no supervisado
   </a>
  </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación de alto rendimiento
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   4. Python y  Rendimiento | Profiling
+   1. Introducción: Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
+   2. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
+   3. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -625,8 +642,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
-CPU times: user 102 µs, sys: 14 µs, total: 116 µs
-Wall time: 95.1 µs
+CPU times: user 206 µs, sys: 23 µs, total: 229 µs
+Wall time: 204 µs
 </pre></div>
 </div>
 </div>
@@ -820,17 +837,17 @@ df -h
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
 Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
                total        used        free      shared  buff/cache   available
-Mem:           16002        2024       12339         132        1638       13549
+Mem:           16002        4486        8894         366        2621       10834
 Swap:           1023           0        1023
 Filesystem      Size  Used Avail Use% Mounted on
 dev             7.9G     0  7.9G   0% /dev
 run             7.9G  1.3M  7.9G   1% /run
 /dev/sdb1       118G   94G   19G  84% /
-tmpfs           7.9G   44M  7.8G   1% /dev/shm
+tmpfs           7.9G   69M  7.8G   1% /dev/shm
 tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
-/dev/sda1       118G  108G  4.4G  97% /home
-tmpfs           7.9G  4.1M  7.9G   1% /tmp
-tmpfs           1.6G   76K  1.6G   1% /run/user/1000
+/dev/sda1       118G  108G  4.2G  97% /home
+tmpfs           7.9G  4.2M  7.9G   1% /tmp
+tmpfs           1.6G   84K  1.6G   1% /run/user/1000
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Profiling &#8212; INFO147 Computación científica con Python</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Índice" href="../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../search.html" />
+    <link rel="next" title="3. Optimizando código Python" href="HPC3.html" />
+    <link rel="prev" title="1. Introducción: Python y Rendimiento" href="HPC1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/01_introduccion.html">
+   1. Introducción: Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/02_ambientes_virtuales.html">
+   2. Ambientes virtuales de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/04_jupyter_y_ipython.html">
+   3. Jupyter y IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/05_numpy.html">
+   4. Arreglos y operaciones vectoriales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/06_matplotlib.html">
+   5. Visualización de datos usando Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/07_pandas_b%C3%A1sico.html">
+   6. Procesamiento de datos con
+   <em>
+    pandas
+   </em>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/08_pandas_avanzado.html">
+   7. Exploración y manipulación de datos con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación científica
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/1_linearalgebra/1_linear_algebra.html">
+   1. Algebra lineal con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/1_linearalgebra/2_linear_regression.html">
+   2. Regresión lineal, Sobreajuste y Validación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/2_calculus/optimization.html">
+   3. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/3_statistics/stats1.html">
+   4. Estadística: Fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/3_statistics/stats2.html">
+   5. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad2/3_statistics/stats3.html">
+   6. Estadística inferencial
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Aprendizaje de máquinas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_ML/ML1.html">
+   1. Machine Learning: Conceptos clave
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_ML/ML2.html">
+   2. Aprendizaje supervisado: Clasificación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_ML/ML3.html">
+   3. Aprendizaje no supervisado
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación de alto rendimiento
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="HPC1.html">
+   1. Introducción: Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="HPC3.html">
+   3. Optimizando código Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
+   1. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
+   2. Control de versiones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
+   3. Pandas: Tópicos extra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
+   4. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../unidad1/11_ipython_display.html">
+   5. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/clases/unidad3/2_HPC/HPC2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad3/2_HPC/HPC2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-profiling">
+   2.1. ¿Qué es
+   <em>
+    profiling
+   </em>
+   ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#midiendo-tiempo-de-ejecucion">
+   2.2. Midiendo tiempo de ejecución
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tiempo-total-usando-magias-de-ipython">
+     2.2.1. Tiempo total usando magias de IPython
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-magia-timeit-de-ipython">
+     2.2.2. La magía
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %timeit
+      </span>
+     </code>
+     de IPython
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-formativo">
+     2.2.3. Ejercicio formativo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tiempo-funcion-por-funcion-usando-prun">
+     2.2.4. Tiempo función por función usando
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       prun
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tiempo-linea-a-linea-con-lprun">
+     2.2.5. Tiempo linea a linea con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       lprun
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2.2.6. Ejercicio formativo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#medir-uso-de-memoria">
+   2.3. Medir uso de memoria
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memoria-total-y-linea-a-linea-con-magias-de-ipython">
+     2.3.1. Memoría total y linea a linea con magias de IPython
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extra-uso-de-memoria-con-modulo-tracemalloc">
+     2.3.2. Extra: Uso de memoria con módulo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tracemalloc
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">Code</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">YouTubeVideo_formato</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">YouTubeVideo</span><span class="p">,</span> <span class="n">modestbranding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">disablekb</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                               <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">autoplay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rel</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">showinfo</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="profiling">
+<h1><span class="section-number">2. </span>Profiling<a class="headerlink" href="#profiling" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El primer paso antes de optimizar es identificar los sectores críticos o “cuellos de botella” de nuestro programa. A esto lo llamamos hacer un <em>profiling</em> de código</p>
+<div class="section" id="que-es-profiling">
+<h2><span class="section-number">2.1. </span>¿Qué es <em>profiling</em>?<a class="headerlink" href="#que-es-profiling" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se refiere a medir los</p>
+<ol class="simple">
+<li><p>Tiempos de ejecución (total, por función, por linea)</p></li>
+<li><p>Uso de recursos (memoria, cpu, disco)</p></li>
+</ol>
+<p>de una rutina con el fin de encontrar aquellas secciones más lentas e ineficientes (sectores críticos)</p>
+<p>Luego de identificarlas podemos reescribirlas u optimizarlas</p>
+<p>En esta clase veremos como hacer un <em>profiling</em> de nuestro código en Python usando el ambiente <em>Jupyter</em> y las magias de <em>IPython</em></p>
+<p><strong>Ejemplo de caso:</strong> Set de Julia</p>
+<p>A modo de ejemplo haremos <em>profiling</em> de un script de Python que calcula el famoso fractal conocido como el Set de Julia</p>
+<p>El <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">set de Julia</a> es un fractal asociado a la función</p>
+<div class="math notranslate nohighlight">
+\[
+f(z) = z^2 + c,
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c \in \mathbb{C}\)</span></p>
+<p>El script <span class="xref myst">fractal.py</span> tiene una implementación del set de Julia usando Python puro, es decir sin usar librerias</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;fractal.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #408080; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #FF0000 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666666 } /* Operator */
+.output_html .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #BC7A00 } /* Comment.Preproc */
+.output_html .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #408080; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .gr { color: #FF0000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #00A000 } /* Generic.Inserted */
+.output_html .go { color: #888888 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #0044DD } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #7D9029 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.output_html .no { color: #880000 } /* Name.Constant */
+.output_html .nd { color: #AA22FF } /* Name.Decorator */
+.output_html .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #0000FF } /* Name.Function */
+.output_html .nl { color: #A0A000 } /* Name.Label */
+.output_html .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #bbbbbb } /* Text.Whitespace */
+.output_html .mb { color: #666666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666666 } /* Literal.Number.Float */
+.output_html .mh { color: #666666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #BB6688 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #0000FF } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_z</span><span class="p">(</span><span class="n">zi</span><span class="p">,</span> <span class="n">zr</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cr</span><span class="o">=-</span><span class="mf">0.835</span><span class="p">,</span> <span class="n">ci</span><span class="o">=-</span><span class="mf">0.2321</span><span class="p">):</span>
+    <span class="n">nit</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">zi2</span> <span class="o">=</span> <span class="n">zi</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">zr2</span> <span class="o">=</span> <span class="n">zr</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">while</span> <span class="n">zi2</span> <span class="o">+</span> <span class="n">zr2</span> <span class="o">&lt;=</span> <span class="mf">4.</span> <span class="ow">and</span> <span class="n">nit</span> <span class="o">&lt;</span> <span class="n">maxiters</span><span class="p">:</span>
+        <span class="n">zi</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">zr</span><span class="o">*</span><span class="n">zi</span> <span class="o">+</span> <span class="n">ci</span>
+        <span class="n">zr</span> <span class="o">=</span> <span class="n">zr2</span> <span class="o">-</span> <span class="n">zi2</span> <span class="o">+</span> <span class="n">cr</span>
+        <span class="n">zr2</span> <span class="o">=</span> <span class="n">zr</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">zi2</span> <span class="o">=</span> <span class="n">zi</span><span class="o">**</span><span class="mi">2</span> 
+        <span class="n">nit</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">nit</span>
+
+<span class="k">def</span> <span class="nf">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">zi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="n">N</span>
+            <span class="n">zr</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">+</span> <span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="n">N</span>
+            <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">evaluate_z</span><span class="p">(</span><span class="n">zi</span><span class="p">,</span> <span class="n">zr</span><span class="p">,</span> <span class="n">maxiters</span><span class="p">))</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image</span>
+</pre></div>
+</div></div>
+</div>
+<p>Si ejecutamos la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code> con una resolución de 500 pixeles y 50 iteraciones el resultado es</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fractal</span> <span class="kn">import</span> <span class="n">make_fractal</span><span class="p">,</span> <span class="n">evaluate_z</span>
+
+<span class="n">fractal_image</span> <span class="o">=</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">fractal_image</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/HPC2_7_0.png" src="../../../_images/HPC2_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="midiendo-tiempo-de-ejecucion">
+<h2><span class="section-number">2.2. </span>Midiendo tiempo de ejecución<a class="headerlink" href="#midiendo-tiempo-de-ejecucion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="tiempo-total-usando-magias-de-ipython">
+<h3><span class="section-number">2.2.1. </span>Tiempo total usando magias de IPython<a class="headerlink" href="#tiempo-total-usando-magias-de-ipython" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>A continuación revisaremos algunas magias de IPython que nos permiten medir el tiempo de ejecución de un script, función o expresión de Python de forma simple y conveniente</p>
+<p>La primera es <code class="docutils literal notranslate"><span class="pre">%time</span></code> que se usa anteponiendose a una función</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">mi_resultado</span> <span class="o">=</span> <span class="n">mi_funcion</span><span class="p">(</span><span class="n">mis_argumentos</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Esto retorna algo similar a</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPU</span> <span class="n">times</span><span class="p">:</span> <span class="n">user</span> <span class="mf">2.44</span> <span class="n">s</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="mf">2.41</span> <span class="n">ms</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="mf">2.45</span> <span class="n">s</span>
+<span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.57</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>donde</p>
+<ul class="simple">
+<li><p><em>Wall time</em>: Es el tiempo total de un proceso/función/expresión desde su principio (lanzamiento) hasta su fin (retorno)</p></li>
+<li><p><em>CPU time (total)</em>: Es el tiempo en que el CPU está dedicado procesando la tarea solicitada, siempre será menor que el <em>Wall-time</em></p></li>
+</ul>
+<p>La magia <code class="docutils literal notranslate"><span class="pre">%time</span></code> mide el tiempo de una linea de código</p>
+<p>Si queremos medir el tiempo de todas las lineas de código de un bloque de ejecución se usa <code class="docutils literal notranslate"><span class="pre">%%time</span></code></p>
+<p><strong>Ejemplos</strong></p>
+<p>Midamos el tiempo que demora en calcularse el fractal de Julia</p>
+<p>Usaremos la magia <code class="docutils literal notranslate"><span class="pre">%time</span></code></p>
+<p>¿Cuánto demora en calcularse la función <code class="docutils literal notranslate"><span class="pre">slow_function</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> result1 = make_fractal(N=500, maxiters=50)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.32 s, sys: 0 ns, total: 2.32 s
+Wall time: 2.34 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Qué ocurre si medimos una segunda vez?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> result2 = make_fractal(N=500, maxiters=50)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.3 s, sys: 0 ns, total: 2.3 s
+Wall time: 2.32 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">result1</span><span class="p">,</span> <span class="n">result2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notemos que que el resultado en ambos casos es idéntico, sin embargo, el tiempo de ejecución es ligeramente distinto</p>
+<p>¿A qué se debe esto? Debemos considerar que cada vez que ejecutamos un código alteramos el estado de nuestro sistema (cache, memoria)</p>
+<p>Por ende lo más correcto para medir el tiempo de nuestra rutina sería ejecutarla varias veces y calcular un promedio</p>
+</div>
+<div class="section" id="la-magia-timeit-de-ipython">
+<h3><span class="section-number">2.2.2. </span>La magía <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> de IPython<a class="headerlink" href="#la-magia-timeit-de-ipython" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Podemos medir el tiempo promedio de un script, función o expresión de Python de forma conveniente usando la magia <code class="docutils literal notranslate"><span class="pre">timeit</span></code>. Esta magia se basa en el módulo estándar de Python <a class="reference external" href="https://docs.python.org/3/library/timeit.html">timeit</a></p>
+<p>Esta magia tiene varios argumentos, a continuación revisaremos un subconjunto de ellos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r&lt;R&gt;</span></code>: Define que el algoritmo se repetira <code class="docutils literal notranslate"><span class="pre">&lt;R&gt;</span></code> veces y se retorna el tiempo promedio de dichas repeticiones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n&lt;N&gt;</span></code>: Define que el algoritmo se ejecutará <code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> veces seguidas (loop) en cada repetición</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p&lt;P&gt;</span></code>: Se usa una precisión de <code class="docutils literal notranslate"><span class="pre">&lt;P&gt;</span></code> dígitos en los resultados</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-q</span></code>: No imprimir los resultados</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>: Retorna un objeto <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code>, con esto podemos manipular, analizar y graficar los tiempos de ejecución</p></li>
+</ul>
+<p>se pueden revisar los demás argumentos en <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time">la documentación</a>. Esta magia se utiliza como</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="o">%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">r10</span> <span class="o">-</span><span class="n">n5</span> <span class="n">mi_funcion</span><span class="p">(</span><span class="n">mis_argumentos</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Que en pseudo código sería como</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tiempos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1"># Repeticiones</span>
+    <span class="n">t_inicio</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> 
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># Loop</span>
+        <span class="n">mi_funcion</span><span class="p">(</span><span class="n">mis_argumentos</span><span class="p">)</span>
+    <span class="n">t_fin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">tiempos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_fin</span> <span class="o">-</span> <span class="n">t_inicio</span><span class="p">)</span>
+    
+<span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">R</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Es decir que <code class="docutils literal notranslate"><span class="pre">timeit</span></code> retorna un promedio de promedios</p>
+<p>En general</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;R&gt;</span></code> debe ser lo suficientemente grande para que los estadísticos que calculemos sean confiables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> debe ser lo suficientemente grande para que el tiempo medido sea representativo de <code class="docutils literal notranslate"><span class="pre">mi_funcion</span></code></p></li>
+</ul>
+<p>Por ende si <code class="docutils literal notranslate"><span class="pre">mi_funcion</span></code> toma menos de 10 microsegundos es recomendable subir el <span class="math notranslate nohighlight">\(N\)</span> de lo contrario el tiempo podría estar dominado por otros procesos como el <code class="docutils literal notranslate"><span class="pre">garbage</span> <span class="pre">collector</span></code> de Python</p>
+<p>Notar que si no se especifica <code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> la magia buscará de forma automática un valor adecuado</p>
+</div>
+<div class="section" id="ejercicio-formativo">
+<h3><span class="section-number">2.2.3. </span>Ejercicio formativo<a class="headerlink" href="#ejercicio-formativo" title="Enlazar permanentemente con este título">¶</a></h3>
+<ol class="simple">
+<li><p>Cree cinco fractales usando <code class="docutils literal notranslate"><span class="pre">maxiters=50</span></code>y los valores <code class="docutils literal notranslate"><span class="pre">N</span></code> [5, 10, 50, 100, 500] y gráfique cada uno para apreciar sus diferencias</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> para calcular el tiempo promedio y la desviación estándar de la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code> con <code class="docutils literal notranslate"><span class="pre">N=500</span></code> y <code class="docutils literal notranslate"><span class="pre">maxiters=50</span></code>. Utilice <code class="docutils literal notranslate"><span class="pre">&lt;R&gt;=10</span></code></p></li>
+<li><p>Repita lo anterior para cada uno de los valores de <code class="docutils literal notranslate"><span class="pre">N</span></code> usados anteriormente, guarde los tiempos asociados (Hint: estudie el atributo <code class="docutils literal notranslate"><span class="pre">-o</span></code>) ¿Cúal es el tiempo mínimo, máximo y promedio para cada <code class="docutils literal notranslate"><span class="pre">N</span></code>?</p></li>
+<li><p>Muestre una gráfica de <span class="math notranslate nohighlight">\(N\)</span> vs tiempo total con barras de error. Considere escalamiento logarítmico para los ejes</p></li>
+</ol>
+<p><strong>Solución con comentarios</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;8ttEskG28DQ&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/8ttEskG28DQ?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="tiempo-funcion-por-funcion-usando-prun">
+<h3><span class="section-number">2.2.4. </span>Tiempo función por función usando <code class="docutils literal notranslate"><span class="pre">prun</span></code><a class="headerlink" href="#tiempo-funcion-por-funcion-usando-prun" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>El módulo de Python <a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile</a> mide la cantidad de llamadas y el tiempo de cada función ejecutada por nuestra rutina</p>
+<p>La magia de IPython <code class="docutils literal notranslate"><span class="pre">%prun</span></code> nos da una forma conveniente para usar este módulo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="n">mi_funcion</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Esto retorna  una tabla con las siguientes filas</p>
+<ul class="simple">
+<li><p>ncalls: Número de veces que se llama la función</p></li>
+<li><p>tottime: Tiempo total en dicha función (sin contar subfunciones)</p></li>
+<li><p>percall: ttime/ncalls</p></li>
+<li><p>cumtime: Tiempo total en dicha función y sus subfunciones (tiempo de función recursiva)</p></li>
+<li><p>percall: cumtime/ncalls</p></li>
+</ul>
+<p>Opciones importantes de <code class="docutils literal notranslate"><span class="pre">%prun</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> para que el resultado quede ordenado según una fila en particular</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> si queremos especificar la cantidad de líneas a mostrar en la tabla</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<p>Usemos <code class="docutils literal notranslate"><span class="pre">prun</span></code> en la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code> ordenando según el tiempo acumulado</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="o">-</span><span class="n">s</span> <span class="n">cumtime</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Esto levantará una tabla en tu navegador como la que se muestra a continuación</p>
+<img alt="../../../_images/profiling1.png" src="../../../_images/profiling1.png" />
+<p>De la tabla vemos que</p>
+<ul class="simple">
+<li><p>La función con mayor tiempo total es <code class="docutils literal notranslate"><span class="pre">evaluate_z</span></code> que está en la linea 1 de <a class="reference external" href="http://fractal.py">fractal.py</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evaluate_z()</span></code> se llama 500.000 veces</p></li>
+</ul>
+<p>En general el tiempo total es mayor que el que medimos con <code class="docutils literal notranslate"><span class="pre">time</span></code> y <code class="docutils literal notranslate"><span class="pre">timeit</span></code>. Esto se debe al overhead de <code class="docutils literal notranslate"><span class="pre">prun</span></code></p>
+<p><strong>Visualizando el resultado de <code class="docutils literal notranslate"><span class="pre">prun</span></code></strong></p>
+<p>Podemos generar una visualización de los resultados de <code class="docutils literal notranslate"><span class="pre">cProfile</span></code> en nuestro navegador usando <a class="reference external" href="https://jiffyclub.github.io/snakeviz/"><code class="docutils literal notranslate"><span class="pre">SnakeViz</span></code></a>. Puedes instalar la librería usando el siguiente comando de conda</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install snakeviz
+</pre></div>
+</div>
+<p>Lo cual creará un ejecutable <code class="docutils literal notranslate"><span class="pre">snakeviz</span></code>. Luego cargamos la extensión para jupyter. Esto habilitará la magia del mismo nombre que podemos usar como</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">snakeviz</span>
+<span class="o">%</span><span class="n">snakeviz</span> <span class="o">-</span><span class="n">t</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>obtiendo un resultado como el que muestra la imagen a continuación</p>
+<a class="reference internal image-reference" href="../../../_images/snakeviz.png"><img alt="../../../_images/snakeviz.png" src="../../../_images/snakeviz.png" style="width: 900px;" /></a>
+<p>Notar que la opción <code class="docutils literal notranslate"><span class="pre">-t</span></code> carga el gráfico en una pestaña de navegador nueva.</p>
+<p>Esta herramienta puede mejorar considerablemente el estudio de nuestro código cuando se tiene una gran cantidad de funciones en distintas jerarquías</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">cProfile</span></code> sin IPython</strong></p>
+<p>Si no contamos con el ambiente IPython podemos usar cProfile directamente sobre un script de Python con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    python -m cProfile -o tabla.prof script.py
+</pre></div>
+</div>
+<p>Donde el resultado queda grabado en el archivo tabla.prof</p>
+</div>
+<div class="section" id="tiempo-linea-a-linea-con-lprun">
+<h3><span class="section-number">2.2.5. </span>Tiempo linea a linea con <code class="docutils literal notranslate"><span class="pre">lprun</span></code><a class="headerlink" href="#tiempo-linea-a-linea-con-lprun" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Hemos visto como medir el tiempo total de un código en Python y el tiempo desglosado por cada llamado a función de dicho código. Pero en ocasiones puede resultar más informativo estudiar el tiempo de ejecución de cada linea de nuestro código por separado</p>
+<blockquote>
+<div><p>Esto corresponde a un tipo de <em>profiling</em> llamado <em>line by line</em></p>
+</div></blockquote>
+<p>Podemos hacer este tipo de profiling usando la extensión externa <a class="reference external" href="https://github.com/rkern/line_profiler"><code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a>. Puedes instalar esta extensión con el siguiente comando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install line_profiler
+</pre></div>
+</div>
+<p>Una vez instalada debes cargar la extensión, lo cual habilitará una nueva magia llamada <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>. La magia <code class="docutils literal notranslate"><span class="pre">%lprun</span></code> que funciona de forma similar a <code class="docutils literal notranslate"><span class="pre">prun</span></code></p>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">line_profiler</span>
+<span class="o">%</span><span class="n">lprun</span> <span class="o">-</span><span class="n">f</span> <span class="n">mi_método</span> <span class="n">mi_rutina</span>
+</pre></div>
+</div>
+<p>Esta magia requiere que se especifique un método o función dentro de la rutina con el argumento <code class="docutils literal notranslate"><span class="pre">-f</span></code>. Ejecutar la magia levantará una pestaña con una tabla</p>
+<p>La tabla tiene una fila por linea de código y las siguientes columnas</p>
+<ul class="simple">
+<li><p>Line: Número de la linea dentro del código fuente</p></li>
+<li><p>Hits: La cantidad de veces que se llama a esa linea</p></li>
+<li><p>Time: Tiempo total de dicha linea</p></li>
+<li><p>Per hit: Tiempo total dividido la cantidad de llamadas</p></li>
+<li></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">2.2.6. </span>Ejercicio formativo<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Realice un <em>line by line profiling</em> de <code class="docutils literal notranslate"><span class="pre">make_fractal(500,</span> <span class="pre">50)</span></code>. ¿Cuál es la linea más costosa? ¿Qué porcentaje representa del total de tiempo de la función?</p></li>
+<li><p>Realice un profiling de la función correspondiente a la linea más costosa</p></li>
+</ul>
+<p><strong>Solución con comentarios</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;n6asVV2LfHM&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/n6asVV2LfHM?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="medir-uso-de-memoria">
+<h2><span class="section-number">2.3. </span>Medir uso de memoria<a class="headerlink" href="#medir-uso-de-memoria" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="memoria-total-y-linea-a-linea-con-magias-de-ipython">
+<h3><span class="section-number">2.3.1. </span>Memoría total y linea a linea con magias de IPython<a class="headerlink" href="#memoria-total-y-linea-a-linea-con-magias-de-ipython" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>De forma muy similar a <code class="docutils literal notranslate"><span class="pre">timeit</span></code> para medir el tiempo de una rutina existe la magia <code class="docutils literal notranslate"><span class="pre">memit</span></code> para medir la cantidad de memoría usada por una rutina</p>
+<p>La magia es externa a IPython y debemos instalarla con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install memory_profiler
+</pre></div>
+</div>
+<p>Luego se habilita y usa con</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">memory_profiler</span>
+<span class="o">%</span><span class="n">memit</span> <span class="n">funcion</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Que retorna la cantidad de memoria RAM usada por <code class="docutils literal notranslate"><span class="pre">funcion</span></code></p>
+<p>Con esto también se habilita la magia <code class="docutils literal notranslate"><span class="pre">%mprun</span></code> para medir el uso de memoria linea a linea</p>
+</div>
+<div class="section" id="extra-uso-de-memoria-con-modulo-tracemalloc">
+<h3><span class="section-number">2.3.2. </span>Extra: Uso de memoria con módulo <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code><a class="headerlink" href="#extra-uso-de-memoria-con-modulo-tracemalloc" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Python tiene un módulo estándar llamado <a class="reference external" href="https://docs.python.org/3/library/tracemalloc.html"><code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code></a> que permite calcular estadísticas sobre la memoria alocada por un proceso o script de Python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tracemalloc</span>
+
+<span class="n">tracemalloc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># Acá se corre el código que quieres estudiar</span>
+
+<span class="n">snapshot</span> <span class="o">=</span> <span class="n">tracemalloc</span><span class="o">.</span><span class="n">take_snapshot</span><span class="p">()</span>
+<span class="n">top_stats</span> <span class="o">=</span> <span class="n">snapshot</span><span class="o">.</span><span class="n">statistics</span><span class="p">(</span><span class="s1">&#39;lineno&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./clases/unidad3/2_HPC"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="HPC1.html" title="previous page"><span class="section-number">1. </span>Introducción: Python y  Rendimiento</a>
+    <a class='right-next' id="next-link" href="HPC3.html" title="next page"><span class="section-number">3. </span>Optimizando código Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Pablo Huijse Heise<br/>
+        
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

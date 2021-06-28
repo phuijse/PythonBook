@@ -180,7 +180,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Aprendizaje de máquinas y computación de alto rendimiento
+  Aprendizaje de máquinas
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -199,9 +199,26 @@
    3. Aprendizaje no supervisado
   </a>
  </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Computación de alto rendimiento
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   4. Python y  Rendimiento | Profiling
+   1. Introducción: Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
+   2. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
+   3. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -723,9 +740,9 @@ El eje 1 tiene largo 3
        [0., 0., 1.]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.1606938 , -0.30647399,  0.33042642],
-       [-2.224596  ,  0.81730947,  0.32814034],
-       [ 0.2762344 ,  0.05661056, -0.12865962]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.01390602,  1.41678957, -0.76828155],
+       [ 2.26807381, -1.00221785,  1.18362135],
+       [-0.52386073, -0.72419655,  0.03696529]])
 </pre></div>
 </div>
 </div>
@@ -1515,15 +1532,15 @@ El eje 1 tiene largo 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.64223994, -0.30705537, -0.57061775],
-       [-0.38893757, -0.15365305,  0.2870536 ],
-       [-0.25574316,  1.19174222, -0.36362503]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.48515579, -0.18702393,  0.55940154],
+       [ 0.86315619,  0.24170992, -0.86260245],
+       [ 0.57727372, -1.37447223,  0.92714593]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.64223994, 1.19174222, 0.2870536 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.48515579, 0.24170992, 0.92714593])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 2, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2])
 </pre></div>
 </div>
 </div>
@@ -1555,20 +1572,20 @@ El eje 1 tiene largo 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.1 ms ± 847 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.7 ms ± 658 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.5 ms ± 482 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.3 ms ± 1.15 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.6 ms ± 1.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.4 ms ± 1.28 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.7 ms ± 719 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.5 ms ± 724 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.7 ms ± 107 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
-98.1 µs ± 14.9 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.98 ms ± 353 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+92.5 µs ± 12.2 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -1646,14 +1663,14 @@ El eje 1 tiene largo 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.97162864, -0.77592987,  0.88086229],
-       [ 0.53959427,  1.07477059, -1.45624563],
-       [ 0.90475909, -1.38225546, -1.23238732]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.64048236, -2.03194906,  0.50197265],
+       [ 2.09707769,  0.65916604,  1.26177463],
+       [ 0.13368127, -0.70186191, -0.8737782 ]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.97162864, 0.77592987, 0.88086229],
-       [0.53959427, 1.07477059, 1.45624563],
-       [0.90475909, 1.38225546, 1.23238732]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.64048236, 2.03194906, 0.50197265],
+       [2.09707769, 0.65916604, 1.26177463],
+       [0.13368127, 0.70186191, 0.8737782 ]])
 </pre></div>
 </div>
 </div>
@@ -1795,14 +1812,14 @@ El eje 1 tiene largo 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.36588516, -0.75703308, -0.91827487],
-       [ 0.26541104, -0.36720506,  1.00998072],
-       [-0.44986874,  0.86144928, -2.16601662]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.3788781 ,  0.90294713,  0.75022713],
+       [-0.6964332 ,  0.03378308, -0.94478408],
+       [-1.76888466,  0.80704629,  0.92933638]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
-       [False, False,  True],
-       [False,  True, False]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False,  True,  True],
+       [False, False, False],
+       [False,  True,  True]])
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1887,19 +1904,19 @@ El eje 1 tiene largo 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.29451094, -0.00534315],
-       [ 0.25171168, -1.17804351]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.64414747, -0.99594349],
+       [-0.15284644,  0.02872154]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.00534315,  2.29451094],
-       [-1.17804351,  0.25171168]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.99594349,  0.64414747],
+       [-0.15284644,  0.02872154]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.25171168, -1.17804351],
-       [ 2.29451094, -0.00534315]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.15284644, -0.99594349],
+       [ 0.64414747,  0.02872154]])
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.17804351, -0.00534315,  0.25171168,  2.29451094])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.99594349, -0.15284644,  0.02872154,  0.64414747])
 </pre></div>
 </div>
 </div>
