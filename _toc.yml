@@ -28,6 +28,7 @@
   - file: clases/unidad3/1_ML/ML2
   - file: clases/unidad3/1_ML/ML3
 - part: Computación de alto rendimiento
+  chapters:
   - file: clases/unidad3/2_HPC/HPC1
   - file: clases/unidad3/2_HPC/HPC2
   - file: clases/unidad3/2_HPC/HPC3
