@@ -27,7 +27,8 @@
   - file: clases/unidad3/1_ML/ML1
   - file: clases/unidad3/1_ML/ML2
   - file: clases/unidad3/1_ML/ML3
-- part: Anexos
+  - file: clases/unidad3/2_HPC/HPC1
+ part: Anexos
   chapters:
     - file: clases/unidad1/00_repaso_python3  
     - file: clases/unidad1/03_control_de_versiones
