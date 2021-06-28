@@ -22,12 +22,15 @@
     - file: clases/unidad2/3_statistics/stats1
     - file: clases/unidad2/3_statistics/stats2
     - file: clases/unidad2/3_statistics/stats3
-- part: Aprendizaje de máquinas y computación de alto rendimiento
+- part: Aprendizaje de máquinas
   chapters:
   - file: clases/unidad3/1_ML/ML1
   - file: clases/unidad3/1_ML/ML2
   - file: clases/unidad3/1_ML/ML3
+- part: Computación de alto rendimiento
   - file: clases/unidad3/2_HPC/HPC1
+  - file: clases/unidad3/2_HPC/HPC2
+  - file: clases/unidad3/2_HPC/HPC3
 - part: Anexos
   chapters:
     - file: clases/unidad1/00_repaso_python3  
