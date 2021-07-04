@@ -60,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="next" title="4. Acelerando Python con Cython" href="HPC4.html" />
     <link rel="prev" title="2. Profiling" href="HPC2.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -219,6 +219,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    3. Optimizando código Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="HPC4.html">
+   4. Acelerando Python con Cython
   </a>
  </li>
 </ul>
@@ -536,7 +541,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.3 ms ± 763 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.1 ms ± 338 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -562,7 +567,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.6 ms ± 915 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.57 ms ± 1.27 ms per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -579,7 +584,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.15 ms ± 232 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.37 ms ± 789 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -596,7 +601,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.05 ms ± 129 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.6 ms ± 113 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -629,19 +634,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.08 ms ± 53.1 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.07 ms ± 184 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{7: 967,
- 8: 990,
- 4: 961,
- 5: 1074,
- 1: 959,
- 0: 1028,
- 2: 975,
- 3: 1029,
- 6: 994,
- 9: 1023}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{4: 984,
+ 5: 1038,
+ 0: 1012,
+ 2: 960,
+ 7: 986,
+ 6: 989,
+ 1: 1050,
+ 9: 1001,
+ 8: 1034,
+ 3: 946}
 </pre></div>
 </div>
 </div>
@@ -656,19 +661,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4 ms ± 91.4 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.67 ms ± 190 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({7: 967,
-         8: 990,
-         4: 961,
-         5: 1074,
-         1: 959,
-         0: 1028,
-         2: 975,
-         3: 1029,
-         6: 994,
-         9: 1023})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({4: 984,
+         5: 1038,
+         0: 1012,
+         2: 960,
+         7: 986,
+         6: 989,
+         1: 1050,
+         9: 1001,
+         8: 1034,
+         3: 946})
 </pre></div>
 </div>
 </div>
@@ -691,10 +696,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.2 ms ± 586 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.7 ms ± 1.42 ms per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.2 ms ± 438 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.6 ms ± 145 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -729,7 +734,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.1 ms ± 535 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.7 ms ± 120 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -754,7 +759,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.8 ms ± 314 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.3 ms ± 941 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -832,8 +837,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.9 ms ± 768 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
-216 µs ± 47.9 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34.2 ms ± 231 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+240 µs ± 64.1 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -858,11 +863,11 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 ms ± 483 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.8 ms ± 849 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.9 ms ± 193 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
-1.94 ms ± 66.8 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.1 ms ± 118 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+1.74 ms ± 70.1 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -912,8 +917,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.3 ms ± 153 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
-3.16 ms ± 142 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.1 ms ± 135 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+3.17 ms ± 60.6 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -945,10 +950,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.64 ms ± 203 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.12 ms ± 378 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.47 ms ± 183 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.22 ms ± 349 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -980,10 +985,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.04 ms ± 245 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>952 µs ± 132 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.2 ms ± 177 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.49 ms ± 359 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1009,13 +1014,13 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.7 ms ± 1.52 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.2 ms ± 1.81 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10000, 1000)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79.7 ms ± 1.1 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>81.1 ms ± 2.79 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1039,13 +1044,13 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.9 ms ± 683 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.4 ms ± 858 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10000, 1000)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112 ms ± 4.26 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109 ms ± 3.95 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1123,10 +1128,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.6 µs ± 399 ns per loop (mean ± std. dev. of 10 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.9 µs ± 722 ns per loop (mean ± std. dev. of 10 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>75.2 ms ± 10.8 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79.8 ms ± 5.34 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1141,10 +1146,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.2 µs ± 2.07 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38.8 µs ± 4.51 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97.5 ms ± 7.64 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95.3 ms ± 7.93 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1157,7 +1162,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.5 ms ± 4.11 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.2 ms ± 4.57 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1244,7 +1249,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>421 ms ± 7.38 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>400 ms ± 3.81 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1257,7 +1262,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.61 s ± 13 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.58 s ± 27.6 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1309,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="HPC2.html" title="previous page"><span class="section-number">2. </span>Profiling</a>
-    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+    <a class='right-next' id="next-link" href="HPC4.html" title="next page"><span class="section-number">4. </span>Acelerando Python con Cython</a>
 
         </div>
         

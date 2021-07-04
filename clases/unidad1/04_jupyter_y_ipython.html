@@ -219,6 +219,11 @@
    3. Optimizando código Python
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC4.html">
+   4. Acelerando Python con Cython
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -642,8 +647,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
-CPU times: user 81 µs, sys: 7 µs, total: 88 µs
-Wall time: 93.9 µs
+CPU times: user 170 µs, sys: 32 µs, total: 202 µs
+Wall time: 162 µs
 </pre></div>
 </div>
 </div>
@@ -837,17 +842,17 @@ df -h
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
 Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
                total        used        free      shared  buff/cache   available
-Mem:           16002        4410        8873         390        2717       10884
+Mem:           16002        3309        9333         386        3359       11978
 Swap:           1023           0        1023
 Filesystem      Size  Used Avail Use% Mounted on
 dev             7.9G     0  7.9G   0% /dev
 run             7.9G  1.3M  7.9G   1% /run
 /dev/sdb1       118G   94G   19G  84% /
-tmpfs           7.9G   69M  7.8G   1% /dev/shm
+tmpfs           7.9G   44M  7.8G   1% /dev/shm
 tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
-/dev/sda1       118G  108G  4.2G  97% /home
-tmpfs           7.9G  4.2M  7.9G   1% /tmp
-tmpfs           1.6G   84K  1.6G   1% /run/user/1000
+/dev/sda1       118G  109G  3.6G  97% /home
+tmpfs           7.9G  4.3M  7.9G   1% /tmp
+tmpfs           1.6G   88K  1.6G   1% /run/user/1000
 </pre></div>
 </div>
 </div>
