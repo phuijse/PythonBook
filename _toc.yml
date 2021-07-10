@@ -33,6 +33,7 @@
   - file: clases/unidad3/2_HPC/HPC2
   - file: clases/unidad3/2_HPC/HPC3
   - file: clases/unidad3/2_HPC/HPC4
+  - file: clases/unidad3/2_HPC/HPC5
 - part: Anexos
   chapters:
     - file: clases/unidad1/00_repaso_python3  
