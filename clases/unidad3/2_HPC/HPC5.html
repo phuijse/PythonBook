@@ -521,8 +521,8 @@
 <p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU</p>
 <p>En esta lección exploraremos dos alternativas generales</p>
 <ul class="simple">
-<li><p><strong>1:</strong> Realizar cómputo paralelo con <strong>múltiples hilos</strong> que comparten memoria. Para esto usaremos <code class="docutils literal notranslate"><span class="pre">cython</span></code> para levantar el GIL y las directivas de <code class="docutils literal notranslate"><span class="pre">OpenMP</span></code> para implementar el paralelismo</p></li>
-<li><p><strong>2:</strong> Realizar cómputo paralelo con <strong>multiples procesos</strong> (fork). En este escenario los procesos tiene su propio espacio de memoria y su propio GIL, por lo que no es necesario usar <code class="docutils literal notranslate"><span class="pre">cython</span></code>. Usaremos la librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> para implementar le paralelismo</p></li>
+<li><p><strong>1:</strong> Realizar cómputo paralelo con <strong>múltiples hilos</strong> que comparten memoria. Para esto usaremos <code class="docutils literal notranslate"><span class="pre">cython</span></code> para levantar el GIL y las directivas de <code class="docutils literal notranslate"><span class="pre">OpenMP</span></code> para implementar este tipo de paralelismo</p></li>
+<li><p><strong>2:</strong> Realizar cómputo paralelo con <strong>multiples procesos</strong> (fork). En este escenario los procesos tiene su propio espacio de memoria y su propio GIL, por lo que no es necesario usar <code class="docutils literal notranslate"><span class="pre">cython</span></code>. En general el overhead es mucho mayor que en el caso <strong>1</strong>. Usaremos la librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> para implementar este tipo de  paralelismo</p></li>
 </ul>
 <p>Existe una tercera alternativa más accesible pero exclusiva para hacer <strong>algebra lineal en paralelo</strong> con NumPy</p>
 <ul class="simple">
@@ -626,7 +626,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.7 ms ± 432 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.9 ms ± 812 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -639,7 +639,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.4 ms ± 216 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.6 ms ± 270 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.33 ms ± 2.13 ms per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.13 ms ± 250 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -739,7 +739,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114 ms ± 35.1 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>91.6 ms ± 2.02 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -752,7 +752,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.9 ms ± 1.63 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42 ms ± 172 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -781,7 +781,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 <p>Esto debería instalar en su ambiente los ejecutables  <code class="docutils literal notranslate"><span class="pre">ipcluster</span></code>, <code class="docutils literal notranslate"><span class="pre">ipcontroller</span></code> e <code class="docutils literal notranslate"><span class="pre">ipengine</span></code>. Adicionalmente, en las versiones más nuevas, se crea una pestaña llamada “Ipython clusters” en la interfaz de jupyter</p>
-<p><img alt="image.png" src="clases/unidad3/2_HPC/attachment:image.png" /></p>
+<img alt="../../../_images/ipyparallel1.png" src="../../../_images/ipyparallel1.png" />
 <p>Si la interfaz no se instaló de forma automática se puede usar el comando</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster nbextension <span class="nb">enable</span>
 </pre></div>
@@ -797,7 +797,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 <p>o utilizar los controles que se encuentran en la pestaña “IPython clusters”</p>
-<p><img alt="image-2.png" src="clases/unidad3/2_HPC/attachment:image-2.png" /></p>
+<img alt="../../../_images/ipyparallel2.png" src="../../../_images/ipyparallel2.png" />
 <p>Con esto hemos creado un controlador y cuatro engines, todos en nuestra máquina (localhost)</p>
 <div class="section" id="creacion-de-un-cliente">
 <h3><span class="section-number">5.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Enlazar permanentemente con este título">¶</a></h3>
@@ -808,7 +808,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <span class="c1"># Creamos la clase cliente</span>
 <span class="n">rc</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
 <span class="c1"># Verificamos que se hayan iniciado nuestro engines</span>
-<span class="n">display</span><span class="p">(</span><span class="n">rc</span><span class="o">.</span><span class="n">ids</span><span class="p">)</span>
+<span class="n">rc</span><span class="o">.</span><span class="n">ids</span>
 </pre></div>
 </div>
 </div>
@@ -835,10 +835,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una view con</span>
 <span class="n">dview</span> <span class="o">=</span> <span class="n">rc</span><span class="p">[:]</span>
 <span class="c1"># Por defecto es asíncrono (no bloqueante)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">dview</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
-<span class="c1"># Lo podemos cambiar con</span>
-<span class="n">dview</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">display</span><span class="p">(</span><span class="n">dview</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
+<span class="n">dview</span><span class="o">.</span><span class="n">block</span>
 </pre></div>
 </div>
 </div>
@@ -846,6 +843,17 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podemos cambiarlo a ejecución síncrona (bloqueando) con</span>
+<span class="n">dview</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">dview</span><span class="o">.</span><span class="n">block</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
@@ -864,11 +872,11 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 <div class="section" id="funciones-de-python-en-paralelo-con-apply">
 <h3><span class="section-number">5.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Se ocupa como</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<p>Sea una función <code class="docutils literal notranslate"><span class="pre">f</span></code> podemos ejecutarla en todos los engines usando</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Por ejemplo usando una función anónima</p>
+<p>En el siguiente ejemplo se ejecuta una función anónima en todos los engines</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Mundo&quot;</span><span class="p">)</span>
@@ -942,22 +950,22 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
 <span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-17-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
+<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
 <span class="ne">NameError</span>: name &#39;os&#39; is not defined
 
 <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
 <span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-17-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
+<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
 <span class="ne">NameError</span>: name &#39;os&#39; is not defined
 
 <span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
 <span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-17-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
+<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
 <span class="ne">NameError</span>: name &#39;os&#39; is not defined
 
 <span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
 <span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-17-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
+<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
 <span class="ne">NameError</span>: name &#39;os&#39; is not defined
 </pre></div>
 </div>
@@ -1141,16 +1149,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.8715582771244524e-10,
- 0.9440834672993822,
- 5.741604591752478e-06,
- 0.2667951259336785,
- 0.19528600383726988,
- 0.00020811055149763558,
- 3.879181586753095e-05,
- 0.0010507558665073704,
- 5.806598621740018e-05,
- 0.7395668200590072]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0030364055600440695,
+ 0.0004900493029187395,
+ 0.8588607165226595,
+ 0.03895909010642847,
+ 0.48384514440293636,
+ 0.22405340002304475,
+ 0.02681750875471847,
+ 0.0007022186386153535,
+ 0.3141080214318248,
+ 0.2280172851927407]
 </pre></div>
 </div>
 </div>
