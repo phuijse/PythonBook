@@ -224,6 +224,11 @@
    4. Acelerando Python con Cython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unidad3/2_HPC/HPC5.html">
+   5. Computación paralela en Python
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -647,8 +652,8 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0123456789
-CPU times: user 123 µs, sys: 20 µs, total: 143 µs
-Wall time: 124 µs
+CPU times: user 107 µs, sys: 14 µs, total: 121 µs
+Wall time: 128 µs
 </pre></div>
 </div>
 </div>
@@ -842,17 +847,17 @@ df -h
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estoy usando: /bin/zsh
 Mi path es: /home/phuijse/.conda/envs/jupyter-book/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
                total        used        free      shared  buff/cache   available
-Mem:           16002        3614        8892         364        3495       11694
-Swap:           1023           0        1023
+Mem:           16002        3945       10927         229        1128       11546
+Swap:           1023         654         369
 Filesystem      Size  Used Avail Use% Mounted on
 dev             7.9G     0  7.9G   0% /dev
 run             7.9G  1.3M  7.9G   1% /run
 /dev/sdb1       118G   94G   19G  84% /
-tmpfs           7.9G   44M  7.8G   1% /dev/shm
+tmpfs           7.9G  7.1M  7.9G   1% /dev/shm
 tmpfs           4.0M     0  4.0M   0% /sys/fs/cgroup
-/dev/sda1       118G  109G  3.6G  97% /home
-tmpfs           7.9G  4.3M  7.9G   1% /tmp
-tmpfs           1.6G   88K  1.6G   1% /run/user/1000
+/dev/sda1       118G  108G  4.1G  97% /home
+tmpfs           7.9G   11M  7.9G   1% /tmp
+tmpfs           1.6G  128K  1.6G   1% /run/user/1000
 </pre></div>
 </div>
 </div>

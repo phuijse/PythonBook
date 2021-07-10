@@ -60,7 +60,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="next" title="5. Computación paralela en Python" href="HPC5.html" />
     <link rel="prev" title="3. Optimizando código Python" href="HPC3.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -224,6 +224,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    4. Acelerando Python con Cython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="HPC5.html">
+   5. Computación paralela en Python
   </a>
  </li>
 </ul>
@@ -423,7 +428,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 </pre></div>
 </div>
 </div>
@@ -522,7 +526,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.02 s ± 21.2 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.87 s ± 9.16 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -534,7 +538,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.6 ms ± 371 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39.7 ms ± 142 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -607,7 +611,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.19 s ± 60.9 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.95 s ± 19.5 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -619,7 +623,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.1 ms ± 954 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.6 ms ± 1.22 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -631,7 +635,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.44 s ± 24.5 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.32 s ± 20.2 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -703,7 +707,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.2 ms ± 3.12 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45.1 ms ± 7.61 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -715,7 +719,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>629 ms ± 20.9 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>586 ms ± 17.4 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -785,7 +789,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44.3 ms ± 3.96 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.9 ms ± 1.49 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -797,7 +801,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>567 ms ± 5.43 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>588 ms ± 12.3 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -809,7 +813,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.16 ms ± 103 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.34 ms ± 1.43 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -881,7 +885,7 @@ def distancia_pares_cython(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.82 ms ± 969 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.98 ms ± 1.98 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -893,7 +897,7 @@ def distancia_pares_cython(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.72 ms ± 934 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.09 ms ± 799 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1013,7 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.2 ms ± 7.25 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.5 ms ± 150 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1021,7 +1025,7 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.85 ms ± 1.1 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.04 ms ± 1.1 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1108,7 +1112,7 @@ def make_fractal_cython(int N, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3 s ± 8.31 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.25 s ± 4.62 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1120,7 +1124,7 @@ def make_fractal_cython(int N, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.7 ms ± 249 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.4 ms ± 210 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1181,7 +1185,7 @@ def make_fractal_cython(int N, int maxiters=50):
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="HPC3.html" title="previous page"><span class="section-number">3. </span>Optimizando código Python</a>
-    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
+    <a class='right-next' id="next-link" href="HPC5.html" title="next page"><span class="section-number">5. </span>Computación paralela en Python</a>
 
         </div>
         
