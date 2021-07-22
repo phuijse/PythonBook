@@ -626,7 +626,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.9 ms ± 812 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.6 ms ± 481 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -639,7 +639,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.6 ms ± 270 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.4 ms ± 403 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.13 ms ± 250 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.42 ms ± 263 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -739,7 +739,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>91.6 ms ± 2.02 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>189 ms ± 21.4 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -752,7 +752,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42 ms ± 172 µs per loop (mean ± std. dev. of 3 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.7 ms ± 5.35 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -813,7 +813,30 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TimeoutError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">64</span><span class="n">cd9ad2ec09</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Creamos la clase cliente</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Verificamos que se hayan iniciado nuestro engines</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">rc</span><span class="o">.</span><span class="n">ids</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/ipyparallel/client/client.py</span> in <span class="ni">__init__</span><span class="nt">(self, url_file, profile, profile_dir, ipython_dir, context, debug, sshserver, sshkey, password, paramiko, timeout, cluster_id, **extra_args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span> 
+<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">519</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_connect</span><span class="p">(</span><span class="n">sshserver</span><span class="p">,</span> <span class="n">ssh_kwargs</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">520</span>         <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>             <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">linger</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/ipyparallel/client/client.py</span> in <span class="ni">_connect</span><span class="nt">(self, sshserver, ssh_kwargs, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">636</span>         <span class="n">evts</span> <span class="o">=</span> <span class="n">poller</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">637</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">evts</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">638</span>             <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">(</span><span class="s2">&quot;Hub connection request timed out&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">639</span>         <span class="n">idents</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_query_socket</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+
+<span class="ne">TimeoutError</span>: Hub connection request timed out
 </pre></div>
 </div>
 </div>
@@ -840,7 +863,15 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">678156</span><span class="n">a23f83</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Creamos una view con</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span> <span class="o">=</span> <span class="n">rc</span><span class="p">[:]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Por defecto es asíncrono (no bloqueante)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span>
+
+<span class="ne">NameError</span>: name &#39;rc&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -854,7 +885,14 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">bea8d7584c70</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Podemos cambiarlo a ejecución síncrona (bloqueando) con</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -884,7 +922,12 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hola Mundo&#39;, &#39;Hola Mundo&#39;, &#39;Hola Mundo&#39;, &#39;Hola Mundo&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">ac0d9fa278ce</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Mundo&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -908,7 +951,14 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[129236, 129237, 129250, 129251]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">6</span><span class="n">fc66c0120ef</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Cada uno tiene un pid distinto</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -929,10 +979,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>importing os on engine(s)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[129236, 129237, 129250, 129251]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">6</span><span class="n">c2c6e1113d0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="n">dview</span><span class="o">.</span><span class="n">sync_imports</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># El módulo quedará importado también en nuestro ambiente local</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Ahora ya no necesitamos importar os</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -948,25 +1004,15 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
-<span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
-<span class="ne">NameError</span>: name &#39;os&#39; is not defined
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">255</span><span class="n">eff768fcb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Limpiamos el entorno de las engines</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Ahora el siguiente comando arrojará un NameError</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion2</span><span class="p">)</span>
 
-<span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
-<span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
-<span class="ne">NameError</span>: name &#39;os&#39; is not defined
-
-<span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
-<span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
-<span class="ne">NameError</span>: name &#39;os&#39; is not defined
-
-<span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="n">apply</span><span class="p">]:</span> 
-<span class="o">---------------------------------------------------------------------------</span><span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="nn">&lt;ipython-input-18-6c2c6e1113d0&gt;</span> in <span class="ni">funcion2</span><span class="nt">()</span>
-<span class="ne">NameError</span>: name &#39;os&#39; is not defined
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -991,7 +1037,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10000, 10000, 10000, 10000]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">1</span><span class="n">d967f7c53a4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Esto no existe dentro de los engines</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dview</span><span class="o">.</span><span class="n">push</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">a</span><span class="p">})</span> <span class="c1"># Ahora está en todos los engines</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">funcion3</span><span class="p">():</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1059,13 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[100, 100]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="n">aa8adb1a3884</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Digamos que quiero recuperar la variable &#39;a&#39; pero sólo de los dos primeros engines</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1090,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([0, 1, 4]), array([ 9, 16, 25]), array([36, 49]), array([64, 81])]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">6650</span><span class="n">fd213d4f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Una lista con 7 elementos que será distribuida en los 4 engines usando scatter</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion3</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">global</span> <span class="n">y</span> <span class="c1"># Creo una variable en el workspace del engine</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1112,13 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="n">d395016412c5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Recuperamos la salida con gather</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">dview</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1063,7 +1139,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(25, 100), (25, 100), (25, 100), (25, 100)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">008920</span><span class="n">eabf79</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion4</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># data[0, 0] = 0 # No podemos modificar los valores!</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1090,7 +1175,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="n">b71771d0405d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion5</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">global</span> <span class="n">x</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1211,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="mi">08</span><span class="n">aca1cecb45</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Map de ipyparallel</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">resultado_paralelo</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Resultados</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1233,12 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 3, 6, 9, 12, 15, 18, 21, 24, 27]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">27</span><span class="o">-</span><span class="mi">4</span><span class="n">d34b5b1e624</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1149,16 +1257,14 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0030364055600440695,
- 0.0004900493029187395,
- 0.8588607165226595,
- 0.03895909010642847,
- 0.48384514440293636,
- 0.22405340002304475,
- 0.02681750875471847,
- 0.0007022186386153535,
- 0.3141080214318248,
- 0.2280172851927407]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="mi">54729</span><span class="n">f090372</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">function_args</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1285,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[129236, 129237, 129250, 129251]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mi">312</span><span class="n">c7dc219bf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">funcion</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1199,7 +1314,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[range(0, 3), range(3, 6), range(6, 8), range(8, 10)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="n">a68939e4f8a5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">funcion</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">x</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Los datos se particionan en 4 grupos (uno por engine)</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1342,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">31</span><span class="o">-</span><span class="mi">2</span><span class="n">d9c2b75ce5d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">pmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1241,7 +1374,14 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="n">ce62fd0ed67c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">res_async</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># ¿Está listo mi tarea?</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">res_async</span><span class="o">.</span><span class="n">ready</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1260,7 +1400,16 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="n">db2a78c70027</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Puedo hacer cómputo aquí mientras espero que termine mi tarea</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">res_async</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="c1"># Recupero el resultado</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">res_async</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;res_async&#39; is not defined
 </pre></div>
 </div>
 </div>
