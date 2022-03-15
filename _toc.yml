@@ -1,45 +1,53 @@
 format: jb-book
 root: README
 parts:
-- caption: "Manipulaci\xF3n de datos"
+- caption: "Introducción"
   numbered: true
   chapters:
   - file: clases/unidad1/01_introduccion
+  - file: clases/unidad1/00_repaso_python3
   - file: clases/unidad1/02_ambientes_virtuales
   - file: clases/unidad1/04_jupyter_y_ipython
-  - file: clases/unidad1/05_numpy
-  - file: clases/unidad1/06_matplotlib
-  - file: "clases/unidad1/07_pandas_b\xE1sico"
-  - file: clases/unidad1/08_pandas_avanzado
-- caption: "Computaci\xF3n cient\xEDfica"
-  numbered: true
-  chapters:
-  - file: clases/unidad2/1_linearalgebra/1_linear_algebra
-  - file: clases/unidad2/1_linearalgebra/2_linear_regression
-  - file: clases/unidad2/2_calculus/optimization
-  - file: clases/unidad2/3_statistics/stats1
-  - file: clases/unidad2/3_statistics/stats2
-  - file: clases/unidad2/3_statistics/stats3
-- caption: "Aprendizaje de m\xE1quinas"
-  numbered: true
-  chapters:
-  - file: clases/unidad3/1_ML/ML1
-  - file: clases/unidad3/1_ML/ML2
-  - file: clases/unidad3/1_ML/ML3
-- caption: "Computaci\xF3n de alto rendimiento"
-  numbered: true
-  chapters:
-  - file: clases/unidad3/2_HPC/HPC1
-  - file: clases/unidad3/2_HPC/HPC2
-  - file: clases/unidad3/2_HPC/HPC3
-  - file: clases/unidad3/2_HPC/HPC4
-  - file: clases/unidad3/2_HPC/HPC5
-- caption: Anexos
-  numbered: true
-  chapters:
-  - file: clases/unidad1/00_repaso_python3
-  - file: clases/unidad1/03_control_de_versiones
-  - file: clases/unidad1/10_pandas_anexos
-  - file: clases/unidad1/09_interfaces_de_usuario
-  - file: clases/unidad1/11_ipython_display
-
+#  - caption: "Manipulaci\xF3n de datos"
+#  numbered: true
+#  chapters:
+#  - file: clases/unidad1/05_numpy
+#  - file: "clases/unidad1/07_pandas_b\xE1sico"
+#  - file: clases/unidad1/08_pandas_avanzado
+#  - file: clases/unidad1/10_pandas_anexos
+#- caption: "Visualización de datos"
+#  numbered: true
+#  chapters:
+#  - file: clases/unidad1/06_matplotlib
+#  - file: clases/unidad1/09_interfaces_de_usuario
+# - caption: "Computaci\xF3n cient\xEDfica"
+#   numbered: true
+#   chapters:
+#   - file: clases/unidad2/1_linearalgebra/1_linear_algebra
+#   - file: clases/unidad2/1_linearalgebra/2_linear_regression
+#   - file: clases/unidad2/2_calculus/optimization
+#   - file: clases/unidad2/3_statistics/stats1
+#   - file: clases/unidad2/3_statistics/stats2
+#   - file: clases/unidad2/3_statistics/stats3
+# - caption: "Aprendizaje de m\xE1quinas"
+#   numbered: true
+#   chapters:
+#   - file: clases/unidad3/1_ML/ML1
+#   - file: clases/unidad3/1_ML/ML2
+#   - file: clases/unidad3/1_ML/ML3
+# - caption: "Computaci\xF3n de alto rendimiento"
+#   numbered: true
+#   chapters:
+#   - file: clases/unidad3/2_HPC/HPC1
+#   - file: clases/unidad3/2_HPC/HPC2
+#   - file: clases/unidad3/2_HPC/HPC3
+#   - file: clases/unidad3/2_HPC/HPC4
+#   - file: clases/unidad3/2_HPC/HPC5
+# - caption: Anexos
+#   numbered: true
+#   chapters:
+#   - file: clases/unidad1/00_repaso_python3
+#   - file: clases/unidad1/03_control_de_versiones
+#   - file: clases/unidad1/10_pandas_anexos
+#   - file: clases/unidad1/11_ipython_display
+# 
