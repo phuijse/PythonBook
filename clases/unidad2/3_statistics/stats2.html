@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Estadística descriptiva &#8212; INFO147 Computación científica con Python</title>
+    <title>12. Estadística descriptiva &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="6. Estadística inferencial" href="stats3.html" />
-    <link rel="prev" title="4. Estadística: Fundamentos" href="stats1.html" />
-
+    <link rel="next" title="13. Estadística inferencial" href="stats3.html" />
+    <link rel="prev" title="11. Estadística: Fundamentos" href="stats1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad2/3_statistics/stats2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad2/3_statistics/stats2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad2/3_statistics/stats2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -353,44 +369,43 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#repaso-de-fundamentos">
-   5.1. Repaso de fundamentos
+   12.1. Repaso de fundamentos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicio">
-     5.1.1. Ejercicio
+     12.1.1. Ejercicio
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histograma">
-   5.2. Histograma
+   12.2. Histograma
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#construccion-de-un-histograma">
-     5.2.1. Construcción de un histograma
+     12.2.1. Construcción de un histograma
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interpretacion-de-un-histograma">
-     5.2.2. Interpretación de un histograma
+     12.2.2. Interpretación de un histograma
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#construyendo-histogramas-con-matplotlib">
-     5.2.3. Construyendo histogramas con
+     12.2.3. Construyendo histogramas con
      <code class="docutils literal notranslate">
       <span class="pre">
        matplotlib
@@ -400,60 +415,160 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     5.2.4. Ejercicio
+     12.2.4. Ejercicio
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descriptores-de-la-distribucion">
-   5.3. Descriptores de la distribución
+   12.3. Descriptores de la distribución
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calculando-descriptores-con-python">
-     5.3.1. Calculando descriptores con Python
+     12.3.1. Calculando descriptores con Python
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo">
-     5.3.2. Ejemplo
+     12.3.2. Ejemplo
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribuciones-comunes">
-   5.4. Distribuciones comunes
+   12.4. Distribuciones comunes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generando-muestras-aleatorias-con-numpy-y-scipy">
-   5.5. Generando muestras aleatorias con NumPy y SciPy
+   12.5. Generando muestras aleatorias con NumPy y SciPy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#por-que-la-distribucion-gaussiana-para-ser-tan-comun">
-   5.6. ¿Por qué la distribución Gaussiana para ser tan común?
+   12.6. ¿Por qué la distribución Gaussiana para ser tan común?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     5.6.1. Ejercicio
+     12.6.1. Ejercicio
     </a>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estadística descriptiva</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#repaso-de-fundamentos">
+   12.1. Repaso de fundamentos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     12.1.1. Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograma">
+   12.2. Histograma
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construccion-de-un-histograma">
+     12.2.1. Construcción de un histograma
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretacion-de-un-histograma">
+     12.2.2. Interpretación de un histograma
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construyendo-histogramas-con-matplotlib">
+     12.2.3. Construyendo histogramas con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       matplotlib
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     12.2.4. Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descriptores-de-la-distribucion">
+   12.3. Descriptores de la distribución
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculando-descriptores-con-python">
+     12.3.1. Calculando descriptores con Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo">
+     12.3.2. Ejemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribuciones-comunes">
+   12.4. Distribuciones comunes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generando-muestras-aleatorias-con-numpy-y-scipy">
+   12.5. Generando muestras aleatorias con NumPy y SciPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#por-que-la-distribucion-gaussiana-para-ser-tan-comun">
+   12.6. ¿Por qué la distribución Gaussiana para ser tan común?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     12.6.1. Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -476,8 +591,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="estadistica-descriptiva">
-<h1><span class="section-number">5. </span>Estadística descriptiva<a class="headerlink" href="#estadistica-descriptiva" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="estadistica-descriptiva">
+<h1><span class="section-number">12. </span>Estadística descriptiva<a class="headerlink" href="#estadistica-descriptiva" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Sea una muestra de datos. Antes de responder preguntas con los datos debemos entenderlos</p>
 <blockquote>
 <div><p>Para entender la muestra podemos intentar describirla</p>
@@ -491,7 +606,7 @@
 </ul>
 <p>Todas estas preguntas están relacionadas a la <strong>distribución</strong> de los datos. Repasemos este concepto</p>
 <div class="section" id="repaso-de-fundamentos">
-<h2><span class="section-number">5.1. </span>Repaso de fundamentos<a class="headerlink" href="#repaso-de-fundamentos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.1. </span>Repaso de fundamentos<a class="headerlink" href="#repaso-de-fundamentos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Distribución de probabilidades</strong></p>
 <p>Una distribución de probabilidad es una función que relaciona los valores posibles de una VA con sus respectivas probabilidades de ocurrir</p>
 <p>La definición es un poco distinta dependiendo si la variable aleatoria es discreta o continua</p>
@@ -564,7 +679,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 <div class="section" id="ejercicio">
-<h3><span class="section-number">5.1.1. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.1.1. </span>Ejercicio<a class="headerlink" href="#ejercicio" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En esta lección usaremos la base de datos <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)"><strong>Diagnóstico de cancer de mama</strong> de la Universidad de Wisconsin</a></p>
 <ul class="simple">
 <li><p>La base de datos incluye un identificador de paciente y un diagnóstico hecho por un médico</p></li>
@@ -580,70 +695,6 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>diagnosis</th>
-      <th>radius1</th>
-      <th>texture1</th>
-    </tr>
-    <tr>
-      <th>ID</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>8142302</th>
-      <td>M</td>
-      <td>17.99</td>
-      <td>10.38</td>
-    </tr>
-    <tr>
-      <th>842517</th>
-      <td>M</td>
-      <td>20.57</td>
-      <td>17.77</td>
-    </tr>
-    <tr>
-      <th>84300903</th>
-      <td>M</td>
-      <td>19.69</td>
-      <td>21.25</td>
-    </tr>
-    <tr>
-      <th>84348301</th>
-      <td>M</td>
-      <td>11.42</td>
-      <td>20.38</td>
-    </tr>
-    <tr>
-      <th>84358402</th>
-      <td>M</td>
-      <td>20.29</td>
-      <td>14.34</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Usando estos datos, conteste</p>
 <ol class="simple">
@@ -660,24 +711,14 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/ihcip87q4E8?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 </div>
 <div class="section" id="histograma">
-<h2><span class="section-number">5.2. </span>Histograma<a class="headerlink" href="#histograma" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.2. </span>Histograma<a class="headerlink" href="#histograma" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El histograma es una método que nos permite <strong>estimar la densidad o masa de probabilidad de una variable</strong>.</p>
 <div class="section" id="construccion-de-un-histograma">
-<h3><span class="section-number">5.2.1. </span>Construcción de un histograma<a class="headerlink" href="#construccion-de-un-histograma" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.2.1. </span>Construcción de un histograma<a class="headerlink" href="#construccion-de-un-histograma" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La construcción de un histograma de densidad tiene dos pasos</p>
 <ol class="simple">
 <li><p>Definir un conjunto de <strong>intervalos/cajas/bines</strong> para la variable de interés</p></li>
@@ -701,7 +742,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </div></blockquote>
 </div>
 <div class="section" id="interpretacion-de-un-histograma">
-<h3><span class="section-number">5.2.2. </span>Interpretación de un histograma<a class="headerlink" href="#interpretacion-de-un-histograma" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.2.2. </span>Interpretación de un histograma<a class="headerlink" href="#interpretacion-de-un-histograma" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El histograma revela visualmente algunas propiedades y comportamientos de la muestra. Considere los siguientes ejemplos de histogramas de distribuciones univariadas</p>
 <img alt="../../../_images/stats5.png" src="../../../_images/stats5.png" />
 <p>El histograma nos permite ver</p>
@@ -711,7 +752,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </ul>
 </div>
 <div class="section" id="construyendo-histogramas-con-matplotlib">
-<h3><span class="section-number">5.2.3. </span>Construyendo histogramas con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#construyendo-histogramas-con-matplotlib" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.2.3. </span>Construyendo histogramas con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#construyendo-histogramas-con-matplotlib" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos construir y visualizar un histograma con matplotlib usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># datos</span>
          <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Cantidad de cajas (escalar) o bordes de las cajas (secuencia creciente)</span>
@@ -734,7 +775,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 <p>Las alternativas en la librería <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> serían <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.distplot.html"><code class="docutils literal notranslate"><span class="pre">seaborn.distplot</span></code></a> y <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"><code class="docutils literal notranslate"><span class="pre">seaborn.jointplot</span></code></a>, respectivamente</p>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">5.2.4. </span>Ejercicio<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.2.4. </span>Ejercicio<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Muestre tres gráficos con los histogramas de las siguientes variables</p>
 <ul class="simple">
 <li><p>El radio (1D) para los diagnósticos M y B</p></li>
@@ -751,21 +792,11 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/DOHp8xFDQNg?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 </div>
 <div class="section" id="descriptores-de-la-distribucion">
-<h2><span class="section-number">5.3. </span>Descriptores de la distribución<a class="headerlink" href="#descriptores-de-la-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.3. </span>Descriptores de la distribución<a class="headerlink" href="#descriptores-de-la-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Visualizar la distribución nos da mucha información. Pero en algunos casos sólo interesa comprobar la existencia de ciertas características o atributos de la distribución</p>
 <blockquote>
 <div><p>Podemos resumir una distribución en función de sus <strong>momentos</strong></p>
@@ -786,7 +817,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 <li><p>Diferencias entre percentiles</p></li>
 </ul>
 <div class="section" id="calculando-descriptores-con-python">
-<h3><span class="section-number">5.3.1. </span>Calculando descriptores con Python<a class="headerlink" href="#calculando-descriptores-con-python" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.3.1. </span>Calculando descriptores con Python<a class="headerlink" href="#calculando-descriptores-con-python" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos obtener la media y la desviación estándar de un dataframe usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
@@ -802,7 +833,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 <p>Otros descriptores comunes están implementados en el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html#summary-statistics">scipy.stats</a></p>
 </div>
 <div class="section" id="ejemplo">
-<h3><span class="section-number">5.3.2. </span>Ejemplo<a class="headerlink" href="#ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.3.2. </span>Ejemplo<a class="headerlink" href="#ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Descriptores para el radio y la textura usando pandas y scipy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,81 +845,11 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>radius1</th>
-      <th>texture1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>569.000000</td>
-      <td>569.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>14.127292</td>
-      <td>19.289649</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.524049</td>
-      <td>4.301036</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>6.981000</td>
-      <td>9.710000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>11.700000</td>
-      <td>16.170000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>13.370000</td>
-      <td>18.840000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>15.780000</td>
-      <td>21.800000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>28.110000</td>
-      <td>39.280000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DescribeResult(nobs=569, minmax=(array([6.981, 9.71 ]), array([28.11, 39.28])), mean=array([14.12729174, 19.28964851]), variance=array([12.41892013, 18.49890868]), skewness=array([0.93989345, 0.64873357]), kurtosis=array([0.82758367, 0.74114542]))
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div class="section" id="distribuciones-comunes">
-<h2><span class="section-number">5.4. </span>Distribuciones comunes<a class="headerlink" href="#distribuciones-comunes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.4. </span>Distribuciones comunes<a class="headerlink" href="#distribuciones-comunes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Existen muchísimas distribuciones de probabilidad asociadas a distintos fenómenos y experimentos. La siguiente tabla presenta las distribuciones más comunmente encontradas</p>
 <table class="colwidths-auto table">
 <thead>
@@ -943,7 +904,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 <p>En la próxima lección veremos en mayor detalle como podemos ajustar una distribución teórica a nuestros datos</p>
 </div>
 <div class="section" id="generando-muestras-aleatorias-con-numpy-y-scipy">
-<h2><span class="section-number">5.5. </span>Generando muestras aleatorias con NumPy y SciPy<a class="headerlink" href="#generando-muestras-aleatorias-con-numpy-y-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.5. </span>Generando muestras aleatorias con NumPy y SciPy<a class="headerlink" href="#generando-muestras-aleatorias-con-numpy-y-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar el módulo <code class="docutils literal notranslate"><span class="pre">np.random</span></code> para generar números aleatorios con las siguientes distribuciones</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">randn</span></code> : Números reales con distribución normal estándar</p></li>
@@ -975,14 +936,11 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/stats2_23_0.png" src="../../../_images/stats2_23_0.png" />
-</div>
 </div>
 <p>La próxima clase veremos en mayor detalle como usar estos y otros métodos</p>
 </div>
 <div class="section" id="por-que-la-distribucion-gaussiana-para-ser-tan-comun">
-<h2><span class="section-number">5.6. </span>¿Por qué la distribución Gaussiana para ser tan común?<a class="headerlink" href="#por-que-la-distribucion-gaussiana-para-ser-tan-comun" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.6. </span>¿Por qué la distribución Gaussiana para ser tan común?<a class="headerlink" href="#por-que-la-distribucion-gaussiana-para-ser-tan-comun" title="Enlazar permanentemente con este título">¶</a></h2>
 <img alt="https://thumbs.gfycat.com/AggressiveAromaticBuckeyebutterfly-size_restricted.gif" src="https://thumbs.gfycat.com/AggressiveAromaticBuckeyebutterfly-size_restricted.gif" />
 <p>El siguiente sitio web muestra algunos ejemplos de la fenómenos que se distribuyen de forma Gaussiana: <a class="reference external" href="https://galtonboard.com/probabilityexamplesinlife">https://galtonboard.com/probabilityexamplesinlife</a> ¿Por qué esta distribución parece ser tan común?</p>
 <p>Recordemos lo siguiente</p>
@@ -1005,7 +963,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </div></blockquote>
 <p>siempre y cuando las VA sean independientes. ¿Cúantos de los ejemplos del sitio web mencionado corresponden a sumas o promedios?</p>
 <div class="section" id="id2">
-<h3><span class="section-number">5.6.1. </span>Ejercicio<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">12.6.1. </span>Ejercicio<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sea una variable aleatoria que corresponde al lanzamiento de <span class="math notranslate nohighlight">\(n\)</span> dados de seis caras. Lance los <span class="math notranslate nohighlight">\(n\)</span> dados 1000 veces y muestre con un histograma la distribución del promedio de los <span class="math notranslate nohighlight">\(n\)</span> dados. Repita para <span class="math notranslate nohighlight">\(n: 1, 2, ..., 15\)</span></p>
 <p>¿Qué puede decir de la distribución que observa?</p>
 <p>Hint: Puede usar <code class="docutils literal notranslate"><span class="pre">scipy.stats.multinomial</span></code> para modelar el resultado de lanzar <span class="math notranslate nohighlight">\(n\)</span> dados</p>
@@ -1016,16 +974,6 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/2QwMBZAlvc4?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 </div>
@@ -1053,35 +1001,42 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="stats1.html" title="previous page"><span class="section-number">4. </span>Estadística: Fundamentos</a>
-    <a class='right-next' id="next-link" href="stats3.html" title="next page"><span class="section-number">6. </span>Estadística inferencial</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="stats1.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Estadística: Fundamentos</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="stats3.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Estadística inferencial</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

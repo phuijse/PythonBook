@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Interfaces de usuario en Jupyter con ipywidgets &#8212; INFO147 Computación científica con Python</title>
+    <title>25. Interfaces de usuario en Jupyter con ipywidgets &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="5. Módulo IPython.display" href="11_ipython_display.html" />
-    <link rel="prev" title="3. Pandas: Tópicos extra" href="10_pandas_anexos.html" />
-
+    <link rel="next" title="26. Módulo IPython.display" href="11_ipython_display.html" />
+    <link rel="prev" title="24. Pandas: Tópicos extra" href="10_pandas_anexos.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad1/09_interfaces_de_usuario.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/09_interfaces_de_usuario.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad1/09_interfaces_de_usuario.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -353,59 +369,58 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-un-widget">
-   4.1. ¿Qué es un widget?
+   25.1. ¿Qué es un widget?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">
-   4.2. Creación semi-automática de widgets
+   25.2. Creación semi-automática de widgets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creacion-manual-de-widgets">
-   4.3. Creación manual de widgets
+   25.3. Creación manual de widgets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#widgets-numericos">
-     4.3.1. Widgets numéricos
+     25.3.1. Widgets numéricos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#widgets-de-texto">
-     4.3.2. Widgets de texto
+     25.3.2. Widgets de texto
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">
-     4.3.3. Objeto Layout y atributo style
+     25.3.3. Objeto Layout y atributo style
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#widget-de-tipo-contenedor">
-     4.3.4. Widget de tipo contenedor
+     25.3.4. Widget de tipo contenedor
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#callbacks-y-eventos">
-   4.4. Callbacks y eventos
+   25.4. Callbacks y eventos
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">
-     4.4.1. Widget Button y atributo
+     25.4.1. Widget Button y atributo
      <code class="docutils literal notranslate">
       <span class="pre">
        on_click
@@ -415,7 +430,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#atributo-observe">
-     4.4.2. Atributo
+     25.4.2. Atributo
      <code class="docutils literal notranslate">
       <span class="pre">
        observe
@@ -425,14 +440,14 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#widget-output">
-     4.4.3. widget Output
+     25.4.3. widget Output
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ejercicio-polinomio-con-observe">
-   4.5. Ejercicio: Polinomio con
+   25.5. Ejercicio: Polinomio con
    <code class="docutils literal notranslate">
     <span class="pre">
      observe
@@ -442,18 +457,114 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Interfaces de usuario en Jupyter con ipywidgets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-widget">
+   25.1. ¿Qué es un widget?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">
+   25.2. Creación semi-automática de widgets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-manual-de-widgets">
+   25.3. Creación manual de widgets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#widgets-numericos">
+     25.3.1. Widgets numéricos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#widgets-de-texto">
+     25.3.2. Widgets de texto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">
+     25.3.3. Objeto Layout y atributo style
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#widget-de-tipo-contenedor">
+     25.3.4. Widget de tipo contenedor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callbacks-y-eventos">
+   25.4. Callbacks y eventos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">
+     25.4.1. Widget Button y atributo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       on_click
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributo-observe">
+     25.4.2. Atributo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       observe
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#widget-output">
+     25.4.3. widget Output
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-polinomio-con-observe">
+   25.5. Ejercicio: Polinomio con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     observe
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="interfaces-de-usuario-en-jupyter-con-ipywidgets">
-<h1><span class="section-number">4. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#interfaces-de-usuario-en-jupyter-con-ipywidgets" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="interfaces-de-usuario-en-jupyter-con-ipywidgets">
+<h1><span class="section-number">25. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#interfaces-de-usuario-en-jupyter-con-ipywidgets" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Jupyter y IPython permiten no sólo visualizar datos sino también interactuar con ellos en tiempo real</p>
 <p>Para lograr esto estudiaremos los componentes de la librería <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/"><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></p>
 <div class="cell docutils container">
@@ -470,7 +581,7 @@
 </div>
 </div>
 <div class="section" id="que-es-un-widget">
-<h2><span class="section-number">4.1. </span>¿Qué es un widget?<a class="headerlink" href="#que-es-un-widget" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">25.1. </span>¿Qué es un widget?<a class="headerlink" href="#que-es-un-widget" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Un widget es un elemento gráfico que permite interactuar con una aplicación</p>
 <p>Un conjunto de widgets forman una interfaz de usuario gráfica (Graphical user interface o GUI)</p>
 <p>La siguiente imagen muestra los widgets típicos que se encuentran en las aplicaciones de PC</p>
@@ -495,7 +606,7 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="section" id="creacion-semi-automatica-de-widgets">
-<h2><span class="section-number">4.2. </span>Creación semi-automática de widgets<a class="headerlink" href="#creacion-semi-automatica-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">25.2. </span>Creación semi-automática de widgets<a class="headerlink" href="#creacion-semi-automatica-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una manera rápida de implementar widgets es usar el  <strong>decorador <code class="docutils literal notranslate"><span class="pre">interact</span></code></strong></p>
 <blockquote>
 <div><p>Al aplicar el decorador a una función convertiremos sus argumentos de entrada en widgets</p>
@@ -527,18 +638,14 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "b57e808c73484f91abc52f6170a29a31"}
-</script></div>
 </div>
 </div>
 <div class="section" id="creacion-manual-de-widgets">
-<h2><span class="section-number">4.3. </span>Creación manual de widgets<a class="headerlink" href="#creacion-manual-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">25.3. </span>Creación manual de widgets<a class="headerlink" href="#creacion-manual-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para mayor control podemos crear los widgets de nuestra preferencia con sus respectivos constructores y luego enlazarlos a una función usando   manualmente con la <strong>función <code class="docutils literal notranslate"><span class="pre">interact</span></code></strong></p>
 <p>A continuación revisaremos algunos de ellos</p>
 <div class="section" id="widgets-numericos">
-<h3><span class="section-number">4.3.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Numeric-widgets">Widgets numéricos</a><a class="headerlink" href="#widgets-numericos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.3.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Numeric-widgets">Widgets numéricos</a><a class="headerlink" href="#widgets-numericos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Un desplazador o <em>slider</em> es un widget cuyos argumentos son</p>
 <ul class="simple">
 <li><p>min: valor donde inicia</p></li>
@@ -572,7 +679,7 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="section" id="widgets-de-texto">
-<h3><span class="section-number">4.3.2. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#String-widgets">Widgets de texto</a><a class="headerlink" href="#widgets-de-texto" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.3.2. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#String-widgets">Widgets de texto</a><a class="headerlink" href="#widgets-de-texto" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sirven para capturar y mostrar strings</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Text</span></code>: Da una linea en blanco para escribir, al apretar Enter se captura el string</p></li>
@@ -592,14 +699,10 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ce483aed8d92491a961a8febedf11463"}
-</script></div>
 </div>
 </div>
 <div class="section" id="objeto-layout-y-atributo-style">
-<h3><span class="section-number">4.3.3. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Styling.html">Objeto Layout y atributo style</a><a class="headerlink" href="#objeto-layout-y-atributo-style" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.3.3. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Styling.html">Objeto Layout y atributo style</a><a class="headerlink" href="#objeto-layout-y-atributo-style" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El objeto <code class="docutils literal notranslate"><span class="pre">Layout</span></code> sirve para dar estilo a los <em>widgets</em></p>
 <p>El estilo se explicita usando <a class="reference external" href="https://www.w3schools.com/css/">CSS</a></p>
 <p>Algunos argumentos útiles son</p>
@@ -633,10 +736,6 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ab0a05fa01ba4bbfb4cee1fe0a5c9224"}
-</script></div>
 </div>
 <p><strong>Ejercicio: “Funciones e <code class="docutils literal notranslate"><span class="pre">interact</span></code>”</strong></p>
 <p>Considera la función <code class="docutils literal notranslate"><span class="pre">plot_sinewave</span></code> que se presenta a continuación</p>
@@ -665,9 +764,6 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/09_interfaces_de_usuario_13_0.png" src="../../_images/09_interfaces_de_usuario_13_0.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -675,20 +771,10 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/ili-iy1hXs8?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 <div class="section" id="widget-de-tipo-contenedor">
-<h3><span class="section-number">4.3.4. </span>Widget de tipo contenedor<a class="headerlink" href="#widget-de-tipo-contenedor" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.3.4. </span>Widget de tipo contenedor<a class="headerlink" href="#widget-de-tipo-contenedor" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Son widgets que sirven para organizar otros widgets</p>
 <p>Por ejemplo</p>
 <ul class="simple">
@@ -706,17 +792,13 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "1aad6c031c26471cbad42589f2fc16ef"}
-</script></div>
 </div>
 </div>
 </div>
 <div class="section" id="callbacks-y-eventos">
-<h2><span class="section-number">4.4. </span>Callbacks y eventos<a class="headerlink" href="#callbacks-y-eventos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">25.4. </span>Callbacks y eventos<a class="headerlink" href="#callbacks-y-eventos" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="widget-button-y-atributo-on-click">
-<h3><span class="section-number">4.4.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Button">Widget Button</a> y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code><a class="headerlink" href="#widget-button-y-atributo-on-click" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.4.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Button">Widget Button</a> y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code><a class="headerlink" href="#widget-button-y-atributo-on-click" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="c1"># Texto en el botón</span>
                <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1"># Estilo del botón: &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
                <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="c1"># Icono del botón</span>
@@ -741,14 +823,10 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "987691b011d04c84b751896805209c17"}
-</script></div>
 </div>
 </div>
 <div class="section" id="atributo-observe">
-<h3><span class="section-number">4.4.2. </span>Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#atributo-observe" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.4.2. </span>Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#atributo-observe" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos agregar acciones a otros widgets especificando el atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">observe</span></code> recibe una función de un argumento y el nombre del atributo que queremos “observar”</p>
 <p>El argumento es un diccionario que tiene las siguientes llaves</p>
@@ -773,14 +851,10 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "6e62a067eedf4e8880f885735b51a452"}
-</script></div>
 </div>
 </div>
 <div class="section" id="widget-output">
-<h3><span class="section-number">4.4.3. </span>widget Output<a class="headerlink" href="#widget-output" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">25.4.3. </span>widget Output<a class="headerlink" href="#widget-output" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este es un widget especial que puede usarse para redireccionar las salidas de otros widgets</p>
 <ol class="simple">
 <li><p>Primero creamos y mostrarmos Output</p></li>
@@ -794,10 +868,6 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c288107c78dc4b1ca88747625d028bd4"}
-</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -813,15 +883,11 @@ jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "dafe2591eefc471fba14bf752c83d94d"}
-</script></div>
 </div>
 </div>
 </div>
 <div class="section" id="ejercicio-polinomio-con-observe">
-<h2><span class="section-number">4.5. </span>Ejercicio: Polinomio con <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#ejercicio-polinomio-con-observe" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">25.5. </span>Ejercicio: Polinomio con <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#ejercicio-polinomio-con-observe" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Considere un polinomio de grado dos:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -844,25 +910,9 @@ f(x) = a x^2 + b x + c
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/2ZbnnFNx_wA?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 </div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"0bea5988b8104667ba3aad493f8f2724": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b57e808c73484f91abc52f6170a29a31": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_399d17c6a3f24f7aa688e83891b5fe12", "IPY_MODEL_11c37360616d439e97e2957a8e8eda08", "IPY_MODEL_e0d95044e5824d569d2ec40987c14d4f", "IPY_MODEL_dd17f78c420e4c309cd9cbc8f56d19a9", "IPY_MODEL_685253ffc7b44a1b907a67132d941ea0", "IPY_MODEL_7856090842fc48b0a1d561409857cc45"], "layout": "IPY_MODEL_0bea5988b8104667ba3aad493f8f2724"}}, "006c64e52c264067915c40a58fe10315": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ab2ccfe3bb554e409c909bf1f3a0ac3a": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "399d17c6a3f24f7aa688e83891b5fe12": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "x", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_006c64e52c264067915c40a58fe10315", "max": 10, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 2, "style": "IPY_MODEL_ab2ccfe3bb554e409c909bf1f3a0ac3a", "value": 0}}, "bdb442c4551e4d718fab571b0c97b63f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7c6061f3c53e48fab4a1ff6a65bdb4fa": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "11c37360616d439e97e2957a8e8eda08": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "y", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_bdb442c4551e4d718fab571b0c97b63f", "max": 1.0, "min": -1.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_7c6061f3c53e48fab4a1ff6a65bdb4fa", "value": 0.0}}, "52317d55232e4658b1afacca234200ba": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5bddfa16263849dfae41cbea75e2ba8e": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "e0d95044e5824d569d2ec40987c14d4f": {"model_name": "CheckboxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "CheckboxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "CheckboxView", "description": "z", "description_tooltip": null, "disabled": false, "indent": true, "layout": "IPY_MODEL_52317d55232e4658b1afacca234200ba", "style": "IPY_MODEL_5bddfa16263849dfae41cbea75e2ba8e", "value": true}}, "10cc4957b86d4332819d6fb5d8c79361": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "15a2634842244f04b1a673498b5fe12b": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "dd17f78c420e4c309cd9cbc8f56d19a9": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["foo", "bar"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "w", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_10cc4957b86d4332819d6fb5d8c79361", "style": "IPY_MODEL_15a2634842244f04b1a673498b5fe12b"}}, "361ec265b57745dca4accf89c40353ba": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7f267ddecc9a42d097f69885bfc8dc50": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "685253ffc7b44a1b907a67132d941ea0": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "v", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_361ec265b57745dca4accf89c40353ba", "placeholder": "\u200b", "style": "IPY_MODEL_7f267ddecc9a42d097f69885bfc8dc50", "value": "foo"}}, "26ef6bc1df69492fab011466dcad7024": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7856090842fc48b0a1d561409857cc45": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_26ef6bc1df69492fab011466dcad7024", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "0"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "0.0"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "True"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "'foo'"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "'foo'"}}]}}, "0474d864694249a098cfc5baddc913d2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bd69ec2c792b40aa9ddd666f5c21bbed": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "ce483aed8d92491a961a8febedf11463": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "Nombre:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_0474d864694249a098cfc5baddc913d2", "placeholder": "Escribe tu nombre ac\u00e1", "style": "IPY_MODEL_bd69ec2c792b40aa9ddd666f5c21bbed", "value": ""}}, "7cefcd97b3754bb697028a78ad993f45": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": "20px", "justify_content": null, "justify_items": null, "left": null, "margin": "10px", "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "600px"}}, "43cc5900726a4f509821e607238cc4b1": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial", "handle_color": "black"}}, "f98074bdc77c4cb185501a81df5ba368": {"model_name": "FloatRangeSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatRangeSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatRangeSliderView", "continuous_update": true, "description": "Un argumento muy interesante:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_7cefcd97b3754bb697028a78ad993f45", "max": 100.0, "min": -100.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_43cc5900726a4f509821e607238cc4b1", "value": [-50.0, 50.0]}}, "2b1272ce57274e86bc32fe5b531e5926": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ab0a05fa01ba4bbfb4cee1fe0a5c9224": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_f98074bdc77c4cb185501a81df5ba368", "IPY_MODEL_44f45f1087e74ea2814abac3e192b7e0"], "layout": "IPY_MODEL_2b1272ce57274e86bc32fe5b531e5926"}}, "4be424ccdc9f4cf7870998d473406512": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "44f45f1087e74ea2814abac3e192b7e0": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_4be424ccdc9f4cf7870998d473406512", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {}, "data": {"text/plain": "-50.0"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "50.0"}}, {"output_type": "display_data", "metadata": {}, "data": {"text/plain": "100.0"}}]}}, "9315b62b624a4f9cb4a6dfec67dfe7b7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "769d3d7c37264570bd11e9b5083aab26": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "f0865dc66ad748618eed28a6314a0378": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "Nombre:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_9315b62b624a4f9cb4a6dfec67dfe7b7", "placeholder": "\u200b", "style": "IPY_MODEL_769d3d7c37264570bd11e9b5083aab26", "value": ""}}, "3ebbfb2f562b4e8289da50f93dea3220": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9669b6dcd0e14f30869856c2eeb0814b": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "3bc57597dd694137b8b93a47d4f1b7eb": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "Apellido:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_3ebbfb2f562b4e8289da50f93dea3220", "placeholder": "\u200b", "style": "IPY_MODEL_9669b6dcd0e14f30869856c2eeb0814b", "value": ""}}, "16677dc79f1a4391ae7c9b8819556c6d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1aad6c031c26471cbad42589f2fc16ef": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_f0865dc66ad748618eed28a6314a0378", "IPY_MODEL_3bc57597dd694137b8b93a47d4f1b7eb"], "layout": "IPY_MODEL_16677dc79f1a4391ae7c9b8819556c6d"}}, "fffbb88564724baf849c16e07a8aa3e3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "452f3f01fd1b4bfd933f9eb8b31174bc": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "c30da2d783394694bf7a7c3315af6d26": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "Escribir tu nombre:", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_fffbb88564724baf849c16e07a8aa3e3", "placeholder": "\u200b", "style": "IPY_MODEL_452f3f01fd1b4bfd933f9eb8b31174bc", "value": ""}}, "44893e5d6ac8464c886fe6dfb14ddc1a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "375530ef5a1e4a9b9eff777b9a8b528b": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "b9772ccf1a64427385d61e3c1e391ab1": {"model_name": "ButtonModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Enviar", "disabled": false, "icon": "", "layout": "IPY_MODEL_44893e5d6ac8464c886fe6dfb14ddc1a", "style": "IPY_MODEL_375530ef5a1e4a9b9eff777b9a8b528b", "tooltip": ""}}, "66466a8dda8a47abb3619caa3a803fbb": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "987691b011d04c84b751896805209c17": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_c30da2d783394694bf7a7c3315af6d26", "IPY_MODEL_b9772ccf1a64427385d61e3c1e391ab1"], "layout": "IPY_MODEL_66466a8dda8a47abb3619caa3a803fbb"}}, "f37456567735476f9720dacb1c794095": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d9f942e976c44fbd954f20a7f4700013": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "6e62a067eedf4e8880f885735b51a452": {"model_name": "DropdownModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DropdownModel", "_options_labels": ["Pablo", "Sebasti\u00e1n", "Enrique"], "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "DropdownView", "description": "Nombre:", "description_tooltip": null, "disabled": false, "index": 0, "layout": "IPY_MODEL_f37456567735476f9720dacb1c794095", "style": "IPY_MODEL_d9f942e976c44fbd954f20a7f4700013"}}, "285d79bbc5004fceb86845b238819c2d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": "1px solid black", "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c288107c78dc4b1ca88747625d028bd4": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_285d79bbc5004fceb86845b238819c2d", "msg_id": "", "outputs": []}}, "47cfca57e9e24b3abf20e474bbdb9132": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fc942d093acb4e9e8916a25977da2284": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "initial"}}, "d3f80cd729524adc8bbf074aed382508": {"model_name": "TextModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "TextModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "TextView", "continuous_update": true, "description": "Escribir tu nombre", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_47cfca57e9e24b3abf20e474bbdb9132", "placeholder": "\u200b", "style": "IPY_MODEL_fc942d093acb4e9e8916a25977da2284", "value": ""}}, "ec9d5d1c81144263b1aa18b3039cb91d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "df39c8987a2c47f9a0f1bc35fa33d896": {"model_name": "ButtonStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "3b5a60d08b1440148f6917e30bb2c97f": {"model_name": "ButtonModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Enviar", "disabled": false, "icon": "", "layout": "IPY_MODEL_ec9d5d1c81144263b1aa18b3039cb91d", "style": "IPY_MODEL_df39c8987a2c47f9a0f1bc35fa33d896", "tooltip": ""}}, "2cbe0ab1e1d74137a34d07a8192aa112": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "dafe2591eefc471fba14bf752c83d94d": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_d3f80cd729524adc8bbf074aed382508", "IPY_MODEL_3b5a60d08b1440148f6917e30bb2c97f"], "layout": "IPY_MODEL_2cbe0ab1e1d74137a34d07a8192aa112"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
@@ -886,35 +936,42 @@ f(x) = a x^2 + b x + c
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="10_pandas_anexos.html" title="previous page"><span class="section-number">3. </span>Pandas: Tópicos extra</a>
-    <a class='right-next' id="next-link" href="11_ipython_display.html" title="next page"><span class="section-number">5. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="10_pandas_anexos.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">24. </span>Pandas: Tópicos extra</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="11_ipython_display.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

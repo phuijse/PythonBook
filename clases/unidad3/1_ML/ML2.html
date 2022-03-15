@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Aprendizaje supervisado: Clasificación &#8212; INFO147 Computación científica con Python</title>
+    <title>15. Aprendizaje supervisado: Clasificación &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="3. Aprendizaje no supervisado" href="ML3.html" />
-    <link rel="prev" title="1. Machine Learning: Conceptos clave" href="ML1.html" />
-
+    <link rel="next" title="16. Aprendizaje no supervisado" href="ML3.html" />
+    <link rel="prev" title="14. Machine Learning: Conceptos clave" href="ML1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad3/1_ML/ML2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad3/1_ML/ML2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad3/1_ML/ML2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -353,44 +369,43 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descripcion-conceptual">
-   2.1. Descripción conceptual
+   15.1. Descripción conceptual
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descripcion-matematica">
-   2.2. Descripción matemática
+   15.2. Descripción matemática
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clasificador-bayesiano-ingenuo">
-   2.3. Clasificador Bayesiano “Ingenuo”
+   15.3. Clasificador Bayesiano “Ingenuo”
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#supuestos-del-clasificador-bayesiano-ingenuo">
-     2.3.1. Supuestos del clasificador bayesiano “ingenuo”
+     15.3.1. Supuestos del clasificador bayesiano “ingenuo”
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias-con-modelo-implementado-desde-cero">
-     2.3.2. Ejemplo: Clasificación de biopsias con modelo implementado desde cero
+     15.3.2. Ejemplo: Clasificación de biopsias con modelo implementado desde cero
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#la-libreria-scikit-learn">
-   2.4. La librería
+   15.4. La librería
    <code class="docutils literal notranslate">
     <span class="pre">
      scikit-learn
@@ -400,39 +415,39 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluando-un-clasificador">
-   2.5. Evaluando un clasificador
+   15.5. Evaluando un clasificador
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">
-     2.5.1. Matriz o tabla de confusión
+     15.5.1. Matriz o tabla de confusión
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metricas-globales-accuracy-o-exactitud">
-     2.5.2. Métricas globales: Accuracy o exactitud
+     15.5.2. Métricas globales: Accuracy o exactitud
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#curvas-de-desempeno">
-     2.5.3. Curvas de desempeño
+     15.5.3. Curvas de desempeño
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicio-formativo">
-     2.5.4. Ejercicio formativo
+     15.5.4. Ejercicio formativo
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clasificacion-usando-arboles-de-decision">
-   2.6. Clasificación usando árboles de decisión
+   15.6. Clasificación usando árboles de decisión
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#validacion-cruzada-usando-scikit-learn">
-   2.7. Validación cruzada usando
+   15.7. Validación cruzada usando
    <code class="docutils literal notranslate">
     <span class="pre">
      scikit-learn
@@ -442,7 +457,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calibracion-del-arbol-de-decision-usando-kfold">
-     2.7.1. Calibración del árbol de decisión usando
+     15.7.1. Calibración del árbol de decisión usando
      <code class="docutils literal notranslate">
       <span class="pre">
        KFold
@@ -452,7 +467,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calibracion-del-arbol-de-decision-usando-gridsearchcv">
-     2.7.2. Calibración del árbol de decisión usando
+     15.7.2. Calibración del árbol de decisión usando
      <code class="docutils literal notranslate">
       <span class="pre">
        GridSearchCV
@@ -464,19 +479,142 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resumen-de-la-leccion">
-   2.8. Resumen de la lección
+   15.8. Resumen de la lección
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aprendizaje supervisado: Clasificación</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-conceptual">
+   15.1. Descripción conceptual
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-matematica">
+   15.2. Descripción matemática
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificador-bayesiano-ingenuo">
+   15.3. Clasificador Bayesiano “Ingenuo”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supuestos-del-clasificador-bayesiano-ingenuo">
+     15.3.1. Supuestos del clasificador bayesiano “ingenuo”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias-con-modelo-implementado-desde-cero">
+     15.3.2. Ejemplo: Clasificación de biopsias con modelo implementado desde cero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-libreria-scikit-learn">
+   15.4. La librería
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scikit-learn
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluando-un-clasificador">
+   15.5. Evaluando un clasificador
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">
+     15.5.1. Matriz o tabla de confusión
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-globales-accuracy-o-exactitud">
+     15.5.2. Métricas globales: Accuracy o exactitud
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curvas-de-desempeno">
+     15.5.3. Curvas de desempeño
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-formativo">
+     15.5.4. Ejercicio formativo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clasificacion-usando-arboles-de-decision">
+   15.6. Clasificación usando árboles de decisión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#validacion-cruzada-usando-scikit-learn">
+   15.7. Validación cruzada usando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scikit-learn
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calibracion-del-arbol-de-decision-usando-kfold">
+     15.7.1. Calibración del árbol de decisión usando
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       KFold
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calibracion-del-arbol-de-decision-usando-gridsearchcv">
+     15.7.2. Calibración del árbol de decisión usando
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GridSearchCV
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-la-leccion">
+   15.8. Resumen de la lección
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -489,10 +627,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="aprendizaje-supervisado-clasificacion">
-<h1><span class="section-number">2. </span>Aprendizaje supervisado: Clasificación<a class="headerlink" href="#aprendizaje-supervisado-clasificacion" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="aprendizaje-supervisado-clasificacion">
+<h1><span class="section-number">15. </span>Aprendizaje supervisado: Clasificación<a class="headerlink" href="#aprendizaje-supervisado-clasificacion" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="descripcion-conceptual">
-<h2><span class="section-number">2.1. </span>Descripción conceptual<a class="headerlink" href="#descripcion-conceptual" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.1. </span>Descripción conceptual<a class="headerlink" href="#descripcion-conceptual" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En el paradigma de aprendizaje supervisado los datos de entrenamiento tienen asociado un <strong>objetivo</strong></p>
 <p>El objetivo corresponde usualmente a una <strong>etiqueta numérica</strong> que un ser humano le asigna al dato. Este conocimiento <em>a priori</em> es lo que el algoritmo debe encapsular</p>
 <ul class="simple">
@@ -503,7 +641,7 @@
 <a class="reference internal image-reference" href="../../../_images/intro-ml1.png"><img alt="../../../_images/intro-ml1.png" src="../../../_images/intro-ml1.png" style="width: 700px;" /></a>
 </div>
 <div class="section" id="descripcion-matematica">
-<h2><span class="section-number">2.2. </span>Descripción matemática<a class="headerlink" href="#descripcion-matematica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.2. </span>Descripción matemática<a class="headerlink" href="#descripcion-matematica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Formalmente, lo que se busca es aprender un mapeo o función paramétrica</p>
 <div class="math notranslate nohighlight">
 \[ 
@@ -530,7 +668,7 @@ f_{\theta}: \mathcal{X} \rightarrow \mathcal{Y},
 <a class="reference internal image-reference" href="../../../_images/opti-animation.gif"><img alt="../../../_images/opti-animation.gif" src="../../../_images/opti-animation.gif" style="width: 700px;" /></a>
 </div>
 <div class="section" id="clasificador-bayesiano-ingenuo">
-<h2><span class="section-number">2.3. </span>Clasificador Bayesiano “Ingenuo”<a class="headerlink" href="#clasificador-bayesiano-ingenuo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.3. </span>Clasificador Bayesiano “Ingenuo”<a class="headerlink" href="#clasificador-bayesiano-ingenuo" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Este clasificador con interpretación probabilística busca la probabilidad de la etiqueta <span class="math notranslate nohighlight">\(y\)</span> dado el ejemplo <span class="math notranslate nohighlight">\(x\)</span>, es decir <span class="math notranslate nohighlight">\(P(y|x)\)</span></p>
 <p>Usando el teorema de Bayes podemos escribir esto como</p>
 <div class="math notranslate nohighlight">
@@ -560,7 +698,7 @@ p(y=k) = \frac{\text{Cantidad de ejemplos con etiqueta k}}{\text{Cantidad de eje
 \]</div>
 <p>En términos prácticos la principal ventaja de este clasificador es que es simple, fácil de entrenar y muy difícil de sobreajustar. Su desventaja es que hace supuestos muy fuertes sobre los datos. Si no se cumplen el desempeño no será bueno. A continuación revisaremos en detalle estos supuestos.</p>
 <div class="section" id="supuestos-del-clasificador-bayesiano-ingenuo">
-<h3><span class="section-number">2.3.1. </span>Supuestos del clasificador bayesiano “ingenuo”<a class="headerlink" href="#supuestos-del-clasificador-bayesiano-ingenuo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.3.1. </span>Supuestos del clasificador bayesiano “ingenuo”<a class="headerlink" href="#supuestos-del-clasificador-bayesiano-ingenuo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Digamos que <span class="math notranslate nohighlight">\(x\)</span> es un vector que representa <span class="math notranslate nohighlight">\(D\)</span> atributos. El primer supuesto de este modelo es que los atributos usados en el clasificador <strong>son independientes</strong>. Por lo tanto la verosimilitud se puede escribir como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -579,7 +717,7 @@ p(x_d|y) = \mathcal{N}(\mu_d, \sigma_d^2)
 </ul>
 </div>
 <div class="section" id="ejemplo-clasificacion-de-biopsias-con-modelo-implementado-desde-cero">
-<h3><span class="section-number">2.3.2. </span>Ejemplo: Clasificación de biopsias con modelo implementado desde cero<a class="headerlink" href="#ejemplo-clasificacion-de-biopsias-con-modelo-implementado-desde-cero" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.3.2. </span>Ejemplo: Clasificación de biopsias con modelo implementado desde cero<a class="headerlink" href="#ejemplo-clasificacion-de-biopsias-con-modelo-implementado-desde-cero" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En este ejemplo implementaremos un clasificador bayesiano ingenuo con verosimilitud gaussiana desde cero y lo entrenaremos usando el dataset de [cancer de mama de la Universidad de Wisconsin](<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)</a>.</p>
 <p>Para este ejemplo usaremos dos atributos por paciente</p>
 <ul class="simple">
@@ -602,9 +740,6 @@ p(x_d|y) = \mathcal{N}(\mu_d, \sigma_d^2)
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_9_0.png" src="../../../_images/ML2_9_0.png" />
 </div>
 </div>
 <p>Al ser un problema de clasificación binaria podemos escribir</p>
@@ -630,11 +765,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 <span class="n">py</span> <span class="o">=</span> <span class="p">[</span><span class="n">Counter</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({0: 357, 1: 212})
 </pre></div>
 </div>
 </div>
@@ -674,9 +804,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_13_0.png" src="../../../_images/ML2_13_0.png" />
-</div>
 </div>
 <p>El último paso consiste en decidir entre benigno y maligno usando el cociente entre los posterior</p>
 <p>En el caso binario es típico usar una regla como la siguiente</p>
@@ -697,9 +824,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_15_0.png" src="../../../_images/ML2_15_0.png" />
-</div>
 </div>
 <p>Podemos “ajustar” el riesgo <span class="math notranslate nohighlight">\(R\)</span> para controlar el compromiso (trade-off) entre los siguientes tipos de errores</p>
 <ol class="simple">
@@ -710,7 +834,7 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </div>
 </div>
 <div class="section" id="la-libreria-scikit-learn">
-<h2><span class="section-number">2.4. </span>La librería <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#la-libreria-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.4. </span>La librería <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#la-libreria-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La librería de Python <a class="reference external" href="https://scikit-learn.org">scikit-learn</a> tiene una amplia selección de</p>
 <ul class="simple">
 <li><p>clasificadores y regresores</p></li>
@@ -751,11 +875,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB(priors=[0.6274165202108963, 0.37258347978910367])
-</pre></div>
-</div>
-</div>
 </div>
 <p>Podemos uar el método <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> para visualizar la frontera de decisión</p>
 <div class="cell docutils container">
@@ -778,16 +897,13 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_21_0.png" src="../../../_images/ML2_21_0.png" />
-</div>
 </div>
 </div>
 <div class="section" id="evaluando-un-clasificador">
-<h2><span class="section-number">2.5. </span>Evaluando un clasificador<a class="headerlink" href="#evaluando-un-clasificador" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.5. </span>Evaluando un clasificador<a class="headerlink" href="#evaluando-un-clasificador" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación veremos como evaluar de manera cuantitativa el desempeño de un modelo clasificador.</p>
 <div class="section" id="matriz-o-tabla-de-confusion">
-<h3><span class="section-number">2.5.1. </span>Matriz o tabla de confusión<a class="headerlink" href="#matriz-o-tabla-de-confusion" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.5.1. </span>Matriz o tabla de confusión<a class="headerlink" href="#matriz-o-tabla-de-confusion" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una matriz o tabla de confusión se construye contando los casos que tienen etiqueta real igual a <span class="math notranslate nohighlight">\(i\)</span> y etiqueta predicha igual a <span class="math notranslate nohighlight">\(j\)</span> para <span class="math notranslate nohighlight">\(i \wedge j=1,2,\ldots,C\)</span> donde <span class="math notranslate nohighlight">\(C\)</span> es el número de clases</p>
 <p>La siguiente imagen muestra una matriz de confusión para un problema de <span class="math notranslate nohighlight">\(10\)</span> clases</p>
 <a class="reference internal image-reference" href="../../../_images/conf-matrix.png"><img alt="../../../_images/conf-matrix.png" src="../../../_images/conf-matrix.png" style="width: 500px;" /></a>
@@ -813,12 +929,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[340  17]
- [ 48 164]]
-</pre></div>
-</div>
-</div>
 </div>
 <p>También podemos usar <code class="docutils literal notranslate"><span class="pre">plot_confusion_matrix</span></code> si deseamos producir una matriz de confusión como una figura de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
 <div class="cell docutils container">
@@ -838,9 +948,6 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_26_0.png" src="../../../_images/ML2_26_0.png" />
-</div>
 </div>
 <p>Intepretación:</p>
 <ul class="simple">
@@ -849,7 +956,7 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </ul>
 </div>
 <div class="section" id="metricas-globales-accuracy-o-exactitud">
-<h3><span class="section-number">2.5.2. </span>Métricas globales: Accuracy o exactitud<a class="headerlink" href="#metricas-globales-accuracy-o-exactitud" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.5.2. </span>Métricas globales: Accuracy o exactitud<a class="headerlink" href="#metricas-globales-accuracy-o-exactitud" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El <em>accuracy</em> es una métrica de resumen que es útil para hacer una idea global de como funciona el clasificador. Es importante notar que el <em>accuracy</em> no reemplaza la tabla de confusión si no que se calcula a partir de la misma</p>
 <p>El <em>accuracy</em> se calcula como la cantidad de ejemplos predichos correctamente dividido por la cantidad total de ejemplos y es un valor en el rango <span class="math notranslate nohighlight">\([0, 1]\)</span>. Por definición corresponde a la suma de la diagonal de la matriz de confusión dividido por el total de ejemplos</p>
 <p>Podemos calcular el <em>accuracy</em> de nuestro modelo con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> usando la función <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> o el atributo <code class="docutils literal notranslate"><span class="pre">score</span></code> del modelo (si está disponible)</p>
@@ -865,16 +972,10 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8857644991212654
-0.8857644991212654
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="curvas-de-desempeno">
-<h3><span class="section-number">2.5.3. </span>Curvas de desempeño<a class="headerlink" href="#curvas-de-desempeno" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.5.3. </span>Curvas de desempeño<a class="headerlink" href="#curvas-de-desempeno" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La matriz de confusión y la exactitud son métricas que depende de un umbral de clasificación o punto de operación particular</p>
 <p>En problemas de clasificación binaria es mucho más informativo medir el desempeño utilizando curvas Receiver operating characteristic (ROC)</p>
 <p>Una curva ROC es la tasa de verdaderos positivos</p>
@@ -904,23 +1005,17 @@ FPR = \frac{FP}{FP + TN}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1569, 0.9057, 0.2137
-</pre></div>
-</div>
-<img alt="../../../_images/ML2_31_1.png" src="../../../_images/ML2_31_1.png" />
-</div>
 </div>
 <p>Mientras más apegada esté la curva al punto TPR=1 y FPR=0, mejor será el modelo. La curva ROC nos permite estudiar todos los puntos de operación a la vez y seleccionar aquel que sea más adecuado para la tarea particular</p>
 <p>Por ejemplo la curva anterior nos dice que si usamos el umbral <span class="math notranslate nohighlight">\(R=0.2137\)</span> (punto negro en la curva) tendremos una tasa de verdaderos positivos de ~91% y una tasa de falsos positivos de ~16%. Esto significa que en dicho punto de operación un ~9% de los pacientes que tienen un cancer maligno no serán pesquisados (falso negativo) mientras que un ~16%  de los pacientes que están sanos serán diagnosticados con cancer (falso positivo)</p>
 </div>
 <div class="section" id="ejercicio-formativo">
-<h3><span class="section-number">2.5.4. </span>Ejercicio formativo<a class="headerlink" href="#ejercicio-formativo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.5.4. </span>Ejercicio formativo<a class="headerlink" href="#ejercicio-formativo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Entrene un clasificador ingenuo usando esta vez todos los atributos y obtenga su matriz de confusión</p>
 </div>
 </div>
 <div class="section" id="clasificacion-usando-arboles-de-decision">
-<h2><span class="section-number">2.6. </span>Clasificación usando árboles de decisión<a class="headerlink" href="#clasificacion-usando-arboles-de-decision" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.6. </span>Clasificación usando árboles de decisión<a class="headerlink" href="#clasificacion-usando-arboles-de-decision" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El árbol de decisión es una secuencia de operadores relacionales que actuan sobre los atributos y que se organizan como un árbol. El siguiente diagrama esquemático muestra un árbol de decisión (izquierda) que separa datos con dos atributos en dos clases (derecha)</p>
 <a class="reference internal image-reference" href="../../../_images/ml-dt.png"><img alt="../../../_images/ml-dt.png" src="../../../_images/ml-dt.png" style="width: 800px;" /></a>
 <ul class="simple">
@@ -944,7 +1039,7 @@ FPR = \frac{FP}{FP + TN}
 <p>A continuación veremos como calibrar un árbol de decisión usando validación cruzada</p>
 </div>
 <div class="section" id="validacion-cruzada-usando-scikit-learn">
-<h2><span class="section-number">2.7. </span>Validación cruzada usando <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#validacion-cruzada-usando-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.7. </span>Validación cruzada usando <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#validacion-cruzada-usando-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Como dijimos antes es fundamental hacer particiones del conjunto de datos para</p>
 <ul class="simple">
 <li><p>escoger los hiperparámetros del modelo</p></li>
@@ -977,7 +1072,7 @@ FPR = \frac{FP}{FP + TN}
 </pre></div>
 </div>
 <div class="section" id="calibracion-del-arbol-de-decision-usando-kfold">
-<h3><span class="section-number">2.7.1. </span>Calibración del árbol de decisión usando  <code class="docutils literal notranslate"><span class="pre">KFold</span></code><a class="headerlink" href="#calibracion-del-arbol-de-decision-usando-kfold" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.7.1. </span>Calibración del árbol de decisión usando  <code class="docutils literal notranslate"><span class="pre">KFold</span></code><a class="headerlink" href="#calibracion-del-arbol-de-decision-usando-kfold" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Seleccionaremos el mejor valor del parámetro <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> usando validación cruzada. En el siguiente ejemplo probaremos nueve valores distintos e imprimiremos la exactitud promedio y su desviación estándar. En este caso particular el mejor valor para ser <span class="math notranslate nohighlight">\(5\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -999,27 +1094,10 @@ FPR = \frac{FP}{FP + TN}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>profundidad 1:	 correctitud: 0.8735 +- 0.0465
-profundidad 2:	 correctitud: 0.9085 +- 0.0428
-profundidad 3:	 correctitud: 0.9086 +- 0.0318
-profundidad 4:	 correctitud: 0.9121 +- 0.0329
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>profundidad 5:	 correctitud: 0.9174 +- 0.0271
-profundidad 6:	 correctitud: 0.8998 +- 0.0290
-profundidad 7:	 correctitud: 0.9103 +- 0.0278
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>profundidad 8:	 correctitud: 0.9068 +- 0.0285
-profundidad 9:	 correctitud: 0.9068 +- 0.0285
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="calibracion-del-arbol-de-decision-usando-gridsearchcv">
-<h3><span class="section-number">2.7.2. </span>Calibración del árbol de decisión usando  <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code><a class="headerlink" href="#calibracion-del-arbol-de-decision-usando-gridsearchcv" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">15.7.2. </span>Calibración del árbol de decisión usando  <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code><a class="headerlink" href="#calibracion-del-arbol-de-decision-usando-gridsearchcv" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Cuando la cantidad de parámetros crece la validación puede volverse un poco engorrosa. Podemos automatizar este proceso usando la clase <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> de <code class="docutils literal notranslate"><span class="pre">model_selection</span></code>. El constructor de esta clase es</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">model_selection</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="c1"># Modelo clasificador</span>
                                      <span class="n">param_grid</span><span class="p">,</span> <span class="c1"># Grilla de parámetros escrita como diccionario</span>
@@ -1053,12 +1131,6 @@ profundidad 9:	 correctitud: 0.9068 +- 0.0285
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;criterion&#39;: &#39;entropy&#39;, &#39;max_depth&#39;: 4}
-0.984182776801406
-</pre></div>
-</div>
-</div>
 </div>
 <p>finalmente la matriz de confusión y la curva ROC del mejor árbol:</p>
 <div class="cell docutils container">
@@ -1078,15 +1150,11 @@ profundidad 9:	 correctitud: 0.9068 +- 0.0285
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML2_43_0.png" src="../../../_images/ML2_43_0.png" />
-<img alt="../../../_images/ML2_43_1.png" src="../../../_images/ML2_43_1.png" />
-</div>
 </div>
 </div>
 </div>
 <div class="section" id="resumen-de-la-leccion">
-<h2><span class="section-number">2.8. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">15.8. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta lección hemos aprendido a:</p>
 <ul class="simple">
 <li><p>Describir conceptualmente un modelo de aprendizaje supervisado</p></li>
@@ -1119,35 +1187,42 @@ profundidad 9:	 correctitud: 0.9068 +- 0.0285
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ML1.html" title="previous page"><span class="section-number">1. </span>Machine Learning: Conceptos clave</a>
-    <a class='right-next' id="next-link" href="ML3.html" title="next page"><span class="section-number">3. </span>Aprendizaje no supervisado</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ML1.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">14. </span>Machine Learning: Conceptos clave</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="ML3.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Aprendizaje no supervisado</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

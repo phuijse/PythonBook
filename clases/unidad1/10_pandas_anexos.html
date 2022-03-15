@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Pandas: Tópicos extra &#8212; INFO147 Computación científica con Python</title>
+    <title>24. Pandas: Tópicos extra &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,39 +32,42 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="4. Interfaces de usuario en Jupyter con ipywidgets" href="09_interfaces_de_usuario.html" />
-    <link rel="prev" title="2. Control de versiones" href="03_control_de_versiones.html" />
-
+    <link rel="next" title="25. Interfaces de usuario en Jupyter con ipywidgets" href="09_interfaces_de_usuario.html" />
+    <link rel="prev" title="23. Control de versiones" href="03_control_de_versiones.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,25 +76,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -139,121 +138,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -263,7 +262,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -273,6 +272,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -316,18 +316,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad1/10_pandas_anexos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -336,7 +352,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/10_pandas_anexos.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad1/10_pandas_anexos.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -351,17 +367,16 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objeto-pandas-series">
-   3.1. Objeto
+   24.1. Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas.Series
@@ -371,38 +386,85 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
-   3.2. Gráfico a partir de DataFrames
+   24.2. Gráfico a partir de DataFrames
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
-   3.3. Lectura de bases de datos SQL
+   24.3. Lectura de bases de datos SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-json">
-   3.4. Guardar y leer una tabla en formato JSON
+   24.4. Guardar y leer una tabla en formato JSON
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
-   3.5. Guardar y leer una tabla en formato HDF5
+   24.5. Guardar y leer una tabla en formato HDF5
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Pandas: Tópicos extra</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-series">
+   24.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.Series
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
+   24.2. Gráfico a partir de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
+   24.3. Lectura de bases de datos SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-json">
+   24.4. Guardar y leer una tabla en formato JSON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
+   24.5. Guardar y leer una tabla en formato HDF5
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="pandas-topicos-extra">
-<h1><span class="section-number">3. </span>Pandas: Tópicos extra<a class="headerlink" href="#pandas-topicos-extra" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandas-topicos-extra">
+<h1><span class="section-number">24. </span>Pandas: Tópicos extra<a class="headerlink" href="#pandas-topicos-extra" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En este anexo se revisan algunos tópicos específicos relacionados a la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que no fueron cubiertos anteriormente, estos son</p>
 <ul class="simple">
 <li><p>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></p></li>
@@ -425,7 +487,7 @@
 </div>
 </div>
 <div class="section" id="objeto-pandas-series">
-<h2><span class="section-number">3.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><a class="headerlink" href="#objeto-pandas-series" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">24.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><a class="headerlink" href="#objeto-pandas-series" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html"><code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> es  un arreglo de una dimensión (vector) que <strong>representa una secuencia</strong></p>
 <ul class="simple">
 <li><p>Los elementos de la secuencia se identifican con un índice etiquetado <code class="docutils literal notranslate"><span class="pre">index</span></code></p></li>
@@ -459,20 +521,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;La columna de lechugas es un objeto &lt;class &#39;pandas.core.series.Series&#39;&gt;&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cuyo tipo es int64&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;La fila Matthieu es un objeto &lt;class &#39;pandas.core.series.Series&#39;&gt;&quot;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cuyo tipo es float64&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Construyendo un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de otras estructuras de datos</strong></p>
 <p>Un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede crear de forma más general usando el constructor</p>
@@ -495,16 +543,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dormir          7
-comer           1
-quehaceres      1
-trabajo        10
-procastinar     5
-Name: mi planificación de hoy, dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <p>Notas:</p>
 <ul class="simple">
@@ -513,7 +551,7 @@ Name: mi planificación de hoy, dtype: int64
 </ul>
 </div>
 <div class="section" id="grafico-a-partir-de-dataframes">
-<h2><span class="section-number">3.2. </span>Gráfico a partir de DataFrames<a class="headerlink" href="#grafico-a-partir-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">24.2. </span>Gráfico a partir de DataFrames<a class="headerlink" href="#grafico-a-partir-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se pueden crear gráficos sencillos directamente de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <p>Puedes revisar en detalle la API para graficar en este <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">link</a></p>
 <div class="cell docutils container">
@@ -523,18 +561,11 @@ Name: mi planificación de hoy, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phuijse/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/plotting/_matplotlib/__init__.py:61: UserWarning: To output multiple subplots, the figure containing the passed axes is being cleared
-  plot_obj.generate()
-</pre></div>
-</div>
-<img alt="../../_images/10_pandas_anexos_9_1.png" src="../../_images/10_pandas_anexos_9_1.png" />
-</div>
 </div>
 <p>La API es útil para hacer gráficos rapidamente. Si necesitamos mayor flexibilidad que la que ofrece la API siempre podemos extraer la data y graficarla con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> o <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p>
 </div>
 <div class="section" id="lectura-de-bases-de-datos-sql">
-<h2><span class="section-number">3.3. </span>Lectura de bases de datos SQL<a class="headerlink" href="#lectura-de-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">24.3. </span>Lectura de bases de datos SQL<a class="headerlink" href="#lectura-de-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Pandas es capaz de conectar y hacer consultas en lenguaje SQL a una base de datos externa y retornar el resultado como un DataFrame usando la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html"><code class="docutils literal notranslate"><span class="pre">read_sql_query</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="c1"># Consulta SQL en formato string</span>
                   <span class="n">con</span><span class="p">,</span> <span class="c1"># dirección a la base de datos o objeto de conexión</span>
@@ -635,7 +666,7 @@ Name: mi planificación de hoy, dtype: int64
 <p>Se agregan condiciones usando el keyword <code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p>
 <p>Se puede usar <code class="docutils literal notranslate"><span class="pre">*</span></code> como alias para “todas las columnas”</p>
 <p>Por ejemplo</p>
-<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span>    <span class="k">SELECT</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="k">C</span> <span class="k">FROM</span> <span class="n">mi_tabla</span> <span class="k">WHERE</span> <span class="n">D</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mi_tabla</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Esto recupera las valores de las columnas A, B y C que tegan un valor de la columna D mayor que 1 a partir de la tabla “mi_tabla”</p>
@@ -666,26 +697,6 @@ Name: mi planificación de hoy, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-07-21 22:48:08--  http://www.censo2017.cl/wp-content/uploads/2017/12/Cantidad-de-Viviendas-por-Tipo.xlsx
-Resolving www.censo2017.cl (www.censo2017.cl)... 172.67.212.115, 104.21.23.177, 2606:4700:3034::ac43:d473, ...
-Connecting to www.censo2017.cl (www.censo2017.cl)|172.67.212.115|:80... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
-HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>416 Requested Range Not Satisfiable
-
-    The file is already fully retrieved; nothing to do.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phuijse/.conda/envs/jupyter-book/lib/python3.7/site-packages/pandas/core/generic.py:2789: UserWarning: The spaces in these column names will not be changed. In pandas versions &lt; 0.14, spaces were converted to underscores.
-  method=method,
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Ejercicio 2</strong></p>
 <p>Escriba y pruebe una consulta SQL que recupere un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con las columnas “Viviendas Particulares Ocupadas con Moradores Presentes” y “NOMBRE COMUNA” para la provincia de Valdivia a partir de los datos del censo usados en la lección de “exploración y manipulación de datos con pandas”</p>
@@ -705,76 +716,6 @@ HTTP request sent, awaiting response...
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;SELECT [Viviendas Particulares Ocupadas con Moradores Presentes], [NOMBRE COMUNA] FROM censo_viviendas WHERE [NOMBRE PROVINCIA] = &#39;VALDIVIA&#39;&quot;
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
-      <th>NOMBRE COMUNA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>53624.0</td>
-      <td>VALDIVIA</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1842.0</td>
-      <td>CORRAL</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5643.0</td>
-      <td>LANCO</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>6446.0</td>
-      <td>LOS LAGOS</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2317.0</td>
-      <td>MÁFIL</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6808.0</td>
-      <td>MARIQUINA</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>6476.0</td>
-      <td>PAILLACO</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>11615.0</td>
-      <td>PANGUIPULLI</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><strong>Comentarios y solución paso a paso</strong></p>
 <div class="cell docutils container">
@@ -783,16 +724,6 @@ HTTP request sent, awaiting response...
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/VsoZ1oh8Az8?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 <p><strong>Notas adicionales sobre SQLite</strong></p>
 <ul class="simple">
@@ -802,7 +733,7 @@ HTTP request sent, awaiting response...
 </ul>
 </div>
 <div class="section" id="guardar-y-leer-una-tabla-en-formato-json">
-<h2><span class="section-number">3.4. </span>Guardar y leer una tabla en formato JSON<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">24.4. </span>Guardar y leer una tabla en formato JSON<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html"><code class="docutils literal notranslate"><span class="pre">to_json</span></code></a> para convertir un dataframe a este formato</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span>
     <span class="n">path_or_buf</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Ubicación en disco</span>
@@ -823,7 +754,7 @@ HTTP request sent, awaiting response...
 <p>regenera el DataFrame que teniamos</p>
 </div>
 <div class="section" id="guardar-y-leer-una-tabla-en-formato-hdf5">
-<h2><span class="section-number">3.5. </span>Guardar y leer una tabla en formato HDF5<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-hdf5" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">24.5. </span>Guardar y leer una tabla en formato HDF5<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-hdf5" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">to_hdf</span></code> para convertir nuestra tabla a formato HDF5</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="c1"># Path completo con nombre de archivo</span>
           <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># Llave maestra del archivo</span>
@@ -877,35 +808,42 @@ HTTP request sent, awaiting response...
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="03_control_de_versiones.html" title="previous page"><span class="section-number">2. </span>Control de versiones</a>
-    <a class='right-next' id="next-link" href="09_interfaces_de_usuario.html" title="next page"><span class="section-number">4. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_control_de_versiones.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">23. </span>Control de versiones</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="09_interfaces_de_usuario.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Repaso de Python 3 &#8212; INFO147 Computación científica con Python</title>
+    <title>22. Repaso de Python 3 &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -35,39 +32,42 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="2. Control de versiones" href="03_control_de_versiones.html" />
-    <link rel="prev" title="5. Computación paralela en Python" href="../unidad3/2_HPC/HPC5.html" />
-
+    <link rel="next" title="23. Control de versiones" href="03_control_de_versiones.html" />
+    <link rel="prev" title="21. Computación paralela en Python" href="../unidad3/2_HPC/HPC5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,25 +76,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -139,121 +138,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../unidad3/2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -263,7 +262,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -273,6 +272,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -316,18 +316,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad1/00_repaso_python3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -336,7 +352,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad1/00_repaso_python3.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad1/00_repaso_python3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -351,128 +367,244 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dynamic-typing">
-   1.1. Dynamic typing
+   22.1. Dynamic typing
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#funciones">
-   1.2. Funciones
+   22.2. Funciones
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clases">
-   1.3. Clases
+   22.3. Clases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#imprimiendo">
-   1.4. Imprimiendo
+   22.4. Imprimiendo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#manejadores-de-contexto">
-   1.5. Manejadores de contexto
+   22.5. Manejadores de contexto
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#decoradores">
-   1.6. Decoradores
+   22.6. Decoradores
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#listas-tuplas-y-rangos">
-   1.7. Listas, tuplas y rangos
+   22.7. Listas, tuplas y rangos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comprensiones-de-listas-list-comprehensions">
-   1.8. Comprensiones de listas (list comprehensions)
+   22.8. Comprensiones de listas (list comprehensions)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sets">
-   1.9. Sets
+   22.9. Sets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diccionario">
-   1.10. Diccionario
+   22.10. Diccionario
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#iteradores">
-   1.11. Iteradores
+   22.11. Iteradores
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generadores-generator-function">
-   1.12. Generadores (generator function)
+   22.12. Generadores (generator function)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#expresion-generadora-generator-expression">
-   1.13. Expresión generadora (generator expression)
+   22.13. Expresión generadora (generator expression)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contenedores-especializados">
-   1.14. Contenedores especializados
+   22.14. Contenedores especializados
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#manejo-de-excepciones">
-   1.15. Manejo de excepciones
+   22.15. Manejo de excepciones
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#expresion-lambda">
-   1.16. Expresión lambda
+   22.16. Expresión lambda
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#debugging-con-ipdb">
-   1.17. Debugging con ipdb
+   22.17. Debugging con ipdb
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pathlib">
-   1.18. pathlib
+   22.18. pathlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lista-de-modulos-de-python-3">
-   1.19. Lista de módulos de Python 3
+   22.19. Lista de módulos de Python 3
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resumen-de-buenas-practicas">
-   1.20. Resumen de buenas prácticas
+   22.20. Resumen de buenas prácticas
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Repaso de Python 3</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dynamic-typing">
+   22.1. Dynamic typing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   22.2. Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clases">
+   22.3. Clases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imprimiendo">
+   22.4. Imprimiendo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejadores-de-contexto">
+   22.5. Manejadores de contexto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decoradores">
+   22.6. Decoradores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listas-tuplas-y-rangos">
+   22.7. Listas, tuplas y rangos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comprensiones-de-listas-list-comprehensions">
+   22.8. Comprensiones de listas (list comprehensions)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sets">
+   22.9. Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diccionario">
+   22.10. Diccionario
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteradores">
+   22.11. Iteradores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generadores-generator-function">
+   22.12. Generadores (generator function)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expresion-generadora-generator-expression">
+   22.13. Expresión generadora (generator expression)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contenedores-especializados">
+   22.14. Contenedores especializados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-excepciones">
+   22.15. Manejo de excepciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expresion-lambda">
+   22.16. Expresión lambda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debugging-con-ipdb">
+   22.17. Debugging con ipdb
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pathlib">
+   22.18. pathlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lista-de-modulos-de-python-3">
+   22.19. Lista de módulos de Python 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-buenas-practicas">
+   22.20. Resumen de buenas prácticas
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="repaso-de-python-3">
-<h1><span class="section-number">1. </span>Repaso de Python 3<a class="headerlink" href="#repaso-de-python-3" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="repaso-de-python-3">
+<h1><span class="section-number">22. </span>Repaso de Python 3<a class="headerlink" href="#repaso-de-python-3" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Este curso asumo una competencia intermedia/avanzada de Python. Esta lección autocontenida es sólo un refresco de memoría de las cosas más importantes que Python ofrece</p>
 <p>El zen de Python:</p>
 <div class="cell docutils container">
@@ -481,44 +613,14 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="dynamic-typing">
-<h2><span class="section-number">1.1. </span>Dynamic typing<a class="headerlink" href="#dynamic-typing" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.1. </span>Dynamic typing<a class="headerlink" href="#dynamic-typing" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>No es necesario declarar el tipo de una variable, Python lo hace automaticamente</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
@@ -530,11 +632,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,15 +640,10 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="funciones">
-<h2><span class="section-number">1.2. </span>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.2. </span>Funciones<a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Argumentos posicionales (mandatorios), keywords, lista de argumentos y lista con nombre especificado</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,17 +662,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-20
-(&#39;asd&#39;, 21, 54)
-{&#39;bar&#39;: 12}
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,16 +674,10 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
-3
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="clases">
-<h2><span class="section-number">1.3. </span>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.3. </span>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Ejemplo de herencia de clases en Python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -622,15 +697,10 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rojo
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="imprimiendo">
-<h2><span class="section-number">1.4. </span>Imprimiendo<a class="headerlink" href="#imprimiendo" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.4. </span>Imprimiendo<a class="headerlink" href="#imprimiendo" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En Python 3 <code class="docutils literal notranslate"><span class="pre">print</span></code> es una función, podemos imprimir texto formateado como</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -646,13 +716,6 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pablo huijse	 edad: 33 peso: 80.2000
-pablo huijse	 edad: 33 peso: 80.2000
-pablo huijse	 edad: 33 peso: 80.2000
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -661,15 +724,10 @@ pablo huijse	 edad: 33 peso: 80.2000
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pablo huijse 33 80.2
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="manejadores-de-contexto">
-<h2><span class="section-number">1.5. </span>Manejadores de contexto<a class="headerlink" href="#manejadores-de-contexto" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.5. </span>Manejadores de contexto<a class="headerlink" href="#manejadores-de-contexto" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Usando la palabra clave <code class="docutils literal notranslate"><span class="pre">with</span></code> no es necesario preocuparse de cerrar el archivo file.txt</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,15 +740,10 @@ pablo huijse	 edad: 33 peso: 80.2000
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>asdasdasdasd
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="decoradores">
-<h2><span class="section-number">1.6. </span>Decoradores<a class="headerlink" href="#decoradores" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.6. </span>Decoradores<a class="headerlink" href="#decoradores" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Funciones o clases que pueden modificar el funcionamiento de otra función</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,15 +760,10 @@ pablo huijse	 edad: 33 peso: 80.2000
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="listas-tuplas-y-rangos">
-<h2><span class="section-number">1.7. </span>Listas, tuplas y rangos<a class="headerlink" href="#listas-tuplas-y-rangos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.7. </span>Listas, tuplas y rangos<a class="headerlink" href="#listas-tuplas-y-rangos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Son tipos de datos secuenciales, es decir pueden ser iterados</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -730,15 +778,6 @@ pablo huijse	 edad: 33 peso: 80.2000
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-[1, &#39;hola&#39;]
-hola
-[1]
-[&#39;chao&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -746,11 +785,6 @@ hola
 
 <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">una_lista</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a b c 1 2 3 2.4 asd 
 </pre></div>
 </div>
 </div>
@@ -765,23 +799,11 @@ hola
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
-[&#39;b&#39;, &#39;c&#39;, 1, 2, 3, 2.4]
-asd
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primero</span><span class="p">,</span> <span class="n">ultimo</span> <span class="o">=</span> <span class="n">ultimo</span><span class="p">,</span> <span class="n">primero</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">primero</span><span class="p">,</span> <span class="n">ultimo</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>asd a
 </pre></div>
 </div>
 </div>
@@ -795,23 +817,11 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, 1, 2, 3, 2.4, &#39;asd&#39;]
-a b c 1 2 3 2.4 asd
-a-b-c-1-2-3-2.4-asd fin!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Obteniendo el largo de una lista</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">una_lista</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -827,15 +837,6 @@ a-b-c-1-2-3-2.4-asd fin!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
-[&#39;b&#39;, &#39;c&#39;, 1]
-asd
-[&#39;a&#39;, &#39;c&#39;, 2, 2.4]
-[&#39;asd&#39;, 2.4, 3, 2, 1, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Las tuplas son similares a las listas, en el sentido de que sus elementos pueden tener tipos distintos</p>
 <div class="cell docutils container">
@@ -848,31 +849,11 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 10, 51243, &#39;asd&#39;)
-0
-0 10 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>51243 asd 
-</pre></div>
-</div>
-</div>
 </div>
 <p>Pero a diferencia de las listas son inmutables, es decir no se pueden modificar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tupla</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hola&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="n">f55d52c3e1da</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tupla</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hola&#39;</span>
-
-<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
 </pre></div>
 </div>
 </div>
@@ -882,11 +863,6 @@ asd
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 2 4 6 8 10 12 14 16 18 
 </pre></div>
 </div>
 </div>
@@ -902,39 +878,14 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0, a
-1, b
-2, c
-3, 1
-4, 2
-5, 3
-6, 2.4
-7, asd
-0, a
-1, b
-2, c
-3, 1
-4, 2
-5, 3
-6, 2.4
-7, asd
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="comprensiones-de-listas-list-comprehensions">
-<h2><span class="section-number">1.8. </span>Comprensiones de listas (list comprehensions)<a class="headerlink" href="#comprensiones-de-listas-list-comprehensions" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.8. </span>Comprensiones de listas (list comprehensions)<a class="headerlink" href="#comprensiones-de-listas-list-comprehensions" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Son una forma consisa de crear listas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 </pre></div>
 </div>
 </div>
@@ -952,22 +903,11 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;UN&#39;, &#39;DÍA&#39;, &#39;VI&#39;, &#39;UNA&#39;, &#39;VACA&#39;, &#39;VESTIDA&#39;, &#39;DE&#39;, &#39;UNIFORME&#39;]
-[&#39;UN&#39;, &#39;DÍA&#39;, &#39;VI&#39;, &#39;UNA&#39;, &#39;VACA&#39;, &#39;VESTIDA&#39;, &#39;DE&#39;, &#39;UNIFORME&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Se puede hacer una doble iteración</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)]
 </pre></div>
 </div>
 </div>
@@ -980,21 +920,11 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># conditional en el valor</span>
 <span class="nb">print</span><span class="p">([</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 5, 6, 7, 8, 9]
 </pre></div>
 </div>
 </div>
@@ -1011,22 +941,10 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0, 10, Un
-1, 10, día
-2, 10, vi
-3, 10, una
-4, 10, vaca
-5, 10, vestida
-6, 10, de
-7, 10, uniforme
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="sets">
-<h2><span class="section-number">1.9. </span>Sets<a class="headerlink" href="#sets" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.9. </span>Sets<a class="headerlink" href="#sets" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los <code class="docutils literal notranslate"><span class="pre">set</span></code> son una colección desordenada de objetos sin duplicados</p>
 <p>Es posible iterar en un set, agregar/remover elementos y aplicar operaciones lógicas entre sets (intersección, union, diferencia)</p>
 <p>Tiene complejidad O(1) de búsqueda (muy eficientes). Se deben preferir antes que las listas cuando</p>
@@ -1044,11 +962,6 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;zen&#39;, &#39;of&#39;, &#39;python&#39;, &#39;by&#39;, &#39;tim&#39;, &#39;peters&#39;, &#39;beautiful&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;ugly&#39;, &#39;explicit&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;implicit&#39;, &#39;simple&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;complex&#39;, &#39;complex&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;complicated&#39;, &#39;flat&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;nested&#39;, &#39;sparse&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;dense&#39;, &#39;readability&#39;, &#39;counts&#39;, &#39;special&#39;, &#39;cases&#39;, &quot;aren&#39;t&quot;, &#39;special&#39;, &#39;enough&#39;, &#39;to&#39;, &#39;break&#39;, &#39;the&#39;, &#39;rules&#39;, &#39;although&#39;, &#39;practicality&#39;, &#39;beats&#39;, &#39;purity&#39;, &#39;errors&#39;, &#39;should&#39;, &#39;never&#39;, &#39;pass&#39;, &#39;silently&#39;, &#39;unless&#39;, &#39;explicitly&#39;, &#39;silenced&#39;, &#39;in&#39;, &#39;the&#39;, &#39;face&#39;, &#39;of&#39;, &#39;ambiguity&#39;, &#39;refuse&#39;, &#39;the&#39;, &#39;temptation&#39;, &#39;to&#39;, &#39;guess&#39;, &#39;there&#39;, &#39;should&#39;, &#39;be&#39;, &#39;one&#39;, &#39;and&#39;, &#39;preferably&#39;, &#39;only&#39;, &#39;one&#39;, &#39;obvious&#39;, &#39;way&#39;, &#39;to&#39;, &#39;do&#39;, &#39;it&#39;, &#39;although&#39;, &#39;that&#39;, &#39;way&#39;, &#39;may&#39;, &#39;not&#39;, &#39;be&#39;, &#39;obvious&#39;, &#39;at&#39;, &#39;first&#39;, &#39;unless&#39;, &quot;you&#39;re&quot;, &#39;dutch&#39;, &#39;now&#39;, &#39;is&#39;, &#39;better&#39;, &#39;than&#39;, &#39;never&#39;, &#39;although&#39;, &#39;never&#39;, &#39;is&#39;, &#39;often&#39;, &#39;better&#39;, &#39;than&#39;, &#39;right&#39;, &#39;now&#39;, &#39;if&#39;, &#39;the&#39;, &#39;implementation&#39;, &#39;is&#39;, &#39;hard&#39;, &#39;to&#39;, &#39;explain&#39;, &quot;it&#39;s&quot;, &#39;a&#39;, &#39;bad&#39;, &#39;idea&#39;, &#39;if&#39;, &#39;the&#39;, &#39;implementation&#39;, &#39;is&#39;, &#39;easy&#39;, &#39;to&#39;, &#39;explain&#39;, &#39;it&#39;, &#39;may&#39;, &#39;be&#39;, &#39;a&#39;, &#39;good&#39;, &#39;idea&#39;, &#39;namespaces&#39;, &#39;are&#39;, &#39;one&#39;, &#39;honking&#39;, &#39;great&#39;, &#39;idea&#39;, &#39;&#39;, &quot;let&#39;s&quot;, &#39;do&#39;, &#39;more&#39;, &#39;of&#39;, &#39;those&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Para ver si un elemento es parte de una lista, set, diccionario usamos <code class="docutils literal notranslate"><span class="pre">in</span></code></p>
 <p>Comparemos el tiempo que demora esta operación en una lista y en un set</p>
@@ -1062,16 +975,10 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68 ns ± 14.6 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
-3.05 µs ± 17.8 ns per loop (mean ± std. dev. of 7 runs, 20 loops each)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="diccionario">
-<h2><span class="section-number">1.10. </span>Diccionario<a class="headerlink" href="#diccionario" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.10. </span>Diccionario<a class="headerlink" href="#diccionario" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es una secuencia indexada por llaves (<em>keys</em>).</p>
 <ul class="simple">
 <li><p>Al igual que el set tienen complejidad de búsqueda O(1)</p></li>
@@ -1093,21 +1000,10 @@ asd
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>huijse
-True
-[&#39;nombre&#39;, &#39;apellido&#39;, &#39;edad&#39;, &#39;peso&#39;]
-nombre: pablo
-apellido: huijse
-edad: 33
-peso: 80.1
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="iteradores">
-<h2><span class="section-number">1.11. </span>Iteradores<a class="headerlink" href="#iteradores" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.11. </span>Iteradores<a class="headerlink" href="#iteradores" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar <code class="docutils literal notranslate"><span class="pre">iter</span></code> para crear un iterador a partir de un objeto iterable (lista, tupla, rango, string, diccionario)</p>
 <p>El iterador se evalua con <code class="docutils literal notranslate"><span class="pre">next</span></code> para escupir el próximo elemento, el cual sale del iterador (lazy, single-use)</p>
 <p>Son ventajosos en términos de uso de memoría (la lista completa no se mapea en memoria)</p>
@@ -1123,23 +1019,6 @@ peso: 80.1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Un
-día
-[&#39;vi&#39;, &#39;una&#39;, &#39;vaca&#39;, &#39;vestida&#39;, &#39;de&#39;, &#39;uniforme&#39;]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="n">d63309a2489d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">iterador</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># El iterador arroja una excepción StopIteration cuando se termina</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">iterador</span><span class="p">))</span>
-
-<span class="ne">StopIteration</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1149,19 +1028,6 @@ día
 
 <span class="c1"># El iterador queda vacio luego de usarse    </span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">iterador</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Un
-día
-vi
-una
-vaca
-vestida
-de
-uniforme
-[]
 </pre></div>
 </div>
 </div>
@@ -1190,15 +1056,10 @@ uniforme
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e-06 1e-05 0.0001 0.001 0.01 0.1 1 10 100 1000 10000 100000 1000000 
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="generadores-generator-function">
-<h2><span class="section-number">1.12. </span>Generadores (generator function)<a class="headerlink" href="#generadores-generator-function" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.12. </span>Generadores (generator function)<a class="headerlink" href="#generadores-generator-function" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Funciones que retornan un iterador</p>
 <p>Se usa el keyword reservado <code class="docutils literal notranslate"><span class="pre">yield</span></code></p>
 <div class="cell docutils container">
@@ -1213,15 +1074,10 @@ uniforme
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 4 9 16 25 36 49 64 81 
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="expresion-generadora-generator-expression">
-<h2><span class="section-number">1.13. </span>Expresión generadora (generator expression)<a class="headerlink" href="#expresion-generadora-generator-expression" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.13. </span>Expresión generadora (generator expression)<a class="headerlink" href="#expresion-generadora-generator-expression" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Se construye como una comprensión de lista pero usando () en vez de []</p></li>
 <li><p>Produce una “receta” en lugar de una lista</p></li>
@@ -1239,19 +1095,10 @@ uniforme
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f2fe05fd750&gt;
-Un
-día
-vi
-una vaca vestida de uniforme 
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="contenedores-especializados">
-<h2><span class="section-number">1.14. </span><a class="reference external" href="https://docs.python.org/3.7/library/collections.html">Contenedores especializados</a><a class="headerlink" href="#contenedores-especializados" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.14. </span><a class="reference external" href="https://docs.python.org/3.7/library/collections.html">Contenedores especializados</a><a class="headerlink" href="#contenedores-especializados" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Por ejemplo el contenedor Counter permite hacer histogramas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1261,100 +1108,10 @@ una vaca vestida de uniforme
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;the&#39;: 6,
-         &#39;zen&#39;: 1,
-         &#39;of&#39;: 3,
-         &#39;python&#39;: 1,
-         &#39;by&#39;: 1,
-         &#39;tim&#39;: 1,
-         &#39;peters&#39;: 1,
-         &#39;beautiful&#39;: 1,
-         &#39;is&#39;: 10,
-         &#39;better&#39;: 8,
-         &#39;than&#39;: 8,
-         &#39;ugly&#39;: 1,
-         &#39;explicit&#39;: 1,
-         &#39;implicit&#39;: 1,
-         &#39;simple&#39;: 1,
-         &#39;complex&#39;: 2,
-         &#39;complicated&#39;: 1,
-         &#39;flat&#39;: 1,
-         &#39;nested&#39;: 1,
-         &#39;sparse&#39;: 1,
-         &#39;dense&#39;: 1,
-         &#39;readability&#39;: 1,
-         &#39;counts&#39;: 1,
-         &#39;special&#39;: 2,
-         &#39;cases&#39;: 1,
-         &quot;aren&#39;t&quot;: 1,
-         &#39;enough&#39;: 1,
-         &#39;to&#39;: 5,
-         &#39;break&#39;: 1,
-         &#39;rules&#39;: 1,
-         &#39;although&#39;: 3,
-         &#39;practicality&#39;: 1,
-         &#39;beats&#39;: 1,
-         &#39;purity&#39;: 1,
-         &#39;errors&#39;: 1,
-         &#39;should&#39;: 2,
-         &#39;never&#39;: 3,
-         &#39;pass&#39;: 1,
-         &#39;silently&#39;: 1,
-         &#39;unless&#39;: 2,
-         &#39;explicitly&#39;: 1,
-         &#39;silenced&#39;: 1,
-         &#39;in&#39;: 1,
-         &#39;face&#39;: 1,
-         &#39;ambiguity&#39;: 1,
-         &#39;refuse&#39;: 1,
-         &#39;temptation&#39;: 1,
-         &#39;guess&#39;: 1,
-         &#39;there&#39;: 1,
-         &#39;be&#39;: 3,
-         &#39;one&#39;: 3,
-         &#39;and&#39;: 1,
-         &#39;preferably&#39;: 1,
-         &#39;only&#39;: 1,
-         &#39;obvious&#39;: 2,
-         &#39;way&#39;: 2,
-         &#39;do&#39;: 2,
-         &#39;it&#39;: 2,
-         &#39;that&#39;: 1,
-         &#39;may&#39;: 2,
-         &#39;not&#39;: 1,
-         &#39;at&#39;: 1,
-         &#39;first&#39;: 1,
-         &quot;you&#39;re&quot;: 1,
-         &#39;dutch&#39;: 1,
-         &#39;now&#39;: 2,
-         &#39;often&#39;: 1,
-         &#39;right&#39;: 1,
-         &#39;if&#39;: 2,
-         &#39;implementation&#39;: 2,
-         &#39;hard&#39;: 1,
-         &#39;explain&#39;: 2,
-         &quot;it&#39;s&quot;: 1,
-         &#39;a&#39;: 2,
-         &#39;bad&#39;: 1,
-         &#39;idea&#39;: 3,
-         &#39;easy&#39;: 1,
-         &#39;good&#39;: 1,
-         &#39;namespaces&#39;: 1,
-         &#39;are&#39;: 1,
-         &#39;honking&#39;: 1,
-         &#39;great&#39;: 1,
-         &#39;&#39;: 1,
-         &quot;let&#39;s&quot;: 1,
-         &#39;more&#39;: 1,
-         &#39;those&#39;: 1})
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="manejo-de-excepciones">
-<h2><span class="section-number">1.15. </span>Manejo de excepciones<a class="headerlink" href="#manejo-de-excepciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.15. </span>Manejo de excepciones<a class="headerlink" href="#manejo-de-excepciones" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Bloque <code class="docutils literal notranslate"><span class="pre">try</span></code> en Python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1372,27 +1129,11 @@ una vaca vestida de uniforme
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Esta excepcion se captura
-Esto corre al final de cualquier camino (cleanup)
-</pre></div>
-</div>
-</div>
 </div>
 <p>Levantar excepciones con <code class="docutils literal notranslate"><span class="pre">raise</span></code> y <code class="docutils literal notranslate"><span class="pre">assert</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Algo no está bien aquí&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">39</span><span class="o">-</span><span class="n">b1d89bc34c24</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Algo no está bien aquí&quot;</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: Algo no está bien aquí
 </pre></div>
 </div>
 </div>
@@ -1407,29 +1148,10 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">40</span><span class="o">-</span><span class="mi">318</span><span class="n">cdfc3747c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">foo</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-
-<span class="nn">&lt;ipython-input-40-318cdfc3747c&gt;</span> in <span class="ni">foo</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;El argumento no es un entero&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">foo</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-
-<span class="ne">AssertionError</span>: El argumento no es un entero
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="expresion-lambda">
-<h2><span class="section-number">1.16. </span>Expresión lambda<a class="headerlink" href="#expresion-lambda" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.16. </span>Expresión lambda<a class="headerlink" href="#expresion-lambda" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Son funciones de una linea con la estructura</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>foo = lambda argumentos: expresión
 </pre></div>
@@ -1445,11 +1167,6 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1457,20 +1174,10 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
 </pre></div>
 </div>
 </div>
@@ -1485,17 +1192,10 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;uno&#39;), (2, &#39;dos&#39;), (3, &#39;tres&#39;), (4, &#39;cuatro&#39;)]
-[(4, &#39;cuatro&#39;), (2, &#39;dos&#39;), (3, &#39;tres&#39;), (1, &#39;uno&#39;)]
-[(1, &#39;uno&#39;), (2, &#39;dos&#39;), (3, &#39;tres&#39;), (4, &#39;cuatro&#39;)]
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="debugging-con-ipdb">
-<h2><span class="section-number">1.17. </span>Debugging con ipdb<a class="headerlink" href="#debugging-con-ipdb" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.17. </span>Debugging con ipdb<a class="headerlink" href="#debugging-con-ipdb" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Dos maneras para encontrar <em>bugs</em> con IPython usando el debugger <code class="docutils literal notranslate"><span class="pre">ipdb</span></code></p>
 <p>Necesitas tener instalado <code class="docutils literal notranslate"><span class="pre">ipdb</span></code></p>
 <p><strong>1) Debugeo Paso-a-paso:</strong> Insertar breakpoints manualmente</p>
@@ -1527,11 +1227,6 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Automatic pdb calling has been turned ON
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1547,7 +1242,7 @@ Esto corre al final de cualquier camino (cleanup)
 <a class="reference internal image-reference" href="../../_images/debug2.png"><img alt="../../_images/debug2.png" src="../../_images/debug2.png" style="width: 800px;" /></a>
 </div>
 <div class="section" id="pathlib">
-<h2><span class="section-number">1.18. </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib</a><a class="headerlink" href="#pathlib" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.18. </span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html">pathlib</a><a class="headerlink" href="#pathlib" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Modulo regular de Python3 para leer y manipular directorios</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1561,23 +1256,15 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[PosixPath(&#39;08_soluciones.py&#39;), PosixPath(&#39;09_soluciones.py&#39;), PosixPath(&#39;script_interesante.py&#39;)]
-[PosixPath(&#39;.ipynb_checkpoints&#39;), PosixPath(&#39;__pycache__&#39;), PosixPath(&#39;img&#39;)]
-[PosixPath(&#39;03_control_de_versiones.ipynb&#39;), PosixPath(&#39;10_pandas_anexos.ipynb&#39;), PosixPath(&#39;diagramas.ipynb&#39;), PosixPath(&#39;01_introduccion.ipynb&#39;), PosixPath(&#39;rrl.dat&#39;), PosixPath(&#39;02_ambientes_virtuales.ipynb&#39;), PosixPath(&#39;dow_jones_index.names&#39;), PosixPath(&#39;censo.db&#39;), PosixPath(&#39;11_ipython_display.ipynb&#39;), PosixPath(&#39;zen.txt&#39;), PosixPath(&#39;covid19_extract.csv&#39;), PosixPath(&#39;05_numpy_extra.ipynb&#39;), PosixPath(&#39;magister.mp4&#39;), PosixPath(&#39;09_soluciones.py&#39;), PosixPath(&#39;08_pandas_avanzado.ipynb&#39;), PosixPath(&#39;script_interesante.py&#39;), PosixPath(&#39;dow_jones_index.zip&#39;), PosixPath(&#39;clase_serialización.ipynb&#39;), PosixPath(&#39;07_pandas_básico.ipynb&#39;), PosixPath(&#39;Cantidad-de-Viviendas-por-Tipo.xlsx&#39;), PosixPath(&#39;09_interfaces_de_usuario.ipynb&#39;), PosixPath(&#39;X_más_allá_de_Python.ipynb&#39;), PosixPath(&#39;dow_jones_index.data&#39;), PosixPath(&#39;00_repaso_python3.ipynb&#39;), PosixPath(&#39;random.ipynb&#39;), PosixPath(&#39;06_matplotlib_extras.ipynb&#39;), PosixPath(&#39;04_jupyter_y_ipython.ipynb&#39;), PosixPath(&#39;06_matplotlib.ipynb&#39;), PosixPath(&#39;file.txt&#39;), PosixPath(&#39;08_soluciones.py&#39;), PosixPath(&#39;05_numpy.ipynb&#39;), PosixPath(&#39;example.csv&#39;)]
-(&#39;/&#39;, &#39;usr&#39;, &#39;bin&#39;, &#39;python3&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="lista-de-modulos-de-python-3">
-<h2><span class="section-number">1.19. </span><a class="reference external" href="https://docs.python.org/3/py-modindex.html">Lista de módulos de Python 3</a><a class="headerlink" href="#lista-de-modulos-de-python-3" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.19. </span><a class="reference external" href="https://docs.python.org/3/py-modindex.html">Lista de módulos de Python 3</a><a class="headerlink" href="#lista-de-modulos-de-python-3" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Siempre antes de implementar un módulo hay que revisar el link de arriba</p>
 <p>Aprovecha la extensa lista de módulos estándar de Python!</p>
 </div>
 <div class="section" id="resumen-de-buenas-practicas">
-<h2><span class="section-number">1.20. </span>Resumen de buenas prácticas<a class="headerlink" href="#resumen-de-buenas-practicas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.20. </span>Resumen de buenas prácticas<a class="headerlink" href="#resumen-de-buenas-practicas" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Prefiere variables keyword antes que posicionales (auto-documentación)</p></li>
 <li><p>Siempre comenta con docstring cada función o clase</p></li>
@@ -1609,19 +1296,6 @@ Esto corre al final de cualquier camino (cleanup)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola Pablo
-Help on function saludo in module __main__:
-
-saludo(nombre: &#39;Esto debería ser un string&#39; = None)
-    Esta es una función que saluda a quien la llama
-    Args:
-        nombre: un string
-    Returns:
-        None
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1648,35 +1322,42 @@ saludo(nombre: &#39;Esto debería ser un string&#39; = None)
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../unidad3/2_HPC/HPC5.html" title="previous page"><span class="section-number">5. </span>Computación paralela en Python</a>
-    <a class='right-next' id="next-link" href="03_control_de_versiones.html" title="next page"><span class="section-number">2. </span>Control de versiones</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../unidad3/2_HPC/HPC5.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">21. </span>Computación paralela en Python</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="03_control_de_versiones.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Control de versiones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

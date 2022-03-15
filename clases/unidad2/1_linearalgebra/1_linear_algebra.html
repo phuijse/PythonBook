@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Algebra lineal con NumPy &#8212; INFO147 Computación científica con Python</title>
+    <title>8. Algebra lineal con NumPy &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="2. Regresión lineal, Sobreajuste y Validación" href="2_linear_regression.html" />
+    <link rel="next" title="9. Regresión lineal, Sobreajuste y Validación" href="2_linear_regression.html" />
     <link rel="prev" title="7. Exploración y manipulación de datos con pandas" href="../../unidad1/08_pandas_avanzado.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad3/2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad2/1_linearalgebra/1_linear_algebra.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad2/1_linearalgebra/1_linear_algebra.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad2/1_linearalgebra/1_linear_algebra.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -353,32 +369,31 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion-bases-de-datos-como-matrices">
-   1.1. Introducción: Bases de datos como Matrices
+   8.1. Introducción: Bases de datos como Matrices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-el-algebra-lineal">
-   1.2. ¿Qué es el álgebra lineal?
+   8.2. ¿Qué es el álgebra lineal?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sistemas-de-ecuaciones-lineales">
-   1.3. Sistemas de ecuaciones lineales
+   8.3. Sistemas de ecuaciones lineales
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sistema-de-ecuaciones-cuadrado-caso-n-m">
-     1.3.1. Sistema de ecuaciones cuadrado (Caso
+     8.3.1. Sistema de ecuaciones cuadrado (Caso
      <span class="math notranslate nohighlight">
       \(N=M\)
      </span>
@@ -387,17 +402,17 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resolviendo-sistemas-cuadrados-eficientemente">
-     1.3.2. Resolviendo sistemas cuadrados eficientemente
+     8.3.2. Resolviendo sistemas cuadrados eficientemente
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejercicio-practico">
-     1.3.3. Ejercicio práctico
+     8.3.3. Ejercicio práctico
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sistema-rectangular-caso-n-neq-m">
-     1.3.4. Sistema rectangular (caso
+     8.3.4. Sistema rectangular (caso
      <span class="math notranslate nohighlight">
       \(N\neq M\)
      </span>
@@ -406,7 +421,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#sistema-sobre-determinado-caso-n-m">
-     1.3.5. Sistema sobre-determinado (caso
+     8.3.5. Sistema sobre-determinado (caso
      <span class="math notranslate nohighlight">
       \(N&gt;M\)
      </span>
@@ -415,26 +430,107 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     1.3.6. Ejercicio práctico
+     8.3.6. Ejercicio práctico
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resumen-de-la-leccion">
-   1.4. Resumen de la lección
+   8.4. Resumen de la lección
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Algebra lineal con NumPy</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-bases-de-datos-como-matrices">
+   8.1. Introducción: Bases de datos como Matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-el-algebra-lineal">
+   8.2. ¿Qué es el álgebra lineal?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistemas-de-ecuaciones-lineales">
+   8.3. Sistemas de ecuaciones lineales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sistema-de-ecuaciones-cuadrado-caso-n-m">
+     8.3.1. Sistema de ecuaciones cuadrado (Caso
+     <span class="math notranslate nohighlight">
+      \(N=M\)
+     </span>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resolviendo-sistemas-cuadrados-eficientemente">
+     8.3.2. Resolviendo sistemas cuadrados eficientemente
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio-practico">
+     8.3.3. Ejercicio práctico
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sistema-rectangular-caso-n-neq-m">
+     8.3.4. Sistema rectangular (caso
+     <span class="math notranslate nohighlight">
+      \(N\neq M\)
+     </span>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sistema-sobre-determinado-caso-n-m">
+     8.3.5. Sistema sobre-determinado (caso
+     <span class="math notranslate nohighlight">
+      \(N&gt;M\)
+     </span>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     8.3.6. Ejercicio práctico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-la-leccion">
+   8.4. Resumen de la lección
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -451,10 +547,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="algebra-lineal-con-numpy">
-<span id="unit2-linear-1"></span><h1><span class="section-number">1. </span>Algebra lineal con NumPy<a class="headerlink" href="#algebra-lineal-con-numpy" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="algebra-lineal-con-numpy">
+<span id="unit2-linear-1"></span><h1><span class="section-number">8. </span>Algebra lineal con NumPy<a class="headerlink" href="#algebra-lineal-con-numpy" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion-bases-de-datos-como-matrices">
-<h2><span class="section-number">1.1. </span>Introducción: Bases de datos como Matrices<a class="headerlink" href="#introduccion-bases-de-datos-como-matrices" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Introducción: Bases de datos como Matrices<a class="headerlink" href="#introduccion-bases-de-datos-como-matrices" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Una base de datos es una tabla donde cada fila corresponde a una medición/sujeto/evento y cada columna a un atributo</p>
 <blockquote>
 <div><p>Si nuestros atributos son numéricos entonces podemos interpretar la tabla como una matriz y cada ejemplo como un vector</p>
@@ -467,76 +563,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>cons</th>
-      <th>income</th>
-      <th>price</th>
-      <th>temp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>0.386</td>
-      <td>78</td>
-      <td>0.270</td>
-      <td>41</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.374</td>
-      <td>79</td>
-      <td>0.282</td>
-      <td>56</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.393</td>
-      <td>81</td>
-      <td>0.277</td>
-      <td>63</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.425</td>
-      <td>80</td>
-      <td>0.280</td>
-      <td>68</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.406</td>
-      <td>76</td>
-      <td>0.272</td>
-      <td>69</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>De la tabla podemos apreciar que cada medición es un vector de cuatro componentes. Es decir que podemos representar la base de datos como una matriz <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{30 \times 4}\)</span></p>
 <p>Con esta interpretación de matriz podemos usar las <strong>herramientas de algebra lineal</strong> para analizar estos datos</p>
 </div>
 <div class="section" id="que-es-el-algebra-lineal">
-<h2><span class="section-number">1.2. </span>¿Qué es el álgebra lineal?<a class="headerlink" href="#que-es-el-algebra-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.2. </span>¿Qué es el álgebra lineal?<a class="headerlink" href="#que-es-el-algebra-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Es la rama de las matemáticas que analiza los sistemas de ecuaciones lineales de tipo</p>
 <div class="math notranslate nohighlight">
 \[
@@ -562,7 +594,7 @@ y_i = m x_i + b = \begin{pmatrix} 1 &amp; x_i \end{pmatrix} \begin{pmatrix} b \\
 <p>En la presente y siguiente lección nos enfocaremos en la regresión lineal como un caso particular de solución de un sistema de ecuaciones lineales</p>
 </div>
 <div class="section" id="sistemas-de-ecuaciones-lineales">
-<h2><span class="section-number">1.3. </span>Sistemas de ecuaciones lineales<a class="headerlink" href="#sistemas-de-ecuaciones-lineales" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Sistemas de ecuaciones lineales<a class="headerlink" href="#sistemas-de-ecuaciones-lineales" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Respecto al ejemplo de los helados, la siguiente es una pregunta interesante</p>
 <blockquote>
 <div><p>¿Es posible predecir el consumo de helados en función del ingreso, la temperatura y el precio?</p>
@@ -599,7 +631,7 @@ A x = b
 \]</div>
 <p>El álgebra lineal nos da herramientas para resolver este sistema. Las soluciones dependen de las características del sistema en particular. Veremos tres casos, de los cuales dos son revisados en detalle en esta lección y un tercero se revisará en la lección <a class="reference internal" href="2_linear_regression.html#unit2-linear-2"><span class="std std-ref">Regresión lineal, Sobreajuste y Validación</span></a></p>
 <div class="section" id="sistema-de-ecuaciones-cuadrado-caso-n-m">
-<h3><span class="section-number">1.3.1. </span>Sistema de ecuaciones cuadrado (Caso <span class="math notranslate nohighlight">\(N=M\)</span>)<a class="headerlink" href="#sistema-de-ecuaciones-cuadrado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.1. </span>Sistema de ecuaciones cuadrado (Caso <span class="math notranslate nohighlight">\(N=M\)</span>)<a class="headerlink" href="#sistema-de-ecuaciones-cuadrado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este es un caso particular donde la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene igual número de filas y columnas</p>
 <p>Estos sistemas pueden resolverse usando inversión de matrices como se muestra a continuación</p>
 <div class="math notranslate nohighlight">
@@ -665,7 +697,7 @@ x &amp;= A^{-1} b \nonumber
 </ul>
 </div>
 <div class="section" id="resolviendo-sistemas-cuadrados-eficientemente">
-<h3><span class="section-number">1.3.2. </span>Resolviendo sistemas cuadrados eficientemente<a class="headerlink" href="#resolviendo-sistemas-cuadrados-eficientemente" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.2. </span>Resolviendo sistemas cuadrados eficientemente<a class="headerlink" href="#resolviendo-sistemas-cuadrados-eficientemente" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>En general nos interesa sólo <span class="math notranslate nohighlight">\(x\)</span> y no <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Si un sistema de ecuaciones es grande es preferible no calcular la inversa de <span class="math notranslate nohighlight">\(A\)</span> por su alto costo computacional.</p>
 <p>Podemos encontrar <span class="math notranslate nohighlight">\(x\)</span> directamente en un sistema cuadrado usando la función <code class="docutils literal notranslate"><span class="pre">solve</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -682,25 +714,12 @@ x &amp;= A^{-1} b \nonumber
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 <p>Es decir que no hay diferencia entre los resultados. Comparemos ahora el tiempo de ejecución</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r5 -n5 np.dot(np.linalg.inv(A), b)
 <span class="o">%</span><span class="k">timeit</span> -r5 -n5 np.linalg.solve(A, b)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>696 ms ± 26.9 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>176 ms ± 5.51 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
 </pre></div>
 </div>
 </div>
@@ -749,7 +768,7 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 <p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> nos ofrece en su modulo <code class="docutils literal notranslate"><span class="pre">linalg</span></code> la función <code class="docutils literal notranslate"><span class="pre">lu</span></code> para factorizar</p>
 </div>
 <div class="section" id="ejercicio-practico">
-<h3><span class="section-number">1.3.3. </span>Ejercicio práctico<a class="headerlink" href="#ejercicio-practico" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.3. </span>Ejercicio práctico<a class="headerlink" href="#ejercicio-practico" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sea el sistema de ecuaciones</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -788,20 +807,10 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/Z47FrSIdIAg?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 <div class="section" id="sistema-rectangular-caso-n-neq-m">
-<h3><span class="section-number">1.3.4. </span>Sistema rectangular (caso <span class="math notranslate nohighlight">\(N\neq M\)</span>)<a class="headerlink" href="#sistema-rectangular-caso-n-neq-m" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.4. </span>Sistema rectangular (caso <span class="math notranslate nohighlight">\(N\neq M\)</span>)<a class="headerlink" href="#sistema-rectangular-caso-n-neq-m" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Consideremos que</p>
 <ul class="simple">
 <li><p>Las incognitas de un sistema representan sus grados de libertad</p></li>
@@ -815,7 +824,7 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 <p>y en ambos casos la matriz <span class="math notranslate nohighlight">\(A\)</span> ya no es cuadrada, es decir ya no podemos calcular la inversa. Debemos utilizar otros métodos dependiendo del caso</p>
 </div>
 <div class="section" id="sistema-sobre-determinado-caso-n-m">
-<h3><span class="section-number">1.3.5. </span>Sistema sobre-determinado (caso <span class="math notranslate nohighlight">\(N&gt;M\)</span>)<a class="headerlink" href="#sistema-sobre-determinado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.5. </span>Sistema sobre-determinado (caso <span class="math notranslate nohighlight">\(N&gt;M\)</span>)<a class="headerlink" href="#sistema-sobre-determinado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Definamos el vector de error <span class="math notranslate nohighlight">\(e = Ax - b\)</span></p>
 <p>Podemos encontrar una solución aproximada minimizando la norma euclidiana del error</p>
 <div class="math notranslate nohighlight">
@@ -863,7 +872,7 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 <p>Podemos ver la función <code class="docutils literal notranslate"><span class="pre">lstsq</span></code> como una alternativa a <code class="docutils literal notranslate"><span class="pre">solve</span></code> para el caso rectangular sobredeterminado</p>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">1.3.6. </span>Ejercicio práctico<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">8.3.6. </span>Ejercicio práctico<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Encuentre los parámetros de la <strong>ecuación de la recta</strong> que ajuste mejor los datos</p>
 <div class="math notranslate nohighlight">
 \[
@@ -882,21 +891,11 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="640"
-    height="360"
-    src="https://www.youtube.com/embed/FNwIqEZtX2A?modestbranding=1&disablekb=0&autoplay=0&rel=0&showinfo=0"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 </div>
 </div>
 <div class="section" id="resumen-de-la-leccion">
-<h2><span class="section-number">1.4. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En esta lección hemos aprendido a:</p>
 <ul class="simple">
 <li><p>Reconocer sistemas de ecuaciones lineales cuadrados y rectangulares</p></li>
@@ -927,35 +926,42 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../unidad1/08_pandas_avanzado.html" title="previous page"><span class="section-number">7. </span>Exploración y manipulación de datos con <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
-    <a class='right-next' id="next-link" href="2_linear_regression.html" title="next page"><span class="section-number">2. </span>Regresión lineal, Sobreajuste y Validación</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../unidad1/08_pandas_avanzado.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Exploración y manipulación de datos con <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="2_linear_regression.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Regresión lineal, Sobreajuste y Validación</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

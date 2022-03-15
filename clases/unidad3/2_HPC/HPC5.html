@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Computación paralela en Python &#8212; INFO147 Computación científica con Python</title>
+    <title>21. Computación paralela en Python &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="1. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
-    <link rel="prev" title="4. Acelerando Python con Cython" href="HPC4.html" />
-
+    <link rel="next" title="22. Repaso de Python 3" href="../../unidad1/00_repaso_python3.html" />
+    <link rel="prev" title="20. Acelerando Python con Cython" href="HPC4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../1_ML/ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../1_ML/ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../1_ML/ML3.html">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad3/2_HPC/HPC5.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad3/2_HPC/HPC5.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad3/2_HPC/HPC5.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -353,44 +369,43 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion">
-   5.1. Introducción
+   21.1. Introducción
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">
-   5.2. El Global interpreter lock (GIL) de Python
+   21.2. El Global interpreter lock (GIL) de Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">
-   5.3. Computación multi-hilo con Cython y OpenMP
+   21.3. Computación multi-hilo con Cython y OpenMP
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-calculo-paralelo-del-kernel-gaussiano-entre-dos-vectores">
-     5.3.1. Ejemplo: Cálculo paralelo del kernel Gaussiano entre dos vectores
+     21.3.1. Ejemplo: Cálculo paralelo del kernel Gaussiano entre dos vectores
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo-fractal-de-julia-en-paralelo-con-cython-y-openmp">
-     5.3.2. Ejemplo: Fractal de Julia en paralelo con Cython y OpenMP
+     21.3.2. Ejemplo: Fractal de Julia en paralelo con Cython y OpenMP
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">
-   5.4. Computación multi-proceso con IPython:
+   21.4. Computación multi-proceso con IPython:
    <em>
     ipyparallel
    </em>
@@ -398,17 +413,17 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#creacion-de-un-cliente">
-     5.4.1. Creación de un cliente
+     21.4.1. Creación de un cliente
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">
-     5.4.2. Enviando trabajos usando interfaz Directa
+     21.4.2. Enviando trabajos usando interfaz Directa
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">
-     5.4.3. Funciones de Python en paralelo con
+     21.4.3. Funciones de Python en paralelo con
      <code class="docutils literal notranslate">
       <span class="pre">
        apply
@@ -418,22 +433,22 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">
-     5.4.4. Compartiendo módulos y datos con los engines
+     21.4.4. Compartiendo módulos y datos con los engines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">
-     5.4.5. Traspasando datos a todos los engines
+     21.4.5. Traspasando datos a todos los engines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">
-     5.4.6. Distribuyendo datos a los engines
+     21.4.6. Distribuyendo datos a los engines
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#computo-paralelo-con-map">
-     5.4.7. Cómputo paralelo con
+     21.4.7. Cómputo paralelo con
      <code class="docutils literal notranslate">
       <span class="pre">
        map
@@ -443,31 +458,145 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">
-     5.4.8. Funciones remotas y paralelas con decoradores
+     21.4.8. Funciones remotas y paralelas con decoradores
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resultado-asincronos">
-     5.4.9. Resultado asíncronos
+     21.4.9. Resultado asíncronos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#otras-funcionalidades-de-ipyparallel-no-vistas-en-esta-leccion">
-     5.4.10. Otras funcionalidades de ipyparallel no vistas en esta lección
+     21.4.10. Otras funcionalidades de ipyparallel no vistas en esta lección
     </a>
    </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Computación paralela en Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   21.1. Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">
+   21.2. El Global interpreter lock (GIL) de Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">
+   21.3. Computación multi-hilo con Cython y OpenMP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-calculo-paralelo-del-kernel-gaussiano-entre-dos-vectores">
+     21.3.1. Ejemplo: Cálculo paralelo del kernel Gaussiano entre dos vectores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-fractal-de-julia-en-paralelo-con-cython-y-openmp">
+     21.3.2. Ejemplo: Fractal de Julia en paralelo con Cython y OpenMP
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">
+   21.4. Computación multi-proceso con IPython:
+   <em>
+    ipyparallel
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-de-un-cliente">
+     21.4.1. Creación de un cliente
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">
+     21.4.2. Enviando trabajos usando interfaz Directa
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">
+     21.4.3. Funciones de Python en paralelo con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       apply
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">
+     21.4.4. Compartiendo módulos y datos con los engines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">
+     21.4.5. Traspasando datos a todos los engines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">
+     21.4.6. Distribuyendo datos a los engines
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computo-paralelo-con-map">
+     21.4.7. Cómputo paralelo con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       map
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">
+     21.4.8. Funciones remotas y paralelas con decoradores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resultado-asincronos">
+     21.4.9. Resultado asíncronos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otras-funcionalidades-de-ipyparallel-no-vistas-en-esta-leccion">
+     21.4.10. Otras funcionalidades de ipyparallel no vistas en esta lección
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -490,10 +619,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="computacion-paralela-en-python">
-<h1><span class="section-number">5. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="computacion-paralela-en-python">
+<h1><span class="section-number">21. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion">
-<h2><span class="section-number">5.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">21.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En las lecciones anteriores hemos visto como ganar rendimiento en operaciones SIMD usando NumPy. Luego aprendimos a conectar con lenguajes de bajo nivel usando Cython</p>
 <p>En esta lección veremos una opción para ganar rendimiento en problemas limitados en CPU que sean “separables”. Un problema es <strong>separable</strong> si puede dividirse en <strong>subproblemas</strong> que pueden resolverse de forma <strong>independiente</strong></p>
 <p>Al ser independientes significa que podemos resolverlos <strong>al mismo tiempo</strong>, es decir resolver cada uno sin esperar el resultado de los demás</p>
@@ -516,7 +645,7 @@
 <p>A continuación veremos algunas herramientas para Python</p>
 </div>
 <div class="section" id="el-global-interpreter-lock-gil-de-python">
-<h2><span class="section-number">5.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">21.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El manejo de memoria de CPython no es <em>thread-safe</em>. Por esta razón todo código escrito en Python está sujeto a un <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a></strong> que lo proteje conocido como <strong>Global Interpreter Lock (GIL)</strong></p>
 <p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU</p>
 <p>En esta lección exploraremos dos alternativas generales</p>
@@ -530,11 +659,11 @@
 </ul>
 </div>
 <div class="section" id="computacion-multi-hilo-con-cython-y-openmp">
-<h2><span class="section-number">5.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">21.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><a class="reference external" href="https://www.openmp.org/">OpenMP</a> es una API multiplataforma para computación paralela en C, C++ y Fortran. Por ejemplo en C/C++ se puede escribir un <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> usando directivas de compilador (pragma) de OpenMP</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel for</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Cython tiene un modulo llamado <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/parallelism.html"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a> que usa OpenMP como backend. Para ocupar OpenMP desde Cython es necesario</p>
@@ -554,7 +683,7 @@
 </div>
 <p>El principal requisito es que las funciones paralelas deben liberar el GIL. En Cython podemos liberar el GIL en una sección de código o en una función con el <code class="docutils literal notranslate"><span class="pre">keyword</span></code> <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/external_C_code.html#nogil"><code class="docutils literal notranslate"><span class="pre">nogil</span></code></a></p>
 <div class="section" id="ejemplo-calculo-paralelo-del-kernel-gaussiano-entre-dos-vectores">
-<h3><span class="section-number">5.3.1. </span>Ejemplo: Cálculo paralelo del kernel Gaussiano entre dos vectores<a class="headerlink" href="#ejemplo-calculo-paralelo-del-kernel-gaussiano-entre-dos-vectores" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.3.1. </span>Ejemplo: Cálculo paralelo del kernel Gaussiano entre dos vectores<a class="headerlink" href="#ejemplo-calculo-paralelo-del-kernel-gaussiano-entre-dos-vectores" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El kernel Gaussiano se define como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -625,11 +754,6 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.6 ms ± 481 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,21 +762,11 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.4 ms ± 403 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Versión cython con openmp</span>
 <span class="o">%</span><span class="k">timeit</span> -r10 -n3 suma_vectores_openmp(x, y, z)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.42 ms ± 263 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -666,15 +780,10 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="ejemplo-fractal-de-julia-en-paralelo-con-cython-y-openmp">
-<h3><span class="section-number">5.3.2. </span>Ejemplo: Fractal de Julia en paralelo con Cython y OpenMP<a class="headerlink" href="#ejemplo-fractal-de-julia-en-paralelo-con-cython-y-openmp" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.3.2. </span>Ejemplo: Fractal de Julia en paralelo con Cython y OpenMP<a class="headerlink" href="#ejemplo-fractal-de-julia-en-paralelo-con-cython-y-openmp" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A continuación se muestra una versión paralela del código cython para calcular el fractal de Julia de la lección anterior</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,21 +847,11 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>189 ms ± 21.4 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
-</pre></div>
-</div>
-</div>
 </div>
 <p>e implementación paralela</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r3 -n1 make_fractal_openmp(N, image_openmp)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.7 ms ± 5.35 ms per loop (mean ± std. dev. of 3 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -764,16 +863,11 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div class="section" id="computacion-multi-proceso-con-ipython-ipyparallel">
-<h2><span class="section-number">5.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">21.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/">ipyparallel</a> es un paquete independiente pero complementario de IPython para hacer computación multi-proceso</p>
 <p><strong>Instalación</strong></p>
 <p>Si tienes conda</p>
@@ -800,7 +894,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <img alt="../../../_images/ipyparallel2.png" src="../../../_images/ipyparallel2.png" />
 <p>Con esto hemos creado un controlador y cuatro engines, todos en nuestra máquina (localhost)</p>
 <div class="section" id="creacion-de-un-cliente">
-<h3><span class="section-number">5.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos ipyparallel</span>
@@ -809,34 +903,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <span class="n">rc</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
 <span class="c1"># Verificamos que se hayan iniciado nuestro engines</span>
 <span class="n">rc</span><span class="o">.</span><span class="n">ids</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TimeoutError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">64</span><span class="n">cd9ad2ec09</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">ipyparallel</span> <span class="k">as</span> <span class="nn">ipp</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Creamos la clase cliente</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">ipp</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Verificamos que se hayan iniciado nuestro engines</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">rc</span><span class="o">.</span><span class="n">ids</span>
-
-<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/ipyparallel/client/client.py</span> in <span class="ni">__init__</span><span class="nt">(self, url_file, profile, profile_dir, ipython_dir, context, debug, sshserver, sshkey, password, paramiko, timeout, cluster_id, **extra_args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span> 
-<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">519</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_connect</span><span class="p">(</span><span class="n">sshserver</span><span class="p">,</span> <span class="n">ssh_kwargs</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span>         <span class="k">except</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span>             <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">linger</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="nn">~/.conda/envs/jupyter-book/lib/python3.7/site-packages/ipyparallel/client/client.py</span> in <span class="ni">_connect</span><span class="nt">(self, sshserver, ssh_kwargs, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">636</span>         <span class="n">evts</span> <span class="o">=</span> <span class="n">poller</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">637</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">evts</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">638</span>             <span class="k">raise</span> <span class="n">error</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">(</span><span class="s2">&quot;Hub connection request timed out&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">639</span>         <span class="n">idents</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_query_socket</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
-
-<span class="ne">TimeoutError</span>: Hub connection request timed out
 </pre></div>
 </div>
 </div>
@@ -849,7 +915,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </ul>
 </div>
 <div class="section" id="enviando-trabajos-usando-interfaz-directa">
-<h3><span class="section-number">5.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una <code class="docutils literal notranslate"><span class="pre">View</span></code> de tipo <em>Direct</em> requiere que el usuario especifique los engines que va a usar. Esto se hace de forma similar a los <em>slices</em> en listas/ndarray</p>
 <p>Por ejemplo para crear una interfaz que utilice todas las engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:]</span></code>. En cambio si sólo queremos utilizar las dos primeras engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:2]</span></code></p>
 <p>La vista puede crearse como bloqueante o no bloqueante (asíncrona) modificando el atributo booleano <code class="docutils literal notranslate"><span class="pre">block</span></code>. Una vista “bloqueante” espera a que el resultado de todos los engines sean retornado para devolver el control</p>
@@ -862,37 +928,12 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">678156</span><span class="n">a23f83</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Creamos una view con</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span> <span class="o">=</span> <span class="n">rc</span><span class="p">[:]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Por defecto es asíncrono (no bloqueante)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span>
-
-<span class="ne">NameError</span>: name &#39;rc&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podemos cambiarlo a ejecución síncrona (bloqueando) con</span>
 <span class="n">dview</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">dview</span><span class="o">.</span><span class="n">block</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">bea8d7584c70</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Podemos cambiarlo a ejecución síncrona (bloqueando) con</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dview</span><span class="o">.</span><span class="n">block</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -909,7 +950,7 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </ul>
 </div>
 <div class="section" id="funciones-de-python-en-paralelo-con-apply">
-<h3><span class="section-number">5.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sea una función <code class="docutils literal notranslate"><span class="pre">f</span></code> podemos ejecutarla en todos los engines usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
@@ -921,20 +962,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">ac0d9fa278ce</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Mundo&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="compartiendo-modulos-y-datos-con-los-engines">
-<h3><span class="section-number">5.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Es importante tener claro que, al contrario del paralelismo multi-hilo, los procesos en los engines no comparten memoria y no ven las variables de nuestro entorno local</p>
 <p>Por ejemplo si queremos usar una función del módulo <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
 <div class="cell docutils container">
@@ -947,18 +978,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 
 <span class="c1"># Cada uno tiene un pid distinto</span>
 <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">6</span><span class="n">fc66c0120ef</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Cada uno tiene un pid distinto</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -978,20 +997,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">6</span><span class="n">c2c6e1113d0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="n">dview</span><span class="o">.</span><span class="n">sync_imports</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># El módulo quedará importado también en nuestro ambiente local</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Ahora ya no necesitamos importar os</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Si queremos limpiar las variables y módulos de los engines podemos usar el método con <code class="docutils literal notranslate"><span class="pre">clear</span></code></p>
 <div class="cell docutils container">
@@ -1003,23 +1008,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">255</span><span class="n">eff768fcb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Limpiamos el entorno de las engines</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Ahora el siguiente comando arrojará un NameError</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion2</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="traspasando-datos-a-todos-los-engines">
-<h3><span class="section-number">5.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para enviar un objeto de Python que hayamos definido en el ambiente local podemos usar la función <code class="docutils literal notranslate"><span class="pre">push</span></code>. El objeto tiene que ser un diccionario</p>
 <p>Luego podemos usar <code class="docutils literal notranslate"><span class="pre">pull</span></code> si queremos extraer una variable remota</p>
 <p>Estas funciones tienen un atributo llamado <code class="docutils literal notranslate"><span class="pre">targets</span></code> que permite apuntar los objetos a un subconjunto de <em>engines</em></p>
@@ -1036,20 +1028,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">1</span><span class="n">d967f7c53a4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Esto no existe dentro de los engines</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dview</span><span class="o">.</span><span class="n">push</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">a</span><span class="p">})</span> <span class="c1"># Ahora está en todos los engines</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">funcion3</span><span class="p">():</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1058,21 +1036,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="n">aa8adb1a3884</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Digamos que quiero recuperar la variable &#39;a&#39; pero sólo de los dos primeros engines</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">pull</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="distribuyendo-datos-a-los-engines">
-<h3><span class="section-number">5.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si queremos distribuir datos en los engines podemos usar <code class="docutils literal notranslate"><span class="pre">scatter</span></code>. Esto sirve por ejemplo para procesar elementos de una lista en paralelo. <code class="docutils literal notranslate"><span class="pre">scatter</span></code> recibe un string con el nombre de la variable (tal como lo recibirá cada proceso) y un arreglo con los valores de la variable</p>
 <p>Para recuperar resultados a partir de los engine podemos usar <code class="docutils literal notranslate"><span class="pre">gather</span></code></p>
 <div class="cell docutils container">
@@ -1089,36 +1056,11 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">6650</span><span class="n">fd213d4f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Una lista con 7 elementos que será distribuida en los 4 engines usando scatter</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion3</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">global</span> <span class="n">y</span> <span class="c1"># Creo una variable en el workspace del engine</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recuperamos la salida con gather</span>
 <span class="n">display</span><span class="p">(</span><span class="n">dview</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="n">d395016412c5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Recuperamos la salida con gather</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">dview</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1135,20 +1077,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 
 <span class="c1"># Se particiona en 4 matrices por fila (row-major)</span>
 <span class="n">dview</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">funcion4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">24</span><span class="o">-</span><span class="mi">008920</span><span class="n">eabf79</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion4</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># data[0, 0] = 0 # No podemos modificar los valores!</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1174,24 +1102,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="n">b71771d0405d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dview</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">datos</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">funcion5</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">global</span> <span class="n">x</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="computo-paralelo-con-map">
-<h3><span class="section-number">5.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La función <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">map</span></code> de Python aplica una función sobre una secuencia de datos uno por uno. En general, si vemos un <code class="docutils literal notranslate"><span class="pre">map</span></code> en nuestro código, paralelizarlo es muy sencillo</p>
 <p>La librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> provee una versión paralela de <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.DirectView.map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a> que se ocupa sobre una vista</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">sequences</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
@@ -1210,35 +1124,11 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="mi">08</span><span class="n">aca1cecb45</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Map de ipyparallel</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">resultado_paralelo</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Resultados</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Podemos entregar iteradores para más de un argumento. Los iteradores deben ser del mismo largo (de lo contrario la secuencia más corta manda)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">27</span><span class="o">-</span><span class="mi">4</span><span class="n">d34b5b1e624</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1256,22 +1146,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="mi">54729</span><span class="n">f090372</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">function_args</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="funciones-remotas-y-paralelas-con-decoradores">
-<h3><span class="section-number">5.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos crear una función que es siempre ejecutada por los engines usando el decorador <code class="docutils literal notranslate"><span class="pre">remote</span></code>. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1281,20 +1159,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
 
 <span class="n">funcion</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">29</span><span class="o">-</span><span class="mi">312</span><span class="n">c7dc219bf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">remote</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">funcion</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1313,20 +1177,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="n">a68939e4f8a5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">funcion</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">return</span> <span class="n">x</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Los datos se particionan en 4 grupos (uno por engine)</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Esto también se pueden usar arreglos de numpy</p>
 <div class="cell docutils container">
@@ -1341,24 +1191,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">31</span><span class="o">-</span><span class="mi">2</span><span class="n">d9c2b75ce5d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nd">@dview</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">pmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="resultado-asincronos">
-<h3><span class="section-number">5.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El resultado asíncrono es un objeto de clase <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/asyncresult.html#parallel-asyncresult"><code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code></a>. Sus funciones más relevantes son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code> : Retorna un booleano con el estado de la tarea</p></li>
@@ -1370,18 +1206,6 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_async</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="c1"># ¿Está listo mi tarea?</span>
 <span class="n">res_async</span><span class="o">.</span><span class="n">ready</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="n">ce62fd0ed67c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">res_async</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># ¿Está listo mi tarea?</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">res_async</span><span class="o">.</span><span class="n">ready</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;dview&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1399,24 +1223,10 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="n">db2a78c70027</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># Puedo hacer cómputo aquí mientras espero que termine mi tarea</span>
-<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">res_async</span><span class="o">.</span><span class="n">ready</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="c1"># Recupero el resultado</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">res_async</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;res_async&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="otras-funcionalidades-de-ipyparallel-no-vistas-en-esta-leccion">
-<h3><span class="section-number">5.4.10. </span>Otras funcionalidades de ipyparallel no vistas en esta lección<a class="headerlink" href="#otras-funcionalidades-de-ipyparallel-no-vistas-en-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.10. </span>Otras funcionalidades de ipyparallel no vistas en esta lección<a class="headerlink" href="#otras-funcionalidades-de-ipyparallel-no-vistas-en-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/magics.html">Magias de ipyparallel</a></p></li>
 <li><p>Balance de carga automático en ipyparallel con la <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html">interfaz Task</a></p></li>
@@ -1449,35 +1259,42 @@ def make_fractal_openmp(int N, TIPOI_t [:, ::1] image_view, int maxiters=50):
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="HPC4.html" title="previous page"><span class="section-number">4. </span>Acelerando Python con Cython</a>
-    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="next page"><span class="section-number">1. </span>Repaso de Python 3</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="HPC4.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Acelerando Python con Cython</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../../unidad1/00_repaso_python3.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Repaso de Python 3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>

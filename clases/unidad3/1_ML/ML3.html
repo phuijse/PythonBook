@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Aprendizaje no supervisado &#8212; INFO147 Computación científica con Python</title>
+    <title>16. Aprendizaje no supervisado &#8212; Computación científica con Python</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -35,41 +32,44 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/translations.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="1. Introducción: Python y Rendimiento" href="../2_HPC/HPC1.html" />
-    <link rel="prev" title="2. Aprendizaje supervisado: Clasificación" href="ML2.html" />
-
+    <link rel="next" title="17. Introducción: Python y Rendimiento" href="../2_HPC/HPC1.html" />
+    <link rel="prev" title="15. Aprendizaje supervisado: Clasificación" href="ML2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="es">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -78,25 +78,24 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">INFO147 Computación científica con Python</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Manipulación de datos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/01_introduccion.html">
    1. Introducción: Computación científica y ciencia de datos
@@ -141,121 +140,121 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación científica
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/1_linear_algebra.html">
-   1. Algebra lineal con NumPy
+   8. Algebra lineal con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/1_linearalgebra/2_linear_regression.html">
-   2. Regresión lineal, Sobreajuste y Validación
+   9. Regresión lineal, Sobreajuste y Validación
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/2_calculus/optimization.html">
-   3. Optimización matemática
+   10. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats1.html">
-   4. Estadística: Fundamentos
+   11. Estadística: Fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats2.html">
-   5. Estadística descriptiva
+   12. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad2/3_statistics/stats3.html">
-   6. Estadística inferencial
+   13. Estadística inferencial
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Aprendizaje de máquinas
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ML1.html">
-   1. Machine Learning: Conceptos clave
+   14. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ML2.html">
-   2. Aprendizaje supervisado: Clasificación
+   15. Aprendizaje supervisado: Clasificación
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Aprendizaje no supervisado
+   16. Aprendizaje no supervisado
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Computación de alto rendimiento
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC1.html">
-   1. Introducción: Python y  Rendimiento
+   17. Introducción: Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC2.html">
-   2. Profiling
+   18. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC3.html">
-   3. Optimizando código Python
+   19. Optimizando código Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC4.html">
-   4. Acelerando Python con Cython
+   20. Acelerando Python con Cython
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../2_HPC/HPC5.html">
-   5. Computación paralela en Python
+   21. Computación paralela en Python
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Anexos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/00_repaso_python3.html">
-   1. Repaso de Python 3
+   22. Repaso de Python 3
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/03_control_de_versiones.html">
-   2. Control de versiones
+   23. Control de versiones
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/10_pandas_anexos.html">
-   3. Pandas: Tópicos extra
+   24. Pandas: Tópicos extra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/09_interfaces_de_usuario.html">
-   4. Interfaces de usuario en Jupyter con
+   25. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -265,7 +264,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../unidad1/11_ipython_display.html">
-   5. Módulo
+   26. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
      IPython.display
@@ -275,6 +274,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -318,18 +318,34 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fclases/unidad3/1_ML/ML3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                    title="Modo de pantalla completa"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -338,7 +354,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/magister-informatica-uach/INFO147/master?urlpath=tree/clases/unidad3/1_ML/ML3.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/clases/unidad3/1_ML/ML3.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -353,37 +369,36 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#principal-component-analysis-pca">
-   3.1. Principal Component Analysis (PCA)
+   16.1. Principal Component Analysis (PCA)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#formalismo-matematico">
-     3.1.1. Formalismo matemático
+     16.1.1. Formalismo matemático
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ejemplo">
-     3.1.2. Ejemplo
+     16.1.2. Ejemplo
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#reduccion-de-dimensionalidad-con-pca">
-     3.1.3. Reducción de dimensionalidad con PCA
+     16.1.3. Reducción de dimensionalidad con PCA
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pca-con-scikit-learn">
-     3.1.4. PCA con
+     16.1.4. PCA con
      <code class="docutils literal notranslate">
       <span class="pre">
        scikit-learn
@@ -393,24 +408,24 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     3.1.5. Ejemplo
+     16.1.5. Ejemplo
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clustering-con-algoritmo-k-means">
-   3.2. Clustering con algoritmo K-means
+   16.2. Clustering con algoritmo K-means
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
-     3.2.1. Formalismo matemático
+     16.2.1. Formalismo matemático
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-means-con-scikit-learn">
-     3.2.2. K-means con
+     16.2.2. K-means con
      <code class="docutils literal notranslate">
       <span class="pre">
        scikit-learn
@@ -420,31 +435,122 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#detalles-practicos">
-     3.2.3. Detalles prácticos
+     16.2.3. Detalles prácticos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     3.2.4. Ejemplo
+     16.2.4. Ejemplo
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-aprendimos-en-esta-leccion">
-   3.3. ¿Qué aprendimos en esta lección?
+   16.3. ¿Qué aprendimos en esta lección?
   </a>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aprendizaje no supervisado</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#principal-component-analysis-pca">
+   16.1. Principal Component Analysis (PCA)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formalismo-matematico">
+     16.1.1. Formalismo matemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo">
+     16.1.2. Ejemplo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduccion-de-dimensionalidad-con-pca">
+     16.1.3. Reducción de dimensionalidad con PCA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca-con-scikit-learn">
+     16.1.4. PCA con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scikit-learn
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     16.1.5. Ejemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-con-algoritmo-k-means">
+   16.2. Clustering con algoritmo K-means
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     16.2.1. Formalismo matemático
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-means-con-scikit-learn">
+     16.2.2. K-means con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scikit-learn
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detalles-practicos">
+     16.2.3. Detalles prácticos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     16.2.4. Ejemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-aprendimos-en-esta-leccion">
+   16.3. ¿Qué aprendimos en esta lección?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell docutils container">
@@ -456,14 +562,14 @@
 </div>
 </div>
 </div>
-<div class="section" id="aprendizaje-no-supervisado">
-<h1><span class="section-number">3. </span>Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="aprendizaje-no-supervisado">
+<h1><span class="section-number">16. </span>Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En esta lección se estudian dos algoritmos de aprendizaje no supervisado clásicos y ampliamente utilizados: PCA como representante de los algoritmos de reducción de dimensionalidad y KMeans como representando de los algoritmos de agrupamiento/clustering</p>
 <div class="section" id="principal-component-analysis-pca">
-<h2><span class="section-number">3.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.1. </span>Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación se presentan los fundamentos teóricos tras el algoritmo PCA. En seguida veremos como utilizar la implementación de PCA de la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> para hacer reducción de dimensionalidad en base de datos con atributos continuos</p>
 <div class="section" id="formalismo-matematico">
-<h3><span class="section-number">3.1.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>PCA es un procedimiento estadístico que busca una <strong>transformación ortogonal</strong> que <strong>maximice la varianza</strong> de los datos</p>
 <p>Matemáticamente, podemos escribir un conjunto de datos <span class="math notranslate nohighlight">\(\{x_i\}\)</span> con <span class="math notranslate nohighlight">\(i=1,2,\ldots, N\)</span> y <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}^D\)</span>, como una matriz <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N\times D}\)</span></p>
 <p>La transformación está representada por una matriz <span class="math notranslate nohighlight">\(W \in \mathbb{R}^{D\times D}\)</span> y los datos transformados se obtienen mediante una multiplicación matricial</p>
@@ -493,7 +599,7 @@ C = \frac{1}{N} X^T X
 <p>Esto se conoce como el problema de los valores <span class="math notranslate nohighlight">\(\lambda\)</span> y vectores propios <span class="math notranslate nohighlight">\(W\)</span> de la matriz <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </div>
 <div class="section" id="ejemplo">
-<h3><span class="section-number">3.1.2. </span>Ejemplo<a class="headerlink" href="#ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.2. </span>Ejemplo<a class="headerlink" href="#ejemplo" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Sean los siguientes datos bidimensionales</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -538,9 +644,6 @@ C = \frac{1}{N} X^T X
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML3_6_0.png" src="../../../_images/ML3_6_0.png" />
-</div>
 </div>
 <p><strong>Discusión:</strong></p>
 <ul class="simple">
@@ -550,7 +653,7 @@ C = \frac{1}{N} X^T X
 </ul>
 </div>
 <div class="section" id="reduccion-de-dimensionalidad-con-pca">
-<h3><span class="section-number">3.1.3. </span>Reducción de dimensionalidad con PCA<a class="headerlink" href="#reduccion-de-dimensionalidad-con-pca" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.3. </span>Reducción de dimensionalidad con PCA<a class="headerlink" href="#reduccion-de-dimensionalidad-con-pca" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una aplicación típica de PCA es la reducción de dimensionalidad</p>
 <p>Recordemos</p>
 <ul class="simple">
@@ -571,7 +674,7 @@ C = \frac{1}{N} X^T X
 </ul>
 </div>
 <div class="section" id="pca-con-scikit-learn">
-<h3><span class="section-number">3.1.4. </span>PCA con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#pca-con-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.4. </span>PCA con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#pca-con-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>PCA está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition"><code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code></a></p>
 <p>El constructor y sus argumentos más importantes son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Cantidad (int) o porcentaje de varianza (float) a retener</span>
@@ -597,7 +700,7 @@ C = \frac{1}{N} X^T X
 </ul>
 </div>
 <div class="section" id="id1">
-<h3><span class="section-number">3.1.5. </span>Ejemplo<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.1.5. </span>Ejemplo<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Base de datos con <strong>cuatro atributos numéricos</strong> asociados a las características de un conjunto de 150 flores del género Iris separadas en 3 clases</p>
 <img alt="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" src="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" />
 <p>A continuación se presenta un gráfico de dispersión para visualizar las relaciones entre los atributos</p>
@@ -623,9 +726,6 @@ C = \frac{1}{N} X^T X
 <span class="n">ax</span><span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal width&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML3_11_0.png" src="../../../_images/ML3_11_0.png" />
 </div>
 </div>
 <p>Para hacer una visualización más concisa podemos usar PCA para reducir la dimensión de los datos de 4 a 2</p>
@@ -656,28 +756,6 @@ C = \frac{1}{N} X^T X
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Vectores propios de los componentes más relevantes&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.36138659, -0.08452251,  0.85667061,  0.3582892 ],
-       [ 0.65658877,  0.73016143, -0.17337266, -0.07548102]])
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Valores propios&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([25.09996044,  6.01314738])
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Porcentaje de varianza de cada vector propio&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92461872, 0.05306648])
-</pre></div>
-</div>
-<img alt="../../../_images/ML3_13_6.png" src="../../../_images/ML3_13_6.png" />
-</div>
 </div>
 <p><strong>Análisis</strong></p>
 <p>La figura de la izquierda son los datos de iris proyectados en los componentes principales más importantes. la figura de la derecha muestra la contribución de los atributos originales a cada uno de los vectores propios</p>
@@ -690,7 +768,7 @@ C = \frac{1}{N} X^T X
 </div>
 </div>
 <div class="section" id="clustering-con-algoritmo-k-means">
-<h2><span class="section-number">3.2. </span>Clustering con algoritmo K-means<a class="headerlink" href="#clustering-con-algoritmo-k-means" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.2. </span>Clustering con algoritmo K-means<a class="headerlink" href="#clustering-con-algoritmo-k-means" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El objetivo general de los métodos de clustering es agrupar los datos en conjuntos (clusters) tal que:</p>
 <ul class="simple">
 <li><p>Los elementos dentro de un mismo cluster sean similares</p></li>
@@ -706,7 +784,7 @@ C = \frac{1}{N} X^T X
 </ul>
 <p>En esta lección nos enfocaremos en un algoritmo clásico de clustering basado en representates: K-medias o <em>K-means</em>.</p>
 <div class="section" id="id2">
-<h3><span class="section-number">3.2.1. </span>Formalismo matemático<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.2.1. </span>Formalismo matemático<a class="headerlink" href="#id2" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El algoritmo de K-means requiere que el usuario especifique a priori el número de clusters a detectar, es decir que <span class="math notranslate nohighlight">\(K\)</span>, el número de clusters es un hiperparámetro del algoritmo. El algoritmo K-means es bastante simple y se resume en el siguiente diagrama esquemático</p>
 <a class="reference internal image-reference" href="../../../_images/kmeans.png"><img alt="../../../_images/kmeans.png" src="../../../_images/kmeans.png" style="width: 700px;" /></a>
 <p>Detalles:</p>
@@ -736,7 +814,7 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 <p>es decir que el centroide es el promedio de las muestras asociadas a si mismo</p>
 </div>
 <div class="section" id="k-means-con-scikit-learn">
-<h3><span class="section-number">3.2.2. </span>K-means con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#k-means-con-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.2.2. </span>K-means con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#k-means-con-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>K-means está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster"><code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code></a></p>
 <p>El constructor y sus argumentos más importantes son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="c1"># El número de grupos/clusters</span>
@@ -761,7 +839,7 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 </ul>
 </div>
 <div class="section" id="detalles-practicos">
-<h3><span class="section-number">3.2.3. </span>Detalles prácticos<a class="headerlink" href="#detalles-practicos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.2.3. </span>Detalles prácticos<a class="headerlink" href="#detalles-practicos" title="Enlazar permanentemente con este título">¶</a></h3>
 <ul class="simple">
 <li><p>K-means es sensible a los centroides iniciales. Es recomendable probar varias veces con distintas inicializaciones</p></li>
 <li><p>La correctitud de los clusters depende fuertemente de <span class="math notranslate nohighlight">\(K\)</span>. Se recomienda probar con distinto <span class="math notranslate nohighlight">\(K\)</span> y evaluar los resultados usando el método del codo o el coeficiente de silueta. Veremos un ejemplo de esto más adelante</p></li>
@@ -791,7 +869,7 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 </ul>
 </div>
 <div class="section" id="id3">
-<h3><span class="section-number">3.2.4. </span>Ejemplo<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">16.2.4. </span>Ejemplo<a class="headerlink" href="#id3" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>A modo de ejemplo se realiza un clustering con KMeans sobre el dataset Iris.</p>
 <p>Para escoger el mejor número de clusters se utiliza el coeficiente de silueta implementado en <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code></p>
 <div class="cell docutils container">
@@ -826,9 +904,6 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML3_21_0.png" src="../../../_images/ML3_21_0.png" />
-</div>
 </div>
 <p><strong>Análisis</strong></p>
 <p>La figura de la izquierda muestra los coeficientes de silueta de los ejemplos asociados a cada uno de los clusters. La linea punteada negra corresponde al coeficiente de silueta promedio.</p>
@@ -851,15 +926,12 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/ML3_23_0.png" src="../../../_images/ML3_23_0.png" />
-</div>
 </div>
 <p>En este caso el mayor decaimiento en error cuadrático ocurre cuando pasamos de <span class="math notranslate nohighlight">\(K=2\)</span> a <span class="math notranslate nohighlight">\(K=3\)</span>, lo cual indica que <span class="math notranslate nohighlight">\(K=3\)</span> es una buena elección.</p>
 </div>
 </div>
 <div class="section" id="que-aprendimos-en-esta-leccion">
-<h2><span class="section-number">3.3. </span>¿Qué aprendimos en esta lección?<a class="headerlink" href="#que-aprendimos-en-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">16.3. </span>¿Qué aprendimos en esta lección?<a class="headerlink" href="#que-aprendimos-en-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>A proyectar datos usando PCA</p></li>
 <li><p>A agrupar datos usando KMeans</p></li>
@@ -889,35 +961,42 @@ c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = 
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ML2.html" title="previous page"><span class="section-number">2. </span>Aprendizaje supervisado: Clasificación</a>
-    <a class='right-next' id="next-link" href="../2_HPC/HPC1.html" title="next page"><span class="section-number">1. </span>Introducción: Python y  Rendimiento</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ML2.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">15. </span>Aprendizaje supervisado: Clasificación</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="../2_HPC/HPC1.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Introducción: Python y  Rendimiento</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          Por Pablo Huijse Heise<br/>
-        
-      </p>
-    </div>
-  </footer>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
   </body>
 </html>
