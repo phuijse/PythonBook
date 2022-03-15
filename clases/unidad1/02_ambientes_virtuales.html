@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Ambientes virtuales de Python &#8212; Computación científica con Python</title>
+    <title>3. Ambientes virtuales de Python &#8212; Computación científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="3. Jupyter y IPython" href="04_jupyter_y_ipython.html" />
-    <link rel="prev" title="1. Introducción: Computación científica y ciencia de datos" href="01_introduccion.html" />
+    <link rel="next" title="4. Jupyter y IPython" href="04_jupyter_y_ipython.html" />
+    <link rel="prev" title="2. Repaso de Python 3" href="00_repaso_python3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -90,7 +90,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Manipulación de datos
+  Introducción
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -99,175 +99,19 @@ const thebe_selector_output = ".output, .cell_output"
    1. Introducción: Computación científica y ciencia de datos
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_repaso_python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2. Ambientes virtuales de Python
+   3. Ambientes virtuales de Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="04_jupyter_y_ipython.html">
-   3. Jupyter y IPython
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_numpy.html">
-   4. Arreglos y operaciones vectoriales con NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06_matplotlib.html">
-   5. Visualización de datos usando Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_pandas_b%C3%A1sico.html">
-   6. Procesamiento de datos con
-   <em>
-    pandas
-   </em>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08_pandas_avanzado.html">
-   7. Exploración y manipulación de datos con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Computación científica
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/1_linearalgebra/1_linear_algebra.html">
-   8. Algebra lineal con NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/1_linearalgebra/2_linear_regression.html">
-   9. Regresión lineal, Sobreajuste y Validación
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/2_calculus/optimization.html">
-   10. Optimización matemática
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/3_statistics/stats1.html">
-   11. Estadística: Fundamentos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/3_statistics/stats2.html">
-   12. Estadística descriptiva
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad2/3_statistics/stats3.html">
-   13. Estadística inferencial
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Aprendizaje de máquinas
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/1_ML/ML1.html">
-   14. Machine Learning: Conceptos clave
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/1_ML/ML2.html">
-   15. Aprendizaje supervisado: Clasificación
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/1_ML/ML3.html">
-   16. Aprendizaje no supervisado
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Computación de alto rendimiento
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/2_HPC/HPC1.html">
-   17. Introducción: Python y  Rendimiento
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/2_HPC/HPC2.html">
-   18. Profiling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/2_HPC/HPC3.html">
-   19. Optimizando código Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/2_HPC/HPC4.html">
-   20. Acelerando Python con Cython
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../unidad3/2_HPC/HPC5.html">
-   21. Computación paralela en Python
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Anexos
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_repaso_python3.html">
-   22. Repaso de Python 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_control_de_versiones.html">
-   23. Control de versiones
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_pandas_anexos.html">
-   24. Pandas: Tópicos extra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09_interfaces_de_usuario.html">
-   25. Interfaces de usuario en Jupyter con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ipywidgets
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="11_ipython_display.html">
-   26. Módulo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     IPython.display
-    </span>
-   </code>
+   4. Jupyter y IPython
   </a>
  </li>
 </ul>
@@ -376,52 +220,52 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion">
-   2.1. Introducción
+   3.1. Introducción
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#como-instalo-un-ambiente-de-desarrollo-basado-en-python">
-   2.2. ¿Cómo instalo un ambiente de desarrollo basado en Python?
+   3.2. ¿Cómo instalo un ambiente de desarrollo basado en Python?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#python-virtualenv-pip">
-     2.2.1. Python virtualenv + PIP
+     3.2.1. Python virtualenv + PIP
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#conda">
-     2.2.2. Conda
+     3.2.2. Conda
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#instalando-miniconda">
-       2.2.2.1. Instalando miniconda
+       3.2.2.1. Instalando miniconda
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#cargar-las-variables-de-enterno">
-       2.2.2.2. Cargar las variables de enterno
+       3.2.2.2. Cargar las variables de enterno
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#listando-y-creando-ambientes-de-conda">
-       2.2.2.3. Listando y creando ambientes de conda
+       3.2.2.3. Listando y creando ambientes de conda
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#comandos-basicos-activar-buscar-instalar-borrar-listar-actualizar">
-       2.2.2.4. Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar
+       3.2.2.4. Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#comandos-avanzados-agregar-un-canal">
-       2.2.2.5. Comandos avanzados: Agregar un canal
+       3.2.2.5. Comandos avanzados: Agregar un canal
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#administracion-de-ambientes">
-       2.2.2.6. Administración de ambientes
+       3.2.2.6. Administración de ambientes
       </a>
      </li>
     </ul>
@@ -450,52 +294,52 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduccion">
-   2.1. Introducción
+   3.1. Introducción
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#como-instalo-un-ambiente-de-desarrollo-basado-en-python">
-   2.2. ¿Cómo instalo un ambiente de desarrollo basado en Python?
+   3.2. ¿Cómo instalo un ambiente de desarrollo basado en Python?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#python-virtualenv-pip">
-     2.2.1. Python virtualenv + PIP
+     3.2.1. Python virtualenv + PIP
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#conda">
-     2.2.2. Conda
+     3.2.2. Conda
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#instalando-miniconda">
-       2.2.2.1. Instalando miniconda
+       3.2.2.1. Instalando miniconda
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#cargar-las-variables-de-enterno">
-       2.2.2.2. Cargar las variables de enterno
+       3.2.2.2. Cargar las variables de enterno
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#listando-y-creando-ambientes-de-conda">
-       2.2.2.3. Listando y creando ambientes de conda
+       3.2.2.3. Listando y creando ambientes de conda
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#comandos-basicos-activar-buscar-instalar-borrar-listar-actualizar">
-       2.2.2.4. Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar
+       3.2.2.4. Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#comandos-avanzados-agregar-un-canal">
-       2.2.2.5. Comandos avanzados: Agregar un canal
+       3.2.2.5. Comandos avanzados: Agregar un canal
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#administracion-de-ambientes">
-       2.2.2.6. Administración de ambientes
+       3.2.2.6. Administración de ambientes
       </a>
      </li>
     </ul>
@@ -512,9 +356,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="ambientes-virtuales-de-python">
-<h1><span class="section-number">2. </span>Ambientes virtuales de Python<a class="headerlink" href="#ambientes-virtuales-de-python" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">3. </span>Ambientes virtuales de Python<a class="headerlink" href="#ambientes-virtuales-de-python" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="introduccion">
-<h2><span class="section-number">2.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Muchas veces necesitaremos usar una librería específica para un proyecto de programación en particular</p>
 <p>Entonces si trabajamos en más de un proyecto surge la necesidad de hacer coexistir distintas versiones de librerías en nuestro sistema</p>
 <p>En estos escenarios conviene utilizar <strong>ambientes virtuales</strong></p>
@@ -529,14 +373,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>En esta lección veremos como instalar ambientes virtuales de desarrollo en lenguaje Python que nos permitan realizar cómputo interactivo</p>
 </div>
 <div class="section" id="como-instalo-un-ambiente-de-desarrollo-basado-en-python">
-<h2><span class="section-number">2.2. </span>¿Cómo instalo un ambiente de desarrollo basado en Python?<a class="headerlink" href="#como-instalo-un-ambiente-de-desarrollo-basado-en-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">3.2. </span>¿Cómo instalo un ambiente de desarrollo basado en Python?<a class="headerlink" href="#como-instalo-un-ambiente-de-desarrollo-basado-en-python" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Opción 1:</strong> Usar Python virtualenv y el manejador de páquetes PIP (Pip Install Packages) para instalar paquetes de <a class="reference external" href="https://pypi.org/">PyPI</a></p></li>
 <li><p><strong>Opción 2:</strong> Usar Conda</p></li>
 </ul>
 <p>Se describirán ambas pero se recomienda usar <strong>conda</strong> por ser más versatil (especialmente si usan Windows y/o no tienen Python instalado)</p>
 <div class="section" id="python-virtualenv-pip">
-<h3><span class="section-number">2.2.1. </span>Python virtualenv + PIP<a class="headerlink" href="#python-virtualenv-pip" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Python virtualenv + PIP<a class="headerlink" href="#python-virtualenv-pip" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Para esta opción se requiere tener un intérprete de Python instalado y el paquete <em>virtualenv</em></p>
 <p>Luego abrimos un terminal</p>
 <p>Para crear un ambiente llamado foo en nuestro directorio actual</p>
@@ -565,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="conda">
-<h3><span class="section-number">2.2.2. </span>Conda<a class="headerlink" href="#conda" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Conda<a class="headerlink" href="#conda" title="Enlazar permanentemente con este título">¶</a></h3>
 <p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> es un manejador de ambientes y paquetes para Python (y otros lenguajes)</p>
 <p>Entre sus ventajas se encuentran:</p>
 <ul class="simple">
@@ -583,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>Recomiendo usar miniconda y luego instalar los paquetes mínimos que vamos a usar</p>
 </div></blockquote>
 <div class="section" id="instalando-miniconda">
-<h4><span class="section-number">2.2.2.1. </span>Instalando miniconda<a class="headerlink" href="#instalando-miniconda" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.1. </span>Instalando miniconda<a class="headerlink" href="#instalando-miniconda" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Usaremos la versión de 64bits con intérprete Python 3 de miniconda</p>
 <blockquote>
 <div><p>Descarga la versión correspondiente a tu <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">sistema operativo</a></p>
@@ -596,7 +440,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>luego sigue las instrucciones (aceptar licencia y escoger directorio de instalación)</p>
 </div>
 <div class="section" id="cargar-las-variables-de-enterno">
-<h4><span class="section-number">2.2.2.2. </span>Cargar las variables de enterno<a class="headerlink" href="#cargar-las-variables-de-enterno" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.2. </span>Cargar las variables de enterno<a class="headerlink" href="#cargar-las-variables-de-enterno" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Supongamos que miniconda está instalado en el directorio</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/home/foo/miniconda3
 </pre></div>
@@ -622,7 +466,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="listando-y-creando-ambientes-de-conda">
-<h4><span class="section-number">2.2.2.3. </span>Listando y creando ambientes de conda<a class="headerlink" href="#listando-y-creando-ambientes-de-conda" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.3. </span>Listando y creando ambientes de conda<a class="headerlink" href="#listando-y-creando-ambientes-de-conda" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Podemos listar los ambientes que existen en el equipo</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env list    
 </pre></div>
@@ -634,7 +478,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="comandos-basicos-activar-buscar-instalar-borrar-listar-actualizar">
-<h4><span class="section-number">2.2.2.4. </span>Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar<a class="headerlink" href="#comandos-basicos-activar-buscar-instalar-borrar-listar-actualizar" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.4. </span>Comandos básicos: activar/buscar/instalar/borrar/listar/actualizar<a class="headerlink" href="#comandos-basicos-activar-buscar-instalar-borrar-listar-actualizar" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Activamos el ambiente bar usando</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate bar
 </pre></div>
@@ -664,7 +508,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>(o upgrade)</p>
 </div>
 <div class="section" id="comandos-avanzados-agregar-un-canal">
-<h4><span class="section-number">2.2.2.5. </span>Comandos avanzados: Agregar un canal<a class="headerlink" href="#comandos-avanzados-agregar-un-canal" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.5. </span>Comandos avanzados: Agregar un canal<a class="headerlink" href="#comandos-avanzados-agregar-un-canal" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Para ver los canales que tenemos configurados</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda config --show channel
 </pre></div>
@@ -686,7 +530,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Más detalles de <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html">administración de canales en la documentación de conda</a></p>
 </div>
 <div class="section" id="administracion-de-ambientes">
-<h4><span class="section-number">2.2.2.6. </span>Administración de ambientes<a class="headerlink" href="#administracion-de-ambientes" title="Enlazar permanentemente con este título">¶</a></h4>
+<h4><span class="section-number">3.2.2.6. </span>Administración de ambientes<a class="headerlink" href="#administracion-de-ambientes" title="Enlazar permanentemente con este título">¶</a></h4>
 <p>Además de crear ambiente también podemos borrarlos</p>
 <p>Para borrar un ambiente llamado bar</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda env remove --name bar
@@ -737,17 +581,17 @@ conda env export &gt; environment.yml
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="01_introduccion.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="00_repaso_python3.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">1. </span>Introducción: Computación científica y ciencia de datos</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Repaso de Python 3</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04_jupyter_y_ipython.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Jupyter y IPython</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Jupyter y IPython</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
