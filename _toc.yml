@@ -7,6 +7,7 @@ parts:
   - file: contents/preliminaries/intro
   - file: contents/preliminaries/python3
   - file: contents/preliminaries/env_management
+  - file: contents/preliminaries/git
 #  - file: clases/unidad1/04_jupyter_y_ipython
 #  - caption: "Manipulaci\xF3n de datos"
 #  numbered: true

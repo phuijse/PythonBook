@@ -30,4 +30,5 @@ sphinx:
     - replacements
     - smartquotes
     - substitution
+    - html_admonition
 
