@@ -467,6 +467,10 @@ const thebe_selector_output = ".output, .cell_output"
 git config --global user.email &quot;tu_email_aquí@example.com&quot;
 </pre></div>
 </div>
+<p>Selecciona el nombre de la rama inicial de tu repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global init.defaultBranch main
+</pre></div>
+</div>
 <p>Selecciona el editor de texto que usará git por defecto (vim, emacs, nano, etc)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global core.editor &lt;editor&gt;
 </pre></div>
@@ -498,12 +502,15 @@ git config --global user.email &quot;tu_email_aquí@example.com&quot;
 <dt>Repositorio remoto (remote)</dt><dd><p>Es un copia del repositorio que está en otro computador o en la nube (por ejemplo en github)</p>
 </dd>
 </dl>
-<p>Considere también que un archivo dentro del proyecto puede estar en uno de los siguientes tres estados</p>
-<ul class="simple">
-<li><p><em>Untracked:</em> Archivo creado o modificado que no es parte de la historia</p></li>
-<li><p><em>Unstaged:</em> Archivo modificado que es parte de la historia pero que no está en al área de preparación</p></li>
-<li><p><em>Staged</em>: Archivo modificado que es parte de la historia y que ha sido incluido al próximo commit</p></li>
-</ul>
+<p>Un archivo dentro del proyecto puede estar en uno de los siguientes tres estados</p>
+<dl class="simple myst">
+<dt>Untracked</dt><dd><p>Archivo creado o modificado que no es parte de la historia</p>
+</dd>
+<dt>Unstaged</dt><dd><p>Archivo modificado que es parte de la historia pero que no está en la <em>staging area</em></p>
+</dd>
+<dt>Staged</dt><dd><p>Archivo modificado que es parte de la historia y que ha sido incluido al próximo commit</p>
+</dd>
+</dl>
 <p>A continuación se muestra como utilizar los comandos de git para realizar las siguientes operaciones</p>
 <ol class="simple">
 <li><p>Creación de proyectos (repositorios)</p></li>
@@ -540,7 +547,7 @@ cd mi_proyecto_nuevo
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add nombre_de_archivo_cambiado
 </pre></div>
 </div>
-<p>Si quiero añadir todos los archivos del directorio actual al área de preparación se puede utilizar (con cautela)</p>
+<p>Si quiero añadir todos los archivos del directorio actual al <em>staging area</em> se puede utilizar (con cautela)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add .
 </pre></div>
 </div>
