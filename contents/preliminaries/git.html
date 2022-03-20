@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Control de versiones &#8212; Computación científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="3. Administración de ambientes y librerías" href="env_management.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/preliminaries/git.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/preliminaries/git.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/preliminaries/git.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-versiones-en-proyectos-de-software">
+   4.1. Manejo de versiones en proyectos de software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git">
+   4.2. Git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacion-y-configuracion-inicial-de-git">
+     4.2.1. Instalación y configuración inicial de Git
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructura-y-flujo-de-trabajo-de-un-repositorio-git">
+   4.3. Estructura y flujo de trabajo de un repositorio git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-de-repositorios">
+     4.3.1. Creación de repositorios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregar-cambios-al-repositorio">
+     4.3.2. Agregar cambios al repositorio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verificando-y-analizando-cambios">
+     4.3.3. Verificando y analizando cambios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deshacer-cambios">
+     4.3.4. Deshacer cambios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-y-manejo-de-ramas-branches">
+     4.3.5. Creación y manejo de ramas/branches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajando-con-un-repositorio-remoto">
+   4.4. Trabajando con un repositorio remoto
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clonando-un-repositorio-remoto-de-github-a-mi-computador">
+     4.4.1. Clonando un repositorio remoto de GitHub a mi computador
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviando-commits-desde-el-repositorio-local-al-remoto">
+     4.4.2. Enviando commits desde el repositorio local al remoto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trayendo-cambios-desde-el-repositorio-remoto-al-local">
+     4.4.3. Trayendo cambios desde el repositorio remoto al local
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resolviendo-conflictos">
+     4.4.4. Resolviendo conflictos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-extra">
+   4.5. Recursos extra
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Control de versiones</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manejo-de-versiones-en-proyectos-de-software">
+   4.1. Manejo de versiones en proyectos de software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git">
+   4.2. Git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#instalacion-y-configuracion-inicial-de-git">
+     4.2.1. Instalación y configuración inicial de Git
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructura-y-flujo-de-trabajo-de-un-repositorio-git">
+   4.3. Estructura y flujo de trabajo de un repositorio git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-de-repositorios">
+     4.3.1. Creación de repositorios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agregar-cambios-al-repositorio">
+     4.3.2. Agregar cambios al repositorio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verificando-y-analizando-cambios">
+     4.3.3. Verificando y analizando cambios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deshacer-cambios">
+     4.3.4. Deshacer cambios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creacion-y-manejo-de-ramas-branches">
+     4.3.5. Creación y manejo de ramas/branches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trabajando-con-un-repositorio-remoto">
+   4.4. Trabajando con un repositorio remoto
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clonando-un-repositorio-remoto-de-github-a-mi-computador">
+     4.4.1. Clonando un repositorio remoto de GitHub a mi computador
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviando-commits-desde-el-repositorio-local-al-remoto">
+     4.4.2. Enviando commits desde el repositorio local al remoto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trayendo-cambios-desde-el-repositorio-remoto-al-local">
+     4.4.3. Trayendo cambios desde el repositorio remoto al local
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resolviendo-conflictos">
+     4.4.4. Resolviendo conflictos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursos-extra">
+   4.5. Recursos extra
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="control-de-versiones">
+<h1><span class="section-number">4. </span>Control de versiones<a class="headerlink" href="#control-de-versiones" title="Enlazar permanentemente con este título">¶</a></h1>
+<blockquote class="epigraph">
+<div><img src="https://1.bp.blogspot.com/_LK0TXTVax_M/R5SuZQWVbYI/AAAAAAAAAR0/4g3NKY3FLzo/s400/tesis.JPG">
+-- Alguien que no sabe manejo de versiones trabajando en su tesis
+</div></blockquote>
+<div class="section" id="manejo-de-versiones-en-proyectos-de-software">
+<h2><span class="section-number">4.1. </span>Manejo de versiones en proyectos de software<a class="headerlink" href="#manejo-de-versiones-en-proyectos-de-software" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los proyectos de software no son estáticos, se agregan, modifican y eliminan funcionalidades continuamente. Lo anterior puede estar motivado por cambios en los requerimientos, cambios en las librerías que utilizamos o cambios en el hardware donde correrá nuestra aplicación.</p>
+<p>Los manejadores de versiones mantienen un <strong>historial de los cambios</strong> o modificaciones que hagamos en nuestro proyecto. En general estos cambios irán acompañados con un (1) Mensaje que explica el cambio y con el (2) Nombre del autor del cambio.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Con el historial de cambios podemos devolver nuestro proyecto a estados anteriores. Por ejemplo, si nos enfrentamos a un <em>bug</em> en nuestro programa, podemos explorar cual fue el cambio que introdujo el <em>bug</em>.</p>
+</div>
+<p>Los manejadores de versiones permiten coordinar versiones paralelas de nuestro proyecto. Estas versiones paralelas se llaman <strong>ramas</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Utilizando ramas podemos probar nuevas funcionalidades o features sin afectar la aplicación de cara al usuario (rama principal). También las ramas facilitan la colaboración y el trabajo sincronizado cuando varios desarrolladores trabajan en un mismo proyecto</p>
+</div>
+<p>Una vez que la funcionalidad en la rama está solidamente probada está puede fusionarse (<em>merge</em>) con la rama principal</p>
+<p><strong>En resumen el control de versiones</strong></p>
+<ul class="simple">
+<li><p>hace que nuestros proyectos sean más fáciles de mantener</p></li>
+<li><p>facilita la colaboración entre desarrolladores</p></li>
+<li><p>le da trazabilidad a nuestros proyectos</p></li>
+<li><p>hace que nuestros resultados sean más fáciles de reproducir</p></li>
+</ul>
+</div>
+<div class="section" id="git">
+<h2><span class="section-number">4.2. </span>Git<a class="headerlink" href="#git" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En esta lección vamos a aprender a usar el controlador de versiones <a class="reference external" href="https://git-scm.com/">Git</a>, un sistema libre y gratis de <strong>manejo de versiones distribuido</strong></p>
+<p>Distribuido se refiere a que no es necesario que una unidad central mantega el código del proyecto. Todos los que participan del proyecto tienen <strong>copias locales completas</strong> de la historia del proyecto.</p>
+<p>¿Cuáles son las ventajas de Git?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/about/small-and-fast">Ligero y rápido en comparación a sus competidores</a></p></li>
+<li><p>Flexible: Soporta flujos de trabajo muy diversos</p></li>
+<li><p>Gran grado de adopción: Integrado en IDE y plataformas remotas</p></li>
+</ul>
+<p>¿Qué otros manejadores de versiones existen?</p>
+<ul class="simple">
+<li><p>Distribuidos: Mercurial</p></li>
+<li><p>Centralizados: Subversion (SVN)</p></li>
+</ul>
+<div class="section" id="instalacion-y-configuracion-inicial-de-git">
+<h3><span class="section-number">4.2.1. </span>Instalación y configuración inicial de Git<a class="headerlink" href="#instalacion-y-configuracion-inicial-de-git" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En <strong>linux</strong> git está disponible en los repositorios oficiales de cada distribución</p>
+<ul class="simple">
+<li><p>Ubuntu: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
+<li><p>Fedora: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></p></li>
+<li><p>Arch Linux: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">git</span></code></p></li>
+</ul>
+<p>En <strong>Windows</strong> recomiendo descargar e instalar <a class="reference external" href="https://gitforwindows.org/">Git BASH</a></p>
+<p><strong>Configuración básica</strong></p>
+<p>Define tu nombre y correo. Con estos datos se firmarán los cambios que agregues al repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global user.name &quot;Tu nombre aquí&quot;
+
+git config --global user.email &quot;tu_email_aquí@example.com&quot;
+</pre></div>
+</div>
+<p>Selecciona el editor de texto que usará git por defecto (vim, emacs, nano, etc)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global core.editor &lt;editor&gt;
+</pre></div>
+</div>
+<p>Configura git para que utilice colores</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global color.ui true
+</pre></div>
+</div>
+<p>Puedes revisar las opciones que haz configurado con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config --global --list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estructura-y-flujo-de-trabajo-de-un-repositorio-git">
+<h2><span class="section-number">4.3. </span>Estructura y flujo de trabajo de un repositorio git<a class="headerlink" href="#estructura-y-flujo-de-trabajo-de-un-repositorio-git" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La siguiente <a class="reference external" href="https://www.diegocmartin.com/tutorial-git/">figura</a> resume muy bien el flujo de trabajo con Git</p>
+<a class="reference internal image-reference" href="../../_images/git-workflow.png"><img alt="../../_images/git-workflow.png" src="../../_images/git-workflow.png" style="width: 600px;" /></a>
+<p>A continuación se explican los términos del diagrama</p>
+<dl class="simple myst">
+<dt>Commit</dt><dd><p>Es un conjunto de modificaciones en el código que hemos firmado para incluirlas a la historia del proyecto</p>
+</dd>
+<dt>Repositorio local (HEAD)</dt><dd><p>Es donde se guarda la historia del proyecto con todos sus <em>commits</em></p>
+</dd>
+<dt>Workspace o Working directory</dt><dd><p>Es donde se guardan las modificaciones que se están realizando actualmente</p>
+</dd>
+<dt>Index, Stage o Staging area</dt><dd><p>Es donde se guardan las modificaciones que se desean agregar en el próximo commit.</p>
+</dd>
+<dt>Repositorio remoto (remote)</dt><dd><p>Es un copia del repositorio que está en otro computador o en la nube (por ejemplo en github)</p>
+</dd>
+</dl>
+<p>Considere también que un archivo dentro del proyecto puede estar en uno de los siguientes tres estados</p>
+<ul class="simple">
+<li><p><em>Untracked:</em> Archivo creado o modificado que no es parte de la historia</p></li>
+<li><p><em>Unstaged:</em> Archivo modificado que es parte de la historia pero que no está en al área de preparación</p></li>
+<li><p><em>Staged</em>: Archivo modificado que es parte de la historia y que ha sido incluido al próximo commit</p></li>
+</ul>
+<p>A continuación se muestra como utilizar los comandos de git para realizar las siguientes operaciones</p>
+<ol class="simple">
+<li><p>Creación de proyectos (repositorios)</p></li>
+<li><p>Agregar cambios al proyecto</p></li>
+<li><p>Verificar cambios</p></li>
+<li><p>Deshacer cambios</p></li>
+<li><p>Crear y seleccionar ramas</p></li>
+</ol>
+<div class="section" id="creacion-de-repositorios">
+<h3><span class="section-number">4.3.1. </span>Creación de repositorios<a class="headerlink" href="#creacion-de-repositorios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para crear un proyecto vacio cuya historia está manejada por git creamos una nuevo directorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir mi_proyecto_nuevo
+cd mi_proyecto_nuevo
+</pre></div>
+</div>
+<p>y luego usamos el comando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git init
+</pre></div>
+</div>
+<p>Esto creará un directorio oculto llamado <code class="docutils literal notranslate"><span class="pre">.git</span></code> que mantiene la configuración e historia del repositorio.</p>
+<p>También podemos crear un proyecto a partir de un repositorio local con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone /path/a/mi/otro/proyecto
+</pre></div>
+</div>
+<p>O a partir de un repositorio remoto con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone usuario@servidor:/path/a/otro/proyecto
+</pre></div>
+</div>
+<p>Más adelante veremos como se combina esta opción con la plataforma <code class="docutils literal notranslate"><span class="pre">github</span></code></p>
+</div>
+<div class="section" id="agregar-cambios-al-repositorio">
+<h3><span class="section-number">4.3.2. </span>Agregar cambios al repositorio<a class="headerlink" href="#agregar-cambios-al-repositorio" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si queremos <em>trackear</em> o añadir un archivo modificado al área de <em>stage</em> utilizamos el comando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<p>Si quiero añadir todos los archivos del directorio actual al área de preparación se puede utilizar (con cautela)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add .
+</pre></div>
+</div>
+<p>Una vez que hemos terminado de agregar los archivos modificados que deseamos se crea un commit en el repositorio con</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit -m &quot;Un mensaje que explica el cambio y por qué fue necesario&quot;
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Escribe buenos mensajes. Esto hará más fácil explorar la historia para ti y para otros desarrolladores</p>
+</div>
+<p>Si queremos modificar el mensaje del último commit podemos utilizar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git commit --amend
+</pre></div>
+</div>
+</div>
+<div class="section" id="verificando-y-analizando-cambios">
+<h3><span class="section-number">4.3.3. </span>Verificando y analizando cambios<a class="headerlink" href="#verificando-y-analizando-cambios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Si tenemos un archivo modificado en el workspace podemos compararlo contra su último commit utilizando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git diff nombre_de_archivo
+</pre></div>
+</div>
+<p>Este comando mostrará resaltadas las lineas que fueron modificadas, agregadas o eliminadas</p>
+<p>Si queremos verificar el estado de los archivos del directorio de trabajo utilizamos</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git status
+</pre></div>
+</div>
+<p>Este comando retorna una lista con los archivos indicando si están untracked, unstaged o staged</p>
+<p>Finalmente si queremos buscar un commit en particular podemos utilizar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git log
+</pre></div>
+</div>
+<p>Este comando retorna una lista con los commits realizados hasta ahora (nombres de usuario y mensajes)</p>
+<p>Pueden agregarse las opciones</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--author=nombreusuario</span></code> muestra sólo los commits de un usuario particular</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--stat</span></code> muestra solo los archivos cambiaron</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--patch</span></code> muestra además las líneas agregadas/eliminadas</p></li>
+</ul>
+</div>
+<div class="section" id="deshacer-cambios">
+<h3><span class="section-number">4.3.4. </span>Deshacer cambios<a class="headerlink" href="#deshacer-cambios" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para descartar los cambios locales que se han realizado a un archivo utilizamos</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout -- nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<p>Esto copia el archivo desde la zona de stage al directorio de trabajo</p>
+<p>Para sacar un archivo modificado del próximo commit/cambio utilizamos</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git reset nombre_de_archivo_cambiado
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Peligro</p>
+<p>(Usar con cautela) Para descartar todos los cambios y devolver el proyecto completo al último commit</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git reset --hard
+</pre></div>
+</div>
+</div>
+<p>Para eliminar un archivo del repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git rm --cached nombre_archivo
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Con la opción <code class="docutils literal notranslate"><span class="pre">--cached</span></code> el archivo permanece en el disco duro, es decir que sólo se elimina del índice del repositorio</p>
+</div>
+<p>Podemos forzar que git ignore los cambios de un archivo en particular agregando su nombre o ruta en un archivo de texto plano llamado <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>. Puedes tener varios <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> dentro de tu repositorio.</p>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Agrega a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> código compilado, archivos binarios pesados o archivos de configuración que contengan información privada (claves/tokens de acceso)</p>
+</div>
+</div>
+<div class="section" id="creacion-y-manejo-de-ramas-branches">
+<h3><span class="section-number">4.3.5. </span>Creación y manejo de ramas/branches<a class="headerlink" href="#creacion-y-manejo-de-ramas-branches" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Las ramas son muy útiles cuando queremos desarrollar nuevas funcionalidades en base al estado actual del repositorio. Además son particularmente importantes cuando trabajamos en grupo</p>
+<p>Para mostrar las ramas que existen en el repositorio</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch -a
+</pre></div>
+</div>
+<p>Por defecto tenemos sólo una rama: <code class="docutils literal notranslate"><span class="pre">main</span></code></p>
+<p>Para crear una rama nueva</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git branch &quot;nombre_nueva_rama&quot;
+</pre></div>
+</div>
+<p>Puedo cambiar entre ramas</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout &quot;nombre_nueva_rama&quot;
+</pre></div>
+</div>
+<p>Para volver a la rama <code class="docutils literal notranslate"><span class="pre">main</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git checkout main
+</pre></div>
+</div>
+<p>La siguiente figura muestra un ejemplo de trabajo utilizando ramas:</p>
+<a class="reference internal image-reference" href="../../_images/git-workflow3.svg"><img alt="../../_images/git-workflow3.svg" src="../../_images/git-workflow3.svg" width="500" /></a>
+<p><a class="reference external" href="https://github.com/doapps/software/wiki/Gitflow">Figura tomada de GitFlow</a></p>
+</div>
+</div>
+<div class="section" id="trabajando-con-un-repositorio-remoto">
+<h2><span class="section-number">4.4. </span>Trabajando con un repositorio remoto<a class="headerlink" href="#trabajando-con-un-repositorio-remoto" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los repositorios remotos son versiones de tu proyecto que están almacenados en Internet. Cuando trabajamos en grupo un repositorio remoto permite que todos estén de acuerdo en una versión de la historia</p>
+<p>Existen proveedores de hosting para proyectos administrados con Git, los más famosos son <a class="reference external" href="http://www.github.com">GitHub</a> y <a class="reference external" href="https://about.gitlab.com/">GitLab</a></p>
+<p>A continuación usaremos GitHub para almancenar una versión remota de nuestro repositorio</p>
+<p><strong>Crearse una cuenta en GitHub</strong></p>
+<ul class="simple">
+<li><p>Visita el sitio web: <a class="reference external" href="https://github.com/join">https://github.com/join</a></p></li>
+<li><p>Crea una cuenta (es gratis)</p></li>
+</ul>
+<p><strong>Creando un repositorio en GitHub</strong></p>
+<p>En el sitio web de GitHub, una vez que estés logeado en tu cuenta</p>
+<ul class="simple">
+<li><p>Haz click en el signo + en la esquina superior derecha</p></li>
+<li><p>Selecciona “New repository”</p></li>
+<li><p>Escoge un nombre y una descripción</p></li>
+<li><p>Escoge repositorio público</p></li>
+<li><p>(Opcional) Puedes inicializar el repositorio con un archivo <code class="docutils literal notranslate"><span class="pre">README</span></code> y un archivo <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code></p></li>
+<li><p>Selecciona Create Repository</p></li>
+</ul>
+<div class="section" id="clonando-un-repositorio-remoto-de-github-a-mi-computador">
+<h3><span class="section-number">4.4.1. </span>Clonando un repositorio remoto de GitHub a mi computador<a class="headerlink" href="#clonando-un-repositorio-remoto-de-github-a-mi-computador" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul>
+<li><p>Accede al repositorio</p></li>
+<li><p>Selecciona el botón verde: “Clone or download”</p></li>
+<li><p>Copia la dirección del repositorio</p></li>
+<li><p>Escribe el comando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  git clone https://github.com/nombre_de_usuario/nombre_de_repositorio.git
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Esto creará una carpeta llamada “nombre_de_repositorio” en el directorio local</p>
+</div>
+<div class="section" id="enviando-commits-desde-el-repositorio-local-al-remoto">
+<h3><span class="section-number">4.4.2. </span>Enviando commits desde el repositorio local al remoto<a class="headerlink" href="#enviando-commits-desde-el-repositorio-local-al-remoto" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Luego de añadir archivos y hacer un commit podemos “empujar los cambios” a GitHub usando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git push
+</pre></div>
+</div>
+<p>Cada vez que hagamos un push se nos pedirán nuestras credenciales.</p>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>Para evitar escribir nuestra clave muchas veces podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git config credential.helper &#39;cache --timeout=3600&#39;
+</pre></div>
+</div>
+<p>Esto configura git para que no pida las credenciales hasta que haya pasado 1 hora</p>
+</div>
+<p>En general no podemos hacer un push en un repositorio que no es nuestro o donde no somos colaboradores. Para aportar un cambio a un repositorio que no administramos debemos hacer un <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code></p>
+</div>
+<div class="section" id="trayendo-cambios-desde-el-repositorio-remoto-al-local">
+<h3><span class="section-number">4.4.3. </span>Trayendo cambios desde el repositorio remoto al local<a class="headerlink" href="#trayendo-cambios-desde-el-repositorio-remoto-al-local" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para actualizar nuestro repositorio local al último commit del repositorio remoto utilizamos</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git pull
+</pre></div>
+</div>
+<p>La operación anterior corresponde a dos operaciones juntas</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git fetch
+</pre></div>
+</div>
+<p>que trae al repositorio local los cambios del repositorio remoto y</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git merge
+</pre></div>
+</div>
+<p>que trae al directorio de trabajo los contenidos del repositorio local</p>
+<ul class="simple">
+<li><p>Si estamos trabajando sólos y desde un solo directorio de trabajo estos comandos no deberían resultar en error</p></li>
+<li><p>Si estamos trabajando usando varios directorios de trabajo o en grupo puede ocurrir que <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> encuentre <strong>conflictos</strong> que deberemos resolver</p></li>
+</ul>
+<p>Para ver los cambios luego de hacer <code class="docutils literal notranslate"><span class="pre">fetch</span></code> y antes de hacer un <code class="docutils literal notranslate"><span class="pre">merge</span></code> podemos usar</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git diff origin/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="resolviendo-conflictos">
+<h3><span class="section-number">4.4.4. </span>Resolviendo conflictos<a class="headerlink" href="#resolviendo-conflictos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Digamos que dos personas están trabajando en un mismo proyecto y tienen una copia local hasta el último <em>commit</em></p>
+<ul class="simple">
+<li><p>La primera persona hace modificaciones y las empuja al repositorio</p>
+<ul>
+<li><p>Esto funciona ok</p></li>
+</ul>
+</li>
+<li><p>La segunda persona hace modificaciones y las empuja al repositorio</p>
+<ul>
+<li><p>Esto podría no funcionar ya que pueden haber conflictos con lo que se empujó anteriormente</p></li>
+</ul>
+</li>
+</ul>
+<p>Lo que debe hacer la segunda persona es</p>
+<ul>
+<li><p>Hacer un pull del repositorio con <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p></li>
+<li><p>Git detectará los conflictos y se mostrarán como</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  &lt;&lt;&lt;&lt;&lt; HEAD 
+  Esto lo escribio persona 2 y no está en el commit de persona 1
+  ========
+  Esto lo escribio persona 1 y no estába en el directorio de persona 2
+  &gt;&gt;&gt;&gt;&gt; origin/master
+</pre></div>
+</div>
+</li>
+<li><p>Persona 2 tiene que decidir que se queda y que se va</p></li>
+</ul>
+<p>La siguiente figura muestra el resultado de un merge en el histórico de commits</p>
+<a class="reference internal image-reference" href="../../_images/git-workflow2.svg"><img alt="../../_images/git-workflow2.svg" src="../../_images/git-workflow2.svg" width="500" /></a>
+<p><a class="reference external" href="https://www.atlassian.com/es/git/tutorials/comparing-workflows">Figura tomada del tutorial de Attlasian</a></p>
+</div>
+</div>
+<div class="section" id="recursos-extra">
+<h2><span class="section-number">4.5. </span>Recursos extra<a class="headerlink" href="#recursos-extra" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para estudiar más a fondo sobre Git recomiendo</p>
+<ol class="simple">
+<li><p>Muy completo tutorial de <a class="reference external" href="https://www.atlassian.com/es/git/tutorials">Git de Atlassian</a></p></li>
+<li><p>Clases 2 y 3 del curso <a class="reference external" href="https://harvard-iacs.github.io/2019-CS207/category/lectures.html">CS207 del IACS, Harvard</a></p></li>
+<li><p>Libro <a class="reference external" href="https://git-scm.com/book/en/v2/">Pro Git</a> (libre)</p></li>
+<li><p><a class="reference external" href="https://help.github.com/es/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Como agregar un proyecto local a github</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/preliminaries"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="env_management.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Administración de ambientes y librerías</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
