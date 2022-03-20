@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. ¿Qué es Jupyter? &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="6. Breve tutorial de Jupyter/IPython" href="tutorial.html" />
+    <link rel="prev" title="4. Control de versiones" href="../preliminaries/git.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/jupyter/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/jupyter/intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-no-es-jupyter">
+   5.1. Qué no es Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-funciona-jupyter">
+   5.2. ¿Cómo funciona Jupyter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-un-ambiente-para-computo-interactivo-con-jupyter">
+   5.3. Creando un ambiente para cómputo interactivo con jupyter
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>¿Qué es Jupyter?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-no-es-jupyter">
+   5.1. Qué no es Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-funciona-jupyter">
+   5.2. ¿Cómo funciona Jupyter?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creando-un-ambiente-para-computo-interactivo-con-jupyter">
+   5.3. Creando un ambiente para cómputo interactivo con jupyter
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="que-es-jupyter">
+<h1><span class="section-number">5. </span>¿Qué es Jupyter?<a class="headerlink" href="#que-es-jupyter" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><a class="reference external" href="https://jupyter.org/">Jupyter</a> es un proyecto que incorpora</p>
+<ul class="simple">
+<li><p>El formato <code class="docutils literal notranslate"><span class="pre">notebook</span></code></p></li>
+<li><p>Un servidor web para editar y visualizar <code class="docutils literal notranslate"><span class="pre">notebooks</span></code></p></li>
+<li><p>Un protocolo de mensajería para comunicar el <code class="docutils literal notranslate"><span class="pre">notebook</span></code> con un <code class="docutils literal notranslate"><span class="pre">kernel</span></code></p></li>
+</ul>
+<p>El <code class="docutils literal notranslate"><span class="pre">kernel</span></code> recibe código y retorna los resultados al <code class="docutils literal notranslate"><span class="pre">notebook</span></code>. En general trabajaremos con <a class="reference external" href="https://ipython.org/">IPython</a>, el intérprete de Python interactivo, como kernel.</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">notebook</span></code> es un formato relativamente nuevo que combina</p>
+<ul class="simple">
+<li><p>código</p></li>
+<li><p>visualizaciones</p></li>
+<li><p>ecuaciones</p></li>
+<li><p>texto enriquecido</p></li>
+<li><p>imágenes, audio, video</p></li>
+<li><p>interfaces de usuario (GUI)</p></li>
+<li><p>entre otros</p></li>
+</ul>
+<p>esto lo hace ideal para</p>
+<ul class="simple">
+<li><p>explorar y analizar datos de forma interactiva</p></li>
+<li><p>comunicar y compartir resultados</p></li>
+<li><p>crear “<a class="reference external" href="https://github.com/mcburton/computational-narratives-with-jupyter">narrativas científicas</a>” interactivas</p></li>
+</ul>
+<p><strong>Ejemplos</strong></p>
+<p>Revisa uno o más de los siguientes ejemplos para hacerte una idea de lo que se puede hacer con Jupyter</p>
+<ul class="simple">
+<li><p>Visualización de datos de censo (Estados Unidos): <a class="reference external" href="https://anaconda.org/jbednar/census/notebook">https://anaconda.org/jbednar/census/notebook</a></p></li>
+<li><p>Jupyter notebook sobre reacciones químicas: <a class="reference external" href="https://nbviewer.jupyter.org/gist/greglandrum/4316430">https://nbviewer.jupyter.org/gist/greglandrum/4316430</a></p></li>
+<li><p>Un tutorial de GIT escrito en jupyter: <a class="reference external" href="https://nbviewer.jupyter.org/github/fperez/reprosw/blob/master/Version%20Control.ipynb">https://nbviewer.jupyter.org/github/fperez/reprosw/blob/master/Version Control.ipynb</a></p></li>
+<li><p>Este libro fue creado en base a jupyter notebooks</p></li>
+</ul>
+<div class="section" id="que-no-es-jupyter">
+<h2><span class="section-number">5.1. </span>Qué no es Jupyter<a class="headerlink" href="#que-no-es-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Jupyter no es un reemplazo para una IDE completa como <a class="reference external" href="https://www.jetbrains.com/pycharm/"><em>pycharm</em></a> o <a class="reference external" href="https://code.visualstudio.com/"><em>vscode</em></a> ni editores como <a class="reference external" href="https://www.vim.org/"><em>vim</em></a> o <a class="reference external" href="https://www.gnu.org/software/emacs/"><em>emacs</em></a>. Jupyter es un complemento.</p>
+<p>No es directo ni sencillo importar código que está en jupyter notebook. Por razones como esta los notebooks no suelen ser usados para tareas de producción</p>
+<p>Si tu notebook tiene rutinas que pueden ser utilizadas por otros notebooks o scripts lo mejor es escribir la rutina como un módulo regular de Python y luego importarlo desde el notebook</p>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Usando la magia <code class="docutils literal notranslate"><span class="pre">%autoreload</span> <span class="pre">2</span></code> puedes hacer cambios “en vivo” en los módulos importados por el notebook sin tener que reiniciarlo</p>
+</div>
+<p>Revisa la siguiente presentación sobre <a class="reference external" href="https://docs.google.com/presentation/d/1TKOjhFsYM4R_iIhMGPuS5h3fY_AxHpzxPQ3MKVwmzOc/edit#slide=id.g872e56ba64_0_0">Buenas prácticas con Jupyter notebook</a> para más consejos</p>
+</div>
+<div class="section" id="como-funciona-jupyter">
+<h2><span class="section-number">5.2. </span>¿Cómo funciona Jupyter?<a class="headerlink" href="#como-funciona-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p>El <strong>servidor jupyter</strong> es el encargado de administrar los <code class="docutils literal notranslate"><span class="pre">notebooks</span></code></p></li>
+<li><p>Los usuarios interactuan con los <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> a través de un <em>frontend</em> web</p></li>
+<li><p>El proceso encargado de correr los códigos se denomina <code class="docutils literal notranslate"><span class="pre">kernel</span></code></p></li>
+<li><p>El servidor conecta los notebooks con el kernel usando la librería de mensajería ZeroMQ</p></li>
+</ul>
+<p>La siguiente figura muestra el flujo detallado</p>
+<a class="reference internal image-reference" href="../../_images/notebook_components.png"><img alt="../../_images/notebook_components.png" src="../../_images/notebook_components.png" style="width: 600px;" /></a>
+<p><strong>¿Qué lenguajes puedo usar?</strong></p>
+<p>Existen <code class="docutils literal notranslate"><span class="pre">kernels</span></code> de Python, Julia, Ruby, C y otros lenguajes. En este libro nos enfocaremos en el kernel Interactive Python (IPython)</p>
+<p>IPython es un interprete de Python que ofrece varias mejoras tales como</p>
+<ul class="simple">
+<li><p>autocompletación de path y modulos</p></li>
+<li><p>acceso desde terminal a documentación y código fuente</p></li>
+<li><p>búsqueda histórica de comandos</p></li>
+<li><p>instrucciones especiales llamadas <em>magics</em> que serán vistas más adelante</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>IPython reemplaza al intérprete convencional de Python. No necesitamos Jupyter para utilizar IPython, simplemente escribe <code class="docutils literal notranslate"><span class="pre">ipython</span></code> en un terminal</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Además del frontend por defecto existe <a class="reference external" href="https://jupyter.org/">jupyter lab</a>. Es último tiene una interfaz de usuario más similar al de una IDE completa.</p>
+</div>
+</div>
+<div class="section" id="creando-un-ambiente-para-computo-interactivo-con-jupyter">
+<h2><span class="section-number">5.3. </span>Creando un ambiente para cómputo interactivo con jupyter<a class="headerlink" href="#creando-un-ambiente-para-computo-interactivo-con-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Utilizando conda creamos un ambiente</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n info147 python=3.10 pip
+</pre></div>
+</div>
+<p>Activa el ambiente</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate info147
+</pre></div>
+</div>
+<p>Instala jupyter y las librerías de cómputo científico</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install jupyter numpy matplotlib pandas scipy
+</pre></div>
+</div>
+<p>Finalmente inicia jupyter escribiendo en la terminal</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>Esto abrirá una pestaña de navegador (browser) apuntada en la dirección</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>localhost:8888
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/jupyter"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../preliminaries/git.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Control de versiones</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tutorial.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Breve tutorial de Jupyter/IPython</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
