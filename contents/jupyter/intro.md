@@ -100,7 +100,7 @@ Activa el ambiente
     
 Instala jupyter y las librerías de cómputo científico
 
-    conda install jupyter numpy matplotlib pandas scipy
+    conda install jupyter numpy matplotlib pandas scipy ipympl
     
 Finalmente inicia jupyter escribiendo en la terminal
 
