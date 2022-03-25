@@ -13,7 +13,7 @@ parts:
   chapters:
   - file: contents/jupyter/intro
   - file: contents/jupyter/tutorial
-- caption: "Manipulación de datos"
+- caption: "Trabajando con datos"
   numbered: true
   chapters:
     - file: contents/pandas/part1
