@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. DataFrames &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="6. Breve tutorial de Jupyter/IPython" href="../jupyter/tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. DataFrames
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/pandas/part1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/pandas/part1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/pandas/part1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-dataframe">
+   7.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexacion-y-slicing-de-dataframes">
+   7.2. Indexación y
+   <em>
+    slicing
+   </em>
+   de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
+   7.3. Combinación y manipulación de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operando-con-dataframes">
+   7.4. Operando con DataFrames
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DataFrames</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-dataframe">
+   7.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexacion-y-slicing-de-dataframes">
+   7.2. Indexación y
+   <em>
+    slicing
+   </em>
+   de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
+   7.3. Combinación y manipulación de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operando-con-dataframes">
+   7.4. Operando con DataFrames
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="dataframes">
+<h1><span class="section-number">7. </span>DataFrames<a class="headerlink" href="#dataframes" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Pandas es una librería de Python para <strong>leer, manipular y analizar datos</strong> que se combina muy bien con NumPy y Matplotlib</p>
+<p>Pandas nos provee de:</p>
+<ul class="simple">
+<li><p>Dos nuevas estructuras de datos: <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> y <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></li>
+<li><p>Herramientas de análisis de datos que operan sobre estas estructuras de datos</p></li>
+</ul>
+<p>A continuación nos enfocaremos en la creación y manipulación de objetos tipo <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<div class="section" id="objeto-pandas-dataframe">
+<h2><span class="section-number">7.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#objeto-pandas-dataframe" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> es la estructura de datos principal de pandas</p>
+<ul class="simple">
+<li><p>Es un arreglo de dos dimensiones (matriz) que <strong>representa una tabla</strong></p></li>
+<li><p>Las filas y columnas de la tabla se identifican con un índice etiquetado denominado <em>label</em></p></li>
+<li><p>Cada columna puede tener tipo distinto</p></li>
+</ul>
+<p><strong>Ejemplo:</strong> Considere el siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> que representa datos de la bolsa de Santiago:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Monto [M$]</p></th>
+<th class="head"><p>Variación [%]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGUAS-A</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSANTANDER</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>CMPC</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENTEL</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>En este ejemplo</p>
+<ul class="simple">
+<li><p>La etiqueta de las filas son los nombres de las empresas</p></li>
+<li><p>La etiqueta de las columnas son los nombres de los atributos medidas por la bolsa</p></li>
+<li><p>El atributo <em>Monto</em> es un entero</p></li>
+<li><p>El atributo <em>Variación</em> es un flotante</p></li>
+</ul>
+<p>A continuación veremos como crear un manipular objetos <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p><strong>Construcción de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></strong></p>
+<p>Se usa el constructor</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">columns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Collection</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">dtype</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ExtensionDtype</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El argumento más importante es <code class="docutils literal notranslate"><span class="pre">data</span></code>, que puede ser un iterable (lista), un diccionario, un ndarray, entre otros</p>
+<p>Consideremos lo siguiente</p>
+<ul class="simple">
+<li><p>Si usamos un diccionario los <code class="docutils literal notranslate"><span class="pre">keys</span></code> se interpretan como etiquetas de columnas</p></li>
+<li><p>Si usamos un diccionario de diccionarios los <code class="docutils literal notranslate"><span class="pre">keys</span></code> más internos se interpretan como etiquetas de filas</p></li>
+<li><p>Si usamos un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> y no especificamos <code class="docutils literal notranslate"><span class="pre">index</span></code> y/o <code class="docutils literal notranslate"><span class="pre">columns</span></code> se crean etiquetas por defecto</p></li>
+</ul>
+<p><strong>Atributos básicos de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></strong></p>
+<p>Una vez que haz creado un DataFrame es conveniente revisarlo</p>
+<p>Si tu DataFrame se llama <code class="docutils literal notranslate"><span class="pre">df</span></code>, puedes usar</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.head(5)</span></code> y <code class="docutils literal notranslate"><span class="pre">df.tail(5)</span></code> para imprimir las 5 primeras  y 5 últimas filas, respectivamente</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.columns</span></code> para recuperar un objeto <code class="docutils literal notranslate"><span class="pre">pandas.Index</span></code> con las etiquetas de columna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.index</span></code> para recuperar un objeto <code class="docutils literal notranslate"><span class="pre">pandas.Index</span></code> con las etiquetas de fila</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.shape</span></code> para recuperar una tupla con el número de filas y número de columnas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.dtypes</span></code> para recuperar una lista con los tipos asignados a cada columna</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> nos da un resumen de lo anterior</p></li>
+</ul>
+</div>
+<div class="section" id="indexacion-y-slicing-de-dataframes">
+<h2><span class="section-number">7.2. </span>Indexación y <em>slicing</em>  de DataFrames<a class="headerlink" href="#indexacion-y-slicing-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Indexado en base a etiquetas</strong></p>
+<p>Podemos usar las etiquetas para indexar un DataFrame ya sea en sus filas o en sus columnas</p>
+<p>También podemos hacer <em>slicing</em>, es decir recuperar un subconjunto de un DataFrame</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Se usa la función <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> para indexar y hacer slicing <strong>en base a la etiqueta</strong>. Notar que se ocupa paréntesis cuadrado</p>
+</div>
+<p><strong>Ejemplos</strong></p>
+<p>Consideremos el siguiente <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> guardado en la variable <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Monto [M$]</p></th>
+<th class="head"><p>Variación [%]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AGUAS-A</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>BSANTANDER</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>CMPC</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENTEL</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para recuperar la fila de la empresa Entel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Para recuperar un <em>slice</em> con las filas de Aguas andina, Banco Santander y CMPC:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;AGUAS-A&quot;</span><span class="p">:</span><span class="s2">&quot;CMPC&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El operador <code class="docutils literal notranslate"><span class="pre">A:B</span></code> indica una secuencia que empieza con A y termina con B</p>
+</div>
+<p>Para recuperar un <em>slice</em> con las filas Entel y Aguas Andina:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esto se conoce como <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code>, corresponde a indexar en base a una lista (o ndarray) que contiene los índices</p>
+</div>
+<p>Para recuperar un <em>slice</em> con las filas anteriores pero sólo con la columna monto total:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Si una etiqueta está mal escrita pandas retornará un <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>Si un nombre es complicado de escribir o tiene caracteres especiales podemos usar en su lugar <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>, por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;AGUAS-A&quot;</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> 
+</pre></div>
+</div>
+<p>que sería equivalente a la expresión anterior</p>
+</div>
+<p>Para recuperar la columna de monto /completa) de forma eficiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Tenga presente la siguiente “ambigüedad” de pandas para no confudirse:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>  <span class="c1"># Esto es equivalente a df.loc[:, &quot;Monto [M$]&quot;]  </span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Monto [M$]&quot;</span><span class="p">:]</span>  <span class="c1"># Esto retorna error</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;BSANTANDER&quot;</span><span class="p">]</span>  <span class="c1"># Esto retorna error</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;BSANTANDER&quot;</span><span class="p">:]</span>  <span class="c1"># Esto es equivalente a df.loc[&quot;BSANTANDER&quot;:]</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Indexado en base a posición</strong></p>
+<p>Internamente, pandas asigna un número entero a cada fila y cada columna que corresponde a su posición</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1653</p></td>
+<td><p>0.36</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>3531</p></td>
+<td><p>-0.31</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>5998</p></td>
+<td><p>-0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1408</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Se usa la función <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> para indexar y hacer slicing <strong>en base a la posición</strong></p>
+</div>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>y</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>son equivalentes.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> soporta todo lo que vimos anteriormente para <code class="docutils literal notranslate"><span class="pre">loc[]</span></code></p>
+</div>
+<p><strong>Indexado rápido de un elemento</strong></p>
+<p>Si queremos recuperar sólo un elemento del DataFrame se recomienda usar las funciones <code class="docutils literal notranslate"><span class="pre">at[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iat[]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;ENTEL&quot;</span><span class="p">,</span> <span class="s2">&quot;Monto [M$]&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Estas son mucho más rápidas que <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> pero no permiten hacer <em>slicing</em> ni <em>fancy indexing</em></p>
+</div>
+<div class="section" id="combinacion-y-manipulacion-de-dataframes">
+<h2><span class="section-number">7.3. </span>Combinación y manipulación de DataFrames<a class="headerlink" href="#combinacion-y-manipulacion-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Existen atributos y funciones que nos permiten combinar DataFrames, por ejemplo</p>
+<ul class="simple">
+<li><p>Extender nuestra tabla con filas o columnas nuevas</p></li>
+<li><p>Unir dos tablas</p></li>
+<li><p>Intersectar dos tablas</p></li>
+<li><p>Eliminar filas y columnas de nuestra tabla</p></li>
+</ul>
+<p><strong>Agregando filas y columnas</strong></p>
+<p>Podemos anexar un DataFrame al final de otro usando el atributo <code class="docutils literal notranslate"><span class="pre">append</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_nuevo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mf">30.0</span><span class="p">]],</span> 
+                        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;JabonCopito&#39;</span><span class="p">],</span> 
+                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Monto [M]&#39;</span><span class="p">,</span> <span class="s1">&#39;variación [%]&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_nuevo</span><span class="p">,</span> 
+          <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># La combinación usa las etiquetas de df y df_nuevo</span>
+          <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># No verifica si existen índices duplicados</span>
+         <span class="p">)</span>
+</pre></div>
+</div>
+<p>Notar que <code class="docutils literal notranslate"><span class="pre">df1.append(df2)</span></code> retorna un nuevo DataFrame</p>
+<p>También se puede lograr algo similar usando la función:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df_nuevo</span><span class="p">],</span> 
+          <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Eje de concatenación 0:filas, 1: columnas</span>
+          <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># Especifica que se hace con el eje que no se une</span>
+          <span class="n">ignore_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Igual que append</span>
+          <span class="n">verify_integrity</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Igual que append</span>
+</pre></div>
+</div>
+<p>El argumento principal es una secuencia de DataFrames</p>
+<ul class="simple">
+<li><p>Podemos juntar más de dos DataFrames</p></li>
+<li><p>Podemos juntarlos en filas o en columnas con <code class="docutils literal notranslate"><span class="pre">axis</span></code></p></li>
+<li><p>Podemos especificar que ocurre cuando las filas/columnas no calzan con <code class="docutils literal notranslate"><span class="pre">join</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Por defecto, cuando usamos <code class="docutils literal notranslate"><span class="pre">append</span></code> o <code class="docutils literal notranslate"><span class="pre">concat</span></code> los valores que no se alinean al juntar dos dataframes se llenarán con NaNs</p>
+</div>
+<p>Finalmente podemos agregar una columna nueva usando el atributo <code class="docutils literal notranslate"><span class="pre">insert</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span>  <span class="c1"># Ubicación de la nueva columna</span>
+          <span class="n">column</span><span class="p">,</span> <span class="c1"># Nombre de la nueva columna</span>
+          <span class="n">value</span><span class="p">,</span>  <span class="c1"># Lista o ndarray con valores</span>
+          <span class="n">allow_duplicates</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># Impide agregar una columna con una etiqueta existente</span>
+         <span class="p">)</span>
+                  
+</pre></div>
+</div>
+<p>La operación <code class="docutils literal notranslate"><span class="pre">insert</span></code> es por defecto <em>inplace</em> es decir que modifica directamente a <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<p><strong>Unión e intersección de DataFrames</strong></p>
+<p>Podemos combinar DataFrames de acuerdo a sus contenidos con la función <code class="docutils literal notranslate"><span class="pre">pandas.merge</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="c1"># Primer DataFrame</span>
+             <span class="n">right</span><span class="p">,</span> <span class="c1"># Segundo DataFrame</span>
+             <span class="n">how</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="c1"># Especifica como se uniran los DataFrames</span>
+             <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Especifica la columna que se usa para combinar la DataFrames</span>
+             <span class="o">...</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+<p>Algunos detalles:</p>
+<ul class="simple">
+<li><p>La columna que se especifica en <code class="docutils literal notranslate"><span class="pre">on</span></code> debe existir en ambos DataFrames</p></li>
+<li><p>El argumento <code class="docutils literal notranslate"><span class="pre">how</span></code> tiene las siguientes opciones</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: Se usan las llaves del primer DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: Se usan las llaves del segundo DataFrame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inner</span></code>: Se usa una intersección de las llaves de ambos DataFrames</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outer</span></code>: Se usa una unión de las llaves de ambos DataFrames</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Eliminando filas y columnas</strong></p>
+<p>Podemos eliminar filas o columnas de un DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> con el atributo <code class="docutils literal notranslate"><span class="pre">drop</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Etiquetas que quiero elimina, un string o una lista</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Eliminar la etiqueta de las filas: 0 o de las columnas: 1</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># No modifica df, en su lugar retorna un DataFrame nuevo</span>
+        <span class="o">...</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>También podemos extraer y eliminar una columna usando el atributo <code class="docutils literal notranslate"><span class="pre">pop</span></code></p>
+<p><strong>Ordenando DataFrames</strong></p>
+<p>Se puede ordenar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> según los valores de una columna usando el atributo <code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="c1"># Columna que guia el ordenamiento </span>
+               <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Se ordena según 0: filas o 1:columnas</span>
+               <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Se ordenan los valores de menor a mayor</span>
+               <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># No se modifica df, se retorna un nuevo DataFrame</span>
+</pre></div>
+</div>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">by</span></code> recibe una etiqueta o una lista de etiquetas. En el segundo caso se ordenan jerarquicamente</p>
+<p>También existe el atributo <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> que permite ordenar filas y columnas según su etiqueta</p>
+</div>
+<div class="section" id="operando-con-dataframes">
+<h2><span class="section-number">7.4. </span>Operando con DataFrames<a class="headerlink" href="#operando-con-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>Operaciones aritméticas y lógicas</strong></p>
+<p>Podemos hacer operaciones aritméticas simples sobre DataFrames con los atributos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code> y <code class="docutils literal notranslate"><span class="pre">sub</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mul</span></code> y <code class="docutils literal notranslate"><span class="pre">div</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pow</span></code></p></li>
+<li><p>y sus versiones reversas <code class="docutils literal notranslate"><span class="pre">radd</span></code>, <code class="docutils literal notranslate"><span class="pre">rdiv</span></code>, <code class="docutils literal notranslate"><span class="pre">rpow</span></code> etc</p></li>
+</ul>
+<p>También podemos hacer operaciones lógicas con los atributos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eq</span></code> y <code class="docutils literal notranslate"><span class="pre">nq</span></code> (igual y no igual)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lt</span></code>, <code class="docutils literal notranslate"><span class="pre">gt</span></code> (menor que y mayor que)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">le</span></code>, <code class="docutils literal notranslate"><span class="pre">ge</span></code> (menor o igual y mayor o igual</p></li>
+</ul>
+<p>Todos estos atributos tienen argumento <code class="docutils literal notranslate"><span class="pre">axis</span></code> para especificar si la operación es en fila o columna</p>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># Le suma 10 a todos los valores de df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="c1"># Le suma 0 a la primera columna y 2 a la segunda columna de df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span> <span class="c1"># Suma los valores de df y df2 siguiendo los índices</span>
+</pre></div>
+</div>
+<p>Si usamos una lista tiene que ser tan larga como columnas tenga el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p>También podemos extraer un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> a partir de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> usando el atributo <code class="docutils literal notranslate"><span class="pre">values</span></code>. Esto permite aplicar cualquiera de las funciones de NumPy que vimos en lecciones anteriores</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Returna un ndarray</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si nuestro DataFrame tiene <em>strings</em> entonces <code class="docutils literal notranslate"><span class="pre">values</span></code> retornará un arreglo de tipo genérico <em>object</em></p>
+</div>
+<p>En este caso tenemos dos opciones:</p>
+<ul class="simple">
+<li><p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.select_dtypes.html"><code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code></a> para obtener un nuevo DataFrame con columnas de tipo numérico</p></li>
+<li><p>Podemos  convertir los atributos string a numérico (más adelante detallaremos esto)</p></li>
+</ul>
+<p>En general las operaciones entre columnas se guian por el índice de fila</p>
+<ul class="simple">
+<li><p>Si un índice no es compartido se rellena con un NaN</p></li>
+<li><p>También podemos especificar <code class="docutils literal notranslate"><span class="pre">fill_value</span></code></p></li>
+</ul>
+<p>Si tenemos NaN en filas o columnas podemos</p>
+<ul class="simple">
+<li><p>Eliminarlos con el atributo <code class="docutils literal notranslate"><span class="pre">dropna(axis='columns',</span> <span class="pre">how='any')</span></code></p></li>
+<li><p>Rellenarlos con el atributo <code class="docutils literal notranslate"><span class="pre">fillna(valor)</span></code></p></li>
+</ul>
+<p><strong>Operaciones de reducciones</strong></p>
+<p>Se pueden aplicar las reducciones que vimos en NumPy directamente sobre las columnas</p>
+<p>Algunos atributos para hacer reducción son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">count()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> y <code class="docutils literal notranslate"><span class="pre">prod()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean()</span></code> y <code class="docutils literal notranslate"><span class="pre">std()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code> e <code class="docutils literal notranslate"><span class="pre">idxmax()</span></code></p></li>
+<li><p>entre otros</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
+<p>También podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">describe()</span></code> que nos entrega varios estadísticos de nuestras columnas</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../jupyter/tutorial.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Breve tutorial de Jupyter/IPython</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

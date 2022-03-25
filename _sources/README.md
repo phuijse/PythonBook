@@ -27,3 +27,10 @@ El código fuente del libro está en https://github.com/phuijse/PythonBook. El l
 1. [Greg Wilson, et al., "Best Practices for Scientific Computing", PLOS Biology, 2014](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)
 1. [Adam Rule, et al. "Ten simple rules for writing and sharing computational analyses in Jupyter Notebook", PLOS Computational Biology, 2019](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007007)
 
+**Como compilar este libro**
+
+1. Clonar el repositorio: `git clone https://github.com/phuijse/PythonBook.git`
+1. Instalar dependencias: `pip install -r requirements.txt`
+1. Ejecutar los cuadernillos
+1. Compilar libro: `jupyter-book build .`
+1. (Opcional) Subir a github pages:  `ghp-import -n -p -f _build/html/`
