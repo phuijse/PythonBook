@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Operaciones avanzadas con DataFrames &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="10. Pandas: Tópicos extra" href="part4.html" />
+    <link rel="prev" title="8. Importar y exportar datos" href="part2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1.html">
+   7. DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2.html">
+   8. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part4.html">
+   10. Pandas: Tópicos extra
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/pandas/part3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/pandas/part3.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/pandas/part3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipucion-de-indices-y-multi-indices">
+   9.1. Manipución de índices y multi-índices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#patron-split-apply-combine-en-dataframes">
+   9.2. Patrón
+   <em>
+    Split-Apply-Combine
+   </em>
+   en DataFrames
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Operaciones avanzadas con DataFrames</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipucion-de-indices-y-multi-indices">
+   9.1. Manipución de índices y multi-índices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#patron-split-apply-combine-en-dataframes">
+   9.2. Patrón
+   <em>
+    Split-Apply-Combine
+   </em>
+   en DataFrames
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="operaciones-avanzadas-con-dataframes">
+<h1><span class="section-number">9. </span>Operaciones avanzadas con DataFrames<a class="headerlink" href="#operaciones-avanzadas-con-dataframes" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Contenidos de esta lección</p>
+<ul class="simple">
+<li><p>Creación de DataFrames con índices jerárquicos: <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p></li>
+<li><p>Patrón Split-Apply-Combine con <code class="docutils literal notranslate"><span class="pre">groupBy</span></code></p></li>
+</ul>
+<p>Consideremos la siguiente tabla de la lección anterior con los datos del Censo 2017 de Chile</p>
+<table><tr><th style="text-align: right;">  ORDEN</th><th>NOMBRE REGIÓN     </th><th style="text-align: right;">  Código Región</th><th>NOMBRE PROVINCIA  </th><th style="text-align: right;">  Código Provincia</th><th>NOMBRE COMUNA  </th><th style="text-align: right;">  Código Comuna</th><th style="text-align: right;">  Viviendas Particulares Ocupadas con Moradores Presentes</th><th style="text-align: right;">  Viviendas Particulares Ocupadas con Moradores Ausentes</th><th style="text-align: right;">  Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th><th style="text-align: right;">     Viviendas Particulares Desocupadas\n(de Temporada)</th><th style="text-align: right;">  Viviendas Colectivas</th><th style="text-align: right;">  TOTAL VIVIENDAS</th></tr>\n</thead>\n<tbody>\n<tr><td style="text-align: right;">      1</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>ARICA             </td><td style="text-align: right;">               151</td><td>ARICA          </td><td style="text-align: right;">          15101</td><td style="text-align: right;">                                                    62129</td><td style="text-align: right;">                                                    4574</td><td style="text-align: right;">                                                                             4045</td><td style="text-align: right;">1666</td><td style="text-align: right;">                   225</td><td style="text-align: right;">            72639</td></tr>\n<tr><td style="text-align: right;">      2</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>ARICA             </td><td style="text-align: right;">               151</td><td>CAMARONES      </td><td style="text-align: right;">          15102</td><td style="text-align: right;">                                                      431</td><td style="text-align: right;">                                                      96</td><td style="text-align: right;">                                                                              158</td><td style="text-align: right;"> 242</td><td style="text-align: right;">                    21</td><td style="text-align: right;">              948</td></tr>\n<tr><td style="text-align: right;">      3</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>PARINACOTA        </td><td style="text-align: right;">               152</td><td>PUTRE          </td><td style="text-align: right;">          15201</td><td style="text-align: right;">                                                      540</td><td style="text-align: right;">                                                     197</td><td style="text-align: right;">                                                                              143</td><td style="text-align: right;"> 995</td><td style="text-align: right;">                    42</td><td style="text-align: right;">             1917</td></tr>\n<tr><td style="text-align: right;">      4</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>PARINACOTA        </td><td style="text-align: right;">               152</td><td>GENERAL LAGOS  </td><td style="text-align: right;">          15202</td><td style="text-align: right;">                                                      218</td><td style="text-align: right;">                                                      90</td><td style="text-align: right;">                                                                              162</td><td style="text-align: right;"> 216</td><td style="text-align: right;">                    11</td><td style="text-align: right;">              697</td></tr>\n<tr><td style="text-align: right;">      5</td><td>TARAPACÁ          </td><td style="text-align: right;">              1</td><td>IQUIQUE           </td><td style="text-align: right;">                11</td><td>IQUIQUE        </td><td style="text-align: right;">           1101</td><td style="text-align: right;">                                                    56007</td><td style="text-align: right;">                                                    3673</td><td style="text-align: right;">                                                                             5481</td><td style="text-align: right;">1564</td><td style="text-align: right;">                   261</td><td style="text-align: right;">            66986</td></tr>\n</tbody>\n</table>
+<div class="section" id="manipucion-de-indices-y-multi-indices">
+<h2><span class="section-number">9.1. </span>Manipución de índices y multi-índices<a class="headerlink" href="#manipucion-de-indices-y-multi-indices" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Estudiando la tabla anterior notamos que tiene una estructura jerárquica</p>
+<blockquote>
+<div><p>REGION, PROVINCIA, COMUNA</p>
+</div></blockquote>
+<p>Podemos representar este tipo de estructuras en pandas usando un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p>
+<p><strong>Creación y remoción de índices</strong></p>
+<p>Para asignar un índice a un DataFrame que ya está creado podemos usar el atributo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="c1"># Una etiqueta o una lista de etiquetas que serán los nuevos índices</span>
+             <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Eliminar las columnas que pasarán a ser índices</span>
+             <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Retornar un nuevo dataframe o modificar df</span>
+             <span class="o">...</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Si keys es una etiqueta crearemos un índice regular</p></li>
+<li><p>Si keys es una lista crearemos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p></li>
+</ul>
+<p>Si queremos que nuestro índice o multi-índice vuelva a convertirse en columna podemos usar el atributo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Permite especificar cuantos niveles de índices se removeran</span>
+               <span class="n">drop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Si los índices se deben eliminar o agregar como columnas</span>
+               <span class="n">inplace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Retornar un nuevo dataframe o modificar df</span>
+               <span class="o">...</span>
+               <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Crearemos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> para la tabla del censo. Usaremos dos niveles de jerarquía, el superior para región y el inferior para provincia. Esto se logra con</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;NOMBRE REGIÓN&quot;</span><span class="p">,</span> <span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Si inspeccionamos el objeto <code class="docutils literal notranslate"><span class="pre">df.index</span></code> veremos lo siguiente:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MultiIndex</span><span class="p">([(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>             <span class="s1">&#39;ARICA&#39;</span><span class="p">),</span>
+            <span class="p">(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>             <span class="s1">&#39;ARICA&#39;</span><span class="p">),</span>
+            <span class="p">(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>        <span class="s1">&#39;PARINACOTA&#39;</span><span class="p">),</span>
+            <span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Ejemplos de <em>Slicing</em> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></strong></p>
+<p>Para recuperar un elemento de un DataFrame con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> podemos indexar usando una tupla especificando cada uno de los niveles de índices</p>
+<p>Por ejemplo para recuperar una fila en particular usamos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Lo cual retorna la comuna de Valdivia</p>
+<p>Si queremos recuperar un conjunto de elementos podemos usar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Lo cual retorna todas las comunas de la provincia de Valdivia</p>
+<p>También podríamos usar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">)]</span> 
+</pre></div>
+</div>
+<p>Lo cual retorna todas las comunas de región de los rios</p>
+<p>Para hacer <em>slices</em> o <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code>, lo más simple es usar el objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23.4/generated/pandas.IndexSlice.html"><code class="docutils literal notranslate"><span class="pre">IndexSlice</span></code></a></p>
+<p>Por ejemplo para recuperar dos filas usamos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;VALDIVIA&quot;</span><span class="p">,</span> <span class="s2">&quot;OSORNO&quot;</span><span class="p">]],</span> <span class="p">:]</span> 
+</pre></div>
+</div>
+<p>Lo cual retorna las comunas de Valdivia y Osorno</p>
+<p>Para recuperar subconjuntos arbitrarios de filas en base al índice jerárquico podemos usar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;LLANQUIHUE&quot;</span><span class="p">,</span> <span class="s2">&quot;PALENA&quot;</span><span class="p">],</span> <span class="p">:</span> <span class="p">],</span> <span class="p">:]</span>
+</pre></div>
+</div>
+<p>Lo cual retorna las comunas pertenecientes a las provincias de Llanquihue y Palena</p>
+</div>
+<div class="section" id="patron-split-apply-combine-en-dataframes">
+<h2><span class="section-number">9.2. </span>Patrón <em>Split-Apply-Combine</em> en DataFrames<a class="headerlink" href="#patron-split-apply-combine-en-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Digamos que queremos obtener los totales de todos los tipos de vivienda a nivel de provincia</p>
+<p>Si asignamos “NOMBRE PROVINCIA” como índice podríamos usar</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">provincia</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>    
+    <span class="n">sub_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">provincia</span><span class="p">,</span> <span class="n">col_mask</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">ndim</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>    
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">provincia</span><span class="p">,</span> <span class="n">col_mask</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># No hacer reducción suma si la provincia tiene una sola comuna</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">provincia</span><span class="p">,</span> <span class="n">col_mask</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">col_mask</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>que obtiene el resultado deseado, pero es ineficiente y bastante engorroso</p>
+<p>El ejemplo anterior representa un patrón de “operaciones condicionadas por llave” que es muy utilizado en bases de datos y se conoce como <em>split-apply-combine</em></p>
+<img alt="../../_images/groupby.svg" src="../../_images/groupby.svg" /><p>Donde</p>
+<ul class="simple">
+<li><p><em>split</em>: Divide los datos según una <strong>llave</strong></p></li>
+<li><p><em>apply</em>: Realiza una función sobre cada grupo</p></li>
+<li><p><em>combine</em>: Mezcla el resultado en un nuevo dataframe donde la <strong>llave</strong> se convierte en el índice</p></li>
+</ul>
+<p>En el ejemplo anterior</p>
+<ul class="simple">
+<li><p><em>split</em>: Crea subconjuntos con las comunas de cada provincia</p></li>
+<li><p><em>apply</em>: Hace una reducción suma en las columnas de viviendas</p></li>
+<li><p><em>combine</em>: Construye un nuevo dataframe con los resultados donde la llave son las provincias</p></li>
+</ul>
+<p><strong>Atributo <code class="docutils literal notranslate"><span class="pre">groupby</span></code></strong></p>
+<p>El patrón <em>split-apply-combine</em> está implementado de forma muy eficiente en <code class="docutils literal notranslate"><span class="pre">pandas</span></code> a través del atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby()</span></code></a></p>
+<p>Los argumentos básicos de <code class="docutils literal notranslate"><span class="pre">groupby</span></code> son</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Columna o lista de columnas con se hace el split</span>
+           <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Dividir en filas (0) o en columnas (1)</span>
+           <span class="n">as_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># Retornar las etiquetas de cada grupo como índice</span>
+           <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># Retornar las etiquetas de grupo ordenadas alfabeticamente</span>
+           <span class="o">...</span>
+          <span class="p">)</span>    
+</pre></div>
+</div>
+<p>Notemos que <code class="docutils literal notranslate"><span class="pre">groupby</span></code> actua como un iterador</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">sub_df</span><span class="p">)</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;NOMBRE REGIÓN&#39;</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="c1"># La etiqueta</span>
+            <span class="n">sub_df</span>  <span class="c1"># El dataframe con las filas que comparten esa etiqueta</span>
+           <span class="p">)</span>
+</pre></div>
+</div>
+<p>La función que se ejecuta a cada grupo en el paso <em>apply</em> es un atributo de <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, existen cuatro atributos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aggregate</span></code>: Para hacer reducciones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code>: Para eliminar filas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: Para modificar filas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply</span></code>: Función flexible que puede combinar lo que hace <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> y <code class="docutils literal notranslate"><span class="pre">transform</span></code></p></li>
+</ul>
+<p>A continuación revisaremos las primeras tres en detalle</p>
+<p><strong>Reducción con <code class="docutils literal notranslate"><span class="pre">aggregate</span></code></strong></p>
+<p>La sintaxis básica de este atributo es</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Para aplicar la misma función a todos las columnas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">funcion1</span><span class="p">)</span> 
+<span class="c1"># Para aplicar varias funciones a todos las columnas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="n">funcion1</span><span class="p">,</span> <span class="n">funcion2</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span> 
+<span class="c1"># Para aplicar funciones específicas a columnas específicas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="n">columna1</span><span class="p">:</span> <span class="n">funcion1</span><span class="p">,</span> <span class="n">columna2</span><span class="p">:</span> <span class="n">funcion2</span><span class="p">})</span> 
+</pre></div>
+</div>
+<p>Las funciones debe entregar un sólo valor por cada columna del grupo</p>
+<p>En general las reducciones se usan para hacer resumenes, por ejemplo sumas, promedios o varianzas</p>
+<p><strong>Ejemplo</strong></p>
+<p>Podemos encontrar los totales de vivienda por provincia en una sola linea usando</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>O usando el alias</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> 
+</pre></div>
+</div>
+<p><strong>Filtrado con <code class="docutils literal notranslate"><span class="pre">filter</span></code></strong></p>
+<p>La sintaxis básica de este atributo es</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La función debe retornar <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>El resultado es un nuevo DataFrame con todos los grupos que “pasaron el filtro”</p>
+<p>En general este atributo se usa para eliminar/descartar grupos de filas (drop)</p>
+<p><strong>Modificando el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <code class="docutils literal notranslate"><span class="pre">transform</span></code></strong></p>
+<p>La sintaxis básica de este atributo es</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La función debe retornar un dataframe con la misma dimensión y tamaño que el original y se aplica columna a columna</p>
+<p>La función puede ser explicita o anónima (lambda)</p>
+<p>Un uso típico de este atributo es el reescalamiento/normalización a nivel de grupo</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="part2.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Importar y exportar datos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="part4.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Pandas: Tópicos extra</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

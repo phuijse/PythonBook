@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. Tópicos extra &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="9. Operaciones avanzadas con DataFrames" href="part3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trabajando con datos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1.html">
+   7. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2.html">
+   8. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3.html">
+   9. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   10. Tópicos extra
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/pandas/part4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/pandas/part4.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/pandas/part4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-series">
+   10.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.Series
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
+   10.2. Gráfico a partir de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
+   10.3. Guardar y leer una tabla en formato HDF5
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tópicos extra</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objeto-pandas-series">
+   10.1. Objeto
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.Series
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
+   10.2. Gráfico a partir de DataFrames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
+   10.3. Guardar y leer una tabla en formato HDF5
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="topicos-extra">
+<h1><span class="section-number">10. </span>Tópicos extra<a class="headerlink" href="#topicos-extra" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En este anexo se revisan algunos tópicos específicos relacionados a la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que no fueron cubiertos anteriormente, estos son</p>
+<ul class="simple">
+<li><p>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></p></li>
+<li><p>Gráficos a partir de objetos de pandas</p></li>
+<li><p>Guardar y leer datos en formato HDF5</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="objeto-pandas-series">
+<h2><span class="section-number">10.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><a class="headerlink" href="#objeto-pandas-series" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html"><code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> es  un arreglo de una dimensión (vector) que <strong>representa una secuencia</strong></p>
+<ul class="simple">
+<li><p>Los elementos de la secuencia se identifican con un índice etiquetado <code class="docutils literal notranslate"><span class="pre">index</span></code></p></li>
+<li><p>Todos los elementos son de un mismo tipo <code class="docutils literal notranslate"><span class="pre">dtype</span></code></p></li>
+<li><p>La serie se identifica con un nombre <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+<p>A continuación veremos algunas formas de crear <code class="docutils literal notranslate"><span class="pre">Series</span></code></p>
+<p><strong>Construyendo un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de un dataframe</strong></p>
+<p>Cuando pedimos <strong>una columna</strong> de un DataFrame el objeto retornado es de tipo <code class="docutils literal notranslate"><span class="pre">Series</span></code></p>
+<p>Tecnicamente, <strong>una fila</strong> de un DataFrame también retorna como <code class="docutils literal notranslate"><span class="pre">Series</span></code> sin embargo los tipos se mezclan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clientes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pablo&#39;</span><span class="p">,</span> <span class="s1">&#39;Marianna&#39;</span><span class="p">,</span> <span class="s1">&#39;Matthieu&#39;</span><span class="p">,</span> <span class="s1">&#39;Luis&#39;</span><span class="p">,</span> <span class="s1">&#39;Eliana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cristobal&#39;</span><span class="p">]</span>
+
+<span class="n">ventas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;lechugas [unidades]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;papas [kilos]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ventas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">clientes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;La columna de lechugas es un objeto </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;lechugas [unidades]&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;cuyo tipo es </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;lechugas [unidades]&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;La fila Matthieu es un objeto </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Matthieu&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;cuyo tipo es </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Matthieu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;La columna de lechugas es un objeto &lt;class &#39;pandas.core.series.Series&#39;&gt;&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cuyo tipo es int64&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;La fila Matthieu es un objeto &lt;class &#39;pandas.core.series.Series&#39;&gt;&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cuyo tipo es float64&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Construyendo un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> a partir de otras estructuras de datos</strong></p>
+<p>Un objeto <code class="docutils literal notranslate"><span class="pre">Series</span></code> se puede crear de forma más general usando el constructor</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+              <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+              <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+              <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+              <span class="n">fastpath</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>donde <code class="docutils literal notranslate"><span class="pre">data</span></code> puede ser un  diccionarios, una lista o un ndarray</p>
+<p>Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plan_diario</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dormir&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;comer&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;quehaceres&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;trabajo&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;procastinar&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">plan_diario</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mi planificación de hoy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dormir          7
+comer           1
+quehaceres      1
+trabajo        10
+procastinar     5
+Name: mi planificación de hoy, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notas:</p>
+<ul class="simple">
+<li><p>Una columna o una fila de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> es un <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></li>
+<li><p>Varias <code class="docutils literal notranslate"><span class="pre">Series</span></code> se pueden unir para formar un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="grafico-a-partir-de-dataframes">
+<h2><span class="section-number">10.2. </span>Gráfico a partir de DataFrames<a class="headerlink" href="#grafico-a-partir-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se pueden crear gráficos sencillos directamente de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<p>Puedes revisar en detalle la API para graficar en este <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">link</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_23473/1562864067.py:2: UserWarning: To output multiple subplots, the figure containing the passed axes is being cleared.
+  df.plot(ax=ax, kind=&#39;line&#39;, subplots=True);
+</pre></div>
+</div>
+<img alt="../../_images/part4_9_1.png" src="../../_images/part4_9_1.png" />
+</div>
+</div>
+<p>La API es útil para hacer gráficos rapidamente. Si necesitamos mayor flexibilidad que la que ofrece la API siempre podemos extraer la data y graficarla con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> o <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p>
+</div>
+<div class="section" id="guardar-y-leer-una-tabla-en-formato-hdf5">
+<h2><span class="section-number">10.3. </span>Guardar y leer una tabla en formato HDF5<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-hdf5" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">to_hdf</span></code> para convertir nuestra tabla a formato HDF5</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="c1"># Path completo con nombre de archivo</span>
+          <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># Llave maestra del archivo</span>
+          <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="c1"># Agrega lineas a un archivo existente (a) o crea una archivo nuevo (w)</span>
+          <span class="o">...</span>
+         <span class="p">)</span>
+</pre></div>
+</div>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="s2">&quot;pandas_hdf.h5&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;excel&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>crea un archivo pandas_hdf.h5 en el directorio actual</p>
+<p>Para lectura podemos usar la función <code class="docutils literal notranslate"><span class="pre">read_hdf</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mi_tabla_recuperada</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s2">&quot;pandas_hdf.h5&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;/excel&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para tener esta funcionalidad se requiere instalar Pytables mayor a 3.5: <a class="reference external" href="https://github.com/PyTables/PyTables/issues/719">https://github.com/PyTables/PyTables/issues/719</a></p>
+</div>
+<p>Si necesita trabajar directamente sobre un archivo HDF5 en Python puede usar las librerías <code class="docutils literal notranslate"><span class="pre">PyTables</span></code> o <code class="docutils literal notranslate"><span class="pre">h5py</span></code>. A continuación se muestra un ejemplo con esta última:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">h5py</span>
+<span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;pandas_hdf.h5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s2">&quot;excel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s2">&quot;excel&quot;</span><span class="p">][</span><span class="s1">&#39;block0_items&#39;</span><span class="p">][()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="part3.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">9. </span>Operaciones avanzadas con DataFrames</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

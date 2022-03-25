@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Importar y exportar datos &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="9. Operaciones avanzadas con DataFrames" href="part3.html" />
+    <link rel="prev" title="7. DataFrames" href="part1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manipulación de datos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1.html">
+   7. DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3.html">
+   9. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part4.html">
+   10. Pandas: Tópicos extra
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/pandas/part2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/pandas/part2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/pandas/part2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importar-datos-tabulares-en-formato-csv">
+   8.1. Importar datos tabulares en formato CSV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-sintatico-o-parsing">
+   8.2. Análisis sintático o
+   <em>
+    parsing
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretacion-parseo-de-fechas">
+     8.2.1. Interpretación/parseo de fechas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importar-datos-tabulares-a-partir-de-archivos-excel">
+   8.3. Importar datos tabulares a partir de archivos excel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
+   8.4. Lectura de bases de datos SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-un-dataframe-en-formato-json">
+   8.5. Guardar y leer un DataFrame en formato JSON
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Importar y exportar datos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importar-datos-tabulares-en-formato-csv">
+   8.1. Importar datos tabulares en formato CSV
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-sintatico-o-parsing">
+   8.2. Análisis sintático o
+   <em>
+    parsing
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretacion-parseo-de-fechas">
+     8.2.1. Interpretación/parseo de fechas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importar-datos-tabulares-a-partir-de-archivos-excel">
+   8.3. Importar datos tabulares a partir de archivos excel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
+   8.4. Lectura de bases de datos SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guardar-y-leer-un-dataframe-en-formato-json">
+   8.5. Guardar y leer un DataFrame en formato JSON
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="importar-y-exportar-datos">
+<h1><span class="section-number">8. </span>Importar y exportar datos<a class="headerlink" href="#importar-y-exportar-datos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En general los datos con los que trabajaremos estarán guardados en disco como archivos o integrados en una base de datos. En esta lección veremos como crear un DataFrame desde</p>
+<ul class="simple">
+<li><p>Archivos en formato CSV</p></li>
+<li><p>Archivos en formato Microsoft Excel</p></li>
+<li><p>Bases de datos SQL</p></li>
+<li><p>Archivos JSON</p></li>
+</ul>
+<p>Un DataFrame también puede ser exportado a los formatos antes mencionados</p>
+<div class="section" id="importar-datos-tabulares-en-formato-csv">
+<h2><span class="section-number">8.1. </span>Importar datos tabulares en formato CSV<a class="headerlink" href="#importar-datos-tabulares-en-formato-csv" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Un archivo  <strong>CSV</strong> (Comma-Separated Values) es una tabla en formato texto plano cuyas columnas están separadas por comas (u otro delimitador)</p>
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos la base de datos <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index">“Dow Jones Index”</a> del repositorio UCI, la cual se distribuye en formato CSV</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El Dow Jones es un índice bursatil muy utilizado ya que refleja el comportamiento del mercado accionario norteamericano</p>
+</div>
+<p>Descarguémos la base de datos y observemos las primeras cinco lineas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -cq https://archive.ics.uci.edu/ml/machine-learning-databases/00312/dow_jones_index.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SSL_INIT
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>unzip -o -q dow_jones_index.zip
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head -5 dow_jones_index.data
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quarter,stock,date,open,high,low,close,volume,percent_change_price,percent_change_volume_over_last_wk,previous_weeks_volume,next_weeks_open,next_weeks_close,percent_change_next_weeks_price,days_to_next_dividend,percent_return_next_dividend
+
+1,AA,1/7/2011,$15.82,$16.72,$15.78,$16.42,239655616,3.79267,,,$16.71,$15.97,-4.42849,26,0.182704
+
+1,AA,1/14/2011,$16.71,$16.71,$15.64,$15.97,242963398,-4.42849,1.380223028,239655616,$16.19,$15.79,-2.47066,19,0.187852
+
+1,AA,1/21/2011,$16.19,$16.38,$15.60,$15.79,138428495,-2.47066,-43.02495926,242963398,$15.87,$16.13,1.63831,12,0.189994
+
+1,AA,1/28/2011,$15.87,$16.63,$15.82,$16.13,151379173,1.63831,9.355500109,138428495,$16.18,$17.14,5.93325,5,0.185989
+</pre></div>
+</div>
+</div>
+</div>
+<p>Del archivo CSV podemos ver que cada fila tiene un</p>
+<ul class="simple">
+<li><p>identificador textual de la acción: <code class="docutils literal notranslate"><span class="pre">AA</span></code></p></li>
+<li><p>una fecha de observación: <code class="docutils literal notranslate"><span class="pre">1/7/2011</span></code></p></li>
+<li><p>un precio de apertura, máximo, mínimo y cierre para la fecha: <code class="docutils literal notranslate"><span class="pre">$15.82,</span> <span class="pre">$16.72,</span> <span class="pre">$15.78,</span> <span class="pre">$16.42</span></code></p></li>
+<li><p>entre otros</p></li>
+</ul>
+<p>También podemos notar algunos aspectos típicos de los archivos CSV</p>
+<ul class="simple">
+<li><p>Las columnas están separadas por comas</p></li>
+<li><p>La primera fila del archivo CSV contiene el <em>header</em>, es decir los nombres de las columnas</p></li>
+<li><p>Las columnas son de tipos distintos: ¿Qué tipos puedes identificar en el ejemplo anterior?</p></li>
+</ul>
+<p>A continuación veremos como importar y escribir un archivo CSV usando <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+<p><strong>Función <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code></strong></p>
+<p>Leer un archivo CSV como DataFrame es directo usando la función <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></p>
+<p>A continuación se resaltan los argumentos principales</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">filepath_or_buffer</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span> <span class="n">IO</span><span class="p">[</span><span class="o">~</span><span class="n">AnyStr</span><span class="p">]],</span> <span class="c1"># path completo al archivo CSV</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="c1"># String o expresión regular que se usará para delimitar las columnas</span>
+    <span class="n">header</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">,</span> <span class="c1"># Puede ser un int (fila donde está el header) o una lista de de int&#39;s</span>
+    <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Lista de strings con nombres de columnas (útil si el CSV no tiene header)</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># La columna que se usará como header</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Lista: subconjunto de columnas que se desean importar (por defecto se importan todas)</span>
+    <span class="n">converters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Se explica en detalle más adelante junto a otros argumentos de parsing</span>
+    <span class="n">parse_dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Se explica en detalle más adelante junto a otros argumentos de fecha</span>
+    <span class="o">...</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Más adelante veremos más argumentos y un ejemplo de uso</p>
+<p><strong>Atributo <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code></strong></p>
+<p>Podemos crear un archivo CSV desde un DataFrame usando el atributo <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> como se muestra a continuación</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;mis_datos.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Esto  crea un archivo <code class="docutils literal notranslate"><span class="pre">mis_data.csv</span></code> en el directorio actual</p></li>
+<li><p>Por defecto guardara las nombres de columna como un header y usará “,” como delimitador</p></li>
+</ul>
+</div>
+<div class="section" id="analisis-sintatico-o-parsing">
+<h2><span class="section-number">8.2. </span>Análisis sintático o <em>parsing</em><a class="headerlink" href="#analisis-sintatico-o-parsing" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En general un archivo de texto plano podría contener</p>
+<ul class="simple">
+<li><p>valores numéricos continuos</p></li>
+<li><p>valores numéricos discretos</p></li>
+<li><p>fechas</p></li>
+<li><p>coordenadas</p></li>
+<li><p>monedas</p></li>
+<li><p>direcciones</p></li>
+<li><p>etiquetas de texto</p></li>
+<li><p>y un largo etcétera</p></li>
+</ul>
+<p>Los programas que leen e importan archivos de texto plano como CSV deben interpretar estos valores y convertirlos al formato más adecuado, por ejemplo</p>
+<ul class="simple">
+<li><p>flotante</p></li>
+<li><p>entero</p></li>
+<li><p>booleano</p></li>
+<li><p>string</p></li>
+</ul>
+<p>Se llama <strong><em>parser</em> o analizador sintático</strong> al programa que analiza los textos y luego</p>
+<ul class="simple">
+<li><p>filtra y/o completa los textos invalidos</p></li>
+<li><p>convierte los datos a un formato estándar</p></li>
+</ul>
+<p>Pandas hace este proceso de forma automática y podemos hacer algunos ajustes usando los argumentos disponibles en <code class="docutils literal notranslate"><span class="pre">read_csv</span></code></p>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">dtypes</span><span class="o">=</span><span class="kc">None</span> <span class="c1"># Diccionario donde la llave es el nombre de la columna y el valor el tipo requerido</span>
+    <span class="n">na_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># String o lista de strings con valores que serán reconocidos como NaN</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="c1"># String que se usará para reconocer el punto decimal</span>
+    <span class="n">comment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># String, todos las lineas que empiezen con este string serán ignoradas</span>
+    <span class="n">converters</span><span class="o">=</span><span class="kc">None</span> <span class="c1"># Se explica a continuación</span>
+    <span class="o">...</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Si las opciones automáticas no son suficientes se puede hacer <em>parsing</em> en base a reglas manualmente creadas usando el argumento <code class="docutils literal notranslate"><span class="pre">converters</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">converters</span></code> recibe un diccionario con “reglas de parseo” con la siguiente sintaxis</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span><span class="s1">&#39;nombre de la columna 1&#39;</span><span class="p">:</span> <span class="n">funcion_parseadora1</span><span class="p">,</span> 
+     <span class="s1">&#39;nombre de la columna 2&#39;</span><span class="p">:</span> <span class="n">funcion_parseadora2</span><span class="p">,</span>
+     <span class="o">...</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Notar que <code class="docutils literal notranslate"><span class="pre">funcion_parseadoraX</span></code> puede ser una función explicita o anómina (lambda)</p>
+<p><strong>Ejemplo</strong></p>
+<p>Los datos de la columna de precio de apertura (open) de “dow_jones_index.data” están formateados como</p>
+<p><code class="docutils literal notranslate"><span class="pre">'$15.84'</span></code></p>
+<p>que corresponde a un signo dolar seguido de un número real con punto decimal</p>
+<p>Para <em>parsear</em> este valor debemos escribir una función que</p>
+<ol class="simple">
+<li><p>Elimine el signo dolar del string</p></li>
+<li><p>Convierta el resto del string en flotante</p></li>
+</ol>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_dollar</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># return float(x[1:]) # Elimina el primer caracter</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">))</span> <span class="c1"># Elimina todos los $ del string</span>
+</pre></div>
+</div>
+<p>Luego agregamos esta función a un diccionario con la llave <code class="docutils literal notranslate"><span class="pre">open</span></code> y se lo entregamos al argumento <code class="docutils literal notranslate"><span class="pre">converters</span></code>, es decir</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span> <span class="n">remove_dollar</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Se puede lograr lo mismo usando una función anónima, por ejemplo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;open&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;$&quot;</span><span class="p">))}</span>
+</pre></div>
+</div>
+<div class="section" id="interpretacion-parseo-de-fechas">
+<h3><span class="section-number">8.2.1. </span>Interpretación/parseo de fechas<a class="headerlink" href="#interpretacion-parseo-de-fechas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Un dato textual muy usual en datos tabulares y series de tiempo son las fechas</p>
+<p>Sin embargo el formato de fecha puede variar considerablemente entre distintas bases de datos</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> tiene un tipo denominado <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> el cual se puede construir con la función <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> a partir de un string</p>
+<p>Pandas identifica automaticamente fechas y horas en distintos formatos</p>
+<p><strong>Ejemplo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1/5/2018&quot;</span><span class="p">)</span> <span class="c1"># Formato norteamericano Mes/Día/Año </span>
+<span class="go">Timestamp(&#39;2018-01-05 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;May/1/2018&quot;</span><span class="p">)</span> <span class="c1"># También se acepta un string para el mes</span>
+<span class="go">Timestamp(&#39;2018-05-01 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1st of May of 2018&quot;</span><span class="p">)</span> <span class="c1"># También se puede usar una frase &quot;Día del Mes del Año&quot;</span>
+<span class="go">Timestamp(&#39;2018-05-01 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2018&quot;</span><span class="p">)</span> <span class="c1"># Autocompletación por defecto para fechas incompletas</span>
+<span class="go">Timestamp(&#39;2018-01-01 00:00:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;14:45&quot;</span><span class="p">)</span> <span class="c1"># Si usamos sólo la hora se usa la fecha actual</span>
+<span class="go">Timestamp(&#39;2020-06-12 14:45:00&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;May/1/2018 14:45&quot;</span><span class="p">)</span> <span class="c1"># Timestamp completo</span>
+<span class="go">Timestamp(&#39;2018-05-01 14:45:00&#39;)</span>
+</pre></div>
+</div>
+<p>Podemos controlar el parseo de fechas en <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> con los argumentos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="o">...</span>
+    <span class="n">parse_dates</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># Booleano o lista con las columnas que deben ser interpretadas como fechas</span>
+    <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Inferir una función parseadora de forma automática</span>
+    <span class="n">dayfirst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Formato día/mes/año o mes/día/año</span>
+    <span class="n">date_parser</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Función provista por el usuario que toma un string y retorna TimeStamp</span>
+    <span class="o">...</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Las fechas/tiempos en formato <code class="docutils literal notranslate"><span class="pre">TimeStamp</span></code> pueden usarse como índices</p>
+<p>Esto nos permite recuperar rapidamente todos los eventos dentro de un intervalo de tiempo</p>
+</div>
+</div>
+<div class="section" id="importar-datos-tabulares-a-partir-de-archivos-excel">
+<h2><span class="section-number">8.3. </span>Importar datos tabulares a partir de archivos excel<a class="headerlink" href="#importar-datos-tabulares-a-partir-de-archivos-excel" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Muchas empresas e instituciones manejan sus datos como hojas de cálculo o <em>spreadsheets</em> construidas usando software como Microsoft Excel, Openoffice/Libreoffice calc o Google spreadsheets</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> permite importar como <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> una hoja de cálculo en formatos <code class="docutils literal notranslate"><span class="pre">xls,</span> <span class="pre">xlsx,</span> <span class="pre">xlsm,</span> <span class="pre">xlsb,</span> <span class="pre">odf</span></code> usando  la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">read_excel</span></code></a></p>
+<p>Muchos de los argumentos de <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> están disponibles en <code class="docutils literal notranslate"><span class="pre">read_excel</span></code>, los “nuevos” argumentos son</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="c1"># string o path a la hoja de cálculo</span>
+              <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># Entero, string o lista, especifica la(s) hoja (s) que vamos a importar</span>
+              <span class="o">...</span>
+             <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Para trabajar con archivos <code class="docutils literal notranslate"><span class="pre">excel</span></code> se requieren algunas librerías adicionales las cuales puede instalarse facilmente con conda</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install openpyxl
+</pre></div>
+</div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos los siguientes datos del censo chileno de 2017 en formato Excel de donde importaremos datos de vivienda por comuna</p>
+<p>Esto corresponde a la segunda hoja (<code class="docutils literal notranslate"><span class="pre">sheet_name=1</span></code>) y en particular las columnas de 1 a 14</p>
+<p>Importemos la planilla e inspecciones sus primeras filas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -cq http://www.censo2017.cl/wp-content/uploads/2017/12/Cantidad-de-Viviendas-por-Tipo.xlsx
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Cantidad-de-Viviendas-por-Tipo.xlsx&quot;</span><span class="p">,</span> 
+                   <span class="n">sheet_name</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># Importamos la segunda hoja (vivienda)</span>
+                   <span class="n">usecols</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">)),</span> <span class="c1"># Importamos las columnas 1 a 20</span>
+                   <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># El header está en la segunda fila</span>
+                   <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="c1"># Eliminamos la fila 2 ya que es invalida</span>
+                   <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ORDEN&#39;</span> <span class="c1"># Usaremos la columna orden como índice</span>
+                  <span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># Eliminamos las filas con NaN</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NOMBRE REGIÓN</th>
+      <th>Código Región</th>
+      <th>NOMBRE PROVINCIA</th>
+      <th>Código Provincia</th>
+      <th>NOMBRE COMUNA</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>ORDEN</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>ARICA</td>
+      <td>151.0</td>
+      <td>ARICA</td>
+      <td>15101.0</td>
+      <td>62129.0</td>
+      <td>4574.0</td>
+      <td>4045.0</td>
+      <td>1666.0</td>
+      <td>225.0</td>
+      <td>72639.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>ARICA</td>
+      <td>151.0</td>
+      <td>CAMARONES</td>
+      <td>15102.0</td>
+      <td>431.0</td>
+      <td>96.0</td>
+      <td>158.0</td>
+      <td>242.0</td>
+      <td>21.0</td>
+      <td>948.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>PARINACOTA</td>
+      <td>152.0</td>
+      <td>PUTRE</td>
+      <td>15201.0</td>
+      <td>540.0</td>
+      <td>197.0</td>
+      <td>143.0</td>
+      <td>995.0</td>
+      <td>42.0</td>
+      <td>1917.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>PARINACOTA</td>
+      <td>152.0</td>
+      <td>GENERAL LAGOS</td>
+      <td>15202.0</td>
+      <td>218.0</td>
+      <td>90.0</td>
+      <td>162.0</td>
+      <td>216.0</td>
+      <td>11.0</td>
+      <td>697.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>TARAPACÁ</td>
+      <td>1.0</td>
+      <td>IQUIQUE</td>
+      <td>11.0</td>
+      <td>IQUIQUE</td>
+      <td>1101.0</td>
+      <td>56007.0</td>
+      <td>3673.0</td>
+      <td>5481.0</td>
+      <td>1564.0</td>
+      <td>261.0</td>
+      <td>66986.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="lectura-de-bases-de-datos-sql">
+<h2><span class="section-number">8.4. </span>Lectura de bases de datos SQL<a class="headerlink" href="#lectura-de-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Pandas es capaz de conectar y hacer consultas en lenguaje SQL a una base de datos externa y retornar el resultado como un DataFrame usando la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html"><code class="docutils literal notranslate"><span class="pre">read_sql_query</span></code></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="c1"># Consulta SQL en formato string</span>
+                  <span class="n">con</span><span class="p">,</span> <span class="c1"># dirección a la base de datos o objeto de conexión</span>
+                  <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Selecciona la columna que actuara como índice del DataFrame</span>
+                  <span class="n">parse_dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Igual que read_csv y read_excel</span>
+                  <span class="o">...</span>
+                 <span class="p">)</span>
+</pre></div>
+</div>
+<p>También se puede usar el atributo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="c1"># string: el nombre de la tabla</span>
+          <span class="n">con</span><span class="p">,</span> <span class="c1"># Engine con conexión</span>
+          <span class="n">if_exists</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="c1"># Que hacer si la tabla ya existe: fail, replace, append</span>
+          <span class="n">index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># Escribir el índice del dataframe como columna</span>
+          <span class="o">...</span>
+         <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>¿Qué es SQL?</strong></p>
+<p>Structured Query Languaje (SQL) es un lenguaje estándar ampliamente usado para consultar, crear, modificar y eliminar bases de datos relacionales.</p>
+<p><strong>¿Qué es una base de datos relacional?</strong></p>
+<p>Es un tipo de base de datos organizada como múltiples tablas. Por ejemplo</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id_cliente</p></th>
+<th class="head"><p>nombre</p></th>
+<th class="head"><p>apellido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Pablo</p></td>
+<td><p>Huijse</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Luis</p></td>
+<td><p>Alvarez</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Cristobal</p></td>
+<td><p>Navarro</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>CLIENTES</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id_orden</p></th>
+<th class="head"><p>platanos</p></th>
+<th class="head"><p>manzanas</p></th>
+<th class="head"><p>id_cliente</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>ORDENES</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Las filas se llaman entidades y las columnas atributos</p></li>
+<li><p>Cada tabla tiene una lalve primaria: id_orden e id_cliente</p></li>
+<li><p>La tabla ORDENES <strong>está relacionada</strong> a la tabla CLIENTES con la llave foranea: id_clientes</p></li>
+<li><p>Las tablas no pueden tener el mismo nombre</p></li>
+</ul>
+<p><strong>¿Dónde corre la base de datos relacional?</strong></p>
+<p>La base de datos relacional corre en un sistema de manejo</p>
+<p>Algunos ejemplos populares son MySQL, PostgreSQL y SQLite3</p>
+<p><strong>Ejemplo básico de una consulta SQL</strong></p>
+<p>SQL es un lenguaje de alto nivel. Algunos comandos comunes son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>: recuperar un subconjunto de la tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span></code>: insertar datos en una tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>: actualizar datos en una tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: eliminar datos de la tabla</p></li>
+</ul>
+<p>La tabla que se quiere manipular se selecciona con el keyword <code class="docutils literal notranslate"><span class="pre">FROM</span></code></p>
+<p>Se agregan condiciones usando el keyword <code class="docutils literal notranslate"><span class="pre">WHERE</span></code></p>
+<p>Se puede usar <code class="docutils literal notranslate"><span class="pre">*</span></code> como alias para “todas las columnas”</p>
+<p>Por ejemplo</p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mi_tabla</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Esto recupera las valores de las columnas A, B y C que tegan un valor de la columna D mayor que 1 a partir de la tabla “mi_tabla”</p>
+<p><strong>Ejemplo</strong> Crear una tabla en SQLite a partir de un dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>  <span class="c1"># SQLite3 es parte de la librería estándar de Python</span>
+
+<span class="c1"># Creamos una base de datos persistente</span>
+<span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;censo.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;censo_viviendas&quot;</span><span class="p">,</span> <span class="c1"># Insertamos una tabla llamada censo_viviendos</span>
+              <span class="n">conn</span><span class="p">,</span> <span class="c1"># Usamos el objeto conexión que acabos de crear</span>
+              <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span> 
+              <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo:</strong> Obtener un DataFrame a partir de la base de datos SQL anterior con las viviendas ocupadas por comuna de la provincia de Valdivia</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Si los nombres de las columnas tienen espacios en blanco debe encerrarlos con paréntesis cuadrados al hacer la consulta</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arg1</span> <span class="o">=</span> <span class="s2">&quot;Viviendas Particulares Ocupadas con Moradores Presentes&quot;</span>
+<span class="n">arg2</span> <span class="o">=</span> <span class="s2">&quot;NOMBRE COMUNA&quot;</span>
+<span class="n">arg3</span> <span class="o">=</span> <span class="s2">&quot;NOMBRE PROVINCIA&quot;</span>
+<span class="n">sql_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT [</span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">], [</span><span class="si">{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">] FROM censo_viviendas WHERE [</span><span class="si">{</span><span class="n">arg3</span><span class="si">}</span><span class="s2">] = &#39;VALDIVIA&#39;&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sql_string</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;censo.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql_string</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;SELECT [Viviendas Particulares Ocupadas con Moradores Presentes], [NOMBRE COMUNA] FROM censo_viviendas WHERE [NOMBRE PROVINCIA] = &#39;VALDIVIA&#39;&quot;
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>NOMBRE COMUNA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>53624.0</td>
+      <td>VALDIVIA</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1842.0</td>
+      <td>CORRAL</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5643.0</td>
+      <td>LANCO</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6446.0</td>
+      <td>LOS LAGOS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2317.0</td>
+      <td>MÁFIL</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6808.0</td>
+      <td>MARIQUINA</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6476.0</td>
+      <td>PAILLACO</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>11615.0</td>
+      <td>PANGUIPULLI</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>sqlite permite conectar a una base de datos local: RAM, disco, o disco externo montado</p></li>
+<li><p>sqlite no está diseñado para soportar múltiples usuarios conectados a una misma base de datos</p></li>
+<li><p>Otras alternativas: <a class="reference external" href="https://www.sqlalchemy.org/">SQL Alchemy</a>, <a class="reference external" href="http://initd.org/psycopg/">PostgreSQL+Python</a>, <a class="reference external" href="http://docs.peewee-orm.com/en/latest/">Peewee</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="guardar-y-leer-un-dataframe-en-formato-json">
+<h2><span class="section-number">8.5. </span>Guardar y leer un DataFrame en formato JSON<a class="headerlink" href="#guardar-y-leer-un-dataframe-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html"><code class="docutils literal notranslate"><span class="pre">to_json</span></code></a> para convertir un dataframe a este formato</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span>
+    <span class="n">path_or_buf</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Ubicación en disco</span>
+    <span class="n">orient</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Indica el formato del string JSON</span>
+    <span class="o">...</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;pandas.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>crea un string pandas.json en el directorio actual</p>
+<p>Luego la función <code class="docutils literal notranslate"><span class="pre">read_json</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;pandas.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>regenera el DataFrame que teniamos</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="part1.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>DataFrames</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="part3.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Operaciones avanzadas con DataFrames</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
