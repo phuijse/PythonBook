@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="10. Pandas: Tópicos extra" href="part4.html" />
+    <link rel="next" title="10. Tópicos extra" href="part4.html" />
     <link rel="prev" title="8. Importar y exportar datos" href="part2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -134,13 +134,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Manipulación de datos
+  Trabajando con datos
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   7. DataFrames
+   7. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1">
@@ -155,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part4.html">
-   10. Pandas: Tópicos extra
+   10. Tópicos extra
   </a>
  </li>
 </ul>
@@ -275,6 +280,54 @@ const thebe_selector_output = ".output, .cell_output"
    </em>
    en DataFrames
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributo-groupby">
+     9.2.1. Atributo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       groupby
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduccion-con-aggregate">
+     9.2.2. Reducción con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       aggregate
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtrado-con-filter">
+     9.2.3. Filtrado con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filter
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modificando-el-dataframe-con-transform">
+     9.2.4. Modificando el
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+     con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       transform
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -309,6 +362,54 @@ const thebe_selector_output = ".output, .cell_output"
    </em>
    en DataFrames
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#atributo-groupby">
+     9.2.1. Atributo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       groupby
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reduccion-con-aggregate">
+     9.2.2. Reducción con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       aggregate
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtrado-con-filter">
+     9.2.3. Filtrado con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filter
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modificando-el-dataframe-con-transform">
+     9.2.4. Modificando el
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataFrame
+      </span>
+     </code>
+     con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       transform
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -427,7 +528,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>apply</em>: Hace una reducción suma en las columnas de viviendas</p></li>
 <li><p><em>combine</em>: Construye un nuevo dataframe con los resultados donde la llave son las provincias</p></li>
 </ul>
-<p><strong>Atributo <code class="docutils literal notranslate"><span class="pre">groupby</span></code></strong></p>
+<div class="section" id="atributo-groupby">
+<h3><span class="section-number">9.2.1. </span>Atributo <code class="docutils literal notranslate"><span class="pre">groupby</span></code><a class="headerlink" href="#atributo-groupby" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El patrón <em>split-apply-combine</em> está implementado de forma muy eficiente en <code class="docutils literal notranslate"><span class="pre">pandas</span></code> a través del atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby()</span></code></a></p>
 <p>Los argumentos básicos de <code class="docutils literal notranslate"><span class="pre">groupby</span></code> son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Columna o lista de columnas con se hace el split</span>
@@ -453,7 +555,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">apply</span></code>: Función flexible que puede combinar lo que hace <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> y <code class="docutils literal notranslate"><span class="pre">transform</span></code></p></li>
 </ul>
 <p>A continuación revisaremos las primeras tres en detalle</p>
-<p><strong>Reducción con <code class="docutils literal notranslate"><span class="pre">aggregate</span></code></strong></p>
+</div>
+<div class="section" id="reduccion-con-aggregate">
+<h3><span class="section-number">9.2.2. </span>Reducción con <code class="docutils literal notranslate"><span class="pre">aggregate</span></code><a class="headerlink" href="#reduccion-con-aggregate" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La sintaxis básica de este atributo es</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Para aplicar la misma función a todos las columnas</span>
 <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">funcion1</span><span class="p">)</span> 
@@ -474,7 +578,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> 
 </pre></div>
 </div>
-<p><strong>Filtrado con <code class="docutils literal notranslate"><span class="pre">filter</span></code></strong></p>
+</div>
+<div class="section" id="filtrado-con-filter">
+<h3><span class="section-number">9.2.3. </span>Filtrado con <code class="docutils literal notranslate"><span class="pre">filter</span></code><a class="headerlink" href="#filtrado-con-filter" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La sintaxis básica de este atributo es</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
 </pre></div>
@@ -482,7 +588,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>La función debe retornar <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <p>El resultado es un nuevo DataFrame con todos los grupos que “pasaron el filtro”</p>
 <p>En general este atributo se usa para eliminar/descartar grupos de filas (drop)</p>
-<p><strong>Modificando el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <code class="docutils literal notranslate"><span class="pre">transform</span></code></strong></p>
+</div>
+<div class="section" id="modificando-el-dataframe-con-transform">
+<h3><span class="section-number">9.2.4. </span>Modificando el <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> con <code class="docutils literal notranslate"><span class="pre">transform</span></code><a class="headerlink" href="#modificando-el-dataframe-con-transform" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La sintaxis básica de este atributo es</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">llave</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">funcion</span><span class="p">)</span>
 </pre></div>
@@ -490,6 +598,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>La función debe retornar un dataframe con la misma dimensión y tamaño que el original y se aplica columna a columna</p>
 <p>La función puede ser explicita o anónima (lambda)</p>
 <p>Un uso típico de este atributo es el reescalamiento/normalización a nivel de grupo</p>
+</div>
 </div>
 </div>
 
@@ -528,7 +637,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="part4.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Pandas: Tópicos extra</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Tópicos extra</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
