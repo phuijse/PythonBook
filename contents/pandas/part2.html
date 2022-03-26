@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="9. Operaciones avanzadas con DataFrames" href="part3.html" />
-    <link rel="prev" title="7. DataFrames" href="part1.html" />
+    <link rel="prev" title="7. DataFrames de pandas" href="part1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -134,13 +134,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Manipulación de datos
+  Trabajando con datos
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   7. DataFrames
+   7. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -155,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part4.html">
-   10. Pandas: Tópicos extra
+   10. Tópicos extra
   </a>
  </li>
 </ul>
@@ -283,18 +288,18 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importar-datos-tabulares-a-partir-de-archivos-excel">
-   8.3. Importar datos tabulares a partir de archivos excel
+  <a class="reference internal nav-link" href="#importar-datos-a-partir-de-archivos-excel">
+   8.3. Importar datos a partir de archivos excel
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
-   8.4. Lectura de bases de datos SQL
+  <a class="reference internal nav-link" href="#consultas-a-bases-de-datos-sql">
+   8.4. Consultas a bases de datos SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#guardar-y-leer-un-dataframe-en-formato-json">
-   8.5. Guardar y leer un DataFrame en formato JSON
+  <a class="reference internal nav-link" href="#leer-y-guardar-dataframes-en-formato-json">
+   8.5. Leer y guardar DataFrames en formato JSON
   </a>
  </li>
 </ul>
@@ -338,18 +343,18 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#importar-datos-tabulares-a-partir-de-archivos-excel">
-   8.3. Importar datos tabulares a partir de archivos excel
+  <a class="reference internal nav-link" href="#importar-datos-a-partir-de-archivos-excel">
+   8.3. Importar datos a partir de archivos excel
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lectura-de-bases-de-datos-sql">
-   8.4. Lectura de bases de datos SQL
+  <a class="reference internal nav-link" href="#consultas-a-bases-de-datos-sql">
+   8.4. Consultas a bases de datos SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#guardar-y-leer-un-dataframe-en-formato-json">
-   8.5. Guardar y leer un DataFrame en formato JSON
+  <a class="reference internal nav-link" href="#leer-y-guardar-dataframes-en-formato-json">
+   8.5. Leer y guardar DataFrames en formato JSON
   </a>
  </li>
 </ul>
@@ -573,8 +578,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Esto nos permite recuperar rapidamente todos los eventos dentro de un intervalo de tiempo</p>
 </div>
 </div>
-<div class="section" id="importar-datos-tabulares-a-partir-de-archivos-excel">
-<h2><span class="section-number">8.3. </span>Importar datos tabulares a partir de archivos excel<a class="headerlink" href="#importar-datos-tabulares-a-partir-de-archivos-excel" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="importar-datos-a-partir-de-archivos-excel">
+<h2><span class="section-number">8.3. </span>Importar datos a partir de archivos excel<a class="headerlink" href="#importar-datos-a-partir-de-archivos-excel" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Muchas empresas e instituciones manejan sus datos como hojas de cálculo o <em>spreadsheets</em> construidas usando software como Microsoft Excel, Openoffice/Libreoffice calc o Google spreadsheets</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> permite importar como <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> una hoja de cálculo en formatos <code class="docutils literal notranslate"><span class="pre">xls,</span> <span class="pre">xlsx,</span> <span class="pre">xlsm,</span> <span class="pre">xlsb,</span> <span class="pre">odf</span></code> usando  la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">read_excel</span></code></a></p>
 <p>Muchos de los argumentos de <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> están disponibles en <code class="docutils literal notranslate"><span class="pre">read_excel</span></code>, los “nuevos” argumentos son</p>
@@ -740,8 +745,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 </div>
-<div class="section" id="lectura-de-bases-de-datos-sql">
-<h2><span class="section-number">8.4. </span>Lectura de bases de datos SQL<a class="headerlink" href="#lectura-de-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="consultas-a-bases-de-datos-sql">
+<h2><span class="section-number">8.4. </span>Consultas a bases de datos SQL<a class="headerlink" href="#consultas-a-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Pandas es capaz de conectar y hacer consultas en lenguaje SQL a una base de datos externa y retornar el resultado como un DataFrame usando la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html"><code class="docutils literal notranslate"><span class="pre">read_sql_query</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="c1"># Consulta SQL en formato string</span>
                   <span class="n">con</span><span class="p">,</span> <span class="c1"># dirección a la base de datos o objeto de conexión</span>
@@ -874,9 +879,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">arg3</span> <span class="o">=</span> <span class="s2">&quot;NOMBRE PROVINCIA&quot;</span>
 <span class="n">sql_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT [</span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">], [</span><span class="si">{</span><span class="n">arg2</span><span class="si">}</span><span class="s2">] FROM censo_viviendas WHERE [</span><span class="si">{</span><span class="n">arg3</span><span class="si">}</span><span class="s2">] = &#39;VALDIVIA&#39;&quot;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">sql_string</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;censo.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>    
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql_string</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -884,6 +886,16 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;SELECT [Viviendas Particulares Ocupadas con Moradores Presentes], [NOMBRE COMUNA] FROM censo_viviendas WHERE [NOMBRE PROVINCIA] = &#39;VALDIVIA&#39;&quot;
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;censo.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>    
+    <span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql_string</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -960,9 +972,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 </div>
-<div class="section" id="guardar-y-leer-un-dataframe-en-formato-json">
-<h2><span class="section-number">8.5. </span>Guardar y leer un DataFrame en formato JSON<a class="headerlink" href="#guardar-y-leer-un-dataframe-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html"><code class="docutils literal notranslate"><span class="pre">to_json</span></code></a> para convertir un dataframe a este formato</p>
+<div class="section" id="leer-y-guardar-dataframes-en-formato-json">
+<h2><span class="section-number">8.5. </span>Leer y guardar DataFrames en formato JSON<a class="headerlink" href="#leer-y-guardar-dataframes-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html"><code class="docutils literal notranslate"><span class="pre">to_json</span></code></a> para convertir un DataFrame a este formato</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span>
     <span class="n">path_or_buf</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Ubicación en disco</span>
     <span class="n">orient</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Indica el formato del string JSON</span>
@@ -974,12 +986,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;pandas.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>crea un string pandas.json en el directorio actual</p>
+<p>crea un archivo <code class="docutils literal notranslate"><span class="pre">pandas.json</span></code> en el directorio actual</p>
 <p>Luego la función <code class="docutils literal notranslate"><span class="pre">read_json</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;pandas.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>regenera el DataFrame que teniamos</p>
+<p>regenera el DataFrame que teníamos</p>
 </div>
 </div>
 
@@ -1012,7 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>DataFrames</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="part3.html" title="siguiente página">

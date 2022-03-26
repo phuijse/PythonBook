@@ -268,8 +268,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manipucion-de-indices-y-multi-indices">
-   9.1. Manipución de índices y multi-índices
+  <a class="reference internal nav-link" href="#multi-indices">
+   9.1. Multi-índices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -350,8 +350,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#manipucion-de-indices-y-multi-indices">
-   9.1. Manipución de índices y multi-índices
+  <a class="reference internal nav-link" href="#multi-indices">
+   9.1. Multi-índices
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -428,15 +428,152 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Patrón Split-Apply-Combine con <code class="docutils literal notranslate"><span class="pre">groupBy</span></code></p></li>
 </ul>
 <p>Consideremos la siguiente tabla de la lección anterior con los datos del Censo 2017 de Chile</p>
-<table><tr><th style="text-align: right;">  ORDEN</th><th>NOMBRE REGIÓN     </th><th style="text-align: right;">  Código Región</th><th>NOMBRE PROVINCIA  </th><th style="text-align: right;">  Código Provincia</th><th>NOMBRE COMUNA  </th><th style="text-align: right;">  Código Comuna</th><th style="text-align: right;">  Viviendas Particulares Ocupadas con Moradores Presentes</th><th style="text-align: right;">  Viviendas Particulares Ocupadas con Moradores Ausentes</th><th style="text-align: right;">  Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th><th style="text-align: right;">     Viviendas Particulares Desocupadas\n(de Temporada)</th><th style="text-align: right;">  Viviendas Colectivas</th><th style="text-align: right;">  TOTAL VIVIENDAS</th></tr>\n</thead>\n<tbody>\n<tr><td style="text-align: right;">      1</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>ARICA             </td><td style="text-align: right;">               151</td><td>ARICA          </td><td style="text-align: right;">          15101</td><td style="text-align: right;">                                                    62129</td><td style="text-align: right;">                                                    4574</td><td style="text-align: right;">                                                                             4045</td><td style="text-align: right;">1666</td><td style="text-align: right;">                   225</td><td style="text-align: right;">            72639</td></tr>\n<tr><td style="text-align: right;">      2</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>ARICA             </td><td style="text-align: right;">               151</td><td>CAMARONES      </td><td style="text-align: right;">          15102</td><td style="text-align: right;">                                                      431</td><td style="text-align: right;">                                                      96</td><td style="text-align: right;">                                                                              158</td><td style="text-align: right;"> 242</td><td style="text-align: right;">                    21</td><td style="text-align: right;">              948</td></tr>\n<tr><td style="text-align: right;">      3</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>PARINACOTA        </td><td style="text-align: right;">               152</td><td>PUTRE          </td><td style="text-align: right;">          15201</td><td style="text-align: right;">                                                      540</td><td style="text-align: right;">                                                     197</td><td style="text-align: right;">                                                                              143</td><td style="text-align: right;"> 995</td><td style="text-align: right;">                    42</td><td style="text-align: right;">             1917</td></tr>\n<tr><td style="text-align: right;">      4</td><td>ARICA Y PARINACOTA</td><td style="text-align: right;">             15</td><td>PARINACOTA        </td><td style="text-align: right;">               152</td><td>GENERAL LAGOS  </td><td style="text-align: right;">          15202</td><td style="text-align: right;">                                                      218</td><td style="text-align: right;">                                                      90</td><td style="text-align: right;">                                                                              162</td><td style="text-align: right;"> 216</td><td style="text-align: right;">                    11</td><td style="text-align: right;">              697</td></tr>\n<tr><td style="text-align: right;">      5</td><td>TARAPACÁ          </td><td style="text-align: right;">              1</td><td>IQUIQUE           </td><td style="text-align: right;">                11</td><td>IQUIQUE        </td><td style="text-align: right;">           1101</td><td style="text-align: right;">                                                    56007</td><td style="text-align: right;">                                                    3673</td><td style="text-align: right;">                                                                             5481</td><td style="text-align: right;">1564</td><td style="text-align: right;">                   261</td><td style="text-align: right;">            66986</td></tr>\n</tbody>\n</table>
-<div class="section" id="manipucion-de-indices-y-multi-indices">
-<h2><span class="section-number">9.1. </span>Manipución de índices y multi-índices<a class="headerlink" href="#manipucion-de-indices-y-multi-indices" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;censo.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NOMBRE REGIÓN</th>
+      <th>Código Región</th>
+      <th>NOMBRE PROVINCIA</th>
+      <th>Código Provincia</th>
+      <th>NOMBRE COMUNA</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>ORDEN</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>ARICA</td>
+      <td>151.0</td>
+      <td>ARICA</td>
+      <td>15101.0</td>
+      <td>62129.0</td>
+      <td>4574.0</td>
+      <td>4045.0</td>
+      <td>1666.0</td>
+      <td>225.0</td>
+      <td>72639.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>ARICA</td>
+      <td>151.0</td>
+      <td>CAMARONES</td>
+      <td>15102.0</td>
+      <td>431.0</td>
+      <td>96.0</td>
+      <td>158.0</td>
+      <td>242.0</td>
+      <td>21.0</td>
+      <td>948.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>PARINACOTA</td>
+      <td>152.0</td>
+      <td>PUTRE</td>
+      <td>15201.0</td>
+      <td>540.0</td>
+      <td>197.0</td>
+      <td>143.0</td>
+      <td>995.0</td>
+      <td>42.0</td>
+      <td>1917.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARICA Y PARINACOTA</td>
+      <td>15.0</td>
+      <td>PARINACOTA</td>
+      <td>152.0</td>
+      <td>GENERAL LAGOS</td>
+      <td>15202.0</td>
+      <td>218.0</td>
+      <td>90.0</td>
+      <td>162.0</td>
+      <td>216.0</td>
+      <td>11.0</td>
+      <td>697.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>TARAPACÁ</td>
+      <td>1.0</td>
+      <td>IQUIQUE</td>
+      <td>11.0</td>
+      <td>IQUIQUE</td>
+      <td>1101.0</td>
+      <td>56007.0</td>
+      <td>3673.0</td>
+      <td>5481.0</td>
+      <td>1564.0</td>
+      <td>261.0</td>
+      <td>66986.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="multi-indices">
+<h2><span class="section-number">9.1. </span>Multi-índices<a class="headerlink" href="#multi-indices" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Estudiando la tabla anterior notamos que tiene una estructura jerárquica</p>
 <blockquote>
-<div><p>REGION, PROVINCIA, COMUNA</p>
+<div><p>REGIÓN, PROVINCIA, COMUNA</p>
 </div></blockquote>
 <p>Podemos representar este tipo de estructuras en pandas usando un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p>
-<p><strong>Creación y remoción de índices</strong></p>
+<p><strong>Asignar y reestablecer índices en un DataFrame</strong></p>
 <p>Para asignar un índice a un DataFrame que ya está creado podemos usar el atributo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="c1"># Una etiqueta o una lista de etiquetas que serán los nuevos índices</span>
              <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Eliminar las columnas que pasarán a ser índices</span>
@@ -445,10 +582,13 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
 <ul class="simple">
 <li><p>Si keys es una etiqueta crearemos un índice regular</p></li>
 <li><p>Si keys es una lista crearemos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></p></li>
 </ul>
+</div>
 <p>Si queremos que nuestro índice o multi-índice vuelva a convertirse en columna podemos usar el atributo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Permite especificar cuantos niveles de índices se removeran</span>
                <span class="n">drop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="c1"># Si los índices se deben eliminar o agregar como columnas</span>
@@ -458,47 +598,703 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p><strong>Ejemplo</strong></p>
-<p>Crearemos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> para la tabla del censo. Usaremos dos niveles de jerarquía, el superior para región y el inferior para provincia. Esto se logra con</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;NOMBRE REGIÓN&quot;</span><span class="p">,</span> <span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+<p>Crearemos un <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> para la tabla anterior. En este caso usaremos tres niveles de jerarquía:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;NOMBRE REGIÓN&quot;</span><span class="p">,</span> <span class="s2">&quot;NOMBRE PROVINCIA&quot;</span><span class="p">,</span> <span class="s2">&quot;NOMBRE COMUNA&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Si inspeccionamos el objeto <code class="docutils literal notranslate"><span class="pre">df.index</span></code> veremos lo siguiente:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MultiIndex</span><span class="p">([(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>             <span class="s1">&#39;ARICA&#39;</span><span class="p">),</span>
-            <span class="p">(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>             <span class="s1">&#39;ARICA&#39;</span><span class="p">),</span>
-            <span class="p">(</span>                  <span class="s1">&#39;ARICA Y PARINACOTA&#39;</span><span class="p">,</span>        <span class="s1">&#39;PARINACOTA&#39;</span><span class="p">),</span>
-            <span class="o">...</span>
+</div>
+</div>
+<p>Si inspeccionamos el DataFrame veremos que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
-<p><strong>Ejemplos de <em>Slicing</em> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></strong></p>
-<p>Para recuperar un elemento de un DataFrame con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> podemos indexar usando una tupla especificando cada uno de los niveles de índices</p>
-<p>Por ejemplo para recuperar una fila en particular usamos</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Código Región</th>
+      <th>Código Provincia</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>NOMBRE REGIÓN</th>
+      <th>NOMBRE PROVINCIA</th>
+      <th>NOMBRE COMUNA</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">ARICA Y PARINACOTA</th>
+      <th rowspan="2" valign="top">ARICA</th>
+      <th>ARICA</th>
+      <td>15.0</td>
+      <td>151.0</td>
+      <td>15101.0</td>
+      <td>62129.0</td>
+      <td>4574.0</td>
+      <td>4045.0</td>
+      <td>1666.0</td>
+      <td>225.0</td>
+      <td>72639.0</td>
+    </tr>
+    <tr>
+      <th>CAMARONES</th>
+      <td>15.0</td>
+      <td>151.0</td>
+      <td>15102.0</td>
+      <td>431.0</td>
+      <td>96.0</td>
+      <td>158.0</td>
+      <td>242.0</td>
+      <td>21.0</td>
+      <td>948.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">PARINACOTA</th>
+      <th>PUTRE</th>
+      <td>15.0</td>
+      <td>152.0</td>
+      <td>15201.0</td>
+      <td>540.0</td>
+      <td>197.0</td>
+      <td>143.0</td>
+      <td>995.0</td>
+      <td>42.0</td>
+      <td>1917.0</td>
+    </tr>
+    <tr>
+      <th>GENERAL LAGOS</th>
+      <td>15.0</td>
+      <td>152.0</td>
+      <td>15202.0</td>
+      <td>218.0</td>
+      <td>90.0</td>
+      <td>162.0</td>
+      <td>216.0</td>
+      <td>11.0</td>
+      <td>697.0</td>
+    </tr>
+    <tr>
+      <th>TARAPACÁ</th>
+      <th>IQUIQUE</th>
+      <th>IQUIQUE</th>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>1101.0</td>
+      <td>56007.0</td>
+      <td>3673.0</td>
+      <td>5481.0</td>
+      <td>1564.0</td>
+      <td>261.0</td>
+      <td>66986.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">MAGALLANES Y DE LA ANTÁRTICA CHILENA</th>
+      <th rowspan="3" valign="top">TIERRA DEL FUEGO</th>
+      <th>PORVENIR</th>
+      <td>12.0</td>
+      <td>123.0</td>
+      <td>12301.0</td>
+      <td>2097.0</td>
+      <td>57.0</td>
+      <td>462.0</td>
+      <td>511.0</td>
+      <td>60.0</td>
+      <td>3187.0</td>
+    </tr>
+    <tr>
+      <th>PRIMAVERA</th>
+      <td>12.0</td>
+      <td>123.0</td>
+      <td>12302.0</td>
+      <td>190.0</td>
+      <td>47.0</td>
+      <td>62.0</td>
+      <td>100.0</td>
+      <td>73.0</td>
+      <td>472.0</td>
+    </tr>
+    <tr>
+      <th>TIMAUKEL</th>
+      <td>12.0</td>
+      <td>123.0</td>
+      <td>12303.0</td>
+      <td>87.0</td>
+      <td>9.0</td>
+      <td>34.0</td>
+      <td>76.0</td>
+      <td>8.0</td>
+      <td>214.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ÚLTIMA ESPERANZA</th>
+      <th>NATALES</th>
+      <td>12.0</td>
+      <td>124.0</td>
+      <td>12401.0</td>
+      <td>7274.0</td>
+      <td>754.0</td>
+      <td>900.0</td>
+      <td>331.0</td>
+      <td>110.0</td>
+      <td>9369.0</td>
+    </tr>
+    <tr>
+      <th>TORRES DEL PAINE</th>
+      <td>12.0</td>
+      <td>124.0</td>
+      <td>12402.0</td>
+      <td>127.0</td>
+      <td>16.0</td>
+      <td>7.0</td>
+      <td>38.0</td>
+      <td>38.0</td>
+      <td>226.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>346 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p><strong><em>Slicing</em> con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code></strong></p>
+<p>Para recuperar un elemento de un DataFrame con <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code> podemos indexar usando una tupla especificando cada uno de los niveles de índices, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Lo cual retorna la comuna de Valdivia</p>
-<p>Si queremos recuperar un conjunto de elementos podemos usar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Código Región                                                                         14.0
+Código Provincia                                                                     141.0
+Código Comuna                                                                      14101.0
+Viviendas Particulares Ocupadas con Moradores Presentes                            53624.0
+Viviendas Particulares Ocupadas con Moradores Ausentes                              2939.0
+Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)     2876.0
+Viviendas Particulares Desocupadas\n(de Temporada)                                  1516.0
+Viviendas Colectivas                                                                 237.0
+TOTAL VIVIENDAS                                                                    61192.0
+Name: (LOS RÍOS, VALDIVIA, VALDIVIA), dtype: float64
 </pre></div>
 </div>
-<p>Lo cual retorna todas las comunas de la provincia de Valdivia</p>
-<p>También podríamos usar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">)]</span> 
+</div>
+</div>
+<p>retorna la comuna de Valdivia, mientras que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;LOS RÍOS&quot;</span><span class="p">,</span> <span class="s2">&quot;VALDIVIA&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p>Lo cual retorna todas las comunas de región de los rios</p>
-<p>Para hacer <em>slices</em> o <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code>, lo más simple es usar el objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23.4/generated/pandas.IndexSlice.html"><code class="docutils literal notranslate"><span class="pre">IndexSlice</span></code></a></p>
-<p>Por ejemplo para recuperar dos filas usamos</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_35404/853128477.py:1: PerformanceWarning: indexing past lexsort depth may impact performance.
+  df.loc[(&quot;LOS RÍOS&quot;, &quot;VALDIVIA&quot;)]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Código Región</th>
+      <th>Código Provincia</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>NOMBRE COMUNA</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>VALDIVIA</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14101.0</td>
+      <td>53624.0</td>
+      <td>2939.0</td>
+      <td>2876.0</td>
+      <td>1516.0</td>
+      <td>237.0</td>
+      <td>61192.0</td>
+    </tr>
+    <tr>
+      <th>CORRAL</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14102.0</td>
+      <td>1842.0</td>
+      <td>93.0</td>
+      <td>158.0</td>
+      <td>470.0</td>
+      <td>11.0</td>
+      <td>2574.0</td>
+    </tr>
+    <tr>
+      <th>LANCO</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14103.0</td>
+      <td>5643.0</td>
+      <td>265.0</td>
+      <td>308.0</td>
+      <td>217.0</td>
+      <td>17.0</td>
+      <td>6450.0</td>
+    </tr>
+    <tr>
+      <th>LOS LAGOS</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14104.0</td>
+      <td>6446.0</td>
+      <td>304.0</td>
+      <td>601.0</td>
+      <td>539.0</td>
+      <td>23.0</td>
+      <td>7913.0</td>
+    </tr>
+    <tr>
+      <th>MÁFIL</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14105.0</td>
+      <td>2317.0</td>
+      <td>152.0</td>
+      <td>161.0</td>
+      <td>77.0</td>
+      <td>5.0</td>
+      <td>2712.0</td>
+    </tr>
+    <tr>
+      <th>MARIQUINA</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14106.0</td>
+      <td>6808.0</td>
+      <td>351.0</td>
+      <td>519.0</td>
+      <td>727.0</td>
+      <td>12.0</td>
+      <td>8417.0</td>
+    </tr>
+    <tr>
+      <th>PAILLACO</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14107.0</td>
+      <td>6476.0</td>
+      <td>363.0</td>
+      <td>542.0</td>
+      <td>222.0</td>
+      <td>23.0</td>
+      <td>7626.0</td>
+    </tr>
+    <tr>
+      <th>PANGUIPULLI</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14108.0</td>
+      <td>11615.0</td>
+      <td>840.0</td>
+      <td>1155.0</td>
+      <td>3142.0</td>
+      <td>58.0</td>
+      <td>16810.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>retorna todas las comunas de la provincia de Valdivia.</p>
+<p>Para hacer <em>slices</em> o <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">indexing</span></code> lo más simple es usar el objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23.4/generated/pandas.IndexSlice.html"><code class="docutils literal notranslate"><span class="pre">IndexSlice</span></code></a>, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;VALDIVIA&quot;</span><span class="p">,</span> <span class="s2">&quot;OSORNO&quot;</span><span class="p">]],</span> <span class="p">:]</span> 
 </pre></div>
 </div>
-<p>Lo cual retorna las comunas de Valdivia y Osorno</p>
-<p>Para recuperar subconjuntos arbitrarios de filas en base al índice jerárquico podemos usar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Código Región</th>
+      <th>Código Provincia</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>NOMBRE REGIÓN</th>
+      <th>NOMBRE PROVINCIA</th>
+      <th>NOMBRE COMUNA</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>LOS RÍOS</th>
+      <th>VALDIVIA</th>
+      <th>VALDIVIA</th>
+      <td>14.0</td>
+      <td>141.0</td>
+      <td>14101.0</td>
+      <td>53624.0</td>
+      <td>2939.0</td>
+      <td>2876.0</td>
+      <td>1516.0</td>
+      <td>237.0</td>
+      <td>61192.0</td>
+    </tr>
+    <tr>
+      <th>LOS LAGOS</th>
+      <th>OSORNO</th>
+      <th>OSORNO</th>
+      <td>10.0</td>
+      <td>103.0</td>
+      <td>10301.0</td>
+      <td>53821.0</td>
+      <td>3082.0</td>
+      <td>2685.0</td>
+      <td>471.0</td>
+      <td>73.0</td>
+      <td>60132.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>retorna las comunas de Valdivia y Osorno, sin importar que estén en distintas provincias, mientras que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;LLANQUIHUE&quot;</span><span class="p">,</span> <span class="s2">&quot;PALENA&quot;</span><span class="p">],</span> <span class="p">:</span> <span class="p">],</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<p>Lo cual retorna las comunas pertenecientes a las provincias de Llanquihue y Palena</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Código Región</th>
+      <th>Código Provincia</th>
+      <th>Código Comuna</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Presentes</th>
+      <th>Viviendas Particulares Ocupadas con Moradores Ausentes</th>
+      <th>Viviendas Particulares Desocupadas (en Venta, para arriendo, Abandonada u otro)</th>
+      <th>Viviendas Particulares Desocupadas\n(de Temporada)</th>
+      <th>Viviendas Colectivas</th>
+      <th>TOTAL VIVIENDAS</th>
+    </tr>
+    <tr>
+      <th>NOMBRE REGIÓN</th>
+      <th>NOMBRE PROVINCIA</th>
+      <th>NOMBRE COMUNA</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="13" valign="top">LOS LAGOS</th>
+      <th rowspan="9" valign="top">LLANQUIHUE</th>
+      <th>PUERTO MONTT</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10101.0</td>
+      <td>78820.0</td>
+      <td>5503.0</td>
+      <td>6655.0</td>
+      <td>2194.0</td>
+      <td>208.0</td>
+      <td>93380.0</td>
+    </tr>
+    <tr>
+      <th>CALBUCO</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10102.0</td>
+      <td>11146.0</td>
+      <td>745.0</td>
+      <td>1006.0</td>
+      <td>637.0</td>
+      <td>36.0</td>
+      <td>13570.0</td>
+    </tr>
+    <tr>
+      <th>COCHAMÓ</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10103.0</td>
+      <td>1600.0</td>
+      <td>90.0</td>
+      <td>172.0</td>
+      <td>358.0</td>
+      <td>20.0</td>
+      <td>2240.0</td>
+    </tr>
+    <tr>
+      <th>FRESIA</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10104.0</td>
+      <td>4356.0</td>
+      <td>236.0</td>
+      <td>435.0</td>
+      <td>227.0</td>
+      <td>8.0</td>
+      <td>5262.0</td>
+    </tr>
+    <tr>
+      <th>FRUTILLAR</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10105.0</td>
+      <td>6267.0</td>
+      <td>626.0</td>
+      <td>594.0</td>
+      <td>398.0</td>
+      <td>24.0</td>
+      <td>7909.0</td>
+    </tr>
+    <tr>
+      <th>LOS MUERMOS</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10106.0</td>
+      <td>5990.0</td>
+      <td>327.0</td>
+      <td>619.0</td>
+      <td>321.0</td>
+      <td>7.0</td>
+      <td>7264.0</td>
+    </tr>
+    <tr>
+      <th>LLANQUIHUE</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10107.0</td>
+      <td>5550.0</td>
+      <td>200.0</td>
+      <td>258.0</td>
+      <td>115.0</td>
+      <td>12.0</td>
+      <td>6135.0</td>
+    </tr>
+    <tr>
+      <th>MAULLÍN</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10108.0</td>
+      <td>5112.0</td>
+      <td>259.0</td>
+      <td>743.0</td>
+      <td>502.0</td>
+      <td>14.0</td>
+      <td>6630.0</td>
+    </tr>
+    <tr>
+      <th>PUERTO VARAS</th>
+      <td>10.0</td>
+      <td>101.0</td>
+      <td>10109.0</td>
+      <td>14231.0</td>
+      <td>1034.0</td>
+      <td>1168.0</td>
+      <td>1108.0</td>
+      <td>102.0</td>
+      <td>17643.0</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">PALENA</th>
+      <th>CHAITÉN</th>
+      <td>10.0</td>
+      <td>104.0</td>
+      <td>10401.0</td>
+      <td>1625.0</td>
+      <td>151.0</td>
+      <td>195.0</td>
+      <td>190.0</td>
+      <td>60.0</td>
+      <td>2221.0</td>
+    </tr>
+    <tr>
+      <th>FUTALEUFÚ</th>
+      <td>10.0</td>
+      <td>104.0</td>
+      <td>10402.0</td>
+      <td>1002.0</td>
+      <td>130.0</td>
+      <td>101.0</td>
+      <td>176.0</td>
+      <td>24.0</td>
+      <td>1433.0</td>
+    </tr>
+    <tr>
+      <th>HUALAIHUÉ</th>
+      <td>10.0</td>
+      <td>104.0</td>
+      <td>10403.0</td>
+      <td>3093.0</td>
+      <td>270.0</td>
+      <td>616.0</td>
+      <td>439.0</td>
+      <td>21.0</td>
+      <td>4439.0</td>
+    </tr>
+    <tr>
+      <th>PALENA</th>
+      <td>10.0</td>
+      <td>104.0</td>
+      <td>10404.0</td>
+      <td>715.0</td>
+      <td>61.0</td>
+      <td>58.0</td>
+      <td>165.0</td>
+      <td>3.0</td>
+      <td>1002.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>retorna las comunas pertenecientes a las provincias de Llanquihue y Palena</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Con IndexSlice podemos recuperar subconjuntos arbitrarios de filas en base al índice jerárquico</p>
+</div>
 </div>
 <div class="section" id="patron-split-apply-combine-en-dataframes">
 <h2><span class="section-number">9.2. </span>Patrón <em>Split-Apply-Combine</em> en DataFrames<a class="headerlink" href="#patron-split-apply-combine-en-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
