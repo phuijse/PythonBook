@@ -26,6 +26,7 @@ parts:
     - file: contents/visualization/matplotlib1
     - file: contents/visualization/matplotlib2
     - file: contents/visualization/goodvisualizations
+    - file: contents/visualization/guis
     #  - file: clases/unidad1/04_jupyter_y_ipython
 #  - caption: "Manipulaci\xF3n de datos"
 #  numbered: true
