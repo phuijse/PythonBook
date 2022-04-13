@@ -13,25 +13,39 @@ parts:
   chapters:
   - file: contents/jupyter/intro
   - file: contents/jupyter/tutorial
-- caption: "Trabajando con datos"
+- caption: "Análisis de datos con Pandas"
   numbered: true
   chapters:
     - file: contents/pandas/part1
     - file: contents/pandas/part2
     - file: contents/pandas/part3
     - file: contents/pandas/part4
-- caption: "Visualización de datos"
+- caption: "Visualización de datos con Matplotlib"
   numbered: true
   chapters:
     - file: contents/visualization/matplotlib1
     - file: contents/visualization/matplotlib2
     - file: contents/visualization/goodvisualizations
     - file: contents/visualization/guis
-- caption: "Datos numéricos"
+- caption: "Datos numéricos con Numpy"
   numbered: true
   chapters:
     - file: contents/numpy/numpy1
     - file: contents/numpy/numpy2
+    - file: contents/numpy/numpy3
+- caption: "Cálculo numérico con Scipy"
+  numbered: true
+  chapters:
+    - file: contents/scipy/optimization
+    - file: contents/scipy/ode_integration
+      #    - file: contents/numpy/numpy3
+- caption: "Estadística con Scipy"
+  numbered: true
+  chapters:
+    - file: contents/statistics/stats1
+    - file: contents/statistics/stats2
+    - file: contents/statistics/stats3
+    - file: contents/statistics/stats4
       #  - file: clases/unidad1/04_jupyter_y_ipython
 #  - caption: "Manipulaci\xF3n de datos"
 #  numbered: true
