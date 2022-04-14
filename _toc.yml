@@ -35,21 +35,22 @@ parts:
 - caption: "Algebra lineal con Scipy"
   numbered: true
   chapters:
+    - file: contents/linalg/intro
     - file: contents/linalg/linalg1
     - file: contents/linalg/linalg2
-- caption: "Cálculo numérico con Scipy"
-  numbered: true
-  chapters:
-    - file: contents/scipy/optimization
-    - file: contents/scipy/ode_integration
-- caption: "Estadística con Scipy"
-  numbered: true
-  chapters:
-    - file: contents/statistics/stats1
-    - file: contents/statistics/stats2
-    - file: contents/statistics/stats3
-      #    - file: contents/statistics/stats4
-- caption: "Aprendizaje de máquinas con Scikit-Learn"
-  numbered: true
-  chapters:
-    - file: contents/sklearn/linear_regression
+
+#- caption: "Cálculo numérico con Scipy"
+#  numbered: true
+#  chapters:
+#    - file: contents/scipy/optimization
+#    - file: contents/scipy/ode_integration
+#- caption: "Estadística con Scipy"
+#  numbered: true
+#  chapters:
+#    - file: contents/statistics/stats1
+#    - file: contents/statistics/stats2
+#    - file: contents/statistics/stats3
+#- caption: "Aprendizaje de máquinas con Scikit-Learn"
+#  numbered: true
+#  chapters:
+#    - file: contents/sklearn/linear_regression
