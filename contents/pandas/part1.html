@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. DataFrames de pandas &#8212; Computación Científica con Python</title>
+    <title>9. DataFrames de pandas &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="8. Importar y exportar datos" href="part2.html" />
-    <link rel="prev" title="6. Breve tutorial de Jupyter/IPython" href="../jupyter/tutorial.html" />
+    <link rel="next" title="10. Importar y exportar datos" href="part2.html" />
+    <link rel="prev" title="8. Otros lenguajes en Jupyter" href="../jupyter/beyond_python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -131,16 +131,31 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Trabajando con datos
+  Análisis de datos con Pandas
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -150,49 +165,66 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Visualización de datos
+  Visualización de datos con Matplotlib
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/guis.html">
-   14. Interfaces de usuario en Jupyter con
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
     </span>
    </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -301,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objeto-pandas-dataframe">
-   7.1. Objeto
+   9.1. Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas.DataFrame
@@ -311,7 +343,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indexacion-y-slicing-de-dataframes">
-   7.2. Indexación y
+   9.2. Indexación y
    <em>
     slicing
    </em>
@@ -320,12 +352,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
-   7.3. Combinación y manipulación de DataFrames
+   9.3. Combinación y manipulación de DataFrames
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operando-con-dataframes">
-   7.4. Operando con DataFrames
+   9.4. Operando con DataFrames
   </a>
  </li>
 </ul>
@@ -350,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objeto-pandas-dataframe">
-   7.1. Objeto
+   9.1. Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas.DataFrame
@@ -360,7 +392,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indexacion-y-slicing-de-dataframes">
-   7.2. Indexación y
+   9.2. Indexación y
    <em>
     slicing
    </em>
@@ -369,12 +401,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combinacion-y-manipulacion-de-dataframes">
-   7.3. Combinación y manipulación de DataFrames
+   9.3. Combinación y manipulación de DataFrames
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#operando-con-dataframes">
-   7.4. Operando con DataFrames
+   9.4. Operando con DataFrames
   </a>
  </li>
 </ul>
@@ -387,7 +419,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="dataframes-de-pandas">
-<h1><span class="section-number">7. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#dataframes-de-pandas" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">9. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#dataframes-de-pandas" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Pandas es una librería de Python para <strong>leer, manipular y analizar datos</strong> que se combina muy bien con NumPy y Matplotlib</p>
 <p>Pandas nos provee de:</p>
 <ul class="simple">
@@ -409,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="objeto-pandas-dataframe">
-<h2><span class="section-number">7.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#objeto-pandas-dataframe" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#objeto-pandas-dataframe" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> es la estructura de datos principal de pandas</p>
 <ul class="simple">
 <li><p>Es un arreglo de dos dimensiones (matriz) que <strong>representa una tabla</strong></p></li>
@@ -564,7 +596,7 @@ memory usage: 96.0+ bytes
 </div>
 </div>
 <div class="section" id="indexacion-y-slicing-de-dataframes">
-<h2><span class="section-number">7.2. </span>Indexación y <em>slicing</em>  de DataFrames<a class="headerlink" href="#indexacion-y-slicing-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Indexación y <em>slicing</em>  de DataFrames<a class="headerlink" href="#indexacion-y-slicing-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Indexado en base a etiquetas</strong></p>
 <p>Podemos usar las etiquetas para indexar un DataFrame ya sea en sus filas o en sus columnas</p>
 <p>También podemos hacer <em>slicing</em>, es decir recuperar un subconjunto de un DataFrame</p>
@@ -787,7 +819,7 @@ Name: Monto [M$], dtype: int64
 <p>Estas son mucho más rápidas que <code class="docutils literal notranslate"><span class="pre">loc[]</span></code> e <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> pero no permiten hacer <em>slicing</em> ni <em>fancy indexing</em></p>
 </div>
 <div class="section" id="combinacion-y-manipulacion-de-dataframes">
-<h2><span class="section-number">7.3. </span>Combinación y manipulación de DataFrames<a class="headerlink" href="#combinacion-y-manipulacion-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Combinación y manipulación de DataFrames<a class="headerlink" href="#combinacion-y-manipulacion-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>A continuación veremos como</p>
 <ul class="simple">
 <li><p>Combinar dos o más tablas</p></li>
@@ -930,7 +962,7 @@ Name: Monto [M$], dtype: int64
 <p>También existe el atributo <code class="docutils literal notranslate"><span class="pre">sort_index</span></code> que permite ordenar filas y columnas según su etiqueta</p>
 </div>
 <div class="section" id="operando-con-dataframes">
-<h2><span class="section-number">7.4. </span>Operando con DataFrames<a class="headerlink" href="#operando-con-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Operando con DataFrames<a class="headerlink" href="#operando-con-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Operaciones aritméticas y lógicas</strong></p>
 <p>Podemos hacer operaciones aritméticas simples sobre DataFrames con los atributos</p>
 <ul class="simple">
@@ -1106,17 +1138,17 @@ Name: Monto [M$], dtype: int64
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../jupyter/tutorial.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../jupyter/beyond_python.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Breve tutorial de Jupyter/IPython</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Otros lenguajes en Jupyter</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="part2.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Importar y exportar datos</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Importar y exportar datos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

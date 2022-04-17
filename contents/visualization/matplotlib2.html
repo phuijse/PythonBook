@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12. Tipos de gráfico en matplotlib &#8212; Computación Científica con Python</title>
+    <title>14. Tipos de gráfico en matplotlib &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="13. ¿Cómo hacer buenas visualizaciones?" href="goodvisualizations.html" />
-    <link rel="prev" title="11. Introducción a Matplotlib" href="matplotlib1.html" />
+    <link rel="next" title="15. ¿Cómo hacer buenas visualizaciones?" href="goodvisualizations.html" />
+    <link rel="prev" title="13. Introducción a Matplotlib" href="matplotlib1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -133,16 +133,31 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Trabajando con datos
+  Análisis de datos con Pandas
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -152,49 +167,66 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Visualización de datos
+  Visualización de datos con Matplotlib
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="guis.html">
-   14. Interfaces de usuario en Jupyter con
+  <a class="reference internal" href="ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
     </span>
    </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -303,47 +335,47 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nubes-de-puntos">
-   12.1. Nubes de puntos
+   14.1. Nubes de puntos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lineas-con-barras-de-error">
-   12.2. Lineas con barras de error
+   14.2. Lineas con barras de error
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rango-de-datos">
-   12.3. Rango de datos
+   14.3. Rango de datos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lineas-sobrepuestas">
-   12.4. Lineas sobrepuestas
+   14.4. Lineas sobrepuestas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graficos-de-barra">
-   12.5. Gráficos de Barra
+   14.5. Gráficos de Barra
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histogramas">
-   12.6. Histogramas
+   14.6. Histogramas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagrama-de-caja-y-bigote">
-   12.7. Diagrama de caja y bigote
+   14.7. Diagrama de caja y bigote
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mapas-de-colores">
-   12.8. Mapas de colores
+   14.8. Mapas de colores
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graficas-en-3d">
-   12.9. Gráficas en 3D
+   14.9. Gráficas en 3D
   </a>
  </li>
 </ul>
@@ -368,47 +400,47 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nubes-de-puntos">
-   12.1. Nubes de puntos
+   14.1. Nubes de puntos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lineas-con-barras-de-error">
-   12.2. Lineas con barras de error
+   14.2. Lineas con barras de error
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rango-de-datos">
-   12.3. Rango de datos
+   14.3. Rango de datos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lineas-sobrepuestas">
-   12.4. Lineas sobrepuestas
+   14.4. Lineas sobrepuestas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graficos-de-barra">
-   12.5. Gráficos de Barra
+   14.5. Gráficos de Barra
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histogramas">
-   12.6. Histogramas
+   14.6. Histogramas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#diagrama-de-caja-y-bigote">
-   12.7. Diagrama de caja y bigote
+   14.7. Diagrama de caja y bigote
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mapas-de-colores">
-   12.8. Mapas de colores
+   14.8. Mapas de colores
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#graficas-en-3d">
-   12.9. Gráficas en 3D
+   14.9. Gráficas en 3D
   </a>
  </li>
 </ul>
@@ -421,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="tipos-de-grafico-en-matplotlib">
-<h1><span class="section-number">12. </span>Tipos de gráfico en matplotlib<a class="headerlink" href="#tipos-de-grafico-en-matplotlib" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">14. </span>Tipos de gráfico en matplotlib<a class="headerlink" href="#tipos-de-grafico-en-matplotlib" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Hasta ahora sólo hemos utilizado la función <code class="docutils literal notranslate"><span class="pre">plot</span></code> para crear gráficos de línea.</p>
 <p>A continuación revisaremos como crear gráficas otras usuales como las nubes de puntos y los mapas de contornos con matplotlib</p>
 <p>Utilizaremos los mismos datos de la lección pasada</p>
@@ -443,7 +475,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="nubes-de-puntos">
-<h2><span class="section-number">12.1. </span>Nubes de puntos<a class="headerlink" href="#nubes-de-puntos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.1. </span>Nubes de puntos<a class="headerlink" href="#nubes-de-puntos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los gráficos de nube de puntos son útiles para explorar si existe correlación entre dos conjuntos de datos</p>
 <p>En matplotlib se crean con la función <code class="docutils literal notranslate"><span class="pre">scatter</span></code></p>
 <p>A continuación se muestran algunos de los argumentos principales de esta función</p>
@@ -516,7 +548,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="lineas-con-barras-de-error">
-<h2><span class="section-number">12.2. </span>Lineas con barras de error<a class="headerlink" href="#lineas-con-barras-de-error" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.2. </span>Lineas con barras de error<a class="headerlink" href="#lineas-con-barras-de-error" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El gráfico de linea con barras de error es útil si queremos mostrar la incerteza asociada a nuestras variables.</p>
 <p>Podemos hacer un gráfico con barras de error con la función <code class="docutils literal notranslate"><span class="pre">errorbar</span></code></p>
 <ul class="simple">
@@ -545,7 +577,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="rango-de-datos">
-<h2><span class="section-number">12.3. </span>Rango de datos<a class="headerlink" href="#rango-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.3. </span>Rango de datos<a class="headerlink" href="#rango-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos utilizar la función <code class="docutils literal notranslate"><span class="pre">fill_between</span></code> para dibujar áreas</p>
 <p>Este tipo de gráfico es útil si queremos:</p>
 <ul class="simple">
@@ -580,7 +612,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="lineas-sobrepuestas">
-<h2><span class="section-number">12.4. </span>Lineas sobrepuestas<a class="headerlink" href="#lineas-sobrepuestas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.4. </span>Lineas sobrepuestas<a class="headerlink" href="#lineas-sobrepuestas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos utilziar la función <code class="docutils literal notranslate"><span class="pre">stackplot</span></code> para dibujar lineas sobrepuestas</p>
 <p>Este tipo de gráfico sirve para estudiar la contribución de múltiples variables con respecto a su valor acumulado (suma)</p>
 <div class="cell docutils container">
@@ -602,7 +634,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="graficos-de-barra">
-<h2><span class="section-number">12.5. </span>Gráficos de Barra<a class="headerlink" href="#graficos-de-barra" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.5. </span>Gráficos de Barra<a class="headerlink" href="#graficos-de-barra" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos utilizar la función <code class="docutils literal notranslate"><span class="pre">bar</span></code> para crear gráficos de barra</p>
 <p>Este tipo de gráfico sirve para comparar una cierta cantidad con respecto a distintos grupos</p>
 <div class="cell docutils container">
@@ -626,7 +658,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="histogramas">
-<h2><span class="section-number">12.6. </span>Histogramas<a class="headerlink" href="#histogramas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.6. </span>Histogramas<a class="headerlink" href="#histogramas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos utilizar la función <code class="docutils literal notranslate"><span class="pre">hist</span></code> para crear y graficar histogramas con matplotlib</p>
 <p>Un histograma es una representación de la <strong>distribución de una o más variables</strong> y su construcción involucra</p>
 <ul class="simple">
@@ -678,7 +710,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="diagrama-de-caja-y-bigote">
-<h2><span class="section-number">12.7. </span>Diagrama de caja y bigote<a class="headerlink" href="#diagrama-de-caja-y-bigote" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.7. </span>Diagrama de caja y bigote<a class="headerlink" href="#diagrama-de-caja-y-bigote" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos utilizar la función <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> para hacer un diagrama de cajas</p>
 <p>Este tipo de gráfico se usa para visualizar y/o comparar la distribución de varios conjuntos de datos</p>
 <ul class="simple">
@@ -709,7 +741,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="mapas-de-colores">
-<h2><span class="section-number">12.8. </span>Mapas de colores<a class="headerlink" href="#mapas-de-colores" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.8. </span>Mapas de colores<a class="headerlink" href="#mapas-de-colores" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para visualizar funciones que varían en dos variables independientes (por ejemplo una superficie) podemos usar <strong>Mapas de colores</strong></p>
 <p>Revisaremos las siguientes opciones</p>
 <ul class="simple">
@@ -837,7 +869,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="graficas-en-3d">
-<h2><span class="section-number">12.9. </span>Gráficas en 3D<a class="headerlink" href="#graficas-en-3d" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">14.9. </span>Gráficas en 3D<a class="headerlink" href="#graficas-en-3d" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Otra opción para visualizar la interacción entre tres variables es usar gráficos 3D</p>
 <ul class="simple">
 <li><p>Es necesario importar el módulo <code class="docutils literal notranslate"><span class="pre">Axes3D</span></code></p></li>
@@ -927,13 +959,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">11. </span>Introducción a Matplotlib</p>
+            <p class="prev-next-title"><span class="section-number">13. </span>Introducción a Matplotlib</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="goodvisualizations.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>¿Cómo hacer buenas visualizaciones?</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>¿Cómo hacer buenas visualizaciones?</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

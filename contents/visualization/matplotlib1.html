@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11. Introducción a Matplotlib &#8212; Computación Científica con Python</title>
+    <title>13. Introducción a Matplotlib &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="12. Tipos de gráfico en matplotlib" href="matplotlib2.html" />
-    <link rel="prev" title="10. Tópicos extra" href="../pandas/part4.html" />
+    <link rel="next" title="14. Tipos de gráfico en matplotlib" href="matplotlib2.html" />
+    <link rel="prev" title="12. Tópicos extra" href="../pandas/part4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -131,16 +131,31 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Trabajando con datos
+  Análisis de datos con Pandas
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -150,49 +165,66 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Visualización de datos
+  Visualización de datos con Matplotlib
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="guis.html">
-   14. Interfaces de usuario en Jupyter con
+  <a class="reference internal" href="ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
     </span>
    </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -301,39 +333,39 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nuestra-primera-figura-en-matplotlib">
-   11.1. Nuestra primera figura en matplotlib
+   13.1. Nuestra primera figura en matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creacion-de-figuras-ejes-y-artistas">
-   11.2. Creación de figuras, ejes y artistas
+   13.2. Creación de figuras, ejes y artistas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#posicionamiento-de-ejes">
-     11.2.1. Posicionamiento de ejes
+     13.2.1. Posicionamiento de ejes
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#escalas-logaritmicas">
-     11.2.2. Escalas logarítmicas
+     13.2.2. Escalas logarítmicas
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#anotaciones-en-un-grafico">
-     11.2.3. Anotaciones en un gráfico
+     13.2.3. Anotaciones en un gráfico
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configurando-matplotlib">
-   11.3. Configurando matplotlib
+   13.3. Configurando matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mas-alla-de-matplotlib">
-   11.4. Más allá de matplotlib
+   13.4. Más allá de matplotlib
   </a>
  </li>
 </ul>
@@ -358,39 +390,39 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nuestra-primera-figura-en-matplotlib">
-   11.1. Nuestra primera figura en matplotlib
+   13.1. Nuestra primera figura en matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creacion-de-figuras-ejes-y-artistas">
-   11.2. Creación de figuras, ejes y artistas
+   13.2. Creación de figuras, ejes y artistas
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#posicionamiento-de-ejes">
-     11.2.1. Posicionamiento de ejes
+     13.2.1. Posicionamiento de ejes
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#escalas-logaritmicas">
-     11.2.2. Escalas logarítmicas
+     13.2.2. Escalas logarítmicas
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#anotaciones-en-un-grafico">
-     11.2.3. Anotaciones en un gráfico
+     13.2.3. Anotaciones en un gráfico
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#configurando-matplotlib">
-   11.3. Configurando matplotlib
+   13.3. Configurando matplotlib
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mas-alla-de-matplotlib">
-   11.4. Más allá de matplotlib
+   13.4. Más allá de matplotlib
   </a>
  </li>
 </ul>
@@ -403,7 +435,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduccion-a-matplotlib">
-<h1><span class="section-number">11. </span>Introducción a Matplotlib<a class="headerlink" href="#introduccion-a-matplotlib" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">13. </span>Introducción a Matplotlib<a class="headerlink" href="#introduccion-a-matplotlib" title="Enlazar permanentemente con este título">¶</a></h1>
 <p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> es una librería de Python para hacer gráficos en dos dimensiones de alta calidad y altamente configurables. Tiene excelente integración con otras librerías como pandas y numpy</p>
 <p>Adicionalmente matplotlib se integra con Jupyter mediante la magia <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">backend</span></code>. Entre las opciones de backend se encuentran</p>
 <ul class="simple">
@@ -450,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>A continuación vamos a revisar ambos</p>
 <div class="section" id="nuestra-primera-figura-en-matplotlib">
-<h2><span class="section-number">11.1. </span>Nuestra primera figura en matplotlib<a class="headerlink" href="#nuestra-primera-figura-en-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">13.1. </span>Nuestra primera figura en matplotlib<a class="headerlink" href="#nuestra-primera-figura-en-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Consideremos los siguientes datos que representan el número de casos covid19 positivos totales desde el 22 de Enero de 2020 hasta el 13 de Mayo de 2020</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -675,7 +707,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="creacion-de-figuras-ejes-y-artistas">
-<h2><span class="section-number">11.2. </span>Creación de figuras, ejes y artistas<a class="headerlink" href="#creacion-de-figuras-ejes-y-artistas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">13.2. </span>Creación de figuras, ejes y artistas<a class="headerlink" href="#creacion-de-figuras-ejes-y-artistas" title="Enlazar permanentemente con este título">¶</a></h2>
 <dl class="simple myst">
 <dt>Figura (Figure)</dt><dd><p>Es el elemento principal, actua como un lienzo que mantiene los demás elementos</p>
 </dd>
@@ -814,7 +846,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="posicionamiento-de-ejes">
-<h3><span class="section-number">11.2.1. </span>Posicionamiento de ejes<a class="headerlink" href="#posicionamiento-de-ejes" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">13.2.1. </span>Posicionamiento de ejes<a class="headerlink" href="#posicionamiento-de-ejes" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos crear un eje en una posición específica de la figura. La posición se indica con cuatro valores ordenados como sigue:</p>
 <ul class="simple">
 <li><p>left (izquierda)</p></li>
@@ -887,7 +919,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="escalas-logaritmicas">
-<h3><span class="section-number">11.2.2. </span>Escalas logarítmicas<a class="headerlink" href="#escalas-logaritmicas" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">13.2.2. </span>Escalas logarítmicas<a class="headerlink" href="#escalas-logaritmicas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos modificar el escalamiento de los ejes de un gráfico tipo <code class="docutils literal notranslate"><span class="pre">plot</span></code> usando <code class="docutils literal notranslate"><span class="pre">set_xscale</span></code> o <code class="docutils literal notranslate"><span class="pre">set_yscale</span></code>, respectivamente</p>
 <p>También podemos obtener el mismo efecto usando <code class="docutils literal notranslate"><span class="pre">semilogx</span></code>, <code class="docutils literal notranslate"><span class="pre">semilogy</span></code> y <code class="docutils literal notranslate"><span class="pre">loglog</span></code>, en lugar de <code class="docutils literal notranslate"><span class="pre">plot</span></code></p>
 <div class="cell docutils container">
@@ -909,7 +941,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="anotaciones-en-un-grafico">
-<h3><span class="section-number">11.2.3. </span>Anotaciones en un gráfico<a class="headerlink" href="#anotaciones-en-un-grafico" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">13.2.3. </span>Anotaciones en un gráfico<a class="headerlink" href="#anotaciones-en-un-grafico" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Se puede usar <code class="docutils literal notranslate"><span class="pre">text</span></code> y <code class="docutils literal notranslate"><span class="pre">annotate</span></code> para agregar texto en posiciones arbitrarias</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -936,7 +968,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="configurando-matplotlib">
-<h2><span class="section-number">11.3. </span>Configurando matplotlib<a class="headerlink" href="#configurando-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">13.3. </span>Configurando matplotlib<a class="headerlink" href="#configurando-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Matplotlib mantiene un diccionario llamado <code class="docutils literal notranslate"><span class="pre">rcParams</span></code></p>
 <p>Puedes ver las opciones disponibles con</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -986,7 +1018,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="mas-alla-de-matplotlib">
-<h2><span class="section-number">11.4. </span>Más allá de matplotlib<a class="headerlink" href="#mas-alla-de-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">13.4. </span>Más allá de matplotlib<a class="headerlink" href="#mas-alla-de-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Existen muchas librerías de Python para hacer visualizaciones y gráficas.</p>
 <p>Matplotlib es la más utilizada pero dependiendo de las necesidades de tu experimento/aplicación te recomiendo que consideres las siguientes alternativas</p>
 <ul class="simple">
@@ -1027,13 +1059,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">10. </span>Tópicos extra</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Tópicos extra</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="matplotlib2.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Tipos de gráfico en matplotlib</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Tipos de gráfico en matplotlib</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

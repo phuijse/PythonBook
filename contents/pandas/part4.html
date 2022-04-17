@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Tópicos extra &#8212; Computación Científica con Python</title>
+    <title>12. Tópicos extra &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="11. Introducción a Matplotlib" href="../visualization/matplotlib1.html" />
-    <link rel="prev" title="9. Operaciones avanzadas con DataFrames" href="part3.html" />
+    <link rel="next" title="13. Introducción a Matplotlib" href="../visualization/matplotlib1.html" />
+    <link rel="prev" title="11. Operaciones avanzadas con DataFrames" href="part3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -131,16 +131,31 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Trabajando con datos
+  Análisis de datos con Pandas
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -150,49 +165,66 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Visualización de datos
+  Visualización de datos con Matplotlib
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/guis.html">
-   14. Interfaces de usuario en Jupyter con
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
     </span>
    </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -301,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objeto-pandas-series">
-   10.1. Objeto
+   12.1. Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas.Series
@@ -311,12 +343,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
-   10.2. Gráfico a partir de DataFrames
+   12.2. Gráfico a partir de DataFrames
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
-   10.3. Guardar y leer una tabla en formato HDF5
+   12.3. Guardar y leer una tabla en formato HDF5
   </a>
  </li>
 </ul>
@@ -341,7 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objeto-pandas-series">
-   10.1. Objeto
+   12.1. Objeto
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas.Series
@@ -351,12 +383,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#grafico-a-partir-de-dataframes">
-   10.2. Gráfico a partir de DataFrames
+   12.2. Gráfico a partir de DataFrames
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#guardar-y-leer-una-tabla-en-formato-hdf5">
-   10.3. Guardar y leer una tabla en formato HDF5
+   12.3. Guardar y leer una tabla en formato HDF5
   </a>
  </li>
 </ul>
@@ -369,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="topicos-extra">
-<h1><span class="section-number">10. </span>Tópicos extra<a class="headerlink" href="#topicos-extra" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">12. </span>Tópicos extra<a class="headerlink" href="#topicos-extra" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En este anexo se revisan algunos tópicos específicos relacionados a la librería <code class="docutils literal notranslate"><span class="pre">pandas</span></code> que no fueron cubiertos anteriormente, estos son</p>
 <ul class="simple">
 <li><p>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></p></li>
@@ -386,7 +418,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="objeto-pandas-series">
-<h2><span class="section-number">10.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><a class="headerlink" href="#objeto-pandas-series" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.1. </span>Objeto <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><a class="headerlink" href="#objeto-pandas-series" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El objeto <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html"><code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> es  un arreglo de una dimensión (vector) que <strong>representa una secuencia</strong></p>
 <ul class="simple">
 <li><p>Los elementos de la secuencia se identifican con un índice etiquetado <code class="docutils literal notranslate"><span class="pre">index</span></code></p></li>
@@ -476,7 +508,7 @@ Name: mi planificación de hoy, dtype: int64
 </div>
 </div>
 <div class="section" id="grafico-a-partir-de-dataframes">
-<h2><span class="section-number">10.2. </span>Gráfico a partir de DataFrames<a class="headerlink" href="#grafico-a-partir-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.2. </span>Gráfico a partir de DataFrames<a class="headerlink" href="#grafico-a-partir-de-dataframes" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se pueden crear gráficos sencillos directamente de un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <p>Puedes revisar en detalle la API para graficar en este <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">link</a></p>
 <div class="cell docutils container">
@@ -497,7 +529,7 @@ Name: mi planificación de hoy, dtype: int64
 <p>La API es útil para hacer gráficos rapidamente. Si necesitamos mayor flexibilidad que la que ofrece la API siempre podemos extraer la data y graficarla con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> o <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p>
 </div>
 <div class="section" id="guardar-y-leer-una-tabla-en-formato-hdf5">
-<h2><span class="section-number">10.3. </span>Guardar y leer una tabla en formato HDF5<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-hdf5" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">12.3. </span>Guardar y leer una tabla en formato HDF5<a class="headerlink" href="#guardar-y-leer-una-tabla-en-formato-hdf5" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar el atributo <code class="docutils literal notranslate"><span class="pre">to_hdf</span></code> para convertir nuestra tabla a formato HDF5</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="c1"># Path completo con nombre de archivo</span>
           <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="c1"># Llave maestra del archivo</span>
@@ -558,13 +590,13 @@ Name: mi planificación de hoy, dtype: int64
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">9. </span>Operaciones avanzadas con DataFrames</p>
+            <p class="prev-next-title"><span class="section-number">11. </span>Operaciones avanzadas con DataFrames</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../visualization/matplotlib1.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Introducción a Matplotlib</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Introducción a Matplotlib</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

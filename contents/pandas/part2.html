@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Importar y exportar datos &#8212; Computación Científica con Python</title>
+    <title>10. Importar y exportar datos &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="9. Operaciones avanzadas con DataFrames" href="part3.html" />
-    <link rel="prev" title="7. DataFrames de pandas" href="part1.html" />
+    <link rel="next" title="11. Operaciones avanzadas con DataFrames" href="part3.html" />
+    <link rel="prev" title="9. DataFrames de pandas" href="part1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -131,16 +131,31 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Trabajando con datos
+  Análisis de datos con Pandas
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -150,49 +165,66 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Visualización de datos
+  Visualización de datos con Matplotlib
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/guis.html">
-   14. Interfaces de usuario en Jupyter con
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
     </span>
    </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -301,12 +333,12 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importar-datos-tabulares-en-formato-csv">
-   8.1. Importar datos tabulares en formato CSV
+   10.1. Importar datos tabulares en formato CSV
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-sintatico-o-parsing">
-   8.2. Análisis sintático o
+   10.2. Análisis sintático o
    <em>
     parsing
    </em>
@@ -314,24 +346,24 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interpretacion-parseo-de-fechas">
-     8.2.1. Interpretación/parseo de fechas
+     10.2.1. Interpretación/parseo de fechas
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importar-datos-a-partir-de-archivos-excel">
-   8.3. Importar datos a partir de archivos excel
+   10.3. Importar datos a partir de archivos excel
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#consultas-a-bases-de-datos-sql">
-   8.4. Consultas a bases de datos SQL
+   10.4. Consultas a bases de datos SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#leer-y-guardar-dataframes-en-formato-json">
-   8.5. Leer y guardar DataFrames en formato JSON
+   10.5. Leer y guardar DataFrames en formato JSON
   </a>
  </li>
 </ul>
@@ -356,12 +388,12 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importar-datos-tabulares-en-formato-csv">
-   8.1. Importar datos tabulares en formato CSV
+   10.1. Importar datos tabulares en formato CSV
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#analisis-sintatico-o-parsing">
-   8.2. Análisis sintático o
+   10.2. Análisis sintático o
    <em>
     parsing
    </em>
@@ -369,24 +401,24 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#interpretacion-parseo-de-fechas">
-     8.2.1. Interpretación/parseo de fechas
+     10.2.1. Interpretación/parseo de fechas
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importar-datos-a-partir-de-archivos-excel">
-   8.3. Importar datos a partir de archivos excel
+   10.3. Importar datos a partir de archivos excel
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#consultas-a-bases-de-datos-sql">
-   8.4. Consultas a bases de datos SQL
+   10.4. Consultas a bases de datos SQL
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#leer-y-guardar-dataframes-en-formato-json">
-   8.5. Leer y guardar DataFrames en formato JSON
+   10.5. Leer y guardar DataFrames en formato JSON
   </a>
  </li>
 </ul>
@@ -399,7 +431,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="importar-y-exportar-datos">
-<h1><span class="section-number">8. </span>Importar y exportar datos<a class="headerlink" href="#importar-y-exportar-datos" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">10. </span>Importar y exportar datos<a class="headerlink" href="#importar-y-exportar-datos" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>En general los datos con los que trabajaremos estarán guardados en disco como archivos o integrados en una base de datos. En esta lección veremos como crear un DataFrame desde</p>
 <ul class="simple">
 <li><p>Archivos en formato CSV</p></li>
@@ -409,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Un DataFrame también puede ser exportado a los formatos antes mencionados</p>
 <div class="section" id="importar-datos-tabulares-en-formato-csv">
-<h2><span class="section-number">8.1. </span>Importar datos tabulares en formato CSV<a class="headerlink" href="#importar-datos-tabulares-en-formato-csv" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">10.1. </span>Importar datos tabulares en formato CSV<a class="headerlink" href="#importar-datos-tabulares-en-formato-csv" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Un archivo  <strong>CSV</strong> (Comma-Separated Values) es una tabla en formato texto plano cuyas columnas están separadas por comas (u otro delimitador)</p>
 <p><strong>Ejemplo</strong></p>
 <p>Consideremos la base de datos <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index">“Dow Jones Index”</a> del repositorio UCI, la cual se distribuye en formato CSV</p>
@@ -500,7 +532,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="analisis-sintatico-o-parsing">
-<h2><span class="section-number">8.2. </span>Análisis sintático o <em>parsing</em><a class="headerlink" href="#analisis-sintatico-o-parsing" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">10.2. </span>Análisis sintático o <em>parsing</em><a class="headerlink" href="#analisis-sintatico-o-parsing" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En general un archivo de texto plano podría contener</p>
 <ul class="simple">
 <li><p>valores numéricos continuos</p></li>
@@ -570,7 +602,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <div class="section" id="interpretacion-parseo-de-fechas">
-<h3><span class="section-number">8.2.1. </span>Interpretación/parseo de fechas<a class="headerlink" href="#interpretacion-parseo-de-fechas" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">10.2.1. </span>Interpretación/parseo de fechas<a class="headerlink" href="#interpretacion-parseo-de-fechas" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Un dato textual muy usual en datos tabulares y series de tiempo son las fechas</p>
 <p>Sin embargo el formato de fecha puede variar considerablemente entre distintas bases de datos</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> tiene un tipo denominado <code class="docutils literal notranslate"><span class="pre">Timestamp</span></code> el cual se puede construir con la función <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> a partir de un string</p>
@@ -611,7 +643,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="importar-datos-a-partir-de-archivos-excel">
-<h2><span class="section-number">8.3. </span>Importar datos a partir de archivos excel<a class="headerlink" href="#importar-datos-a-partir-de-archivos-excel" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">10.3. </span>Importar datos a partir de archivos excel<a class="headerlink" href="#importar-datos-a-partir-de-archivos-excel" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Muchas empresas e instituciones manejan sus datos como hojas de cálculo o <em>spreadsheets</em> construidas usando software como Microsoft Excel, Openoffice/Libreoffice calc o Google spreadsheets</p>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> permite importar como <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> una hoja de cálculo en formatos <code class="docutils literal notranslate"><span class="pre">xls,</span> <span class="pre">xlsx,</span> <span class="pre">xlsm,</span> <span class="pre">xlsb,</span> <span class="pre">odf</span></code> usando  la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code class="docutils literal notranslate"><span class="pre">read_excel</span></code></a></p>
 <p>Muchos de los argumentos de <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> están disponibles en <code class="docutils literal notranslate"><span class="pre">read_excel</span></code>, los “nuevos” argumentos son</p>
@@ -778,7 +810,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="consultas-a-bases-de-datos-sql">
-<h2><span class="section-number">8.4. </span>Consultas a bases de datos SQL<a class="headerlink" href="#consultas-a-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">10.4. </span>Consultas a bases de datos SQL<a class="headerlink" href="#consultas-a-bases-de-datos-sql" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Pandas es capaz de conectar y hacer consultas en lenguaje SQL a una base de datos externa y retornar el resultado como un DataFrame usando la función <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_sql_query.html"><code class="docutils literal notranslate"><span class="pre">read_sql_query</span></code></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="c1"># Consulta SQL en formato string</span>
                   <span class="n">con</span><span class="p">,</span> <span class="c1"># dirección a la base de datos o objeto de conexión</span>
@@ -1005,7 +1037,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="leer-y-guardar-dataframes-en-formato-json">
-<h2><span class="section-number">8.5. </span>Leer y guardar DataFrames en formato JSON<a class="headerlink" href="#leer-y-guardar-dataframes-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">10.5. </span>Leer y guardar DataFrames en formato JSON<a class="headerlink" href="#leer-y-guardar-dataframes-en-formato-json" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos usar el atributo <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html"><code class="docutils literal notranslate"><span class="pre">to_json</span></code></a> para convertir un DataFrame a este formato</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span>
     <span class="n">path_or_buf</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Ubicación en disco</span>
@@ -1056,13 +1088,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+            <p class="prev-next-title"><span class="section-number">9. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="part3.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Operaciones avanzadas con DataFrames</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Operaciones avanzadas con DataFrames</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

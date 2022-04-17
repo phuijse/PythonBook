@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22. Introducción y fundamentos &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="23. Estadística descriptiva" href="stats2.html" />
+    <link rel="prev" title="18. Matrices como transformaciónes lineales" href="../linalg/linalg2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   7. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   8. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   9. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   10. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   11. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   12. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   13. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   14. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   15. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   16. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   17. Algebra lineal con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   18. Matrices como transformaciónes lineales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística con Scipy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   22. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats2.html">
+   23. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stats3.html">
+   24. Estadística inferencial
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/statistics/stats1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/statistics/stats1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/statistics/stats1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mundo-de-datos">
+   22.1. Mundo de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicciones-y-decisiones">
+   22.2. Predicciones y decisiones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describiendo-sistemas">
+   22.3. Describiendo sistemas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fuentes-de-incertidumbre">
+   22.4. Fuentes de incertidumbre
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
+   22.5. Fundamentos de teoría de probabilidades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estadistica">
+   22.6. Estadística
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción y fundamentos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mundo-de-datos">
+   22.1. Mundo de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predicciones-y-decisiones">
+   22.2. Predicciones y decisiones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describiendo-sistemas">
+   22.3. Describiendo sistemas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fuentes-de-incertidumbre">
+   22.4. Fuentes de incertidumbre
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
+   22.5. Fundamentos de teoría de probabilidades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estadistica">
+   22.6. Estadística
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduccion-y-fundamentos">
+<h1><span class="section-number">22. </span>Introducción y fundamentos<a class="headerlink" href="#introduccion-y-fundamentos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="mundo-de-datos">
+<h2><span class="section-number">22.1. </span>Mundo de datos<a class="headerlink" href="#mundo-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los avances tecnológicos recientes nos permiten <strong>medir, almacenar y transmitir</strong> datos de toda índole</p>
+<ul class="simple">
+<li><p>Datos comerciales y bancarios</p></li>
+<li><p>Datos de operaciones industriales</p></li>
+<li><p>Datos públicos y gubernamentales</p></li>
+<li><p>Datos científicos y médicos</p></li>
+<li><p>Datos de redes sociales</p></li>
+<li><p>Datos de dispositivos: Smart-hardware e Internet de las cosas</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Pero los datos crudos tienen poco valor, debemos <strong>extraer información a partir de los datos</strong> si queremos tener el conocimiento para tomar las mejores decisiones</p>
+</div>
+<p>Este proceso se resume conceptualmente en el siguiente diagrama conocido como el modelo <a class="reference external" href="https://en.wikipedia.org/wiki/DIKW_pyramid">Data-Information-Knowledge (DIK)</a></p>
+<a class="reference internal image-reference" href="contents/img/stats1.png"><img alt="contents/img/stats1.png" src="contents/img/stats1.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="predicciones-y-decisiones">
+<h2><span class="section-number">22.2. </span>Predicciones y decisiones<a class="headerlink" href="#predicciones-y-decisiones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Nuestros datos son <strong>mediciones u observaciones</strong> de un <strong>sistema o proceso</strong> que queremos analizar. En base a nuestros datos podemos proponer y ajustar un <strong>modelo</strong> para nuestro sistema. Finalmente usamos el modelo para hacer predicciones y tomar decisiones</p>
+<p>Este proceso se resume en el siguiente diagrama</p>
+<a class="reference internal image-reference" href="contents/img/stats2.png"><img alt="contents/img/stats2.png" src="contents/img/stats2.png" style="width: 850px;" /></a>
+<p>Considere el siguiente ejemplo. El <a class="reference external" href="https://www.ine.cl/ine-ciudadano/definiciones-estadisticas/censo">censo de Chile</a> busca contar y caracterizar a los habitantes de nuestro pais</p>
+<ol class="simple">
+<li><p>El <strong>censo son las observaciones</strong> de un <strong>sistema: La población de Chile</strong></p></li>
+<li><p>En base a los datos obtenidos a través de múltiples censos podríamos crear un <strong>modelo para la evolución de la población en una ciudad o región</strong></p></li>
+<li><p>Usando el modelo podríamos intentar <strong>predecir el crecimiento poblacional</strong> en un cierto horizonte de años</p></li>
+<li><p>Esta predicción puede servir como sustento para <strong>desarrollar políticas públicas (tomar decisiones)</strong></p></li>
+</ol>
+</div>
+<div class="section" id="describiendo-sistemas">
+<h2><span class="section-number">22.3. </span>Describiendo sistemas<a class="headerlink" href="#describiendo-sistemas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos clasificar los sistemas en base a su comportamiento:</p>
+<ul class="simple">
+<li><p>Un sistema <strong>determinista</strong> está gobernado por reglas que nos permiten calcular exactamente su estado final dado un cierto punto de partida o condición inicial</p></li>
+<li><p>Un sistema <strong>estocástico</strong> tiene un componente aleatorio, incluso usando la misma condición inicial el estado final puede ser distinto</p></li>
+</ul>
+<p>En general todos los sistemas complejos del mundo real tienen uno o más componentes aleatorio. Consideremos que</p>
+<ul class="simple">
+<li><p>Las condiciones naturales varían constantemente</p></li>
+<li><p>Los sensores y los equipos de medición están sujetos a ruido</p></li>
+</ul>
+<p>Por ende para hacer predicciones en sistemas complejos debemos manejar su <strong>incerteza</strong></p>
+</div>
+<div class="section" id="fuentes-de-incertidumbre">
+<h2><span class="section-number">22.4. </span>Fuentes de incertidumbre<a class="headerlink" href="#fuentes-de-incertidumbre" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La incerteza puede tener distintos orígenes. En este apartado revisamos los tres orígenes más comunes</p>
+<p><strong>Incerteza inherente o propia</strong></p>
+<p>Se refiere a sistemas que son naturalmente inciertos. Por ejemplo, si estoy analizando sistemas de partículas, estoy sujeto al <a class="reference external" href="https://es.wikipedia.org/wiki/Relaci%C3%B3n_de_indeterminaci%C3%B3n_de_Heisenberg">principio cuántico de incertudimbre</a></p>
+<blockquote>
+<div><p>Este tipo de incerteza es en general irreducible</p>
+</div></blockquote>
+<p><strong>Incerteza debido a un modelo imperfecto</strong></p>
+<p>Ciertos supuestos o aproximaciones del modelo pueden introducir incerteza. Por ejemplo un modelo demasiado simple o mal calibrado puede introducir ruido en nuestras predicciones</p>
+<blockquote>
+<div><p>Podemos disminuir este tipo de incerteza mejorando nuestro modelo</p>
+</div></blockquote>
+<p><strong>Incerteza debido a observaciones imperfectas</strong></p>
+<p>En este caso la incertidumbre puede deberse a que</p>
+<ul class="simple">
+<li><p>nuestras observaciones del sistema son incompletas o parciales</p></li>
+<li><p>nuestros sensores son imperfectos e introducen ruido</p></li>
+</ul>
+<p>En ambos casos lo que observamos no es una representación perfecta del sistema</p>
+<blockquote>
+<div><p>Podemos disminuir este tipo de incerteza capturando más datos, mejorando la calidad de nuestros sensores y/o haciendo mediciones que sean representativas del sistema completo</p>
+</div></blockquote>
+</div>
+<div class="section" id="fundamentos-de-teoria-de-probabilidades">
+<h2><span class="section-number">22.5. </span>Fundamentos de teoría de probabilidades<a class="headerlink" href="#fundamentos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las probabilidades son la rama de las matemáticas que estudia los eventos y fenómenos aleatorios. Un evento aleatorio tiene asociado una <strong>probabilidad</strong></p>
+<blockquote>
+<div><p>Una probabilidad es un valor en el rango <span class="math notranslate nohighlight">\([0, 1]\)</span> que indica que tan posible o que tan cierto es que dicho evento ocurra</p>
+</div></blockquote>
+<p><strong>Variable aleatoria</strong></p>
+<p>En probabilidades se llama <strong>variable aleatoria (VA)</strong> al resultado de un experimento que puede tomar múltiples valores. Llamaremos <strong>evento o realización</strong> a un resultado en particular de la VA</p>
+<p>Usaremos la notación</p>
+<div class="math notranslate nohighlight">
+\[
+x \sim X
+\]</div>
+<p>para referirnos a una realización <span class="math notranslate nohighlight">\(x\)</span> que resulta de observar la VA <span class="math notranslate nohighlight">\(X\)</span>. Llamamos dominio <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> al espacio de posibilidades de la VA</p>
+<p><strong>Ejemplo:</strong> El <strong>valor de un dado</strong> es una VA con dominio <span class="math notranslate nohighlight">\([1, 2, 3, 4, 5, 6]\)</span>. Corresponda a una VA <strong>discreta</strong> con <strong>seis estados posibles</strong></p>
+<p><strong>Interpretación (frecuentista) de probabilidad</strong></p>
+<p>El significado más común de probabilidad proviene de</p>
+<blockquote>
+<div><p>observar muchas veces el resultado de una VA y contar las veces que cada uno de los valores se repite</p>
+</div></blockquote>
+<p>Es decir estimamos la <strong>frecuencia</strong> de los valores posibles</p>
+<p><strong>Ejemplo:</strong> Sea una variable aleatoria <span class="math notranslate nohighlight">\(M\)</span> que corresponde al resultado de lanzar una moneda. Lanzamos una moneda <span class="math notranslate nohighlight">\(5\)</span> veces y registramos <span class="math notranslate nohighlight">\([x, x, o, x, o]\)</span>. La probabilidad de cada evento corresponde a su <strong>frecuencia</strong> (número de apariciones) dividido el total, es decir que</p>
+<ul class="simple">
+<li><p>La probabilidad de <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\(3/5\)</span> o que <span class="math notranslate nohighlight">\(P(M=x) = 3/5\)</span></p></li>
+<li><p>La probabilidad de <span class="math notranslate nohighlight">\(o\)</span> es <span class="math notranslate nohighlight">\(2/5\)</span> o que <span class="math notranslate nohighlight">\(P(M=o) = 2/5\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="estadistica">
+<h2><span class="section-number">22.6. </span>Estadística<a class="headerlink" href="#estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La estadística es la disciplina científica dedicada al desarrollo y estudio de métodos para recopilar, analizar y extraer información de los datos. La estadística busca</p>
+<blockquote>
+<div><p>Describir fenómenos complejos a partir de observaciones parciales</p>
+</div></blockquote>
+<blockquote>
+<div><p>Inferir propiedades de una población o sistema basándonos en una muestra</p>
+</div></blockquote>
+<blockquote>
+<div><p>Usar datos para responder preguntas y tomar decisiones</p>
+</div></blockquote>
+<p>El trabajo estadístico se puede resumir en el siguiente ciclo</p>
+<a class="reference internal image-reference" href="contents/img/stats3.png"><img alt="contents/img/stats3.png" src="contents/img/stats3.png" style="width: 700px;" /></a>
+<p>En este capítulo estudiaremos técnicas de estadística descriptiva e inferencial (pasos 3 y 4 del diagrama) y las aplicaremos usando  <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a> y <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html"><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></p>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Para un tratamiento teórico más profundo recomiendo el siguiente curso online: <a class="reference external" href="https://online.stat.psu.edu/stat100/">https://online.stat.psu.edu/stat100/</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../linalg/linalg2.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">18. </span>Matrices como transformaciónes lineales</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stats2.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Estadística descriptiva</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
