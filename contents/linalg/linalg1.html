@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Algebra lineal con NumPy &#8212; Computación Científica con Python</title>
+    <title>20. Resolviendo sistemas de ecuaciones lineales &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="18. Matrices como transformaciónes lineales" href="linalg2.html" />
-    <link rel="prev" title="16. Operaciones sobre ndarrays" href="../numpy/numpy2.html" />
+    <link rel="prev" title="19. Introducción" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -133,6 +132,21 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -142,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -152,17 +166,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
@@ -174,22 +188,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/ipywidgets.html">
-   14. Interfaces de usuario en Jupyter con
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -206,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy1.html">
-   15. Arreglos n-dimensionales con NumPy
+   17. Arreglos n-dimensionales con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy2.html">
-   16. Operaciones sobre ndarrays
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -221,36 +235,14 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   19. Introducción
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   17. Algebra lineal con NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linalg2.html">
-   18. Matrices como transformaciónes lineales
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estadística con Scipy
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/stats1.html">
-   22. Introducción y fundamentos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/stats2.html">
-   23. Estadística descriptiva
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/stats3.html">
-   24. Estadística inferencial
+   20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
 </ul>
@@ -358,62 +350,21 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-el-algebra-lineal">
-   17.1. ¿Qué es el álgebra lineal?
+  <a class="reference internal nav-link" href="#solucion-de-un-sistema-cuadrado">
+   20.1. Solución de un sistema cuadrado
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sistemas-de-ecuaciones-lineales">
-   17.2. Sistemas de ecuaciones lineales
+  <a class="reference internal nav-link" href="#solucion-de-un-sistema-rectangular">
+   20.2. Solución de un sistema rectangular
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-de-ecuaciones-cuadrado-caso-n-m">
-     17.2.1. Sistema de ecuaciones cuadrado (Caso
-     <span class="math notranslate nohighlight">
-      \(N=M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resolviendo-sistemas-cuadrados-eficientemente">
-     17.2.2. Resolviendo sistemas cuadrados eficientemente
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejercicio-practico">
-     17.2.3. Ejercicio práctico
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-rectangular-caso-n-neq-m">
-     17.2.4. Sistema rectangular (caso
-     <span class="math notranslate nohighlight">
-      \(N\neq M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-sobre-determinado-caso-n-m">
-     17.2.5. Sistema sobre-determinado (caso
-     <span class="math notranslate nohighlight">
-      \(N&gt;M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     17.2.6. Ejercicio práctico
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resumen-de-la-leccion">
-   17.3. Resumen de la lección
+  <a class="reference internal nav-link" href="#analisis-de-errores-y-condition-number">
+   20.3. Análisis de errores y
+   <em>
+    condition number
+   </em>
   </a>
  </li>
 </ul>
@@ -426,7 +377,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Algebra lineal con NumPy</h1>
+                <h1>Resolviendo sistemas de ecuaciones lineales</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -437,62 +388,21 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-el-algebra-lineal">
-   17.1. ¿Qué es el álgebra lineal?
+  <a class="reference internal nav-link" href="#solucion-de-un-sistema-cuadrado">
+   20.1. Solución de un sistema cuadrado
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sistemas-de-ecuaciones-lineales">
-   17.2. Sistemas de ecuaciones lineales
+  <a class="reference internal nav-link" href="#solucion-de-un-sistema-rectangular">
+   20.2. Solución de un sistema rectangular
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-de-ecuaciones-cuadrado-caso-n-m">
-     17.2.1. Sistema de ecuaciones cuadrado (Caso
-     <span class="math notranslate nohighlight">
-      \(N=M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resolviendo-sistemas-cuadrados-eficientemente">
-     17.2.2. Resolviendo sistemas cuadrados eficientemente
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ejercicio-practico">
-     17.2.3. Ejercicio práctico
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-rectangular-caso-n-neq-m">
-     17.2.4. Sistema rectangular (caso
-     <span class="math notranslate nohighlight">
-      \(N\neq M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sistema-sobre-determinado-caso-n-m">
-     17.2.5. Sistema sobre-determinado (caso
-     <span class="math notranslate nohighlight">
-      \(N&gt;M\)
-     </span>
-     )
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     17.2.6. Ejercicio práctico
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resumen-de-la-leccion">
-   17.3. Resumen de la lección
+  <a class="reference internal nav-link" href="#analisis-de-errores-y-condition-number">
+   20.3. Análisis de errores y
+   <em>
+    condition number
+   </em>
   </a>
  </li>
 </ul>
@@ -504,177 +414,46 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algebra-lineal-con-numpy">
-<h1><span class="section-number">17. </span>Algebra lineal con NumPy<a class="headerlink" href="#algebra-lineal-con-numpy" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Una base de datos es una tabla donde cada fila corresponde a una medición/sujeto/evento y cada columna a un atributo</p>
-<blockquote>
-<div><p>Si nuestros atributos son numéricos entonces podemos interpretar la tabla como una matriz y cada ejemplo como un vector</p>
-</div></blockquote>
-<p>Considere el siguiente ejemplo de una base de datos que describe el consumo de helados promedio para un día en particular (<em>cons</em>) en función del ingreso familiar promedio (<em>income</em>), la temperatura promedio (<em>temp</em>) y el precio promedio de los helados (<em>price</em>)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/helados.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/helados.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/util/_decorators.py:311,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">311</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/io/parsers/readers.py:680,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">680</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/io/parsers/readers.py:575,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">575</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/io/parsers/readers.py:933,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">932</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">933</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1217,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1213</span>     <span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;rb&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1214</span> <span class="c1"># error: No overload variant of &quot;get_handle&quot; matches argument types</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="c1"># &quot;Union[str, PathLike[str], ReadCsvBuffer[bytes], ReadCsvBuffer[str]]&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="c1"># , &quot;str&quot;, &quot;bool&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;, &quot;Any&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1217</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1218</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1219</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1220</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1221</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1222</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1223</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1224</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1225</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1226</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1227</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1228</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/.conda/envs/info147/lib/python3.10/site-packages/pandas/io/common.py:789,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">789</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/helados.csv&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>De la tabla podemos apreciar que cada medición es un vector de cuatro componentes. Es decir que podemos representar la base de datos como una matriz <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{30 \times 4}\)</span></p>
-<p>Con esta interpretación de matriz podemos usar las <strong>herramientas de algebra lineal</strong> para analizar estos datos</p>
-<div class="section" id="que-es-el-algebra-lineal">
-<h2><span class="section-number">17.1. </span>¿Qué es el álgebra lineal?<a class="headerlink" href="#que-es-el-algebra-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Es la rama de las matemáticas que analiza los sistemas de ecuaciones lineales de tipo</p>
-<div class="math notranslate nohighlight">
-\[
-Ax = b
-\]</div>
-<p>Es decir donde las incognitas <span class="math notranslate nohighlight">\(x\)</span> se relacionan entre si usando sólo <strong>adiciones</strong> y <strong>multiplicaciones</strong></p>
-<p>Si nuestro ejemplos son vectores y nuestra base de datos es una matriz podemos usar herramientas de álgebra lineal para</p>
-<p><strong>1</strong> Medir que tan similares (o distintos) son dos ejemplos: <strong>Distancia vectorial</strong></p>
-<div class="math notranslate nohighlight">
-\[
-d_{ij} = \|\vec z_i - \vec z_j \|
-\]</div>
-<p><strong>2</strong> Comprimir nuestra base de datos: <strong>Factorización de matrices</strong></p>
-<div class="math notranslate nohighlight">
-\[
-A = L D L^T
-\]</div>
-<p><strong>3</strong> Predecir un atributo en función de otros: <strong>Regresión lineal</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-y_i = m x_i + b = \begin{pmatrix} 1 &amp; x_i \end{pmatrix} \begin{pmatrix} b \\ m \end{pmatrix} \quad \forall i
-\end{split}\]</div>
-<p>En la presente y siguiente lección nos enfocaremos en la regresión lineal como un caso particular de solución de un sistema de ecuaciones lineales</p>
-</div>
-<div class="section" id="sistemas-de-ecuaciones-lineales">
-<h2><span class="section-number">17.2. </span>Sistemas de ecuaciones lineales<a class="headerlink" href="#sistemas-de-ecuaciones-lineales" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Respecto al ejemplo de los helados, la siguiente es una pregunta interesante</p>
-<blockquote>
-<div><p>¿Es posible predecir el consumo de helados en función del ingreso, la temperatura y el precio?</p>
-</div></blockquote>
-<p>Para responder esta pregunta podríamos proponer y estudiar un <strong>modelo matemático</strong> de la forma</p>
-<div class="math notranslate nohighlight">
-\[
-f(\text{ingreso}, \text{temperatura}, \text{precio}) \rightarrow \text{consumo}
-\]</div>
-<p>Existen muchas opciones de modelos, sin embargo es conveniente partir con un <strong>modelo simple</strong></p>
-<p>En general el modelo más simple es aquel que es <strong>lineal en sus parámetros</strong>, es decir</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="resolviendo-sistemas-de-ecuaciones-lineales">
+<h1><span class="section-number">20. </span>Resolviendo sistemas de ecuaciones lineales<a class="headerlink" href="#resolviendo-sistemas-de-ecuaciones-lineales" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En su forma más general un sistema de ecuaciones lineales se ve como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-\text{consumo} &amp;= \text{ingreso} \cdot x + \text{temperatura} \cdot  y + \text{precio} \cdot  z + w\nonumber \\
-&amp; = \begin{pmatrix} \text{ingreso} &amp; \text{temperatura} &amp; \text{precio} &amp; 1\end{pmatrix} \begin{pmatrix} x \\ y \\ z \\ w\end{pmatrix}
+A_{11} x_{1} + A_{12} x_{2} + \ldots + A_{1M} x_M &amp;= b_1 \nonumber \\
+A_{21} x_{1} + A_{22} x_{2} + \ldots + A_{2M} x_M &amp;= b_2  \nonumber \\
+&amp;\vdots  \nonumber \\
+A_{N1} x_{1} + A_{N2} x_{2} + \ldots + A_{NM} x_M &amp;= b_N  \nonumber \\
 \end{align}
 \end{split}\]</div>
-<p>En este caso <strong>ajustar</strong> el modelo se reduce a encontrar los valores de los <strong>parámetros o incógnitas</strong> <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span> y <span class="math notranslate nohighlight">\(w\)</span>. Cada ejemplo de nuestra base de datos corresponde a una ecuación como la mostrada anteriormente. Es decir que en este caso particular tenemos un sistema lineal con 30 ecuaciones y 4 incógnitas</p>
-<p>En el caso más general un <strong>sistema lineal en sus parámetros</strong> con <span class="math notranslate nohighlight">\(N\)</span> ecuaciones y <span class="math notranslate nohighlight">\(M\)</span> incógnitas se ve así:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-a_{11} x_{1} + a_{12} x_{2} + \ldots + a_{1M} x_M &amp;= b_1 \nonumber \\
-a_{21} x_{1} + a_{22} x_{2} + \ldots + a_{2M} x_M &amp;= b_2  \nonumber \\
-\vdots  \nonumber \\
-a_{N1} x_{1} + a_{N2} x_{2} + \ldots + a_{NM} x_M &amp;= b_N  \nonumber \\
-\end{align}
-\end{split}\]</div>
-<p>que en representación matricial es</p>
+<p>donde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_{ij}\)</span> y <span class="math notranslate nohighlight">\(b_i\)</span> son los coeficientes del sistema</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> es la cantidad de ecuaciones del sistema</p></li>
+<li><p><span class="math notranslate nohighlight">\(M\)</span> es la cantidad de incógnitas del sistema</p></li>
+</ul>
+<p>El sistema anterior puede escribirse de forma matricial como</p>
 <div class="math notranslate nohighlight">
 \[
 A x = b
 \]</div>
-<p>El álgebra lineal nos da herramientas para resolver este sistema. Las soluciones dependen de las características del sistema en particular. Veremos tres casos, de los cuales dos son revisados en detalle en esta lección y un tercero se revisará en la lección <span class="xref std std-ref">unit2-linear-2</span></p>
-<div class="section" id="sistema-de-ecuaciones-cuadrado-caso-n-m">
-<h3><span class="section-number">17.2.1. </span>Sistema de ecuaciones cuadrado (Caso <span class="math notranslate nohighlight">\(N=M\)</span>)<a class="headerlink" href="#sistema-de-ecuaciones-cuadrado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Este es un caso particular donde la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene igual número de filas y columnas</p>
-<p>Estos sistemas pueden resolverse usando inversión de matrices como se muestra a continuación</p>
+<p>donde <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N \times M}\)</span> y <span class="math notranslate nohighlight">\(b \in \mathbb{R}^N\)</span></p>
+<p>Revisemos a continuación como se resuelven problemas de este tipo utilizando <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="solucion-de-un-sistema-cuadrado">
+<h2><span class="section-number">20.1. </span>Solución de un sistema cuadrado<a class="headerlink" href="#solucion-de-un-sistema-cuadrado" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Este es un caso particular donde la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene igual número de filas y columnas (<span class="math notranslate nohighlight">\(N=M\)</span>)</p>
+<p>Asumiendo que la inversa de <span class="math notranslate nohighlight">\(A\)</span> existe podemos resolver este sistema como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -683,89 +462,150 @@ A^{-1} A x &amp;= A^{-1} b \nonumber \\
 x &amp;= A^{-1} b \nonumber 
 \end{align}
 \end{split}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span>, es decir debemos encontrar la inversa de la matriz <span class="math notranslate nohighlight">\(A\)</span></p>
-<p>Podemos invertir matrices usando la función <code class="docutils literal notranslate"><span class="pre">inv</span></code> del módulo <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html"><code class="docutils literal notranslate"><span class="pre">linalg</span></code></a> de NumPy</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span> <span class="c1"># Una matriz cuadrada</span>
-             <span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>Verificar invertibilidad de una matriz</strong></p>
-<p>El sistema tendrá solución siempre y cuando la matriz <span class="math notranslate nohighlight">\(A\)</span> sea <strong>no-singular</strong></p>
-<p>Podemos verificar si <span class="math notranslate nohighlight">\(A\)</span> es singular comprobando si su determinante es igual a cero con la función <code class="docutils literal notranslate"><span class="pre">det</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span> <span class="c1"># Una matriz cuadrada</span>
-             <span class="p">)</span>
-</pre></div>
-</div>
-<p>Otra forma de verificar si una matriz es invertible es comprobar que todas sus columnas sean linealmente independientes (LI). Esto es equivalente a que su rango sea igual al número de columnas, lo cual se puede verificar con la función <code class="docutils literal notranslate"><span class="pre">matrix_rank</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span> <span class="c1"># Un arreglo multidimensional</span>
-                     <span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>Análisis de errores y <em>condition number</em></strong></p>
-<p>Incluso con determinante distinto de cero podríamos no ser capaces de resolver un sistema numéricamente sin errores</p>
-<p>Imaginemos una pequeña variación en <span class="math notranslate nohighlight">\(b\)</span> denominada <span class="math notranslate nohighlight">\(\delta b\)</span>. Esta variación provoca a su vez una pequeña variación en <span class="math notranslate nohighlight">\(x\)</span> denominada <span class="math notranslate nohighlight">\(\delta x\)</span>. Se puede encontrar una cota que compara el error relativo de <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(x\)</span> como</p>
+<p>donde <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span></p>
+<p>A continuación veremos como calcular la inversa de una matriz y resolver el sistema de ecuaciones cuadrado</p>
+<p><strong>Ejemplo</strong> Sea el sistema de tres ecuaciones y tres incognitas</p>
 <div class="math notranslate nohighlight">
-\[
-\frac{\| \delta x \|}{\|x\|} \leq \frac{\| A^{-1} \|  \|\delta b\|}{\|x\|}  = \|A^{-1}\| \|A\| \frac{\| \delta b \|}{\|b\|} 
-\]</div>
-<p>donde se usó que <span class="math notranslate nohighlight">\(A \delta x = \delta b\)</span> (propiedad de linealidad)</p>
-<blockquote>
-<div><p>Esto significa que un pequeño error relativo en <span class="math notranslate nohighlight">\(b\)</span> puede causar un gran error en <span class="math notranslate nohighlight">\(x\)</span></p>
-</div></blockquote>
-<p>El estimador de <span class="math notranslate nohighlight">\(\|A^{-1}\| \|A\|\)</span> se llama <em>condition number</em>. Un sistema se dice “bien condicionado” si este valor es cercano a <span class="math notranslate nohighlight">\(1\)</span> y “mal condicionado” si es mucho mayor que <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>Podemos calcular el <em>condition number</em> con la función de NumPy <code class="docutils literal notranslate"><span class="pre">cond</span></code> como se muestra a continuación</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Arreglo multidimensional</span>
-               <span class="n">p</span> <span class="c1"># El orden de la norma: 1, 2, &#39;fro&#39;,...</span>
-              <span class="p">)</span>
+\[\begin{split}
+\begin{align}
+x_1 - 2x_2 + 3x_3 &amp;= 4 \\
+2x_1 - 5x2 + 12x_3 &amp;= 15 \\
+2x_2 - 10x_3 &amp;= -10 
+\end{align}
+\end{split}\]</div>
+<p>que podemos reescribir como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+1 &amp; -2 &amp; 3 \\
+2 &amp; -5 &amp; 12 \\
+0 &amp; 2 &amp; -10
+\end{pmatrix} \cdot
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} =
+\begin{pmatrix}
+4 \\
+15 \\
+-10
+\end{pmatrix} 
+\end{split}\]</div>
+<p>de donde es directo identificar <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(b\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>La norma de <span class="math notranslate nohighlight">\(A\)</span> denominada <span class="math notranslate nohighlight">\(\| A\|\)</span> es</p>
-<blockquote>
-<div><p>una medida del “tamaño” o “magnitud” de <span class="math notranslate nohighlight">\(A\)</span> en el espacio</p>
-</div></blockquote>
-<p>Podemos calcular la norma o tamaño de un vector o matriz usando</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Arreglo multidimensional</span>
-               <span class="nb">ord</span><span class="p">,</span> <span class="c1"># El orden de la norma: 1, 2, &#39;fro&#39;, ...</span>
-               <span class="n">axis</span><span class="p">,</span> <span class="c1"># Sobre cual/cualeses eje/s se calcula</span>
-               <span class="o">...</span>
-              <span class="p">)</span>
+</div>
+</div>
+<p>Dado que <span class="math notranslate nohighlight">\(A\)</span> es una matriz cuadrada podemos intentar invertla la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv"><code class="docutils literal notranslate"><span class="pre">inv</span></code></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ainv</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Ainv</span>
 </pre></div>
 </div>
-<p>Las normas más utilizadas son la</p>
-<ul class="simple">
-<li><p>norma euclidana (<code class="docutils literal notranslate"><span class="pre">ord=2</span></code>) para vectores</p></li>
-<li><p>norma de <a class="reference external" href="https://www.sciencedirect.com/topics/engineering/frobenius-norm">Frobenius</a> (<code class="docutils literal notranslate"><span class="pre">ord='fro'</span></code>) para matrices</p></li>
-</ul>
 </div>
-<div class="section" id="resolviendo-sistemas-cuadrados-eficientemente">
-<h3><span class="section-number">17.2.2. </span>Resolviendo sistemas cuadrados eficientemente<a class="headerlink" href="#resolviendo-sistemas-cuadrados-eficientemente" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>En general nos interesa sólo <span class="math notranslate nohighlight">\(x\)</span> y no <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Si un sistema de ecuaciones es grande es preferible no calcular la inversa de <span class="math notranslate nohighlight">\(A\)</span> por su alto costo computacional.</p>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-13. ,   7. ,   4.5],
+       [-10. ,   5. ,   3. ],
+       [ -2. ,   1. ,   0.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con la inversa podemos resolver el problema con</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ainv</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8., 5., 2.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si <span class="math notranslate nohighlight">\(A\)</span> hubiera sido singular, es decir no invertible, la función <code class="docutils literal notranslate"><span class="pre">inv</span></code> hubiera retornado un <code class="docutils literal notranslate"><span class="pre">LinAlgError</span></code></p>
+</div>
+<p>Podemos verificar la invertibilidad de la matriz comprobando que su determinante sea distinto de cero</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.9999999999999976
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra forma de verificar si una matriz es invertible es comprobar que todas sus columnas sean linealmente independientes (LI)</p>
+<p>Esto es equivalente a que su rango sea igual al número de columnas, lo cual se puede verificar con la función de <code class="docutils literal notranslate"><span class="pre">NumPy</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Resolviendo sistemas cuadrados eficientemente</strong></p>
+<p>En general si sólo nos interesa <span class="math notranslate nohighlight">\(x\)</span>, podemos no realizar el cálculo explícito de  <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Si un sistema de ecuaciones es grande es preferible no calcular la inversa de <span class="math notranslate nohighlight">\(A\)</span> debido al alto costo computacional necesario</p>
 <p>Podemos encontrar <span class="math notranslate nohighlight">\(x\)</span> directamente en un sistema cuadrado usando la función <code class="docutils literal notranslate"><span class="pre">solve</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Comparemos el resultado obtenido con respecto a calcular la inversa. Para esto podemos usar la función <code class="docutils literal notranslate"><span class="pre">allclose</span></code></p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8., 5., 2.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado es idéntico al anterior</p>
+<p>Veamos ahora la diferencia en eficiencia utilizando un sistema más grande</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># Matriz cuadrada</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Vector</span>
-<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> 
-            <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">b</span><span class="p">))</span>
+<span class="n">A_big</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># Matriz cuadrada</span>
+<span class="n">b_big</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Vector</span>
+<span class="o">%</span><span class="k">timeit</span> -r5 -n5 np.dot(scipy.linalg.inv(A_big), b_big)
+<span class="o">%</span><span class="k">timeit</span> -r5 -n5 scipy.linalg.solve(A_big, b_big)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>290 ms ± 3.37 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
+176 ms ± 3.63 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Es decir que no hay diferencia entre los resultados. Comparemos ahora el tiempo de ejecución</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r5 -n5 np.dot(np.linalg.inv(A), b)
-<span class="o">%</span><span class="k">timeit</span> -r5 -n5 np.linalg.solve(A, b)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A_big</span><span class="p">,</span> <span class="n">b_big</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A_big</span><span class="p">),</span> <span class="n">b_big</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
 </div>
-<p>Usar <code class="docutils literal notranslate"><span class="pre">solve</span></code> es un poco más de tres veces más veloz que utilizar <code class="docutils literal notranslate"><span class="pre">inv</span></code>+<code class="docutils literal notranslate"><span class="pre">dot</span></code></p>
+<p>Usar <code class="docutils literal notranslate"><span class="pre">solve</span></code> toma un poco más de la mitad del tiempo de utilizar <code class="docutils literal notranslate"><span class="pre">inv</span></code>+<code class="docutils literal notranslate"><span class="pre">dot</span></code></p>
 <p>¿Cómo puede ser posible esto?</p>
 <p>La respuesta es que <code class="docutils literal notranslate"><span class="pre">solve</span></code> realiza internamente una factorización del tipo</p>
 <div class="math notranslate nohighlight">
@@ -806,67 +646,45 @@ z_2 = \frac{b_2 - l_{21} z_1}{l_{22}}
 z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 \]</div>
 <p>y <span class="math notranslate nohighlight">\(x\)</span> se puede obtener recursivamente de <span class="math notranslate nohighlight">\(z\)</span></p>
-<p>La librería <code class="docutils literal notranslate"><span class="pre">scipy</span></code> nos ofrece en su modulo <code class="docutils literal notranslate"><span class="pre">linalg</span></code> la función <code class="docutils literal notranslate"><span class="pre">lu</span></code> para factorizar</p>
-</div>
-<div class="section" id="ejercicio-practico">
-<h3><span class="section-number">17.2.3. </span>Ejercicio práctico<a class="headerlink" href="#ejercicio-practico" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Sea el sistema de ecuaciones</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
--x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
-2 x_{1} + 3 x_{2} &amp;= 1  \nonumber 
-\end{align}
-\end{split}\]</div>
-<ol class="simple">
-<li><p>¿Cuántas ecuaciones e incognitas tiene este sistema? ¿Es este un sistema cuadrado?</p></li>
-<li><p>Escriba <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(b\)</span>  y compruebe si <span class="math notranslate nohighlight">\(A\)</span> es invertible (determinante y rango)</p></li>
-<li><p>Encuentre la inversa de <span class="math notranslate nohighlight">\(A\)</span> y usela para calcular <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p>(Extra) Represente geometricamente el sistema y encuentra la solución de forma gráfica</p></li>
-</ol>
-<p>Repita para los sistemas</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
-2 x_{1} + 10 x_{2} &amp;= 6  \nonumber 
-\end{align}
-\end{split}\]</div>
-<p>y</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
-x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
-2 x_{1} + 10 x_{2} &amp;= 4  \nonumber 
-\end{align}
-\end{split}\]</div>
-<p>¿Qué puede decir de estos sistemas?</p>
-<p><strong>Solución paso a paso con comentarios</strong></p>
+<p>Podemos realizar la factorización LU en <code class="docutils literal notranslate"><span class="pre">scipy</span></code> con</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;Z47FrSIdIAg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">U</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[1.  , 0.  , 0.  ],
+        [0.  , 1.  , 0.  ],
+        [0.5 , 0.25, 1.  ]]),
+ array([[  2. ,  -5. ,  12. ],
+        [  0. ,   2. , -10. ],
+        [  0. ,   0. ,  -0.5]]))
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="sistema-rectangular-caso-n-neq-m">
-<h3><span class="section-number">17.2.4. </span>Sistema rectangular (caso <span class="math notranslate nohighlight">\(N\neq M\)</span>)<a class="headerlink" href="#sistema-rectangular-caso-n-neq-m" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="solucion-de-un-sistema-rectangular">
+<h2><span class="section-number">20.2. </span>Solución de un sistema rectangular<a class="headerlink" href="#solucion-de-un-sistema-rectangular" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Consideremos que</p>
 <ul class="simple">
-<li><p>Las incognitas de un sistema representan sus grados de libertad</p></li>
+<li><p>Las incógnitas de un sistema representan sus grados de libertad</p></li>
 <li><p>Las ecuaciones de un sistema representan sus restricciones</p></li>
 </ul>
 <p>Si tenemos un sistema</p>
 <ul class="simple">
-<li><p>con más ecuaciones que incognitas: el sistema está sobredeterminado</p></li>
-<li><p>con más incognitas que ecuaciones: el sistema está infradeterminado</p></li>
+<li><p>con más ecuaciones que incógnitas (<span class="math notranslate nohighlight">\(N&gt;M\)</span>): el sistema está sobredeterminado</p></li>
+<li><p>con más incógnitas que ecuaciones (<span class="math notranslate nohighlight">\(M&gt;N\)</span>): el sistema está infradeterminado</p></li>
 </ul>
-<p>y en ambos casos la matriz <span class="math notranslate nohighlight">\(A\)</span> ya no es cuadrada, es decir ya no podemos calcular la inversa. Debemos utilizar otros métodos dependiendo del caso</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>En ambos casos la matriz <span class="math notranslate nohighlight">\(A\)</span> ya no es cuadrada, es decir ya no podemos calcular la inversa</p>
 </div>
-<div class="section" id="sistema-sobre-determinado-caso-n-m">
-<h3><span class="section-number">17.2.5. </span>Sistema sobre-determinado (caso <span class="math notranslate nohighlight">\(N&gt;M\)</span>)<a class="headerlink" href="#sistema-sobre-determinado-caso-n-m" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Definamos el vector de error <span class="math notranslate nohighlight">\(e = Ax - b\)</span></p>
+<p>Sin embargo podemos utilizar otros métodos, como mostraremos a continuación</p>
+<p><strong>Caso N&gt;M</strong></p>
+<p>Sea el vector de error <span class="math notranslate nohighlight">\(e = Ax - b\)</span> de un sistema con más ecuaciones que incognitas.</p>
 <p>Podemos encontrar una solución aproximada minimizando la norma euclidiana del error</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -888,60 +706,214 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
 \end{align}
 \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(A^{\dagger} = (A^T A)^{-1} A^T\)</span> se conoce como la pseudo-inversa de <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose</a></p>
-<p>Podemos calcular la pseudo inversa con NumPy usando la función <code class="docutils literal notranslate"><span class="pre">pinv</span></code> como se muestra a continuación</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="c1"># Arreglo multidimensional</span>
-               <span class="n">rcond</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span> <span class="c1"># Los valores singulares más pequeños que rcond se anulan</span>
-               <span class="n">hermitian</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># Booleano para indicar si a tiene simetría hermítica</span>
-              <span class="p">)</span>
-</pre></div>
-</div>
-<p>Si sólo queremos obtener la solución <span class="math notranslate nohighlight">\(\hat x\)</span> podemos usar</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="c1"># Matriz rectangular de NxM</span>
-                <span class="n">b</span><span class="p">,</span> <span class="c1"># vector de largo N</span>
-                <span class="n">rcond</span> <span class="c1"># idem np.linalg.pinv</span>
-               <span class="p">)</span>
-                
-</pre></div>
-</div>
-<p>que retorna una tupla con cuatro elementos</p>
+<p><strong>Caso M&gt;N</strong></p>
+<p>La consecuencia de que el sistema sea infradeterminado es que <span class="math notranslate nohighlight">\(A^T A\)</span> no es invertible.</p>
+<p>Para resolver el problema infradeterminado se debe agregar una restricción adicional. La más típica es que el vector solución tenga norma mínima, por ejemplo</p>
+<div class="math notranslate nohighlight">
+\[
+\min_\theta \| x \|_2^2 ~\text{s.a.}~ Ax =b
+\]</div>
+<p>que se resuelve usando <span class="math notranslate nohighlight">\(M\)</span> <a class="reference external" href="https://es.wikipedia.org/wiki/Multiplicadores_de_Lagrange">multiplicadores de Lagrange</a> <span class="math notranslate nohighlight">\(\lambda\)</span> como sigue</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{d}{dx} \| x\|_2^2 + \lambda^T (b - Ax) &amp;= 2x - \lambda^T A  \nonumber \\
+&amp;= 2Ax - A A^T \lambda \nonumber \\
+&amp;= 2b - A A^T \lambda = 0 
+\end{align}
+\end{split}\]</div>
+<p>De donde obtenemos que</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda = 2(AA^T)^{-1}b
+\]</div>
+<p>y por lo tanto</p>
+<div class="math notranslate nohighlight">
+\[
+\hat x = \frac{1}{2} A^T \lambda = A^T (A A^T)^{-1} b,
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(A^T (A A^T)^{-1}\)</span> se conoce como la pseudo-inversa “por la derecha”</p>
+<p><strong>Resolviendo el sistema rectangular con Python</strong></p>
+<p>Sea un sistema de ecuaciones lineales con <span class="math notranslate nohighlight">\(N\neq M\)</span>. Podemos usar scipy para</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: El resultado buscado</p></li>
+<li><p>Calcular la matriz pseudo inversa: <code class="docutils literal notranslate"><span class="pre">scipy.linalg.pinv</span></code></p></li>
+<li><p>Obtener la solución del sistema directamente: <code class="docutils literal notranslate"><span class="pre">scipy.linalg.lstsq</span></code></p></li>
+</ul>
+<p>Si <span class="math notranslate nohighlight">\(N&gt;M\)</span> se utiliza la pseudoinversa por la izquierda y la solución de mínimos cuadrados. En cambio si <span class="math notranslate nohighlight">\(M&gt;N\)</span> se utiliza la pseudoinversa para la derecha y la solución de multiplicadores de Lagrange</p>
+<p><strong>Ejemplo:</strong> Sea el siguiente set de datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/helados.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cons</th>
+      <th>income</th>
+      <th>price</th>
+      <th>temp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.386</td>
+      <td>78</td>
+      <td>0.270</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.374</td>
+      <td>79</td>
+      <td>0.282</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.393</td>
+      <td>81</td>
+      <td>0.277</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.425</td>
+      <td>80</td>
+      <td>0.280</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.406</td>
+      <td>76</td>
+      <td>0.272</td>
+      <td>69</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>donde cada fila corresponde a un día las columnas corresponde a</p>
+<ul class="simple">
+<li><p>consumo de helados promedio</p></li>
+<li><p>ingreso familiar promedio</p></li>
+<li><p>temperatura promedio</p></li>
+<li><p>precio promedio de los helados</p></li>
+</ul>
+<p>Ahora consideremos la siguiente pregunta</p>
+<blockquote>
+<div><p>¿Está el consumo de helados influenciado por la temperatura?</p>
+</div></blockquote>
+<p>Intentemos responder esta pregunta en base al siguiente modelo</p>
+<div class="math notranslate nohighlight">
+\[
+\text{cons}_k = \theta_0 + \theta_1 \cdot \text{temp}_k 
+\]</div>
+<p>que corresponde a un sistema de ecuaciones linelaes de dos incognitas y</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ecuaciones&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;30 ecuaciones&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es decir que es un sistema sobredeterminado</p>
+<p>Podemos resolver este sistema utilizando las funciones vistas anteriormente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cons&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">theta</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">theta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.20686215, 0.00310736])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La tupla retornada contiene</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">theta</span></code>: El resultado buscado</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">residuals</span></code>: La norma del error al cuadrado</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rank</span></code>: El rango de <span class="math notranslate nohighlight">\(A\)</span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: Los valores singulares de <span class="math notranslate nohighlight">\(A\)</span></p></li>
 </ul>
-<p>Podemos ver la función <code class="docutils literal notranslate"><span class="pre">lstsq</span></code> como una alternativa a <code class="docutils literal notranslate"><span class="pre">solve</span></code> para el caso rectangular sobredeterminado</p>
-</div>
-<div class="section" id="id1">
-<h3><span class="section-number">17.2.6. </span>Ejercicio práctico<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Encuentre los parámetros de la <strong>ecuación de la recta</strong> que ajuste mejor los datos</p>
-<div class="math notranslate nohighlight">
-\[
-\text{consumo} = \theta_1 \cdot \text{temperatura} + \theta_0
-\]</div>
-<ul class="simple">
-<li><p>Identifique y construya el vector <span class="math notranslate nohighlight">\(b\)</span> y la matriz <span class="math notranslate nohighlight">\(A\)</span> ¿Cuánto vale <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(M\)</span>?</p></li>
-<li><p>¿Es este un sistema cuadrado o rectangular? ¿ Es sobre o infra-determinado?</p></li>
-<li><p>Encuentre <span class="math notranslate nohighlight">\(\theta_0\)</span> y <span class="math notranslate nohighlight">\(\theta_1\)</span> que minimiza la suma de errores cuadráticos</p></li>
-<li><p>Grafique la recta encontrada usando <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
-</ul>
-<p><strong>Solución paso a paso con comentarios</strong></p>
+<p>Analicemos gráficamente la solución obtenida</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo_formato</span><span class="p">(</span><span class="s1">&#39;FNwIqEZtX2A&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cons&quot;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observaciones&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperatura [F]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Consumo promedio&#39;</span><span class="p">)</span>
+<span class="n">temp_modelo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">num</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">cons_modelo</span> <span class="o">=</span> <span class="n">temp_modelo</span><span class="o">*</span><span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_modelo</span><span class="p">,</span> <span class="n">cons_modelo</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;modelo&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/linalg1_34_0.png" src="../../_images/linalg1_34_0.png" />
 </div>
 </div>
+<p>De donde podemos observar que el consumo promedio tiende al alza con la temperatura promedio</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Lo que acabomos de resolver es un problema conocido como <strong>regresión lineal</strong>. Más adelante veremos una forma más general de este problema</p>
 </div>
-<div class="section" id="resumen-de-la-leccion">
-<h2><span class="section-number">17.3. </span>Resumen de la lección<a class="headerlink" href="#resumen-de-la-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>En esta lección hemos aprendido a:</p>
-<ul class="simple">
-<li><p>Reconocer sistemas de ecuaciones lineales cuadrados y rectangulares</p></li>
-<li><p>Utilizar herramientas de álgebra lineal implementadas en <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> para resolver los sistemas de ecuaciones</p></li>
-</ul>
+</div>
+<div class="section" id="analisis-de-errores-y-condition-number">
+<h2><span class="section-number">20.3. </span>Análisis de errores y <em>condition number</em><a class="headerlink" href="#analisis-de-errores-y-condition-number" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Incluso aunque una matriz sea matemáticamente invertible (determinante distinto de cero), podríamos no ser capaces de resolver el problema numéricamente</p>
+<p>Imaginemos una pequeña variación en <span class="math notranslate nohighlight">\(b\)</span> denominada <span class="math notranslate nohighlight">\(\delta b\)</span>. Esta variación provoca a su vez una pequeña variación en <span class="math notranslate nohighlight">\(x\)</span> denominada <span class="math notranslate nohighlight">\(\delta x\)</span></p>
+<p>Se puede encontrar una cota que compara el error relativo de <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(x\)</span> como</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\| \delta x \|}{\|x\|} \leq \frac{\| A^{-1} \|  \|\delta b\|}{\|x\|}  = \|A^{-1}\| \|A\| \frac{\| \delta b \|}{\|b\|} 
+\]</div>
+<p>donde se usó que <span class="math notranslate nohighlight">\(A \delta x = \delta b\)</span> (propiedad de linealidad)</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esto significa que un pequeño error relativo en <span class="math notranslate nohighlight">\(b\)</span> puede causar un gran error en <span class="math notranslate nohighlight">\(x\)</span></p>
+</div>
+<p>El estimador de <span class="math notranslate nohighlight">\(\|A^{-1}\| \|A\|\)</span> es lo que se conoce como <em>condition number</em></p>
+<p>Un sistema se dice “bien condicionado” si este valor es cercano a <span class="math notranslate nohighlight">\(1\)</span> y “mal condicionado” si es mucho mayor que <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Podemos calcular el <em>condition number</em> con la función de NumPy <code class="docutils literal notranslate"><span class="pre">cond</span></code> como se muestra a continuación</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="c1"># Arreglo multidimensional</span>
+               <span class="n">p</span> <span class="c1"># El orden de la norma: 1, 2, &#39;fro&#39;,...</span>
+              <span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -970,19 +942,12 @@ x_{1} + 5 x_{2} &amp;= 2 \nonumber \\
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../numpy/numpy2.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">16. </span>Operaciones sobre ndarrays</p>
+            <p class="prev-next-title"><span class="section-number">19. </span>Introducción</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="linalg2.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Matrices como transformaciónes lineales</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
