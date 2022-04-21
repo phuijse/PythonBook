@@ -9,7 +9,7 @@ El código fuente del libro está en https://github.com/phuijse/PythonBook. El l
 - Exploración interactiva de datos con `Ipython` y `Jupyter`
 - Manejo de datos con `pandas`
 - Visualización de datos con `matplotlib`
-- Álgebra lineal con `numpy`
+- Álgebra lineal con `numpy` y `scipy`
 - Optimización numérica con `scipy`
 - Estadística descriptiva e inferencial con `scipy`
 - Introducción a Machine Learning con `scikit-learn`
