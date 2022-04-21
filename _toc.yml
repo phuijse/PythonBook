@@ -34,11 +34,11 @@ parts:
   chapters:
     - file: contents/numpy/numpy1
     - file: contents/numpy/numpy2
-#- caption: "Algebra lineal con Scipy"
-#  numbered: true
-#  chapters:
-#    - file: contents/linalg/intro
-#    - file: contents/linalg/linalg1
+- caption: "Algebra lineal con Scipy"
+  numbered: true
+  chapters:
+    - file: contents/linalg/intro
+    - file: contents/linalg/linalg1
 #    - file: contents/linalg/linalg2
 
 #- caption: "Cálculo numérico con Scipy"
