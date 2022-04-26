@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="19. Introducción" href="intro.html" />
+    <link rel="prev" title="19. Introducción e intuiciones geométricas" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -237,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   19. Introducción
+   19. Introducción e intuiciones geométricas
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -561,7 +561,7 @@ x_1 \\ x_2 \\ x_3
 </div>
 <p><strong>Resolviendo sistemas cuadrados eficientemente</strong></p>
 <p>En general si sólo nos interesa <span class="math notranslate nohighlight">\(x\)</span>, podemos no realizar el cálculo explícito de  <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Si un sistema de ecuaciones es grande es preferible no calcular la inversa de <span class="math notranslate nohighlight">\(A\)</span> debido al alto costo computacional necesario</p>
-<p>Podemos encontrar <span class="math notranslate nohighlight">\(x\)</span> directamente en un sistema cuadrado usando la función <code class="docutils literal notranslate"><span class="pre">solve</span></code></p>
+<p>Podemos encontrar <span class="math notranslate nohighlight">\(x\)</span> directamente en un sistema cuadrado usando la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html#scipy.linalg.solve"><code class="docutils literal notranslate"><span class="pre">solve</span></code></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -587,8 +587,8 @@ x_1 \\ x_2 \\ x_3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>290 ms ± 3.37 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
-176 ms ± 3.63 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>297 ms ± 15.7 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
+193 ms ± 11.6 ms per loop (mean ± std. dev. of 5 runs, 5 loops each)
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@ z_2 = \frac{b_2 - l_{21} z_1}{l_{22}}
 z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 \]</div>
 <p>y <span class="math notranslate nohighlight">\(x\)</span> se puede obtener recursivamente de <span class="math notranslate nohighlight">\(z\)</span></p>
-<p>Podemos realizar la factorización LU en <code class="docutils literal notranslate"><span class="pre">scipy</span></code> con</p>
+<p>En caso de necesitar los factores LU podemos realizar la factorización en <code class="docutils literal notranslate"><span class="pre">scipy</span></code> con <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html#scipy.linalg.lu"><code class="docutils literal notranslate"><span class="pre">linalg.lu</span></code></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lu</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -736,8 +736,8 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 <p><strong>Resolviendo el sistema rectangular con Python</strong></p>
 <p>Sea un sistema de ecuaciones lineales con <span class="math notranslate nohighlight">\(N\neq M\)</span>. Podemos usar scipy para</p>
 <ul class="simple">
-<li><p>Calcular la matriz pseudo inversa: <code class="docutils literal notranslate"><span class="pre">scipy.linalg.pinv</span></code></p></li>
-<li><p>Obtener la solución del sistema directamente: <code class="docutils literal notranslate"><span class="pre">scipy.linalg.lstsq</span></code></p></li>
+<li><p>Calcular la matriz pseudo inversa: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.pinv.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.pinv</span></code></a></p></li>
+<li><p>Obtener la solución del sistema directamente: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.lstsq</span></code></a></p></li>
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(N&gt;M\)</span> se utiliza la pseudoinversa por la izquierda y la solución de mínimos cuadrados. En cambio si <span class="math notranslate nohighlight">\(M&gt;N\)</span> se utiliza la pseudoinversa para la derecha y la solución de multiplicadores de Lagrange</p>
 <p><strong>Ejemplo:</strong> Sea el siguiente set de datos</p>
@@ -827,9 +827,9 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 <p>Intentemos responder esta pregunta en base al siguiente modelo</p>
 <div class="math notranslate nohighlight">
 \[
-\text{cons}_k = \theta_0 + \theta_1 \cdot \text{temp}_k 
+\text{cons} = \theta_0 + \theta_1 \cdot \text{temp}
 \]</div>
-<p>que corresponde a un sistema de ecuaciones linelaes de dos incognitas y</p>
+<p>que corresponde a un sistema de ecuaciones lineales de dos incognitas y</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> ecuaciones&quot;</span>
@@ -843,14 +843,26 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 </div>
 </div>
 <p>Es decir que es un sistema sobredeterminado</p>
-<p>Podemos resolver este sistema utilizando las funciones vistas anteriormente</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+cons[0] \\ cons[1] \\ \vdots \\ cons[{29}]
+\end{pmatrix} = 
+\begin{pmatrix}
+1&amp;temp[0] \\ 1&amp;temp[1] \\ \vdots &amp; \vdots \\ 1 &amp; temp[29]
+\end{pmatrix} 
+\begin{pmatrix}
+\theta_0 \\ \theta_1
+\end{pmatrix} 
+\end{split}\]</div>
+<p>que podemos resolver utilizando <code class="docutils literal notranslate"><span class="pre">lstsq</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cons&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">theta</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">theta</span>
 </pre></div>
 </div>
@@ -889,7 +901,7 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 <p>De donde podemos observar que el consumo promedio tiende al alza con la temperatura promedio</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Lo que acabomos de resolver es un problema conocido como <strong>regresión lineal</strong>. Más adelante veremos una forma más general de este problema</p>
+<p>Lo que acabamos de resolver es un problema conocido como <strong>regresión lineal</strong>. Más adelante veremos una forma más general de este problema</p>
 </div>
 </div>
 <div class="section" id="analisis-de-errores-y-condition-number">
@@ -946,7 +958,7 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">19. </span>Introducción</p>
+            <p class="prev-next-title"><span class="section-number">19. </span>Introducción e intuiciones geométricas</p>
         </div>
     </a>
 </div>
