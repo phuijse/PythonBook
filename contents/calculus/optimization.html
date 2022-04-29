@@ -1,0 +1,1062 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. Optimización matemática &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="20. Resolviendo sistemas de ecuaciones lineales" href="../linalg/linalg1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   9. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   10. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   11. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   12. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   13. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   14. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   15. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   21. Optimización matemática
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/calculus/optimization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/calculus/optimization.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/calculus/optimization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelamiento-matematico-de-un-problema">
+   21.1. Modelamiento matemático de un problema
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reconocer-y-clasificar-problemas-de-optimizacion">
+   21.2. Reconocer y clasificar problemas de optimización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
+   21.3. Solución de fuerza bruta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-analitica">
+   21.4. Solución analítica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
+   21.5. Solución iterativa: Método de Newton y Gradiente Descedente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
+   21.6. Tutorial de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.optimize
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
+     21.6.1. Métodos para optimización sin restricciones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
+     21.6.2. Métodos para optimización con restricciones
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Optimización matemática</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelamiento-matematico-de-un-problema">
+   21.1. Modelamiento matemático de un problema
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reconocer-y-clasificar-problemas-de-optimizacion">
+   21.2. Reconocer y clasificar problemas de optimización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
+   21.3. Solución de fuerza bruta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-analitica">
+   21.4. Solución analítica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
+   21.5. Solución iterativa: Método de Newton y Gradiente Descedente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
+   21.6. Tutorial de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy.optimize
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
+     21.6.1. Métodos para optimización sin restricciones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
+     21.6.2. Métodos para optimización con restricciones
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimizacion-matematica">
+<h1><span class="section-number">21. </span>Optimización matemática<a class="headerlink" href="#optimizacion-matematica" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>¿Qué significa <a class="reference external" href="https://dle.rae.es/%C3%B3ptimo">óptimo</a>?</p>
+<blockquote>
+<div><p>Sumamente bueno, que no puede ser mejor</p>
+</div></blockquote>
+<p>Pero el significado de “mejor” depende de la situación. Considere por ejemplo el problema de escoger la ruta que debe tomar un vehículo de reparto de carga</p>
+<p>La “mejor” ruta pudiera ser</p>
+<ul class="simple">
+<li><p>la ruta más rápida</p></li>
+<li><p>la ruta más barata</p></li>
+<li><p>la ruta más directa</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Para encontrar la mejor ruta primero debemos definir el <strong>criterio</strong> en que basaremos nuestra decisión</p>
+</div>
+<p>En el ejemplo anterior tenemos</p>
+<ul class="simple">
+<li><p>la ruta de mínimo <strong>tiempo</strong></p></li>
+<li><p>la ruta de mínimo <strong>costo</strong></p></li>
+<li><p>la ruta de mínima <strong>distancia</strong></p></li>
+</ul>
+<p>La selección de la mejor ruta es un ejemplo de <strong>optimización</strong>. Más en general, la optimización es:</p>
+<blockquote>
+<div><p>El proceso de encontrar la mejor solución para un problema dentro de un conjunto de posibilidades</p>
+</div></blockquote>
+<p>La optimización es un área bastante estudiada de las matemáticas y algunos problemas de optimización requieren de soluciones muy específicas</p>
+<p>El objetivo de esta lección es entregar una revisión general a los problemas de optimización que podemos resolver usando las herramientas del módulo <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modelamiento-matematico-de-un-problema">
+<h2><span class="section-number">21.1. </span>Modelamiento matemático de un problema<a class="headerlink" href="#modelamiento-matematico-de-un-problema" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para encontrar la mejor solución de un problema debemos primero modelarlo matemáticamente. En su forma más básica esto significa escribir el criterio de decisión como una función</p>
+<blockquote>
+<div><p>Llamamos a esta función, la <strong>función objetivo</strong> del problema</p>
+</div></blockquote>
+<p>Para el problema del vehículo de reparto que comentamos en la introducción, si tenemos una variable <span class="math notranslate nohighlight">\(x\)</span> que define la ruta y una función <span class="math notranslate nohighlight">\(f(x)\)</span> que retorna el tiempo de dicha ruta, podemos escribir</p>
+<div class="math notranslate nohighlight">
+\[
+\min_x f(x)
+\]</div>
+<p>Supongamos ahora que el vehículo debe pasar por un cierto punto de la ciudad durante el reparto. La mejor ruta es ahora la de mínimo tiempo que además pasa por ese punto</p>
+<blockquote>
+<div><p>Llamamos <strong>restricciones</strong>, a las condiciones adicionales que debe cumplir la mejor solución</p>
+</div></blockquote>
+<p>Incluyendo restricciones el modelo matemático de nuestro problema sería</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+\min_x &amp;f(x)  \\
+\text{sujeto a: } &amp; g_i(x) = 0, i=1,2\ldots, I \\  
+&amp; h_j(x) \leq 0, j=1,2,\ldots J 
+\end{split}
+\end{split}\]</div>
+<p>donde</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x \in \mathbb{R}^D\)</span> son las <strong>variables de decisión</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(f : \mathbb{R}^D \to \mathbb{R}\)</span> es la <strong>función objetivo</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(g_i : \mathbb{R}^D \to \mathbb{R}\)</span> son las <strong>restricciones de igualdad</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(h_j : \mathbb{R}^D \to \mathbb{R}\)</span> son las <strong>restricciones de desigualdad</strong></p></li>
+</ul>
+<blockquote>
+<div><p>Optimizar es el proceso de encontrar el valor óptimo (mínimo) de la función objetivo en el espacio definido por las restricciones</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En algunos problemas podríamos estar necesitar un máximo en lugar de un mínimo de la función objetivo</p>
+</div>
+<p>Sin embargo considere que</p>
+<div class="math notranslate nohighlight">
+\[
+\max_x f(\vec x) \equiv \min_x - f(\vec x),
+\]</div>
+<p>Por lo que podemos hablar de minimización sin pérdida de generalidad</p>
+</div>
+<div class="section" id="reconocer-y-clasificar-problemas-de-optimizacion">
+<h2><span class="section-number">21.2. </span>Reconocer y clasificar problemas de optimización<a class="headerlink" href="#reconocer-y-clasificar-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Estudiando algunas características del problema podemos seleccionar más fácilmente un algoritmo  apropiado para resolverlo. Algunas preguntas guía que podemos realizar son</p>
+<p>¿Es mi función objetivo de una variable (<span class="math notranslate nohighlight">\(D=1\)</span>) versus multi-variable (<span class="math notranslate nohighlight">\(D&gt;1\)</span>)?</p>
+<blockquote>
+<div><p>Esto define la dimensionalidad o escala del problema</p>
+</div></blockquote>
+<p>¿Existen restricciones de igualidad y/o desigualidad que debo cumplir?</p>
+<blockquote>
+<div><p>Algunos algoritmos sólo pueden resolver problemas sin restricciones</p>
+</div></blockquote>
+<p>¿Es mi función objetivo lineal o no lineal con respecto a la entrada?</p>
+<blockquote>
+<div><p>Si todas las funciones son lineales entonces se pueden usar técnicas de <strong>programación lineal</strong>. Esto problemas son más simples que los no lineales</p>
+</div></blockquote>
+<p>¿Es mi función objetivo convexa o no convexa?</p>
+<img alt="../../_images/opti1.png" src="../../_images/opti1.png" />
+<blockquote>
+<div><p>Una función no-convexa (derecha) puede tener múltiples mínimos locales. Por el contrario una función convexa (izquierda) tiene un único mínimo</p>
+</div></blockquote>
+<p>¿Es mi función objetivo continua y diferenciable o no-diferenciable?</p>
+<blockquote>
+<div><p>Si la función no es continua entonces no puedo calcular su gradiente. Muchos métodos se basan en el gradiente para encontrar óptimos</p>
+</div></blockquote>
+</div>
+<div class="section" id="solucion-de-fuerza-bruta">
+<h2><span class="section-number">21.3. </span>Solución de fuerza bruta<a class="headerlink" href="#solucion-de-fuerza-bruta" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La forma más “simple” de resolver un problema de optimización es la <strong>fuerza bruta</strong>, es decir evaluar <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(g_i(x)\)</span> y <span class="math notranslate nohighlight">\(h_j(x)\)</span> exhaustivamente para todos los valores de <span class="math notranslate nohighlight">\(x\)</span> hasta encontrar el mejor</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si <span class="math notranslate nohighlight">\(x\)</span> fuera una variable continua necesitariamos discretizarla para crear una grilla de búsqueda</p>
+</div>
+<p>La ventaja del método de fuerza bruta es que si la grilla es lo suficientemente fina entonces el método no confudirá un mínimo local con el mínimo global</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>El método de fuerza bruta es ingenuo pues se vuelve enormemente ineficiente a medida que crece el rango y la dimensionalidad de <span class="math notranslate nohighlight">\(x\)</span></p>
+</div>
+</div>
+<div class="section" id="solucion-analitica">
+<h2><span class="section-number">21.4. </span>Solución analítica<a class="headerlink" href="#solucion-analitica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si nuestra función es continua y derivable podemos intentar encontrar una solución analítica igualando su gradiente a cero, es decir</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla f (x^*) = \begin{pmatrix} \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_D} \end{pmatrix} = \vec 0
+\]</div>
+<p>Estas soluciones se conocen como <strong>puntos estacionarios</strong> de <span class="math notranslate nohighlight">\(f\)</span>, que incluyen los mínimos, máximos y puntos silla</p>
+<p>Luego si la segunda derivada o matriz Hessiana de <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+H_{ij}^f (x)  = \frac{\partial^2 f}{\partial x_i \partial x_j} (x^*) &gt; 0
+\]</div>
+<p>entonces <span class="math notranslate nohighlight">\(x^*\)</span> es un <strong>mínimo</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si el problema tiene restricciones podríamos incluirlas utilizando multiplicadores de Lagrange</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>En muchos casos prácticos <span class="math notranslate nohighlight">\(f(x)\)</span> es demasiado complicada como para despejar una expresión análitica de <span class="math notranslate nohighlight">\(x\)</span> a partir de <span class="math notranslate nohighlight">\(\nabla f (x^*)=0\)</span></p>
+</div>
+</div>
+<div class="section" id="solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
+<h2><span class="section-number">21.5. </span>Solución iterativa: Método de Newton y Gradiente Descedente<a class="headerlink" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Si evaluar el espacio de soluciones completo es infactible podríamos intentar explorarlo de forma parcial con un método iterativo</p>
+<p>Los métodos iterativos parten de una o varias “soluciones iniciales” y luego aplican criterios que las “mejoran” paso a paso, acercándolas a la solución óptima</p>
+<p>Sea <span class="math notranslate nohighlight">\(x_t\)</span> el valor actual de la variable de decisión. Podemos escribir el valor que tendrá en el siguiente paso como</p>
+<div class="math notranslate nohighlight">
+\[
+x_{t+1} = x_t + \Delta x
+\]</div>
+<p>y lo que queremos es encontrar el mejor <span class="math notranslate nohighlight">\(\Delta x\)</span> según nuestra función objetivo <span class="math notranslate nohighlight">\(f(x)\)</span>. Para continuar consideremos la aproximación de Taylor de segundo orden de <span class="math notranslate nohighlight">\(f\)</span> en torno a <span class="math notranslate nohighlight">\(x_{t+1}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+f(x_{t} + \Delta x) \approx f(x_t) + \nabla f (x_t) \Delta x + \frac{1}{2} \Delta x^T H_f (x_t) \Delta x 
+\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla f (x) = \begin{pmatrix} \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_D} \end{pmatrix}
+\]</div>
+<p>es el gradiente de <span class="math notranslate nohighlight">\(f(x)\)</span> y</p>
+<div class="math notranslate nohighlight">
+\[
+H_{ij}^f (x)  = \frac{\partial^2 f}{\partial x_i \partial x_j} (x)
+\]</div>
+<p>es el Hessiano de <span class="math notranslate nohighlight">\(f(x)\)</span>. Si derivamos en función de <span class="math notranslate nohighlight">\(\Delta x\)</span> e igualamos a cero se tiene que</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\nabla f (x_t)  +  H_f (x_t) \Delta x &amp;= 0 \nonumber \\
+\Delta x &amp;= - [H_f (x_t)]^{-1}\nabla f (x_t)  \nonumber \\
+x_{t+1} &amp;= x_{t} - [H_f (x_t)]^{-1}\nabla f (x_t)  \nonumber 
+\end{align}
+\end{split}\]</div>
+<p>Que se conoce como <strong>la regla iterativa de Newton</strong> y donde</p>
+<ul class="simple">
+<li><p>El gradiente nos indica la dirección en que debemos desplazarnos</p></li>
+<li><p>El hessiano nos indica la distancia que debemos desplazarnos</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<ul class="simple">
+<li><p>Usando Newton estamos asumiendo que la aproximación de segundo orden de <span class="math notranslate nohighlight">\(f\)</span> es buena</p></li>
+<li><p>La solución del método de Newton depende de <span class="math notranslate nohighlight">\(x_0\)</span> (solución inicial). Es conveniente probar varios valores de <span class="math notranslate nohighlight">\(x_0\)</span></p></li>
+<li><p>Si la dimensionalidad de <span class="math notranslate nohighlight">\(x\)</span> es grande, invertir el hessiano (matriz de <span class="math notranslate nohighlight">\(M\times M\)</span>) puede ser costoso</p></li>
+</ul>
+</div>
+<p>Si el Hessiano es prohibitivo podemos usar una aproximación de primer orden de la regla de Newton. Esto resulta en el clásico método conocido como  <strong>gradiente descendente</strong></p>
+<div class="math notranslate nohighlight">
+\[
+x_{t+1} = x_{t} - \eta \nabla f (x_t)
+\]</div>
+<p>donde se reemplaza el Hessiano por una constante <span class="math notranslate nohighlight">\(\eta\)</span> llamado “paso” o “tasa de aprendizaje”.</p>
+<p>Es importante calibrar adecuadamente <span class="math notranslate nohighlight">\(\eta\)</span>. Si es muy grande la adaptación será inestable, y si es muy pequeño demoraremos demasiado en llegar al óptimo. La siguiente figura lo ejemplifica</p>
+<a class="reference internal image-reference" href="../../_images/opti2.png"><img alt="../../_images/opti2.png" src="../../_images/opti2.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="tutorial-de-scipy-optimize">
+<h2><span class="section-number">21.6. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html#optimization-scipy-optimize"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
+<p>Los argumentos principales de <code class="docutils literal notranslate"><span class="pre">minimize</span></code> son</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<span class="n">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="c1"># Función objetivo </span>
+         <span class="n">x0</span><span class="p">,</span> <span class="c1"># Valor inicial de la variable de decisión</span>
+         <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="c1"># Argumentos adicionales de fun</span>
+         <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># El método de optimización a usar </span>
+         <span class="n">jac</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Función que calcula la matriz de primeras derivadas (jacobiano)</span>
+         <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Secuencia de tuplas (min, max) con cotas para x </span>
+         <span class="n">constraints</span><span class="o">=</span><span class="p">(),</span> <span class="c1"># Diccinario o lista de restricciones (más detalles a continuación)</span>
+         <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Tolerancia para el término de la optimización</span>
+         <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Una función que se ejecuta luego de cada iteración</span>
+         <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Diccionario con las opciones especificas para cada método</span>
+         <span class="o">...</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">method</span></code> se utiliza por defecto BFGS, un método de tipo quasi-Newton</p>
+</div>
+<p>La función objetivo debe estar definida de la siguiente forma</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">foo</span>
+</pre></div>
+</div>
+<p>donde</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> debe ser un escalar o un ndarray</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foo</span></code> debe ser un valor escalar flotante</p></li>
+<li><p>Los argumentos adicionales a <code class="docutils literal notranslate"><span class="pre">x</span></code> se deben desempaquetar de la tupla <code class="docutils literal notranslate"><span class="pre">args</span></code></p></li>
+</ul>
+<p>Pongamos en práctica lo anterior con un ejemplo</p>
+<p><strong>Ejemplo</strong></p>
+<p>Sea la siguiente función objetivo con variable de decisión escalar</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 - 2x + 5 \sin(2x)
+\]</div>
+<p>Para optimizarla con <code class="docutils literal notranslate"><span class="pre">scipy</span></code> primero debemos definirla:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego la optimizamos con <code class="docutils literal notranslate"><span class="pre">minimize</span></code> especificando como mínimo la función misma y una solución inicial</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">solution</span></code> es un objeto de tipo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html#scipy.optimize.OptimizeResult"><code class="docutils literal notranslate"><span class="pre">OptimizeResult</span></code></a>, cuyos atributos más importantes son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: Mejor valor encontrado de la variable de decisión</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fun</span></code>: Valor de la función objetivo en el óptimo encontrado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jac</span></code>: Valor de la matriz de primeras derivadas en el óptimo encontrado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code>: Booleano que indica si la optimización se llevó a cabo con exito</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">message:</span></code> Mensaje indicando la razón de término, útil para debuggear</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solution</span><span class="o">.</span><span class="n">message</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Optimization terminated successfully.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si visualizamos la solución con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_plot</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> <span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> 
+         <span class="n">head_width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Variable de decisión&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Función objetivo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/optimization_18_0.png" src="../../_images/optimization_18_0.png" />
+</div>
+</div>
+<blockquote>
+<div><p>La función es no convexa y el método quasi-Newton ha encontrado un mínimo local</p>
+</div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Truco</p>
+<p>En problemas no-convexos es conveniente probar distintas soluciones iniciales</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x0_</span> <span class="ow">in</span> <span class="n">x0</span><span class="p">:</span>
+    <span class="n">solution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0_</span><span class="p">))</span>
+    
+<span class="n">bests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">solution</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_plot</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;solución inicial&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x0_</span><span class="p">,</span> <span class="n">best</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">bests</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">x0_</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x0_</span><span class="p">),</span> <span class="n">best</span><span class="o">-</span><span class="n">x0_</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">best</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x0_</span><span class="p">),</span> 
+             <span class="n">head_width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Variable de decisión&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Función objetivo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/optimization_21_0.png" src="../../_images/optimization_21_0.png" />
+</div>
+</div>
+<p>El argumento <code class="docutils literal notranslate"><span class="pre">jac</span></code> de <code class="docutils literal notranslate"><span class="pre">minimize</span></code> espera la función de primeras derivadas o vector jacobiano. Este debe seguir una forma similar a la función objetivo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jac</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">dfoo</span> 
+</pre></div>
+</div>
+<p>donde</p>
+<ul class="simple">
+<li><p>donde <code class="docutils literal notranslate"><span class="pre">x</span></code> y <code class="docutils literal notranslate"><span class="pre">args</span></code> deben coincidir con <code class="docutils literal notranslate"><span class="pre">fun</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dfoo</span></code> debe tener la misma dimensionalidad de <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+</ul>
+<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">jac</span></code> las derivadas se calcularán de forma numérica, lo cual es menos eficiente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">timeit</span> -r10 -n10 scipy.optimize.minimize(f, 0.0)
+<span class="o">%</span><span class="k">timeit</span> -r10 -n10 scipy.optimize.minimize(f, 0.0, jac=df)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4 ms ± 318 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+1.09 ms ± 29.4 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación describiremos algunos de los métodos disponibles a través del argumento <code class="docutils literal notranslate"><span class="pre">method</span></code> de <code class="docutils literal notranslate"><span class="pre">minimize</span></code></p>
+<div class="section" id="metodos-para-optimizacion-sin-restricciones">
+<h3><span class="section-number">21.6.1. </span>Métodos para optimización sin restricciones<a class="headerlink" href="#metodos-para-optimizacion-sin-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Con estos métodos no se pueden especificar los argumentos <code class="docutils literal notranslate"><span class="pre">constraint</span></code> y/o <code class="docutils literal notranslate"><span class="pre">bounds</span></code>.</p>
+<p>Por ejemplo están</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-cg.html#optimize-minimize-cg"><code class="docutils literal notranslate"><span class="pre">method=CG</span></code></a>: Gradiente conjugado. Es una versión de GD con tasa de aprendizaje adaptiva</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html#optimize-minimize-bfgs"><code class="docutils literal notranslate"><span class="pre">method=BFGS</span></code></a>: Es un método de tipo <a class="reference external" href="https://en.wikipedia.org/wiki/Quasi-Newton_method">quasi-Newton</a> con Hessiano inverso aproximado a cada paso. Es el método por defecto en optimize y es en general una buena opción</p></li>
+</ul>
+<p>Los cuales usan gradientes, ya sea numérico o especificado mediante el argumento <code class="docutils literal notranslate"><span class="pre">jac</span></code>. Si la derivada puede obtenerse analiticamente y es confiable los siguientes métodos tendrán un desempeño superior a las alternativas</p>
+<p>Luego están</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html#optimize-minimize-neldermead"><code class="docutils literal notranslate"><span class="pre">method=Nelder-Mead</span></code></a>: Es una heurística tipo simplex. <a class="reference external" href="https://www.youtube.com/watch?v=HUqLxHfxWqU">Animación que muestra su funcionamiento</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html#optimize-minimize-powell"><code class="docutils literal notranslate"><span class="pre">method=Powell</span></code></a>: Algoritmo de búsqueda de linea siguiendo una dirección a la vez. <a class="reference external" href="https://www.youtube.com/watch?v=4TYJGihyuDg">Animación que muestra su funcionamiento</a></p></li>
+</ul>
+<p>Los cuales no usan gradientes. Estos métodos pueden usarse cuando la función objetivo es no-derivable o demasiado ruidosa para ser derivada</p>
+</div>
+<div class="section" id="metodos-para-optimizacion-con-restricciones">
+<h3><span class="section-number">21.6.2. </span>Métodos para optimización con restricciones<a class="headerlink" href="#metodos-para-optimizacion-con-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Con estos métodos se pueden incorporar restricciones al problema ya sea en forma de cotas para las variables o ecuaciones de igualdad/desigualdad que las variables deben cumplir</p>
+<ul class="simple">
+<li><p>Las restricciones de igualdad deben ser siempre de la forma <span class="math notranslate nohighlight">\(g(x) = 0\)</span></p></li>
+<li><p>Las restricciones de desigualdad deben ser siempre de la forma <span class="math notranslate nohighlight">\(h(x) \geq 0 \)</span></p></li>
+</ul>
+<p>En la práctica las restricciones se entregan como una tupla en el argumento <code class="docutils literal notranslate"><span class="pre">constraint</span></code> de <code class="docutils literal notranslate"><span class="pre">method</span></code>. Cada restricción es un diccionario con las llaves <code class="docutils literal notranslate"><span class="pre">type</span></code> y <code class="docutils literal notranslate"><span class="pre">fun</span></code> para especificar el tipo (string <code class="docutils literal notranslate"><span class="pre">eq</span></code> o <code class="docutils literal notranslate"><span class="pre">ineq</span></code>) y la función, respectivamente. Opcionalmente se puede especificar <code class="docutils literal notranslate"><span class="pre">jac</span></code>, la matriz de primeras derivadas de <code class="docutils literal notranslate"><span class="pre">fun</span></code> y <code class="docutils literal notranslate"><span class="pre">arg</span></code> una tupla con argumentos adicionales para <code class="docutils literal notranslate"><span class="pre">fun</span></code> y <code class="docutils literal notranslate"><span class="pre">jac</span></code></p>
+<p>Por ejemplo si se tiene la siguiente restricción</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 \geq 1 + 2x
+\]</div>
+<p>se escribe como:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">h1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span> 
+      <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+      <span class="s1">&#39;jac&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])}</span>
+</pre></div>
+</div>
+<p>Los métodos que permiten especificar restricciones son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method=L-BFGS-B</span></code>: Similar a BFGS pero permite añadir cotas (<code class="docutils literal notranslate"><span class="pre">bounds</span></code>) para la variable de decisión</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method=SLSQP</span></code>: <em>Sequential Least Squares Programming</em>. Este método acepta cotas, restricciones de igualdad y restricciones de desigualdad</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<p>Sea la siguiente función de costo con dos variables de decisión</p>
+<div class="math notranslate nohighlight">
+\[
+\min f(x, y) = -(2xy+2x-x^2-2y^2) 
+\]</div>
+<p>sujeta a</p>
+<div class="math notranslate nohighlight">
+\[
+x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0 
+\]</div>
+<p>donde</p>
+<div class="math notranslate nohighlight">
+\[
+0.5\leq x \leq 1.5 ~\wedge~ 1.5 \leq y \leq 2.5
+\]</div>
+<p>Resolvamos utilizando <code class="docutils literal notranslate"><span class="pre">minimize</span></code>. La solución sin considerar restricciones sería:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">solution_no_constraint</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">)</span>
+<span class="n">solution_no_constraint</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 1.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La solución considerando cotas paras las variables de decisión sería:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bounds</span> <span class="o">=</span> <span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">))</span>
+<span class="n">solution_with_bounds</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">solution_with_bounds</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.5, 1.5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente la solución considerando cotas y restricciones sería:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cons</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span> 
+         <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+         <span class="s1">&#39;jac&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">])</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+         <span class="s1">&#39;jac&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+        <span class="p">})</span>
+
+<span class="n">solution_with_constraints</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> 
+                                                    <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">cons</span><span class="p">)</span>
+<span class="n">solution_with_constraints</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.26089314, 2.00463288])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos visualizar estas soluciones con <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, el color de la superficie representa la función objetivo, el área oscura las cotas y las lineas punteadas las restricciones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">B</span><span class="o">.</span><span class="n">ravel</span><span class="p">()]))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution_no_constraint</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution_no_constraint</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;BFGS&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution_with_bounds</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution_with_bounds</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">solution_with_constraints</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution_with_constraints</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+           <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/optimization_34_0.png" src="../../_images/optimization_34_0.png" />
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Si desea profundizar en este tema sugiero revisar</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scipy-lectures.org/advanced/mathematical_optimization/index.html">Comparativa detallada entre los distintos métodos de optimización</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html#scipy.optimize.root">Encontrando raices de una función con <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html#scipy.optimize.linprog">Problemas de programación lineal con <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/calculus"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../linalg/linalg1.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Resolviendo sistemas de ecuaciones lineales</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
