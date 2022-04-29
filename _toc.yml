@@ -43,8 +43,8 @@ parts:
 - caption: "Cálculo numérico con Scipy"
   numbered: true
   chapters:
-    - file: contents/scipy/optimization
-#    - file: contents/scipy/ode_integration
+    - file: contents/calculus/optimization
+#    - file: contents/calculus/ode_integration
 #- caption: "Estadística con Scipy"
 #  numbered: true
 #  chapters:
