@@ -40,11 +40,10 @@ parts:
     - file: contents/linalg/intro
     - file: contents/linalg/linalg1
 #    - file: contents/linalg/linalg2
-
-#- caption: "Cálculo numérico con Scipy"
-#  numbered: true
-#  chapters:
-#    - file: contents/scipy/optimization
+- caption: "Cálculo numérico con Scipy"
+  numbered: true
+  chapters:
+    - file: contents/scipy/optimization
 #    - file: contents/scipy/ode_integration
 #- caption: "Estadística con Scipy"
 #  numbered: true
