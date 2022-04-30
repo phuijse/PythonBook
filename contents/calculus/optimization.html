@@ -372,23 +372,30 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
-   21.3. Solución de fuerza bruta
+  <a class="reference internal nav-link" href="#resolviendo-problemas-de-optimizacion">
+   21.3. Resolviendo problemas de optimización
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-analitica">
-   21.4. Solución analítica
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-   21.5. Solución iterativa: Método de Newton y Gradiente Descedente
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
+     21.3.1. Solución de fuerza bruta
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-analitica">
+     21.3.2. Solución analítica
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
+     21.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
-   21.6. Tutorial de
+   21.4. Tutorial de
    <code class="docutils literal notranslate">
     <span class="pre">
      scipy.optimize
@@ -398,12 +405,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
-     21.6.1. Métodos para optimización sin restricciones
+     21.4.1. Métodos para optimización sin restricciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
-     21.6.2. Métodos para optimización con restricciones
+     21.4.2. Métodos para optimización con restricciones
     </a>
    </li>
   </ul>
@@ -439,23 +446,30 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
-   21.3. Solución de fuerza bruta
+  <a class="reference internal nav-link" href="#resolviendo-problemas-de-optimizacion">
+   21.3. Resolviendo problemas de optimización
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-analitica">
-   21.4. Solución analítica
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-   21.5. Solución iterativa: Método de Newton y Gradiente Descedente
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
+     21.3.1. Solución de fuerza bruta
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-analitica">
+     21.3.2. Solución analítica
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
+     21.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
-   21.6. Tutorial de
+   21.4. Tutorial de
    <code class="docutils literal notranslate">
     <span class="pre">
      scipy.optimize
@@ -465,12 +479,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
-     21.6.1. Métodos para optimización sin restricciones
+     21.4.1. Métodos para optimización sin restricciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
-     21.6.2. Métodos para optimización con restricciones
+     21.4.2. Métodos para optimización con restricciones
     </a>
    </li>
   </ul>
@@ -593,8 +607,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>Si la función no es continua entonces no puedo calcular su gradiente. Muchos métodos se basan en el gradiente para encontrar óptimos</p>
 </div></blockquote>
 </div>
+<div class="section" id="resolviendo-problemas-de-optimizacion">
+<h2><span class="section-number">21.3. </span>Resolviendo problemas de optimización<a class="headerlink" href="#resolviendo-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="solucion-de-fuerza-bruta">
-<h2><span class="section-number">21.3. </span>Solución de fuerza bruta<a class="headerlink" href="#solucion-de-fuerza-bruta" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">21.3.1. </span>Solución de fuerza bruta<a class="headerlink" href="#solucion-de-fuerza-bruta" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La forma más “simple” de resolver un problema de optimización es la <strong>fuerza bruta</strong>, es decir evaluar <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(g_i(x)\)</span> y <span class="math notranslate nohighlight">\(h_j(x)\)</span> exhaustivamente para todos los valores de <span class="math notranslate nohighlight">\(x\)</span> hasta encontrar el mejor</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -607,7 +623,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="solucion-analitica">
-<h2><span class="section-number">21.4. </span>Solución analítica<a class="headerlink" href="#solucion-analitica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">21.3.2. </span>Solución analítica<a class="headerlink" href="#solucion-analitica" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si nuestra función es continua y derivable podemos intentar encontrar una solución analítica igualando su gradiente a cero, es decir</p>
 <div class="math notranslate nohighlight">
 \[
@@ -630,7 +646,7 @@ H_{ij}^f (x)  = \frac{\partial^2 f}{\partial x_i \partial x_j} (x^*) &gt; 0
 </div>
 </div>
 <div class="section" id="solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-<h2><span class="section-number">21.5. </span>Solución iterativa: Método de Newton y Gradiente Descedente<a class="headerlink" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente" title="Enlazar permanentemente con este título">¶</a></h2>
+<h3><span class="section-number">21.3.3. </span>Solución iterativa: Método de Newton y Gradiente Descedente<a class="headerlink" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si evaluar el espacio de soluciones completo es infactible podríamos intentar explorarlo de forma parcial con un método iterativo</p>
 <p>Los métodos iterativos parten de una o varias “soluciones iniciales” y luego aplican criterios que las “mejoran” paso a paso, acercándolas a la solución óptima</p>
 <p>Sea <span class="math notranslate nohighlight">\(x_t\)</span> el valor actual de la variable de decisión. Podemos escribir el valor que tendrá en el siguiente paso como</p>
@@ -684,8 +700,9 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
 <p>Es importante calibrar adecuadamente <span class="math notranslate nohighlight">\(\eta\)</span>. Si es muy grande la adaptación será inestable, y si es muy pequeño demoraremos demasiado en llegar al óptimo. La siguiente figura lo ejemplifica</p>
 <a class="reference internal image-reference" href="../../_images/opti2.png"><img alt="../../_images/opti2.png" src="../../_images/opti2.png" style="width: 700px;" /></a>
 </div>
+</div>
 <div class="section" id="tutorial-de-scipy-optimize">
-<h2><span class="section-number">21.6. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">21.4. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html#optimization-scipy-optimize"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
 <p>Los argumentos principales de <code class="docutils literal notranslate"><span class="pre">minimize</span></code> son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
@@ -779,7 +796,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/optimization_18_0.png" src="../../_images/optimization_18_0.png" />
+<img alt="../../_images/optimization_19_0.png" src="../../_images/optimization_19_0.png" />
 </div>
 </div>
 <blockquote>
@@ -815,7 +832,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/optimization_21_0.png" src="../../_images/optimization_21_0.png" />
+<img alt="../../_images/optimization_22_0.png" src="../../_images/optimization_22_0.png" />
 </div>
 </div>
 <p>El argumento <code class="docutils literal notranslate"><span class="pre">jac</span></code> de <code class="docutils literal notranslate"><span class="pre">minimize</span></code> espera la función de primeras derivadas o vector jacobiano. Este debe seguir una forma similar a la función objetivo</p>
@@ -849,7 +866,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 </div>
 <p>A continuación describiremos algunos de los métodos disponibles a través del argumento <code class="docutils literal notranslate"><span class="pre">method</span></code> de <code class="docutils literal notranslate"><span class="pre">minimize</span></code></p>
 <div class="section" id="metodos-para-optimizacion-sin-restricciones">
-<h3><span class="section-number">21.6.1. </span>Métodos para optimización sin restricciones<a class="headerlink" href="#metodos-para-optimizacion-sin-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.1. </span>Métodos para optimización sin restricciones<a class="headerlink" href="#metodos-para-optimizacion-sin-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Con estos métodos no se pueden especificar los argumentos <code class="docutils literal notranslate"><span class="pre">constraint</span></code> y/o <code class="docutils literal notranslate"><span class="pre">bounds</span></code>.</p>
 <p>Por ejemplo están</p>
 <ul class="simple">
@@ -865,7 +882,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 <p>Los cuales no usan gradientes. Estos métodos pueden usarse cuando la función objetivo es no-derivable o demasiado ruidosa para ser derivada</p>
 </div>
 <div class="section" id="metodos-para-optimizacion-con-restricciones">
-<h3><span class="section-number">21.6.2. </span>Métodos para optimización con restricciones<a class="headerlink" href="#metodos-para-optimizacion-con-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">21.4.2. </span>Métodos para optimización con restricciones<a class="headerlink" href="#metodos-para-optimizacion-con-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Con estos métodos se pueden incorporar restricciones al problema ya sea en forma de cotas para las variables o ecuaciones de igualdad/desigualdad que las variables deben cumplir</p>
 <ul class="simple">
 <li><p>Las restricciones de igualdad deben ser siempre de la forma <span class="math notranslate nohighlight">\(g(x) = 0\)</span></p></li>
@@ -990,7 +1007,7 @@ x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/optimization_34_0.png" src="../../_images/optimization_34_0.png" />
+<img alt="../../_images/optimization_35_0.png" src="../../_images/optimization_35_0.png" />
 </div>
 </div>
 <div class="admonition seealso">
