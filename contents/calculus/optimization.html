@@ -415,6 +415,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mas-alla-de-esta-leccion">
+   21.5. Más allá de esta lección
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -488,6 +493,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mas-alla-de-esta-leccion">
+   21.5. Más allá de esta lección
+  </a>
  </li>
 </ul>
 
@@ -683,8 +693,8 @@ x_{t+1} &amp;= x_{t} - [H_f (x_t)]^{-1}\nabla f (x_t)  \nonumber
 <li><p>El gradiente nos indica la dirección en que debemos desplazarnos</p></li>
 <li><p>El hessiano nos indica la distancia que debemos desplazarnos</p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Advertencia</p>
+<div class="admonition caution">
+<p class="admonition-title">Prudencia</p>
 <ul class="simple">
 <li><p>Usando Newton estamos asumiendo que la aproximación de segundo orden de <span class="math notranslate nohighlight">\(f\)</span> es buena</p></li>
 <li><p>La solución del método de Newton depende de <span class="math notranslate nohighlight">\(x_0\)</span> (solución inicial). Es conveniente probar varios valores de <span class="math notranslate nohighlight">\(x_0\)</span></p></li>
@@ -704,7 +714,7 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
 <div class="section" id="tutorial-de-scipy-optimize">
 <h2><span class="section-number">21.4. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html#optimization-scipy-optimize"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
-<p>Los argumentos principales de <code class="docutils literal notranslate"><span class="pre">minimize</span></code> son</p>
+<p>Los argumentos esta función son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 <span class="n">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="c1"># Función objetivo </span>
          <span class="n">x0</span><span class="p">,</span> <span class="c1"># Valor inicial de la variable de decisión</span>
@@ -720,11 +730,7 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
         <span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">method</span></code> se utiliza por defecto BFGS, un método de tipo quasi-Newton</p>
-</div>
-<p>La función objetivo debe estar definida de la siguiente forma</p>
+<p>Para utilizar <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la función objetivo debe estar definida de la siguiente forma</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">foo</span>
@@ -736,7 +742,14 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
 <li><p><code class="docutils literal notranslate"><span class="pre">foo</span></code> debe ser un valor escalar flotante</p></li>
 <li><p>Los argumentos adicionales a <code class="docutils literal notranslate"><span class="pre">x</span></code> se deben desempaquetar de la tupla <code class="docutils literal notranslate"><span class="pre">args</span></code></p></li>
 </ul>
-<p>Pongamos en práctica lo anterior con un ejemplo</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Si el problema a resolver es de maximización, debemos convertirlo a un problema de minimización antes de usar <code class="docutils literal notranslate"><span class="pre">minimize</span></code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">method</span></code> se utiliza por defecto <a class="reference external" href="https://es.wikipedia.org/wiki/L-BFGS">BFGS</a>, un método de tipo quasi-Newton que utiliza el gradiente de la función objetivo y una aproximación del inverso de su Hessiano</p>
+</div>
 <p><strong>Ejemplo</strong></p>
 <p>Sea la siguiente función objetivo con variable de decisión escalar</p>
 <div class="math notranslate nohighlight">
@@ -802,8 +815,8 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 <blockquote>
 <div><p>La función es no convexa y el método quasi-Newton ha encontrado un mínimo local</p>
 </div></blockquote>
-<div class="admonition tip">
-<p class="admonition-title">Truco</p>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
 <p>En problemas no-convexos es conveniente probar distintas soluciones iniciales</p>
 </div>
 <div class="cell docutils container">
@@ -871,9 +884,9 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 <p>Por ejemplo están</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-cg.html#optimize-minimize-cg"><code class="docutils literal notranslate"><span class="pre">method=CG</span></code></a>: Gradiente conjugado. Es una versión de GD con tasa de aprendizaje adaptiva</p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html#optimize-minimize-bfgs"><code class="docutils literal notranslate"><span class="pre">method=BFGS</span></code></a>: Es un método de tipo <a class="reference external" href="https://en.wikipedia.org/wiki/Quasi-Newton_method">quasi-Newton</a> con Hessiano inverso aproximado a cada paso. Es el método por defecto en optimize y es en general una buena opción</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-bfgs.html#optimize-minimize-bfgs"><code class="docutils literal notranslate"><span class="pre">method=BFGS</span></code></a>: Es un método de tipo <a class="reference external" href="https://en.wikipedia.org/wiki/Quasi-Newton_method">quasi-Newton</a> con Hessiano inverso aproximado a cada paso.</p></li>
 </ul>
-<p>Los cuales usan gradientes, ya sea numérico o especificado mediante el argumento <code class="docutils literal notranslate"><span class="pre">jac</span></code>. Si la derivada puede obtenerse analiticamente y es confiable los siguientes métodos tendrán un desempeño superior a las alternativas</p>
+<p>Los cuales usan gradientes, ya sea numérico o especificado mediante el argumento <code class="docutils literal notranslate"><span class="pre">jac</span></code>. Si la derivada puede obtenerse analiticamente y es confiable estos métodos tendrán un desempeño superior a las alternativas</p>
 <p>Luego están</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html#optimize-minimize-neldermead"><code class="docutils literal notranslate"><span class="pre">method=Nelder-Mead</span></code></a>: Es una heurística tipo simplex. <a class="reference external" href="https://www.youtube.com/watch?v=HUqLxHfxWqU">Animación que muestra su funcionamiento</a></p></li>
@@ -900,10 +913,14 @@ x^2 \geq 1 + 2x
       <span class="s1">&#39;jac&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])}</span>
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Si tenemos restricciones del tipo <span class="math notranslate nohighlight">\(h(x)\leq 0\)</span> debemos transformarlas a <span class="math notranslate nohighlight">\(-h(x)\geq 0\)</span> antes de implementarlas</p>
+</div>
 <p>Los métodos que permiten especificar restricciones son</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">method=L-BFGS-B</span></code>: Similar a BFGS pero permite añadir cotas (<code class="docutils literal notranslate"><span class="pre">bounds</span></code>) para la variable de decisión</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">method=SLSQP</span></code>: <em>Sequential Least Squares Programming</em>. Este método acepta cotas, restricciones de igualdad y restricciones de desigualdad</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-lbfgsb.html"><code class="docutils literal notranslate"><span class="pre">L-BFGS-B</span></code></a>: Similar a BFGS pero permite añadir cotas (<code class="docutils literal notranslate"><span class="pre">bounds</span></code>) para la variable de decisión</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-slsqp.html"><code class="docutils literal notranslate"><span class="pre">SLSQP</span></code></a>: <em>Sequential Least Squares Programming</em>. Este método acepta cotas, restricciones de igualdad y restricciones de desigualdad</p></li>
 </ul>
 <p><strong>Ejemplo</strong></p>
 <p>Sea la siguiente función de costo con dos variables de decisión</p>
@@ -1010,15 +1027,25 @@ x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0
 <img alt="../../_images/optimization_35_0.png" src="../../_images/optimization_35_0.png" />
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="mas-alla-de-esta-leccion">
+<h2><span class="section-number">21.5. </span>Más allá de esta lección<a class="headerlink" href="#mas-alla-de-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">Ver también</p>
-<p>Si desea profundizar en este tema sugiero revisar</p>
+<p>Funcionalidades de SciPy que no se exploraron en esta lección:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://scipy-lectures.org/advanced/mathematical_optimization/index.html">Comparativa detallada entre los distintos métodos de optimización</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html#scipy.optimize.root">Encontrando raices de una función con <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html#scipy.optimize.linprog">Problemas de programación lineal con <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html#scipy.optimize.root">Encontrando raices de una función</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html#scipy.optimize.linprog">Solución de problemas de programación lineal</a></p></li>
 </ul>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Tenga en cuenta las siguientes limitaciones:</p>
+<ul class="simple">
+<li><p>Scipy puede ser lento para problemas de gran envergadura. Si este es el caso sugiero explorar los wrappers de Python de <a class="reference external" href="https://www.cvxpy.org/">CVXOPT</a></p></li>
+<li><p>Scipy no tiene optimizadores para variables de decisión discretas. En caso de necesitar utilizar un algoritmo de optimización externo/comercial (por ejemplo CPLEX, Gurobi o AMPL) , sugiero explorar la librería <a class="reference external" href="http://www.pyomo.org/documentation">Pyomo</a></p></li>
+</ul>
 </div>
 </div>
 </div>
