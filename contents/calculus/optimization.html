@@ -583,7 +583,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>En algunos problemas podríamos estar necesitar un máximo en lugar de un mínimo de la función objetivo</p>
+<p>En algunos problemas podríamos necesitar un máximo en lugar de un mínimo de la función objetivo</p>
 </div>
 <p>Sin embargo considere que</p>
 <div class="math notranslate nohighlight">
@@ -713,7 +713,7 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
 </div>
 <div class="section" id="tutorial-de-scipy-optimize">
 <h2><span class="section-number">21.4. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/optimize.html#optimization-scipy-optimize"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
+<p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
 <p>Los argumentos esta función son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 <span class="n">minimize</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="c1"># Función objetivo </span>
@@ -890,7 +890,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 <p>Luego están</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-neldermead.html#optimize-minimize-neldermead"><code class="docutils literal notranslate"><span class="pre">method=Nelder-Mead</span></code></a>: Es una heurística tipo simplex. <a class="reference external" href="https://www.youtube.com/watch?v=HUqLxHfxWqU">Animación que muestra su funcionamiento</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html#optimize-minimize-powell"><code class="docutils literal notranslate"><span class="pre">method=Powell</span></code></a>: Algoritmo de búsqueda de linea siguiendo una dirección a la vez. <a class="reference external" href="https://www.youtube.com/watch?v=4TYJGihyuDg">Animación que muestra su funcionamiento</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.minimize-powell.html#optimize-minimize-powell"><code class="docutils literal notranslate"><span class="pre">method=Powell</span></code></a>: Algoritmo de búsqueda de linea siguiendo una dirección a la vez.</p></li>
 </ul>
 <p>Los cuales no usan gradientes. Estos métodos pueden usarse cuando la función objetivo es no-derivable o demasiado ruidosa para ser derivada</p>
 </div>
