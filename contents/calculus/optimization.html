@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="22. Introducción y fundamentos" href="../statistics/stats1.html" />
+    <link rel="next" title="22. Ecuaciones Diferenciales Ordinarias" href="ode_integration.html" />
     <link rel="prev" title="20. Resolviendo sistemas de ecuaciones lineales" href="../linalg/linalg1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
@@ -258,6 +258,11 @@ const thebe_selector_output = ".output, .cell_output"
    21. Optimización matemática
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ode_integration.html">
+   22. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -267,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/stats1.html">
-   22. Introducción y fundamentos
+   23. Introducción y fundamentos
   </a>
  </li>
 </ul>
@@ -653,10 +658,15 @@ const thebe_selector_output = ".output, .cell_output"
 \nabla f (x^*) = \begin{pmatrix} \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_D} \end{pmatrix} = \vec 0
 \]</div>
 <p>Estas soluciones se conocen como <strong>puntos estacionarios</strong> de <span class="math notranslate nohighlight">\(f\)</span>, que incluyen los mínimos, máximos y puntos silla</p>
-<p>Luego si la segunda derivada o matriz Hessiana de <span class="math notranslate nohighlight">\(f\)</span></p>
+<p>Para comprobar que el punto estacionario es un mínimo primero calculamos la matriz Hessiana <span class="math notranslate nohighlight">\(H\)</span> donde sus componentes son</p>
 <div class="math notranslate nohighlight">
 \[
-H_{ij}^f (x)  = \frac{\partial^2 f}{\partial x_i \partial x_j} (x^*) &gt; 0
+H_{ij}  = \frac{\partial^2 f}{\partial x_i \partial x_j}
+\]</div>
+<p>Luego si el Hessiano evaluado en <span class="math notranslate nohighlight">\(x^*\)</span> es definido positivo</p>
+<div class="math notranslate nohighlight">
+\[
+x^T H(x^*) x &gt; 0 ~ \forall x,
 \]</div>
 <p>entonces <span class="math notranslate nohighlight">\(x^*\)</span> es un <strong>mínimo</strong></p>
 <div class="admonition note">
@@ -682,17 +692,7 @@ x_{t+1} = x_t + \Delta x
 \[
 f(x_{t} + \Delta x) \approx f(x_t) + \nabla f (x_t) \Delta x + \frac{1}{2} \Delta x^T H_f (x_t) \Delta x 
 \]</div>
-<p>donde</p>
-<div class="math notranslate nohighlight">
-\[
-\nabla f (x) = \begin{pmatrix} \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_D} \end{pmatrix}
-\]</div>
-<p>es el gradiente de <span class="math notranslate nohighlight">\(f(x)\)</span> y</p>
-<div class="math notranslate nohighlight">
-\[
-H_{ij}^f (x)  = \frac{\partial^2 f}{\partial x_i \partial x_j} (x)
-\]</div>
-<p>es el Hessiano de <span class="math notranslate nohighlight">\(f(x)\)</span>. Si derivamos en función de <span class="math notranslate nohighlight">\(\Delta x\)</span> e igualamos a cero se tiene que</p>
+<p>Luego, si derivamos en función de <span class="math notranslate nohighlight">\(\Delta x\)</span> e igualamos a cero se tiene que</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -703,8 +703,8 @@ x_{t+1} &amp;= x_{t} - [H_f (x_t)]^{-1}\nabla f (x_t)  \nonumber
 \end{split}\]</div>
 <p>Que se conoce como <strong>la regla iterativa de Newton</strong> y donde</p>
 <ul class="simple">
-<li><p>El gradiente nos indica la dirección en que debemos desplazarnos</p></li>
-<li><p>El hessiano nos indica la distancia que debemos desplazarnos</p></li>
+<li><p>El gradiente <span class="math notranslate nohighlight">\(\nabla f (x_t)\)</span> nos indica la dirección en que debemos desplazarnos</p></li>
+<li><p>El hessiano <span class="math notranslate nohighlight">\(H_f (x_t)\)</span> nos indica la distancia que debemos desplazarnos</p></li>
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Prudencia</p>
@@ -1095,10 +1095,10 @@ x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0
             <p class="prev-next-title"><span class="section-number">20. </span>Resolviendo sistemas de ecuaciones lineales</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../statistics/stats1.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="ode_integration.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Introducción y fundamentos</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Ecuaciones Diferenciales Ordinarias</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

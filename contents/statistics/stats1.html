@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>22. Introducción y fundamentos &#8212; Computación Científica con Python</title>
+    <title>23. Introducción y fundamentos &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="21. Optimización matemática" href="../calculus/optimization.html" />
+    <link rel="prev" title="22. Ecuaciones Diferenciales Ordinarias" href="../calculus/ode_integration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -257,6 +257,11 @@ const thebe_selector_output = ".output, .cell_output"
    21. Optimización matemática
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/ode_integration.html">
+   22. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -266,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   22. Introducción y fundamentos
+   23. Introducción y fundamentos
   </a>
  </li>
 </ul>
@@ -375,22 +380,22 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mundo-de-datos">
-   22.1. Mundo de datos
+   23.1. Mundo de datos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sistemas-modelos-e-incertidumbre">
-   22.2. Sistemas, modelos e incertidumbre
+   23.2. Sistemas, modelos e incertidumbre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
-   22.3. Fundamentos de teoría de probabilidades
+   23.3. Fundamentos de teoría de probabilidades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estadistica">
-   22.4. Estadística
+   23.4. Estadística
   </a>
  </li>
 </ul>
@@ -415,22 +420,22 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mundo-de-datos">
-   22.1. Mundo de datos
+   23.1. Mundo de datos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sistemas-modelos-e-incertidumbre">
-   22.2. Sistemas, modelos e incertidumbre
+   23.2. Sistemas, modelos e incertidumbre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
-   22.3. Fundamentos de teoría de probabilidades
+   23.3. Fundamentos de teoría de probabilidades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estadistica">
-   22.4. Estadística
+   23.4. Estadística
   </a>
  </li>
 </ul>
@@ -443,9 +448,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduccion-y-fundamentos">
-<h1><span class="section-number">22. </span>Introducción y fundamentos<a class="headerlink" href="#introduccion-y-fundamentos" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">23. </span>Introducción y fundamentos<a class="headerlink" href="#introduccion-y-fundamentos" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="mundo-de-datos">
-<h2><span class="section-number">22.1. </span>Mundo de datos<a class="headerlink" href="#mundo-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">23.1. </span>Mundo de datos<a class="headerlink" href="#mundo-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los avances tecnológicos recientes nos permiten <strong>medir, almacenar y transmitir</strong> datos de toda índole</p>
 <p>Por ejemplo</p>
 <ul class="simple">
@@ -474,7 +479,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <div class="section" id="sistemas-modelos-e-incertidumbre">
-<h2><span class="section-number">22.2. </span>Sistemas, modelos e incertidumbre<a class="headerlink" href="#sistemas-modelos-e-incertidumbre" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">23.2. </span>Sistemas, modelos e incertidumbre<a class="headerlink" href="#sistemas-modelos-e-incertidumbre" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos intentar clasificar los sistemas en base a su comportamiento:</p>
 <ul class="simple">
 <li><p>Un sistema <strong>determinista</strong> está gobernado por reglas que nos permiten calcular exactamente su estado final dado un cierto punto de partida o condición inicial</p></li>
@@ -509,7 +514,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 </div>
 <div class="section" id="fundamentos-de-teoria-de-probabilidades">
-<h2><span class="section-number">22.3. </span>Fundamentos de teoría de probabilidades<a class="headerlink" href="#fundamentos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">23.3. </span>Fundamentos de teoría de probabilidades<a class="headerlink" href="#fundamentos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La Teoría de Probabilidades es la rama de las matemáticas que estudia los fenómenos aleatorios. Considere las siguientes definiciones</p>
 <dl class="simple myst">
 <dt>Variable aleatoria (VA)</dt><dd><p>Variable que asignamos al resultado de un fenómeno o experimento aleatorio</p>
@@ -549,7 +554,7 @@ P(M=\text{cara}) =  P(M=\text{cruz}) = 0.5
 <p>Lanzamos la moneda del ejemplo anterior <span class="math notranslate nohighlight">\(5\)</span> veces y registramos <span class="math notranslate nohighlight">\([\text{cruz}, \text{cruz}, \text{cara}, \text{cruz}, \text{cara}]\)</span>. Es decir que la frecuencia de <span class="math notranslate nohighlight">\(\text{cruz}\)</span> es 3 y la frecuencia de <span class="math notranslate nohighlight">\(\text{cara}\)</span> es 2. El total de realizaciones es <span class="math notranslate nohighlight">\(5\)</span>, luego las frecuencias relativas son <span class="math notranslate nohighlight">\(3/5\)</span> y <span class="math notranslate nohighlight">\(2/5\)</span>, respectivamente</p>
 </div>
 <div class="section" id="estadistica">
-<h2><span class="section-number">22.4. </span>Estadística<a class="headerlink" href="#estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">23.4. </span>Estadística<a class="headerlink" href="#estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La estadística es la disciplina científica dedicada al desarrollo y estudio de métodos para recopilar, analizar y extraer información de los datos. La estadística busca</p>
 <ul class="simple">
 <li><p>Describir fenómenos complejos a partir de observaciones parciales</p></li>
@@ -587,11 +592,11 @@ P(M=\text{cara}) =  P(M=\text{cruz}) = 0.5
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../calculus/optimization.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../calculus/ode_integration.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">21. </span>Optimización matemática</p>
+            <p class="prev-next-title"><span class="section-number">22. </span>Ecuaciones Diferenciales Ordinarias</p>
         </div>
     </a>
 </div>
