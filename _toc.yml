@@ -45,10 +45,10 @@ parts:
   chapters:
     - file: contents/calculus/optimization
 #    - file: contents/calculus/ode_integration
-#- caption: "Estadística con Scipy"
-#  numbered: true
-#  chapters:
-#    - file: contents/statistics/stats1
+- caption: "Estadística con Scipy"
+  numbered: true
+  chapters:
+    - file: contents/statistics/stats1
 #    - file: contents/statistics/stats2
 #    - file: contents/statistics/stats3
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
