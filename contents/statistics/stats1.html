@@ -57,8 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="23. Estadística descriptiva" href="stats2.html" />
-    <link rel="prev" title="18. Matrices como transformaciónes lineales" href="../linalg/linalg2.html" />
+    <link rel="prev" title="21. Optimización matemática" href="../calculus/optimization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -133,6 +132,21 @@ const thebe_selector_output = ".output, .cell_output"
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -142,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part1.html">
-   7. DataFrames de
+   9. DataFrames de
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -152,17 +166,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part2.html">
-   8. Importar y exportar datos
+   10. Importar y exportar datos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part3.html">
-   9. Operaciones avanzadas con DataFrames
+   11. Operaciones avanzadas con DataFrames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../pandas/part4.html">
-   10. Tópicos extra
+   12. Tópicos extra
   </a>
  </li>
 </ul>
@@ -174,22 +188,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib1.html">
-   11. Introducción a Matplotlib
+   13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/matplotlib2.html">
-   12. Tipos de gráfico en matplotlib
+   14. Tipos de gráfico en matplotlib
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/goodvisualizations.html">
-   13. ¿Cómo hacer buenas visualizaciones?
+   15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../visualization/ipywidgets.html">
-   14. Interfaces de usuario en Jupyter con
+   16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
      ipywidgets
@@ -206,12 +220,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy1.html">
-   15. Arreglos n-dimensionales con NumPy
+   17. Arreglos n-dimensionales con NumPy
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/numpy2.html">
-   16. Operaciones sobre ndarrays
+   18. Operaciones sobre ndarrays
   </a>
  </li>
 </ul>
@@ -222,13 +236,25 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/linalg1.html">
-   17. Algebra lineal con NumPy
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/linalg2.html">
-   18. Matrices como transformaciónes lineales
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/optimization.html">
+   21. Optimización matemática
   </a>
  </li>
 </ul>
@@ -241,16 +267,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    22. Introducción y fundamentos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stats2.html">
-   23. Estadística descriptiva
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stats3.html">
-   24. Estadística inferencial
   </a>
  </li>
 </ul>
@@ -363,28 +379,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predicciones-y-decisiones">
-   22.2. Predicciones y decisiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#describiendo-sistemas">
-   22.3. Describiendo sistemas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fuentes-de-incertidumbre">
-   22.4. Fuentes de incertidumbre
+  <a class="reference internal nav-link" href="#sistemas-modelos-e-incertidumbre">
+   22.2. Sistemas, modelos e incertidumbre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
-   22.5. Fundamentos de teoría de probabilidades
+   22.3. Fundamentos de teoría de probabilidades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estadistica">
-   22.6. Estadística
+   22.4. Estadística
   </a>
  </li>
 </ul>
@@ -413,28 +419,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#predicciones-y-decisiones">
-   22.2. Predicciones y decisiones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#describiendo-sistemas">
-   22.3. Describiendo sistemas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fuentes-de-incertidumbre">
-   22.4. Fuentes de incertidumbre
+  <a class="reference internal nav-link" href="#sistemas-modelos-e-incertidumbre">
+   22.2. Sistemas, modelos e incertidumbre
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fundamentos-de-teoria-de-probabilidades">
-   22.5. Fundamentos de teoría de probabilidades
+   22.3. Fundamentos de teoría de probabilidades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estadistica">
-   22.6. Estadística
+   22.4. Estadística
   </a>
  </li>
 </ul>
@@ -451,6 +447,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="mundo-de-datos">
 <h2><span class="section-number">22.1. </span>Mundo de datos<a class="headerlink" href="#mundo-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Los avances tecnológicos recientes nos permiten <strong>medir, almacenar y transmitir</strong> datos de toda índole</p>
+<p>Por ejemplo</p>
 <ul class="simple">
 <li><p>Datos comerciales y bancarios</p></li>
 <li><p>Datos de operaciones industriales</p></li>
@@ -459,19 +456,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Datos de redes sociales</p></li>
 <li><p>Datos de dispositivos: Smart-hardware e Internet de las cosas</p></li>
 </ul>
-<div class="admonition important">
-<p class="admonition-title">Importante</p>
-<p>Pero los datos crudos tienen poco valor, debemos <strong>extraer información a partir de los datos</strong> si queremos tener el conocimiento para tomar las mejores decisiones</p>
-</div>
+<p>Sin embargo los datos crudos tienen poco valor.</p>
+<blockquote>
+<div><p>Debemos <strong>extraer información a partir de los datos</strong> si queremos tener el conocimiento para tomar las mejores decisiones</p>
+</div></blockquote>
 <p>Este proceso se resume conceptualmente en el siguiente diagrama conocido como el modelo <a class="reference external" href="https://en.wikipedia.org/wiki/DIKW_pyramid">Data-Information-Knowledge (DIK)</a></p>
-<a class="reference internal image-reference" href="contents/img/stats1.png"><img alt="contents/img/stats1.png" src="contents/img/stats1.png" style="width: 700px;" /></a>
-</div>
-<div class="section" id="predicciones-y-decisiones">
-<h2><span class="section-number">22.2. </span>Predicciones y decisiones<a class="headerlink" href="#predicciones-y-decisiones" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Nuestros datos son <strong>mediciones u observaciones</strong> de un <strong>sistema o proceso</strong> que queremos analizar. En base a nuestros datos podemos proponer y ajustar un <strong>modelo</strong> para nuestro sistema. Finalmente usamos el modelo para hacer predicciones y tomar decisiones</p>
+<a class="reference internal image-reference" href="../../_images/stats1.png"><img alt="../../_images/stats1.png" src="../../_images/stats1.png" style="width: 500px;" /></a>
+<p>Nuestros datos son <strong>mediciones u observaciones</strong> de un <strong>sistema o proceso</strong> que queremos analizar. En base a nuestros datos podemos proponer y ajustar un <strong>modelo</strong> para nuestro sistema. Luego podemos utilizar el modelo para hacer predicciones y tomar decisiones</p>
 <p>Este proceso se resume en el siguiente diagrama</p>
-<a class="reference internal image-reference" href="contents/img/stats2.png"><img alt="contents/img/stats2.png" src="contents/img/stats2.png" style="width: 850px;" /></a>
-<p>Considere el siguiente ejemplo. El <a class="reference external" href="https://www.ine.cl/ine-ciudadano/definiciones-estadisticas/censo">censo de Chile</a> busca contar y caracterizar a los habitantes de nuestro pais</p>
+<a class="reference internal image-reference" href="../../_images/stats2.png"><img alt="../../_images/stats2.png" src="../../_images/stats2.png" style="width: 700px;" /></a>
+<p>Considere por ejemplo el  <a class="reference external" href="https://www.ine.cl/ine-ciudadano/definiciones-estadisticas/censo">censo de Chile</a></p>
 <ol class="simple">
 <li><p>El <strong>censo son las observaciones</strong> de un <strong>sistema: La población de Chile</strong></p></li>
 <li><p>En base a los datos obtenidos a través de múltiples censos podríamos crear un <strong>modelo para la evolución de la población en una ciudad o región</strong></p></li>
@@ -479,9 +473,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Esta predicción puede servir como sustento para <strong>desarrollar políticas públicas (tomar decisiones)</strong></p></li>
 </ol>
 </div>
-<div class="section" id="describiendo-sistemas">
-<h2><span class="section-number">22.3. </span>Describiendo sistemas<a class="headerlink" href="#describiendo-sistemas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Podemos clasificar los sistemas en base a su comportamiento:</p>
+<div class="section" id="sistemas-modelos-e-incertidumbre">
+<h2><span class="section-number">22.2. </span>Sistemas, modelos e incertidumbre<a class="headerlink" href="#sistemas-modelos-e-incertidumbre" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos intentar clasificar los sistemas en base a su comportamiento:</p>
 <ul class="simple">
 <li><p>Un sistema <strong>determinista</strong> está gobernado por reglas que nos permiten calcular exactamente su estado final dado un cierto punto de partida o condición inicial</p></li>
 <li><p>Un sistema <strong>estocástico</strong> tiene un componente aleatorio, incluso usando la misma condición inicial el estado final puede ser distinto</p></li>
@@ -492,9 +486,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Los sensores y los equipos de medición están sujetos a ruido</p></li>
 </ul>
 <p>Por ende para hacer predicciones en sistemas complejos debemos manejar su <strong>incerteza</strong></p>
-</div>
-<div class="section" id="fuentes-de-incertidumbre">
-<h2><span class="section-number">22.4. </span>Fuentes de incertidumbre<a class="headerlink" href="#fuentes-de-incertidumbre" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La incerteza puede tener distintos orígenes. En este apartado revisamos los tres orígenes más comunes</p>
 <p><strong>Incerteza inherente o propia</strong></p>
 <p>Se refiere a sistemas que son naturalmente inciertos. Por ejemplo, si estoy analizando sistemas de partículas, estoy sujeto al <a class="reference external" href="https://es.wikipedia.org/wiki/Relaci%C3%B3n_de_indeterminaci%C3%B3n_de_Heisenberg">principio cuántico de incertudimbre</a></p>
@@ -502,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>Este tipo de incerteza es en general irreducible</p>
 </div></blockquote>
 <p><strong>Incerteza debido a un modelo imperfecto</strong></p>
-<p>Ciertos supuestos o aproximaciones del modelo pueden introducir incerteza. Por ejemplo un modelo demasiado simple o mal calibrado puede introducir ruido en nuestras predicciones</p>
+<p>Ciertos supuestos o aproximaciones de nuestros modelos pueden introducir incerteza. Por ejemplo un modelo demasiado simple o mal calibrado puede introducir ruido en nuestras predicciones</p>
 <blockquote>
 <div><p>Podemos disminuir este tipo de incerteza mejorando nuestro modelo</p>
 </div></blockquote>
@@ -518,51 +509,56 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 </div>
 <div class="section" id="fundamentos-de-teoria-de-probabilidades">
-<h2><span class="section-number">22.5. </span>Fundamentos de teoría de probabilidades<a class="headerlink" href="#fundamentos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Las probabilidades son la rama de las matemáticas que estudia los eventos y fenómenos aleatorios. Un evento aleatorio tiene asociado una <strong>probabilidad</strong></p>
-<blockquote>
-<div><p>Una probabilidad es un valor en el rango <span class="math notranslate nohighlight">\([0, 1]\)</span> que indica que tan posible o que tan cierto es que dicho evento ocurra</p>
-</div></blockquote>
-<p><strong>Variable aleatoria</strong></p>
-<p>En probabilidades se llama <strong>variable aleatoria (VA)</strong> al resultado de un experimento que puede tomar múltiples valores. Llamaremos <strong>evento o realización</strong> a un resultado en particular de la VA</p>
-<p>Usaremos la notación</p>
+<h2><span class="section-number">22.3. </span>Fundamentos de teoría de probabilidades<a class="headerlink" href="#fundamentos-de-teoria-de-probabilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La Teoría de Probabilidades es la rama de las matemáticas que estudia los fenómenos aleatorios. Considere las siguientes definiciones</p>
+<dl class="simple myst">
+<dt>Variable aleatoria (VA)</dt><dd><p>Variable que asignamos al resultado de un fenómeno o experimento aleatorio</p>
+</dd>
+<dt>Dominio</dt><dd><p>Espacio de valores posibles que puede tomar una VA</p>
+</dd>
+<dt>Evento/Realización</dt><dd><p>Corresponde al resultado de observar una VA</p>
+</dd>
+<dt>Probabilidad de un evento</dt><dd><p>Valor en el rango <span class="math notranslate nohighlight">\([0, 1]\)</span> que indica que tan posible (o que tan cierto) es que el evento ocurra</p>
+</dd>
+</dl>
+<p>En general se utilizan letras mayúsculas para denotar VAs y letras minúsculas para denotar sus realizaciones. Además usaremos la notación</p>
 <div class="math notranslate nohighlight">
 \[
 x \sim X
 \]</div>
-<p>para referirnos a una realización <span class="math notranslate nohighlight">\(x\)</span> que resulta de observar la VA <span class="math notranslate nohighlight">\(X\)</span>. Llamamos dominio <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> al espacio de posibilidades de la VA</p>
-<p><strong>Ejemplo:</strong> El <strong>valor de un dado</strong> es una VA con dominio <span class="math notranslate nohighlight">\([1, 2, 3, 4, 5, 6]\)</span>. Corresponda a una VA <strong>discreta</strong> con <strong>seis estados posibles</strong></p>
-<p><strong>Interpretación (frecuentista) de probabilidad</strong></p>
-<p>El significado más común de probabilidad proviene de</p>
+<p>para indicar que <span class="math notranslate nohighlight">\(x\)</span> es una realización de la VA <span class="math notranslate nohighlight">\(X\)</span>, o dicho de otro modo que <span class="math notranslate nohighlight">\(x\)</span> es el resultado de muestrear <span class="math notranslate nohighlight">\(X\)</span></p>
+<p><strong>Ejemplo</strong></p>
+<p>El lanzamiento de una moneda es un experimento con resultado aleatorio</p>
+<a class="reference internal image-reference" href="https://c.tenor.com/bd3puNXKLwUAAAAd/coin-toss.gif"><img alt="https://c.tenor.com/bd3puNXKLwUAAAAd/coin-toss.gif" src="https://c.tenor.com/bd3puNXKLwUAAAAd/coin-toss.gif" style="width: 200px;" /></a>
+<p>Sea <span class="math notranslate nohighlight">\(M\)</span> el resultado de lanzar la moneda. Esta VA binaria tiene dos posibles resultados: ‘cara’ y ‘cruz’.</p>
+<p>Si la moneda no está “trucada” entonces podríamos esperar que la probabilidad de estos resultados es</p>
+<div class="math notranslate nohighlight">
+\[
+P(M=\text{cara}) =  P(M=\text{cruz}) = 0.5
+\]</div>
 <blockquote>
-<div><p>observar muchas veces el resultado de una VA y contar las veces que cada uno de los valores se repite</p>
+<div><p>Este conjunto de probabilidades corresponde a la <strong>distribución</strong> de la VA binaria <span class="math notranslate nohighlight">\(M\)</span></p>
 </div></blockquote>
-<p>Es decir estimamos la <strong>frecuencia</strong> de los valores posibles</p>
-<p><strong>Ejemplo:</strong> Sea una variable aleatoria <span class="math notranslate nohighlight">\(M\)</span> que corresponde al resultado de lanzar una moneda. Lanzamos una moneda <span class="math notranslate nohighlight">\(5\)</span> veces y registramos <span class="math notranslate nohighlight">\([x, x, o, x, o]\)</span>. La probabilidad de cada evento corresponde a su <strong>frecuencia</strong> (número de apariciones) dividido el total, es decir que</p>
-<ul class="simple">
-<li><p>La probabilidad de <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\(3/5\)</span> o que <span class="math notranslate nohighlight">\(P(M=x) = 3/5\)</span></p></li>
-<li><p>La probabilidad de <span class="math notranslate nohighlight">\(o\)</span> es <span class="math notranslate nohighlight">\(2/5\)</span> o que <span class="math notranslate nohighlight">\(P(M=o) = 2/5\)</span></p></li>
-</ul>
+<p><strong>Interpretación (frecuentista) de probabilidad</strong></p>
+<p>La definición matemática clásica de la probabilidad de un evento asociado a una VA es</p>
+<blockquote>
+<div><p>el cociente entre la cantidad de ocurrencias del evento y la suma de la cantidad de todos los eventos posibles</p>
+</div></blockquote>
+<p>es decir, la <strong>frecuencia relativa</strong> del evento</p>
+<p><strong>Ejemplo:</strong></p>
+<p>Lanzamos la moneda del ejemplo anterior <span class="math notranslate nohighlight">\(5\)</span> veces y registramos <span class="math notranslate nohighlight">\([\text{cruz}, \text{cruz}, \text{cara}, \text{cruz}, \text{cara}]\)</span>. Es decir que la frecuencia de <span class="math notranslate nohighlight">\(\text{cruz}\)</span> es 3 y la frecuencia de <span class="math notranslate nohighlight">\(\text{cara}\)</span> es 2. El total de realizaciones es <span class="math notranslate nohighlight">\(5\)</span>, luego las frecuencias relativas son <span class="math notranslate nohighlight">\(3/5\)</span> y <span class="math notranslate nohighlight">\(2/5\)</span>, respectivamente</p>
 </div>
 <div class="section" id="estadistica">
-<h2><span class="section-number">22.6. </span>Estadística<a class="headerlink" href="#estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.4. </span>Estadística<a class="headerlink" href="#estadistica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La estadística es la disciplina científica dedicada al desarrollo y estudio de métodos para recopilar, analizar y extraer información de los datos. La estadística busca</p>
-<blockquote>
-<div><p>Describir fenómenos complejos a partir de observaciones parciales</p>
-</div></blockquote>
-<blockquote>
-<div><p>Inferir propiedades de una población o sistema basándonos en una muestra</p>
-</div></blockquote>
-<blockquote>
-<div><p>Usar datos para responder preguntas y tomar decisiones</p>
-</div></blockquote>
+<ul class="simple">
+<li><p>Describir fenómenos complejos a partir de observaciones parciales</p></li>
+<li><p>Inferir propiedades de una población o sistema basándonos en una muestra</p></li>
+<li><p>Usar datos para responder preguntas y tomar decisiones</p></li>
+</ul>
 <p>El trabajo estadístico se puede resumir en el siguiente ciclo</p>
-<a class="reference internal image-reference" href="contents/img/stats3.png"><img alt="contents/img/stats3.png" src="contents/img/stats3.png" style="width: 700px;" /></a>
+<a class="reference internal image-reference" href="../../_images/stats3.png"><img alt="../../_images/stats3.png" src="../../_images/stats3.png" style="width: 600px;" /></a>
 <p>En este capítulo estudiaremos técnicas de estadística descriptiva e inferencial (pasos 3 y 4 del diagrama) y las aplicaremos usando  <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a> y <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html"><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code></a></p>
-<div class="admonition seealso">
-<p class="admonition-title">Ver también</p>
-<p>Para un tratamiento teórico más profundo recomiendo el siguiente curso online: <a class="reference external" href="https://online.stat.psu.edu/stat100/">https://online.stat.psu.edu/stat100/</a></p>
-</div>
 </div>
 </div>
 
@@ -591,19 +587,12 @@ x \sim X
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../linalg/linalg2.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../calculus/optimization.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">18. </span>Matrices como transformaciónes lineales</p>
+            <p class="prev-next-title"><span class="section-number">21. </span>Optimización matemática</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="stats2.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">23. </span>Estadística descriptiva</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
