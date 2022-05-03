@@ -420,15 +420,14 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="ecuaciones-diferenciales-ordinarias">
 <h1><span class="section-number">22. </span>Ecuaciones Diferenciales Ordinarias<a class="headerlink" href="#ecuaciones-diferenciales-ordinarias" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Una ecuación diferencial ecuación que relaciona una función con sus derivadas. Un caso particular de ecuación diferencial son los sistemas de ecuaciones diferenciales ordinario (EDO)</p>
+<p>Una ecuación diferencial es una ecuación que relaciona una función con sus derivadas. Un caso particular de ecuación diferencial son los sistemas de ecuaciones diferenciales ordinario (EDO)</p>
 <p>Para <span class="math notranslate nohighlight">\(y = f(t)\)</span> una EDO tiene la siguiente forma general</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial^n y}{\partial t^n} = F \left( t, y, \frac{\partial y}{\partial t}, \frac{\partial^2 y}{\partial t^2}, \ldots, \frac{\partial^{n-1} y}{\partial t^{n-1}} \right)
 \]</div>
 <p>Es decir donde la n-esima derivada de <span class="math notranslate nohighlight">\(f(t)\)</span> puede escribirse como una función de <span class="math notranslate nohighlight">\(t\)</span> y sus derivadas de orden menor. A continuación veremos un ejemplo de sistema EDO y como resolverlo utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></p>
-<p>El <strong>atractor de Lorenz</strong> es un sistema EDO de primer orden que fue diseñado para describir como el aire se mueve por la atmósfera (convexión)</p>
-<p>El sistema tiene tres ecuaciones</p>
+<p>El <strong>atractor de Lorenz</strong> es un sistema EDO de primer orden que fue diseñado para describir como el aire se mueve por la atmósfera (convexión). El sistema tiene tres ecuaciones</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{split}
@@ -438,7 +437,10 @@ const thebe_selector_output = ".output, .cell_output"
 \end{split}
 \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> y <span class="math notranslate nohighlight">\(\rho\)</span> son los parámetros del sistema y <span class="math notranslate nohighlight">\(u(0)\)</span>, <span class="math notranslate nohighlight">\(v(0)\)</span> y <span class="math notranslate nohighlight">\(w(0)\)</span> suscondiciones iniciales</p>
-<p>El sistema de Lorenz es un ejemplo de <strong>sistema caótico</strong>: Pequeños cambios en las condiciones iniciales generan grandes cambios en el resultado</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El sistema de Lorenz es un ejemplo de <strong>sistema caótico</strong>: Pequeños cambios en las condiciones iniciales y en los parámetros generan grandes cambios en el resultado</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -496,7 +498,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Esto debe ser un arreglo contenido dentro de <code class="docutils literal notranslate"><span class="pre">span</span></code>, por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -556,6 +558,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span><span class="s1">&#39;3d&#39;</span><span class="p">})</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u(t)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;v(t)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;w(t)&#39;</span><span class="p">);</span>
@@ -566,6 +569,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/ode_integration_18_0.png" src="../../_images/ode_integration_18_0.png" />
 </div>
 </div>
+<p>donde el punto marca la condición inicial del sistema</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>La solución tiene dos focos de atracción los cuales recorre con distintas orbitas</p>
@@ -576,7 +580,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="attribution">—<a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Norton_Lorenz">Edward Lorenz</a></p>
 </div></blockquote>
 <p><strong>Ejercicio propuesto</strong></p>
-<p>El sistema de Lorenz cambia de comportamiento con sus parámetros. Implemente un dashboard con <em>sliders</em> para <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> y <span class="math notranslate nohighlight">\(\rho\)</span> y que actualicen el gráfico 3d anterior</p>
+<p>El sistema de Lorenz cambia de comportamiento drasticamente con sus condiciones iniciales y sus parámetros. Implemente un dashboard con <em>sliders</em> para <span class="math notranslate nohighlight">\(u(0)\)</span>, <span class="math notranslate nohighlight">\(v(0)\)</span>, <span class="math notranslate nohighlight">\(w(0)\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> y <span class="math notranslate nohighlight">\(\rho\)</span> que actualicen el gráfico 3d anterior</p>
 <div class="admonition seealso">
 <p class="admonition-title">Ver también</p>
 <p>Otro sistema caótico emblemático: <a class="reference external" href="https://geoffboeing.com/2015/03/chaos-theory-logistic-map/">https://geoffboeing.com/2015/03/chaos-theory-logistic-map/</a></p>
