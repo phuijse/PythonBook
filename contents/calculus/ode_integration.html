@@ -453,9 +453,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="resolviendo-odes-de-primer-orden-con-scipy">
 <h2><span class="section-number">22.1. </span>Resolviendo ODEs de primer orden con Scipy<a class="headerlink" href="#resolviendo-odes-de-primer-orden-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Podemos usar el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></a> para resolver el sistema y luego graficarlo en tres dimensiones</p>
-<p>En particular usaremos la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a></p>
-<p>Primero debemos escribir el sistema de ecuaciones como una función de Python con la forma</p>
+<p>Utilizaremos el submódulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/integrate.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></a> para resolver el sistema. En particular usaremos la función <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a></p>
+<p>En primer lugar debemos escribir el sistema de ecuaciones como una función de Python con la forma</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">dy</span>
@@ -477,7 +476,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>Luego debemos establecer las condiciones iniciales</p>
+<p>Luego debemos definir las condiciones iniciales, por ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">w0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.05</span>
@@ -486,7 +485,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>También debemos entregar un intervalo para la variable independiente</p>
-<p>Por ejemplo si queremos que el sistema parta en <span class="math notranslate nohighlight">\(t=0\)</span> y se resuelva hasta <span class="math notranslate nohighlight">\(t=100\)</span></p>
+<p>Por ejemplo si queremos que el sistema parta en <span class="math notranslate nohighlight">\(t=0\)</span> (condición inicial) y se resuelva hasta <span class="math notranslate nohighlight">\(t=100\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">span</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -521,9 +520,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Una matriz con los valores de <code class="docutils literal notranslate"><span class="pre">y</span></code> evaluado en cada uno de los instantes de tiempo</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">message</span></code>: Un mensaje que indica si la razón de término del algoritmo</p></li>
 </ul>
+<p>En este caso:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">message</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">t</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">y</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">message</span>
 </pre></div>
 </div>
 </div>
@@ -533,13 +536,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>El resultado para cada una de las variables es</p>
+<p>A continuación se visualiza la evolución en el tiempo de las variables del sistema</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">t</span>
-<span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">y</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
                        <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u(t)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;v(t)&#39;</span><span class="p">)</span>
@@ -551,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../_images/ode_integration_16_0.png" src="../../_images/ode_integration_16_0.png" />
 </div>
 </div>
-<p>Si lo visualizamos en tres dimensiones</p>
+<p>También podemos visualizar en tres dimensiones como se muestra a continuación</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
