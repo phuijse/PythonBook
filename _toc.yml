@@ -44,7 +44,7 @@ parts:
   numbered: true
   chapters:
     - file: contents/calculus/optimization
-#    - file: contents/calculus/ode_integration
+    - file: contents/calculus/ode_integration
 - caption: "Estadística con Scipy"
   numbered: true
   chapters:
