@@ -48,7 +48,9 @@ parts:
 - caption: "Estadística con Scipy"
   numbered: true
   chapters:
-    - file: contents/statistics/stats1
+    - file: contents/statistics/intro
+    - file: contents/statistics/distributions
+    - file: contents/statistics/descriptive
 #    - file: contents/statistics/stats2
 #    - file: contents/statistics/stats3
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
