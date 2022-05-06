@@ -271,8 +271,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/stats1.html">
+  <a class="reference internal" href="../statistics/intro.html">
    23. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/distributions.html">
+   24. Distribuciones de probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/descriptive.html">
+   25. Estadística descriptiva
   </a>
  </li>
 </ul>
@@ -770,7 +780,8 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 <li><p>Obtener la solución del sistema directamente: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.lstsq</span></code></a></p></li>
 </ul>
 <p>Si <span class="math notranslate nohighlight">\(N&gt;M\)</span> se utiliza la pseudoinversa por la izquierda y la solución de mínimos cuadrados. En cambio si <span class="math notranslate nohighlight">\(M&gt;N\)</span> se utiliza la pseudoinversa para la derecha y la solución de multiplicadores de Lagrange</p>
-<p><strong>Ejemplo:</strong> Sea el siguiente set de datos</p>
+<p><strong>Ejemplo:</strong> Sea el siguiente set de datos de un estudio realizado en los años 50</p>
+<p>Referencia: <a class="reference external" href="https://www.routledge.com/A-Handbook-of-Small-Data-Sets/Hand-Daly-McConway-Lunn-Ostrowski/p/book/9780367449667">A handbook of small datasets</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/helados.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -845,10 +856,10 @@ z_i = \frac{b_i - \sum_{j=1}^{i-1} l_{ij} z_j}{l_{ii}}
 </div>
 <p>donde cada fila corresponde a un día las columnas corresponde a</p>
 <ul class="simple">
-<li><p>consumo de helados promedio</p></li>
-<li><p>ingreso familiar promedio</p></li>
-<li><p>temperatura promedio</p></li>
-<li><p>precio promedio de los helados</p></li>
+<li><p>consumo de helados promedio (<a class="reference external" href="https://en.wikipedia.org/wiki/Pint">pintas</a> per capita)</p></li>
+<li><p>ingreso familiar promedio (dolares)</p></li>
+<li><p>temperatura promedio (grados Fahrenheit)</p></li>
+<li><p>precio promedio de los helados (dolares)</p></li>
 </ul>
 <p>Ahora consideremos la siguiente pregunta</p>
 <blockquote>
