@@ -51,8 +51,9 @@ parts:
     - file: contents/statistics/intro
     - file: contents/statistics/distributions
     - file: contents/statistics/descriptive
-#    - file: contents/statistics/stats2
-#    - file: contents/statistics/stats3
+    - file: contents/statistics/model_fitting
+    - file: contents/statistics/hypothesis
+    - file: contents/statistics/bootstrap
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
 #  numbered: true
 #  chapters:
