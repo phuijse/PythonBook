@@ -1,0 +1,885 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26. Estadística inferencial: Ajuste de Modelos &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="27. Test de hipótesis" href="hypothesis.html" />
+    <link rel="prev" title="25. Estadística descriptiva" href="descriptive.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   9. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   10. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   11. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   12. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   13. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   14. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   15. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/optimization.html">
+   21. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/ode_integration.html">
+   22. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística con Scipy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   23. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="distributions.html">
+   24. Distribuciones de probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="descriptive.html">
+   25. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   26. Estadística inferencial: Ajuste de Modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hypothesis.html">
+   27. Test de hipótesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bootstrap.html">
+   28. Intervalos de confianza con
+   <em>
+    Bootstrap
+   </em>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/statistics/model_fitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/statistics/model_fitting.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/statistics/model_fitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud">
+   26.1. Estimación de máxima verosimilitud
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-mle-con-scipy">
+   26.2. Estimación MLE con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificacion-de-modelos">
+   26.3. Verificación de modelos
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estadística inferencial: Ajuste de Modelos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-de-maxima-verosimilitud">
+   26.1. Estimación de máxima verosimilitud
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimacion-mle-con-scipy">
+   26.2. Estimación MLE con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verificacion-de-modelos">
+   26.3. Verificación de modelos
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="estadistica-inferencial-ajuste-de-modelos">
+<h1><span class="section-number">26. </span>Estadística inferencial: Ajuste de Modelos<a class="headerlink" href="#estadistica-inferencial-ajuste-de-modelos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La inferencia busca</p>
+<blockquote>
+<div><p>Extraer <strong>conclusiones</strong> a partir de <strong>hechos u observaciones</strong> a través de un <strong>método o premisa</strong></p>
+</div></blockquote>
+<p>En el caso particular de la <strong>inferencia estadística</strong> podemos realizar las siguientes asociaciones</p>
+<ul class="simple">
+<li><p>Hechos: Datos</p></li>
+<li><p>Premisa: Modelo probabilístico</p></li>
+<li><p>Conclusión: Una cantidad no observada que es interesante</p></li>
+</ul>
+<p>Y lo que buscamos es</p>
+<blockquote>
+<div><p>Cuantificar la incerteza de la conclusión dado los datos y el modelo</p>
+</div></blockquote>
+<p><strong>Niveles de la estadística inferencial</strong></p>
+<p>La inferencia estadística puede dividirse en los siguientes tres niveles</p>
+<ol class="simple">
+<li><p>Ajustar un modelo a nuestros datos</p></li>
+<li><p>Verificar que el modelo sea confiable</p></li>
+<li><p>Responder una pregunta usando el modelo</p></li>
+</ol>
+<p>En lo que sigue estudiaremos las herramientas más utilizadas asociadas a cada uno de estos niveles</p>
+<ol class="simple">
+<li><p><strong>Estimador de máxima verosimilitud</strong></p></li>
+<li><p><strong>Bondad de ajuste</strong> e <strong>Intervalos de confianza</strong></p></li>
+<li><p><strong>Test de hipótesis</strong></p></li>
+</ol>
+<div class="section" id="estimacion-de-maxima-verosimilitud">
+<h2><span class="section-number">26.1. </span>Estimación de máxima verosimilitud<a class="headerlink" href="#estimacion-de-maxima-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este nivel de inferencia se busca <strong>ajustar</strong> un modelo teórico sobre nuestros datos. Nos enfocaremos en <strong>modelos de tipo parámetrico</strong>, es decir aquellos donde <strong>se explicita una distribución de probabilidad</strong></p>
+<p>Por ejemplo, ajustar a nuestros dato sun modelo que se distribuye <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span> corresponde a encontrar los valores de <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span> tal que el modelo “se parezca” lo más posible a la distribución empírica de los datos. A continuación definiremos estas nociones</p>
+<p><strong>¿Qué distribución ajustar?</strong></p>
+<p>Antes de ajustar debemos suponer una distribución. En general podemos ajustar cualquier distribución pero un mal supuesto podría invalidar nuestra inferencia</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Podemos usar las herramientas de <strong>estadística descriptiva</strong> para estudiar nuestros datos y tomar esta decisión de manera informada</p>
+</div>
+<p><strong>¿Cómo ajustar mi modelo?</strong></p>
+<p>A continuación describiremos un procedimiento para ajustar modelos paramétricos llamado <em>maximum likelihood estimation</em> (MLE)</p>
+<p>Sea un conjunto de datos <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span></p>
+<p><strong>Supuesto 1</strong> Los datos siguen el modelo <span class="math notranslate nohighlight">\(f(x;\theta)\)</span> donde <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es una distribución y <span class="math notranslate nohighlight">\(\theta\)</span> son sus parámetros</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_1, x_2, \ldots, x_N |\theta)
+\]</div>
+<p><strong>Supuesto 2</strong> Las observaciones son independientes e idénticamente distribuidas (iid)</p>
+<ul class="simple">
+<li><p>Si dos variables son independientes se cumple que <span class="math notranslate nohighlight">\(P(x, y) = P(x)P(y)\)</span></p></li>
+<li><p>Si son además idénticamente distribuidas entonces tienen <strong>la misma distribución y parámetros</strong></p></li>
+</ul>
+<p>Usando esto podemos escribir la siguiente distribución conjunta como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(x_1, x_2, \ldots, x_N |\theta) &amp;= f(x_1|\theta) f(x_2|\theta) \ldots f(x_N|\theta) \nonumber \\
+&amp; = \prod_{i=1}^N f(x_i|\theta) \nonumber \\
+&amp; = \mathcal{L}(\theta)
+\end{align}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span> se conoce como la <strong>verosimilitud</strong> o probabilidad inversa de <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Si consideramos que los datos son fijos podemos buscar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> de máxima verosimilitud como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat \theta &amp;= \text{arg} \max_\theta \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta \log \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta \sum_{i=1}^N \log f(x_i|\theta) 
+\end{align}
+\end{split}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El segundo paso es valido por que el argumento máximo de <span class="math notranslate nohighlight">\(g(x)\)</span> y <span class="math notranslate nohighlight">\(\log(g(x))\)</span> son equivalentes (el logaritmo es monoticamente creciente)</p>
+</div>
+<p>Ahora sólo falta encontrar el máximo. Podemos hacerlo</p>
+<ul class="simple">
+<li><p>Analíticamente, derivando con respecto a <span class="math notranslate nohighlight">\(\theta\)</span> e igualando a cero</p></li>
+<li><p>Usando técnicas de optimización iterativas como gradiente descedente</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>Su profesor quiere medir su peso pero sospecha que su pesa está defectuosa. Para comprobarlo mide su peso <span class="math notranslate nohighlight">\(N\)</span> veces obteniendo un conjunto de observaciones <span class="math notranslate nohighlight">\(\{x_i\}\)</span>. ¿Es posible obtener un estimador del peso real <span class="math notranslate nohighlight">\(\hat x\)</span> a partir de estas observaciones?</p>
+<p>Podemos modelar las observaciones como</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = \hat x + \varepsilon_i
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> corresponde al ruido o error del instrumento y asumiremos que <span class="math notranslate nohighlight">\(\varepsilon_i \sim \mathcal{N}(0, \sigma_\varepsilon^2)\)</span>, es decir que el ruido es <strong>independiente</strong> y <strong>Gaussiano</strong> con media cero y <strong>varianza</strong> <span class="math notranslate nohighlight">\(\sigma_\varepsilon^2\)</span> <strong>conocida</strong></p>
+<p>Entonces la distribución de <span class="math notranslate nohighlight">\(x_i\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
+\]</div>
+<p>Para encontrar <span class="math notranslate nohighlight">\(\hat x\)</span>, primero escribimos el logaritmo de la <strong>verosimilitud</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\log \mathcal{L}(\hat x) &amp;=  \sum_{i=1}^N \log f(x_i|\hat x) \nonumber \\
+&amp;= \sum_{i=1}^N  \log \frac{1}{\sqrt{2\pi\sigma_\varepsilon^2}}  \exp \left ( - \frac{1}{2\sigma_\varepsilon^2} (x_i - \hat x)^2 \right)  \nonumber \\
+&amp;= -\frac{N}{2}\log(2\pi\sigma_\varepsilon^2)  - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2  \nonumber
+\end{align}
+\end{split}\]</div>
+<p>Luego debemos resolver</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\hat \theta &amp;= \text{arg} \max_\theta \log \mathcal{L}(\theta) \nonumber \\
+&amp;= \text{arg} \max_\theta - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2
+\end{align}
+\end{split}\]</div>
+<p>donde podemos ignorar el primer término de la verosimilitud ya que no depende de <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>Para encontrar el máximo derivamos la expresión anterior e igualamos a cero</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2\sigma_\varepsilon^2} \sum_{i=1}^N 2(x_i - \hat x ) = 0.
+\]</div>
+<p>Finalmente si despejamos llegamos a que</p>
+<div class="math notranslate nohighlight">
+\[
+\hat x = \frac{1}{N} \sum_{i=1}^N x_i,
+\]</div>
+<p>que se conoce como el estimador de máxima verosimilitud <strong>para la media de una Gaussiana</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Podemos comprobar que es un máximo utilizando la segunda derivada</p>
+</div>
+<p>A continuación veremos como hacer ajuste de parámetros con MLE para distintas distribuciones utilizando scipy</p>
+</div>
+<div class="section" id="estimacion-mle-con-scipy">
+<h2><span class="section-number">26.2. </span>Estimación MLE con <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#estimacion-mle-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a> provee de un gran número de distribuciones teóricas. Los objetos de tipo distribución comparten algunos métodos, entre ellos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf</span></code>/<code class="docutils literal notranslate"><span class="pre">pmf(x)</span></code>: Retorna la función de densidad/masa de probabilidad evaluada en <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cdf(x)</span></code>: Retorna la función de densidad/masa acumulada evaluada en <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ppf(p)</span></code>: Retorna  el inverso de la distribución acumulada</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rvs(size=N)</span></code>: Retorna <span class="math notranslate nohighlight">\(N\)</span> muestras a partir de la distribución</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit(data)</span></code>: Retorna los parámetros de la distribución ajutados al arreglo <code class="docutils literal notranslate"><span class="pre">data</span></code></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>El método <code class="docutils literal notranslate"><span class="pre">fit</span></code> realiza estimación de máxima verosimilitud para obtener los parámetros</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El método <code class="docutils literal notranslate"><span class="pre">fit</span></code> sólo está disponible para distribuciones univariadas (continuas o discretas)</p>
+</div>
+<p>Para ejemplificar el uso de <code class="docutils literal notranslate"><span class="pre">fit</span></code> utilizaremos los siguientes datos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/mistery_data.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">mistery_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Para ajustar un modelo parámetrico a estos datos primero creamos un objeto distribución y luego llamamos su método <code class="docutils literal notranslate"><span class="pre">fit</span></code></p>
+</div></blockquote>
+<p>Por ejemplo si ajustamos una distribución normal a <code class="docutils literal notranslate"><span class="pre">mistery_data</span></code> obtenemos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_params</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">)</span>
+<span class="n">normal_params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.7598526388767328, 0.5437958926009934)
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado son los estimadores de máxima verosimilitud de la media y la desviación estándar de la distribución normal</p>
+<p>Podemos visualizar el resultado del modelo ajustado utilizando <code class="docutils literal notranslate"><span class="pre">pdf</span></code>, sobre una objeto distribución creado a partir de los parámetros obtenidos</p>
+<p>Observemos el resultado en conjunto a un histograma de <code class="docutils literal notranslate"><span class="pre">mistery_data</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fitted_distribution</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="o">*</span><span class="n">normal_params</span><span class="p">)</span>
+
+<span class="n">x_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">p_eval</span> <span class="o">=</span> <span class="n">fitted_distribution</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_eval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">p_eval</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/model_fitting_14_0.png" src="../../_images/model_fitting_14_0.png" />
+</div>
+</div>
+<p>La visualización revela que los datos tienen una distribución asimétrica (cola derecha más larga), por lo tanto ajustar con un modelo normal no fue una buena decisión</p>
+<p>Intentemos nuevamente el ajuste pero con distribuciones de cola derecha larga:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> 
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="p">,</span> 
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gumbel_r</span><span class="p">]:</span>
+    <span class="n">mle_params</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mle_params</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">mle_params</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_eval</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.790519835925755, 0.9907786403961358, 0.4295227907552)
+(0.5432456929387437, 0.7550798666410953, 0.8711472938350178)
+(1.5177983118106886, 0.4010033437891445)
+</pre></div>
+</div>
+<img alt="../../_images/model_fitting_16_1.png" src="../../_images/model_fitting_16_1.png" />
+</div>
+</div>
+<p>A simple vista, el resultado del ajuste es superior al caso normal</p>
+<blockquote>
+<div><p>¿Cómo decidir cual modelo es superior?</p>
+</div></blockquote>
+<p>Para eso profundizaremos en el segundo nivel de la estadística inferencial</p>
+</div>
+<div class="section" id="verificacion-de-modelos">
+<h2><span class="section-number">26.3. </span>Verificación de modelos<a class="headerlink" href="#verificacion-de-modelos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez que hemos ajustado un modelo es buena práctica verificar la calidad o bondad del ajuste. Esto se puede hacer gráficamente utilizando histogramas, gráficos probabilidad-probabilidad (pp plot) o <a class="reference external" href="https://es.wikipedia.org/wiki/Gr%C3%A1fico_Q-Q">gráficos cuantil-cuantil</a> (qq plot)</p>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Para crear qq-plots o pp-plots en Python sugiero la <a class="reference external" href="https://www.statsmodels.org/dev/graphics.html">librería statsmodels</a></p>
+</div>
+<p>También es muy usual visualizar la CDF de nuestro modelo teórico contra la CDF empírica de los datos. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ECDF</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">)(</span><span class="n">x_eval</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;ECDF&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">]:</span>
+    <span class="n">mle_params</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_eval</span><span class="p">,</span> <span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">mle_params</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x_eval</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+            <span class="n">label</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/model_fitting_20_0.png" src="../../_images/model_fitting_20_0.png" />
+</div>
+</div>
+<p>Visualmente, el modelo gamma sigue más de cerca a la ECDF que el modelo normal</p>
+<p><strong>Test de Kolmogorov-Smirnov</strong></p>
+<p>Existen pruebas como el test de Kolmogorov-Smirnov (KS) y el test de Anderson-Darling (AS) que miden la diferencia entre la CDF empírica y teórica</p>
+<p>En particular el test de KS se basa en el siguiente estadístico de prueba</p>
+<div class="math notranslate nohighlight">
+\[
+D_n = \sup_x |F_n(x) - F(x)|,
+\]</div>
+<p>es decir la distancia absoluta más grande entre <span class="math notranslate nohighlight">\(F_n(x)\)</span>, la CDF empírica, y <span class="math notranslate nohighlight">\(F(x)\)</span>, una CDF teórica de referencia</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>El test de KS sólo se puede usar para distribuciones univariadas y continuas</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El test de KS puede usarse para comparar dos muestras y para comparar una muestra con una distribución teórica</p>
+</div>
+<p>El test de KS de una muestra está implementado en <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest</span></code></a>. Los principales argumentos de esta función son</p>
+<ul class="simple">
+<li><p>un ndarray con las observaciones de nuestra muestra</p></li>
+<li><p>un método <code class="docutils literal notranslate"><span class="pre">cdf</span></code> de una distribución continua de scipy.stats</p></li>
+</ul>
+<p>La función retorna un objeto cuyo atributo <code class="docutils literal notranslate"><span class="pre">statistic</span></code> es equivalente a <span class="math notranslate nohighlight">\(D_n\)</span></p>
+<p>A continuación se calcula el valor de <span class="math notranslate nohighlight">\(D_n\)</span> para cuatro distribuciones teóricas contra la CDF empírica de <code class="docutils literal notranslate"><span class="pre">mistery_data</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="p">,</span> 
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="p">,</span> 
+             <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gumbel_r</span><span class="p">]:</span>
+    
+    <span class="n">mle_params</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">)</span>
+    <span class="n">fitted_distribution</span> <span class="o">=</span> <span class="n">dist</span><span class="p">(</span><span class="o">*</span><span class="n">mle_params</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">mistery_data</span><span class="p">,</span> <span class="n">fitted_distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dist</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">: Dn = </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">statistic</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norm      : Dn = 0.0981
+gamma     : Dn = 0.0538
+lognorm   : Dn = 0.0525
+gumbel_r  : Dn = 0.0493
+</pre></div>
+</div>
+</div>
+</div>
+<p>La distribución de menor distancia es “gumbel_r”, sin embargo</p>
+<blockquote>
+<div><p>¿Es significativa la diferencia en distancia que estamos observando?</p>
+</div></blockquote>
+<p>Para responder esta pregunta podemos realizar un <strong>test de hipótesis</strong>. Este es el tema principal de la lección siguiente</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest</span></code> también retorna un p-value asociado a la hipótesis nula de que las distribuciones que se están comparando son iguales. Este p-value sólo es válido si la CDF teórica no fue ajustada con los datos de la CDF empírica, por lo tanto lo hemos ignorado en este ejemplo.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<ul class="simple">
+<li><p>Para calcular un p-value para el test de KS donde la distribución teórica fue ajustada utilizando MLE la opción es utilizar <em>bootstrap</em>. Lo veremos en una lección futura</p></li>
+<li><p>Para calcular el estadístico de Anderson-Darling (AD) sugiero la librería <a class="reference external" href="https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.anderson_statistic.html">statsmodels</a>. AD es más sensible que KS cuando la diferencia está concentrada en las colas de la distribución</p></li>
+<li><p>Para variables discretas se puede usar el <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chisquare.html">test <span class="math notranslate nohighlight">\(\chi^2\)</span></a> de bondad de ajuste</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="descriptive.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">25. </span>Estadística descriptiva</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="hypothesis.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Test de hipótesis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
