@@ -478,10 +478,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="estadistica-inferencial-ajuste-de-modelos">
 <h1><span class="section-number">26. </span>Estadística inferencial: Ajuste de Modelos<a class="headerlink" href="#estadistica-inferencial-ajuste-de-modelos" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>La inferencia busca</p>
-<blockquote>
-<div><p>Extraer <strong>conclusiones</strong> a partir de <strong>hechos u observaciones</strong> a través de un <strong>método o premisa</strong></p>
-</div></blockquote>
+<p>La inferencia busca extraer <strong>conclusiones</strong> a partir de <strong>hechos u observaciones</strong> a través de un <strong>método o premisa</strong></p>
 <p>En el caso particular de la <strong>inferencia estadística</strong> podemos realizar las siguientes asociaciones</p>
 <ul class="simple">
 <li><p>Hechos: Datos</p></li>
@@ -508,34 +505,32 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="estimacion-de-maxima-verosimilitud">
 <h2><span class="section-number">26.1. </span>Estimación de máxima verosimilitud<a class="headerlink" href="#estimacion-de-maxima-verosimilitud" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En este nivel de inferencia se busca <strong>ajustar</strong> un modelo teórico sobre nuestros datos. Nos enfocaremos en <strong>modelos de tipo parámetrico</strong>, es decir aquellos donde <strong>se explicita una distribución de probabilidad</strong></p>
-<p>Por ejemplo, ajustar a nuestros dato sun modelo que se distribuye <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span> corresponde a encontrar los valores de <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span> tal que el modelo “se parezca” lo más posible a la distribución empírica de los datos. A continuación definiremos estas nociones</p>
+<p>Ajustar un modelo que se distribuye <span class="math notranslate nohighlight">\(\mathcal{N}(\mu, \sigma^2)\)</span> a nuestros datos corresponde a</p>
+<blockquote>
+<div><p>encontrar los valores de <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span> tal que el modelo “se parezca” lo más posible a la distribución empírica de los datos</p>
+</div></blockquote>
+<p>A continuación definiremos estas nociones</p>
 <p><strong>¿Qué distribución ajustar?</strong></p>
 <p>Antes de ajustar debemos suponer una distribución. En general podemos ajustar cualquier distribución pero un mal supuesto podría invalidar nuestra inferencia</p>
-<div class="admonition important">
-<p class="admonition-title">Importante</p>
+<div class="admonition hint">
+<p class="admonition-title">Consejo</p>
 <p>Podemos usar las herramientas de <strong>estadística descriptiva</strong> para estudiar nuestros datos y tomar esta decisión de manera informada</p>
 </div>
 <p><strong>¿Cómo ajustar mi modelo?</strong></p>
 <p>A continuación describiremos un procedimiento para ajustar modelos paramétricos llamado <em>maximum likelihood estimation</em> (MLE)</p>
-<p>Sea un conjunto de datos <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span></p>
-<p><strong>Supuesto 1</strong> Los datos siguen el modelo <span class="math notranslate nohighlight">\(f(x;\theta)\)</span> donde <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es una distribución y <span class="math notranslate nohighlight">\(\theta\)</span> son sus parámetros</p>
-<div class="math notranslate nohighlight">
-\[
-f(x_1, x_2, \ldots, x_N |\theta)
-\]</div>
-<p><strong>Supuesto 2</strong> Las observaciones son independientes e idénticamente distribuidas (iid)</p>
+<p>Sea un conjunto de datos <span class="math notranslate nohighlight">\(\{x_1, x_2, \ldots, x_N\}\)</span>. Antes de empezar haremos dos supuestos</p>
 <ul class="simple">
-<li><p>Si dos variables son independientes se cumple que <span class="math notranslate nohighlight">\(P(x, y) = P(x)P(y)\)</span></p></li>
-<li><p>Si son además idénticamente distribuidas entonces tienen <strong>la misma distribución y parámetros</strong></p></li>
+<li><p><strong>Supuesto 1:</strong> Los datos siguen el modelo <span class="math notranslate nohighlight">\(f(x;\theta)\)</span> donde <span class="math notranslate nohighlight">\(f(\cdot)\)</span> es una distribución y <span class="math notranslate nohighlight">\(\theta\)</span> son sus parámetros</p></li>
+<li><p><strong>Supuesto 2:</strong> Las datos son independientes e idénticamente distribuidos (iid)</p></li>
 </ul>
-<p>Usando esto podemos escribir la siguiente distribución conjunta como</p>
+<p>Usando estos supuestos podemos desarrolar la distribución conjunta de los datos como como</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-f(x_1, x_2, \ldots, x_N |\theta) &amp;= f(x_1|\theta) f(x_2|\theta) \ldots f(x_N|\theta) \nonumber \\
-&amp; = \prod_{i=1}^N f(x_i|\theta) \nonumber \\
+\begin{split}
+f(x_1, x_2, \ldots, x_N |\theta) &amp;= f(x_1|\theta) f(x_2|\theta) \ldots f(x_N|\theta)  \\
+&amp; = \prod_{i=1}^N f(x_i|\theta)  \\
 &amp; = \mathcal{L}(\theta)
-\end{align}
+\end{split}
 \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\mathcal{L}(\theta)\)</span> se conoce como la <strong>verosimilitud</strong> o probabilidad inversa de <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <p>Si consideramos que los datos son fijos podemos buscar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> de máxima verosimilitud como</p>
@@ -556,26 +551,26 @@ f(x_1, x_2, \ldots, x_N |\theta) &amp;= f(x_1|\theta) f(x_2|\theta) \ldots f(x_N
 <li><p>Analíticamente, derivando con respecto a <span class="math notranslate nohighlight">\(\theta\)</span> e igualando a cero</p></li>
 <li><p>Usando técnicas de optimización iterativas como gradiente descedente</p></li>
 </ul>
-<p><strong>Ejemplo:</strong></p>
-<p>Su profesor quiere medir su peso pero sospecha que su pesa está defectuosa. Para comprobarlo mide su peso <span class="math notranslate nohighlight">\(N\)</span> veces obteniendo un conjunto de observaciones <span class="math notranslate nohighlight">\(\{x_i\}\)</span>. ¿Es posible obtener un estimador del peso real <span class="math notranslate nohighlight">\(\hat x\)</span> a partir de estas observaciones?</p>
+<p><strong>Ejemplo analítico:</strong></p>
+<p>Su profesor quiere medir su peso pero sospecha que su pesa está defectuosa. Para comprobarlo mide su peso <span class="math notranslate nohighlight">\(N\)</span> veces obteniendo un conjunto de observaciones <span class="math notranslate nohighlight">\(\{z_i\}\)</span>. ¿Es posible obtener un estimador del peso real <span class="math notranslate nohighlight">\(\hat z\)</span> a partir de estas observaciones?</p>
 <p>Podemos modelar las observaciones como</p>
 <div class="math notranslate nohighlight">
 \[
-x_i = \hat x + \varepsilon_i
+z_i = \hat z + \varepsilon_i
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(\varepsilon_i\)</span> corresponde al ruido o error del instrumento y asumiremos que <span class="math notranslate nohighlight">\(\varepsilon_i \sim \mathcal{N}(0, \sigma_\varepsilon^2)\)</span>, es decir que el ruido es <strong>independiente</strong> y <strong>Gaussiano</strong> con media cero y <strong>varianza</strong> <span class="math notranslate nohighlight">\(\sigma_\varepsilon^2\)</span> <strong>conocida</strong></p>
-<p>Entonces la distribución de <span class="math notranslate nohighlight">\(x_i\)</span> es</p>
+<p>Entonces la distribución de <span class="math notranslate nohighlight">\(z_i\)</span> es</p>
 <div class="math notranslate nohighlight">
 \[
-f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
+f(z_i|\hat z) = \mathcal{N}(\hat z, \sigma_\varepsilon^2)
 \]</div>
-<p>Para encontrar <span class="math notranslate nohighlight">\(\hat x\)</span>, primero escribimos el logaritmo de la <strong>verosimilitud</strong></p>
+<p>Para encontrar <span class="math notranslate nohighlight">\(\hat z\)</span>, primero escribimos el logaritmo de la <strong>verosimilitud</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-\log \mathcal{L}(\hat x) &amp;=  \sum_{i=1}^N \log f(x_i|\hat x) \nonumber \\
-&amp;= \sum_{i=1}^N  \log \frac{1}{\sqrt{2\pi\sigma_\varepsilon^2}}  \exp \left ( - \frac{1}{2\sigma_\varepsilon^2} (x_i - \hat x)^2 \right)  \nonumber \\
-&amp;= -\frac{N}{2}\log(2\pi\sigma_\varepsilon^2)  - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2  \nonumber
+\log \mathcal{L}(\hat z) &amp;=  \sum_{i=1}^N \log f(z_i|\hat z) \nonumber \\
+&amp;= \sum_{i=1}^N  \log \frac{1}{\sqrt{2\pi\sigma_\varepsilon^2}}  \exp \left ( - \frac{1}{2\sigma_\varepsilon^2} (z_i - \hat z)^2 \right)  \nonumber \\
+&amp;= -\frac{N}{2}\log(2\pi\sigma_\varepsilon^2)  - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (z_i - \hat z)^2  \nonumber
 \end{align}
 \end{split}\]</div>
 <p>Luego debemos resolver</p>
@@ -583,26 +578,26 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 \[\begin{split}
 \begin{align}
 \hat \theta &amp;= \text{arg} \max_\theta \log \mathcal{L}(\theta) \nonumber \\
-&amp;= \text{arg} \max_\theta - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (x_i - \hat x)^2
+&amp;= \text{arg} \max_\theta - \frac{1}{2\sigma_\varepsilon^2}  \sum_{i=1}^N  (z_i - \hat z)^2
 \end{align}
 \end{split}\]</div>
 <p>donde podemos ignorar el primer término de la verosimilitud ya que no depende de <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <p>Para encontrar el máximo derivamos la expresión anterior e igualamos a cero</p>
 <div class="math notranslate nohighlight">
 \[
--\frac{1}{2\sigma_\varepsilon^2} \sum_{i=1}^N 2(x_i - \hat x ) = 0.
+-\frac{1}{2\sigma_\varepsilon^2} \sum_{i=1}^N 2(z_i - \hat z) = 0.
 \]</div>
 <p>Finalmente si despejamos llegamos a que</p>
 <div class="math notranslate nohighlight">
 \[
-\hat x = \frac{1}{N} \sum_{i=1}^N x_i,
+\hat z = \frac{1}{N} \sum_{i=1}^N z_i,
 \]</div>
 <p>que se conoce como el estimador de máxima verosimilitud <strong>para la media de una Gaussiana</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Podemos comprobar que es un máximo utilizando la segunda derivada</p>
 </div>
-<p>A continuación veremos como hacer ajuste de parámetros con MLE para distintas distribuciones utilizando scipy</p>
+<p>A continuación veremos como hacer ajuste de parámetros con MLE para distintas distribuciones conocidas utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></p>
 </div>
 <div class="section" id="estimacion-mle-con-scipy">
 <h2><span class="section-number">26.2. </span>Estimación MLE con <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#estimacion-mle-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -678,10 +673,13 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/model_fitting_14_0.png" src="../../_images/model_fitting_14_0.png" />
+<img alt="../../_images/model_fitting_16_0.png" src="../../_images/model_fitting_16_0.png" />
 </div>
 </div>
-<p>La visualización revela que los datos tienen una distribución asimétrica (cola derecha más larga), por lo tanto ajustar con un modelo normal no fue una buena decisión</p>
+<p>La visualización revela que los datos tienen una distribución asimétrica (cola derecha más larga)</p>
+<blockquote>
+<div><p>Ajustar con un modelo normal no fue una buena decisión</p>
+</div></blockquote>
 <p>Intentemos nuevamente el ajuste pero con distribuciones de cola derecha larga:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -705,7 +703,7 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 (1.5177983118106886, 0.4010033437891445)
 </pre></div>
 </div>
-<img alt="../../_images/model_fitting_16_1.png" src="../../_images/model_fitting_16_1.png" />
+<img alt="../../_images/model_fitting_18_1.png" src="../../_images/model_fitting_18_1.png" />
 </div>
 </div>
 <p>A simple vista, el resultado del ajuste es superior al caso normal</p>
@@ -751,7 +749,7 @@ f(x_i|\hat x) = \mathcal{N}(\hat x, \sigma_\varepsilon^2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/model_fitting_20_0.png" src="../../_images/model_fitting_20_0.png" />
+<img alt="../../_images/model_fitting_22_0.png" src="../../_images/model_fitting_22_0.png" />
 </div>
 </div>
 <p>Visualmente, el modelo gamma sigue más de cerca a la ECDF que el modelo normal</p>
@@ -769,7 +767,7 @@ D_n = \sup_x |F_n(x) - F(x)|,
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>El test de KS puede usarse para comparar dos muestras y para comparar una muestra con una distribución teórica</p>
+<p>El test de KS puede usarse para comparar dos muestras o para comparar una muestra con una distribución teórica</p>
 </div>
 <p>El test de KS de una muestra está implementado en <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kstest.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.kstest</span></code></a>. Los principales argumentos de esta función son</p>
 <ul class="simple">
