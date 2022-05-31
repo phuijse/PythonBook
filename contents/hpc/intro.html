@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. ¿Cómo hacer buenas visualizaciones? &#8212; Computación Científica con Python</title>
+    <title>29. Python y Rendimiento &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="16. Interfaces de usuario en Jupyter con ipywidgets" href="ipywidgets.html" />
-    <link rel="prev" title="14. Tipos de gráfico en matplotlib" href="matplotlib2.html" />
+    <link rel="prev" title="28. Intervalos de confianza con Bootstrap" href="../statistics/bootstrap.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -184,24 +183,24 @@ const thebe_selector_output = ".output, .cell_output"
   Visualización de datos con Matplotlib
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="matplotlib1.html">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
    13. Introducción a Matplotlib
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="matplotlib2.html">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
    14. Tipos de gráfico en matplotlib
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
    15. ¿Cómo hacer buenas visualizaciones?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ipywidgets.html">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
    16. Interfaces de usuario en Jupyter con
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -307,9 +306,9 @@ const thebe_selector_output = ".output, .cell_output"
   Alto rendimiento en Python
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/intro.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    29. Python y  Rendimiento
   </a>
  </li>
@@ -354,7 +353,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/visualization/goodvisualizations.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/hpc/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -374,7 +373,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/visualization/goodvisualizations.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/hpc/intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -395,7 +394,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/visualization/goodvisualizations.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/hpc/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -412,6 +411,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">
+   29.1. ¿Qué es la optimización de códigos/software?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#consejos-antes-de-optimizar">
+   29.2. Consejos antes de optimizar
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -419,59 +436,114 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>¿Cómo hacer buenas visualizaciones?</h1>
+                <h1>Python y  Rendimiento</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">
+   29.1. ¿Qué es la optimización de códigos/software?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#consejos-antes-de-optimizar">
+   29.2. Consejos antes de optimizar
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="como-hacer-buenas-visualizaciones">
-<h1><span class="section-number">15. </span>¿Cómo hacer buenas visualizaciones?<a class="headerlink" href="#como-hacer-buenas-visualizaciones" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>El objetivo de una visualización de datos es <strong>comunicar la información de forma clara y simple</strong></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="python-y-rendimiento">
+<h1><span class="section-number">29. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Python es un lenguaje interpretado de alto nivel que es muy conveniente para prototipar y hacer análisis
+exploratorio</p>
+<p>Sin embargo, esta conveniencia tiene un costo:</p>
 <blockquote>
-<div><p>Esto tiene un aspecto funcional y otro estético que deben estar balanceados</p>
+<div><p>Python tiene un menor <strong>rendimiento</strong> a igual <strong>complejidad</strong> en comparación a lenguajes compilados de bajo nivel</p>
 </div></blockquote>
-<p>En las lecciones previas aprendido a usar matplotlib: Corresponde al aspecto funcional</p>
-<blockquote>
-<div><p>El aspecto estético requiere diseño (y sentido común)</p>
-</div></blockquote>
-<p>La mejor forma de aprender este aspecto es estudiando ejemplos</p>
+<p>Podemos ser más específicos y hablar de <strong>eficiencia</strong> de diversas índoles:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://informationisbeautiful.net/visualizations/">https://informationisbeautiful.net/visualizations/</a></p></li>
-<li><p><a class="reference external" href="https://bokeh.pydata.org/en/latest/docs/gallery.html">https://bokeh.pydata.org/en/latest/docs/gallery.html</a></p></li>
+<li><p>Eficiencia temporal: Tiempo para completar una tarea (tiempo en la CPU)</p></li>
+<li><p>Eficiencia espacial: Utilización de espacio (memoria RAM, disco)</p></li>
 </ul>
-<p>A continuación voy a listar algunos consejos de distintas fuentes</p>
-<p><strong>Consejo 1:</strong> El siguiente estudio realizó un ranking de las formas más efectivas de comunicar diferencias cuantitativas. Privilega las que están más arriba en la escala de efectividad</p>
-<p><a href="https://www.knowablemagazine.org/article/mind/2019/science-data-visualization"><a class="reference internal" href="../../_images/vranking.svg"><img alt="../../_images/vranking.svg" src="../../_images/vranking.svg" width="500" /></a></a></p>
-<p>Les recomiendo tomar el <em>chart challenge</em> en el link de la imagen</p>
-<p><strong>Consejo 2:</strong> Menos es más. Muestra sólo lo fundamental y usa color sólo para comunicar</p>
-<p><strong>Consejo 3</strong>: Evita el misterio. Etiqueta tus ejes, ponle título a tus gráficos y usa leyendas siempre que sea necesario</p>
-<p><strong>Consejo 4</strong>: <a class="reference external" href="https://www.scientificamerican.com/article/end-of-the-rainbow-new-map-scale-is-more-readable-by-people-who-are-color-blind/">Evita las paletas de color de tipo arcoíris</a>. Las paletas de tipo arcoiris son más difíciles de interpretar y no son amigables con los daltónicos. Por esta razón la paleta por defecto de matplotlib es viridis que es <a class="reference external" href="https://bids.github.io/colormap/">perceptualmente-uniforme</a></p>
-<p>Puedes ver estos y otros consejos explicados en el siguiente <a class="reference external" href="https://www.geckoboard.com/uploads/play-your-charts-right.pdf">diagrama</a> de <em><a class="reference external" href="http://geckoboard.com">geckoboard.com</a></em></p>
-<p>También les recomiendo ver el siguiente video (en inglés) con más ejemplos y buenas prácticas a considerar</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">VimeoVideo</span>
-<span class="n">VimeoVideo</span><span class="p">(</span><span class="s1">&#39;29684853&#39;</span><span class="p">)</span>
+<p>Ambos son factores críticos en algunas aplicaciones, por ejemplo aplicaciones con muchos datos o mucho cómputo</p>
+<p>Existe entonces una necesidad por <strong>mejorar el rendimiento de nuestro código</strong>. En esta serie de lecciones veremos distintas formas de <strong>optimizar</strong> código escrito en Python</p>
+<div class="section" id="que-es-la-optimizacion-de-codigos-software">
+<h2><span class="section-number">29.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se refiere a modificar una rutina computacional para mejorar su eficiencia, es decir reducir sus tiempos de ejecución y/o consumo de recursos</p>
+<p>El aspecto que se intenta modificar es aquel que limita nuestro programa. Un programa puede estar</p>
+<ul class="simple">
+<li><p>limitado en CPU (compute-bound)</p></li>
+<li><p>limitado en memoria (memory-bound)</p></li>
+<li><p>limitado en ancho de banda (bandwidth-bound)</p></li>
+<li><p>limitado en entrada/salida (I/O bound)</p></li>
+</ul>
+<p>En el ámbito de la computación científica lo más común es enfrentar programas que están <strong>límitados en CPU</strong>, es decir</p>
+<ul class="simple">
+<li><p>programas que utilizan la mayor parte de su tiempo haciendo cálculos</p></li>
+<li><p>programas que mejoran su rendimiento con la velocidad del CPU</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En ciertos casos podemos disminuir el tiempo de ejecución de una rutina incrementando el uso de memoria. Esto podría convertir un programa que es limitado en CPU a uno que es limitado en memoria.</p>
+</div>
+</div>
+<div class="section" id="consejos-antes-de-optimizar">
+<h2><span class="section-number">29.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Considera las siguientes preguntas antes de comenzar el (a veces arduo) proceso de optimizar tus códigos</p>
+<p><strong>¿Cuándo optimizar?</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Si:</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tu rutina está incompleta o no entrega el resultado esperado
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Entonces:</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No es momento de optimizar 
+</pre></div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="400"
-    height="300"
-    src="https://player.vimeo.com/video/29684853"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
+<p>Dicho de otro modo, para casi cualquier rutina que escribamos, deberíamos considerar la secuencia</p>
+<ol class="simple">
+<li><p>que (la rutina) corra</p></li>
+<li><p>que (la rutina) retorne el resultado correcto</p></li>
+<li><p>(opcionalmente) que (la rutina) tenga un buen rendimiento</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>La optimización está asociada al último punto y se lleva a cabo luego de cumplir los dos primeros</p>
+</div>
+<p>En la práctica hay que considerar que optimizar podría:</p>
+<ul class="simple">
+<li><p>Hacer el código más complicado y menos legible</p></li>
+<li><p>Introducir bugs</p></li>
+<li><p>Tomar tiempo y bastante dedicación</p></li>
+</ul>
+<p>Por lo tanto debemos evitar optimizar de forma prematura</p>
+<blockquote class="epigraph">
+<div><p>La optimización prematura es la raíz de todos los males</p>
+<p class="attribution">—<a class="reference external" href="http://wiki.c2.com/?PrematureOptimization">Donald Knuth</a></p>
+</div></blockquote>
+<p><strong>¿Por qué optimizar?</strong></p>
+<p>En la secuencia mostrada anteriormente, podemos notar que el último punto no es esencial como lo son los dos primeros</p>
+<p>Optimizar solo es necesario si nuestro código:</p>
+<ul class="simple">
+<li><p>no entrega el resultado correcto en el tiempo requerido</p></li>
+<li><p>requiere más memoria que la disponible en el hardware donde va a correr</p></li>
+</ul>
+<p><strong>¿Dónde optimizar?</strong></p>
+<p>Se debe evitar gastar tiempo optimizando rutinas que influyan poco en el rendimiento total del programa</p>
+<p>La optimización debería concentrarse en las secciones más lentas y/o costosas: <strong>cuellos de botella</strong></p>
+<p>Previo a optimizar debemos hacer un <em><strong>profiling</strong></em> de nuestro código para encontrar las secciones críticas</p>
 </div>
 </div>
 
@@ -488,7 +560,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./contents/visualization"
+            path: "./contents/hpc"
         },
         predefinedOutput: true
     }
@@ -500,19 +572,12 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="matplotlib2.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../statistics/bootstrap.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">14. </span>Tipos de gráfico en matplotlib</p>
+            <p class="prev-next-title"><span class="section-number">28. </span>Intervalos de confianza con <em>Bootstrap</em></p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="ipywidgets.html" title="siguiente página">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
