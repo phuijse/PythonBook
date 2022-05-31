@@ -57,8 +57,8 @@ parts:
 - caption: "Alto rendimiento en Python"
   numbered: true
   chapters:
-    - file: contents/hpc/intro.ipynb
-      #    - file: contents/hpc/
+    - file: contents/hpc/intro
+    - file: contents/hpc/profiling
 
 
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
