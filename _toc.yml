@@ -54,6 +54,13 @@ parts:
     - file: contents/statistics/model_fitting
     - file: contents/statistics/hypothesis
     - file: contents/statistics/bootstrap
+- caption: "Alto rendimiento en Python"
+  numbered: true
+  chapters:
+    - file: contents/hpc/intro.ipynb
+      #    - file: contents/hpc/
+
+
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
 #  numbered: true
 #  chapters:
