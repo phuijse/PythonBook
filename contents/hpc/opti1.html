@@ -450,8 +450,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ten-atencion-con-el-overhead-en-funciones">
-     31.1.3. Ten atención con el overhead en funciones
+    <a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">
+     31.1.3. Atención con el overhead en funciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -509,11 +509,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#speed-up">
-   31.3. Speed-up
-  </a>
  </li>
 </ul>
 
@@ -557,8 +552,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ten-atencion-con-el-overhead-en-funciones">
-     31.1.3. Ten atención con el overhead en funciones
+    <a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">
+     31.1.3. Atención con el overhead en funciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -617,11 +612,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#speed-up">
-   31.3. Speed-up
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -635,22 +625,32 @@ const thebe_selector_output = ".output, .cell_output"
 <h1><span class="section-number">31. </span>Optimizando código Python<a class="headerlink" href="#optimizando-codigo-python" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Como ya hemos mencionado <strong>Python</strong> es un lenguaje versátil pero poco eficiente en comparación a lenguajes de bajo nivel (C o Fortran)</p>
 <p>Recordemos que <strong>Python</strong> es un lenguaje <strong>interpretado</strong>. Consideremos la operación</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>z = x + y
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>Esta operación sencilla requiere de</p>
 <ul class="simple">
 <li><p><strong>inferir el tipo</strong> de <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> antes de sumarlos</p></li>
-<li><p><strong>escoger la función “suma” apropiada</strong></p></li>
+<li><p><strong>escoger la función “suma” apropiada para el tipo de los argumentos</strong></p></li>
 <li><p><strong>retornar el tipo correcto</strong> de z</p></li>
 </ul>
 <p>El costo de las operaciones <strong>destacadas</strong> se llama <strong>overhead</strong>. El <em>overhead</em> es el <strong>costo extra</strong> de Python versus los lenguajes compilados</p>
-<p>Existen varias maneras de reducir <em>overhead</em> y mejorar la eficiencia de un código escrito en Python, algunas de ellas son:</p>
+<p>Existen varias maneras de reducir <em>overhead</em> y mejorar la eficiencia de un código escrito en Python. En lo que sige revisaremos las siguientes:</p>
 <ul class="simple">
 <li><p><strong>Conocer el lenguaje</strong>: Usar la sintaxis y estructuras de Python adecuadamente</p></li>
 <li><p><strong>Vectorización:</strong> Cómputo basado en arreglos con <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> siempre en problemas que lo permitan</p></li>
 <li><p><strong>Conectar con lenguajes de bajo nivel:</strong> Utilizar <code class="docutils literal notranslate"><span class="pre">Cython</span></code> para crear interfaces de código C eficiente para Python</p></li>
 </ul>
+<p>Antes de empezar revisarlas en detalle se presenta una métrica muy utilizada para comparar algoritmos de acuerdo a su tiempo de ejecución. El <em><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Speedup">speedup</a></strong></em> es un número que mide el desempeño relativo de dos algoritmos, sistemas o rutinas, definido como</p>
+<div class="math notranslate nohighlight">
+\[
+S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(T_{propuesto}\)</span> y <span class="math notranslate nohighlight">\(T_{referencia}\)</span> son los tiempos de cómputo de nuestra rutina propuesta (optimizada) y de la rutina de referencia (original), respectivamente</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este speedup temporal indica cuantas veces más rápido es nuestra rutina propuesta con respecto a la referencia</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -700,13 +700,13 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">resultado</span> <span class="o">-=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">resultado</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 suma_abs(x)
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o suma_abs(x)
 <span class="n">suma_abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.8 ms ± 214 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.5 ms ± 704 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -714,10 +714,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p><strong>Mejora 1:</strong> No es necesario usar un índice, podemos iterar directamente en los elementos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mejora 1: No es necesario usar un índice, podemos iterar directamente en los elementos</span>
-<span class="k">def</span> <span class="nf">suma_abs</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">suma_abs</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">resultado</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -726,13 +726,13 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">resultado</span> <span class="o">-=</span> <span class="n">element</span>
     <span class="k">return</span> <span class="n">resultado</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 suma_abs(x)
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o suma_abs(x)
 <span class="n">suma_abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.72 ms ± 661 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.91 ms ± 406 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
@@ -740,36 +740,49 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>El speed up en este caso es:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mejora 2: Operar como una comprensión de lista y luego usar la función sum de Python</span>
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 sum([x if x&gt; 0 else -x for x in x])
-<span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.44 ms ± 857 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.741442368580472
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>Mejora 2:</strong> Operar como una comprensión de lista y luego usar la función sum de Python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mejora 3: Usar las funciones sum, map y abs de Python</span>
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 sum(list(map(abs, x)))
-<span class="nb">sum</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o sum([x if x&gt; 0 else -x for x in x])
+<span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.39 ms ± 122 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.53 ms ± 542 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4999950000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4999950000, 2.3765511830597537)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Mejora 3:</strong> Usar las funciones <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> y <code class="docutils literal notranslate"><span class="pre">abs</span></code> nativas de Python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o sum(list(map(abs, x)))
+<span class="nb">sum</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">abs</span><span class="p">,</span> <span class="n">x</span><span class="p">))),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.63 ms ± 160 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4999950000, 4.271852244217907)
 </pre></div>
 </div>
 </div>
@@ -793,25 +806,25 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">count</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
     <span class="k">return</span> <span class="n">count</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r7 -n1 miCounter(x2)
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r7 -n1 -o miCounter(x2)
 <span class="n">miCounter</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.28 ms ± 169 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.57 ms ± 700 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{8: 1031,
- 4: 980,
- 9: 978,
- 1: 985,
- 2: 1011,
- 3: 1009,
- 6: 972,
- 7: 1030,
- 5: 987,
- 0: 1017}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2: 1070,
+ 6: 1021,
+ 7: 996,
+ 5: 1028,
+ 3: 964,
+ 4: 1011,
+ 0: 1010,
+ 9: 948,
+ 8: 971,
+ 1: 981}
 </pre></div>
 </div>
 </div>
@@ -820,52 +833,53 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="o">%</span><span class="k">timeit</span> -r7 -n1 Counter(x2)
-<span class="n">Counter</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r7 -n1 -o Counter(x2)
+<span class="n">Counter</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.82 ms ± 210 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.72 ms ± 162 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({8: 1031,
-         4: 980,
-         9: 978,
-         1: 985,
-         2: 1011,
-         3: 1009,
-         6: 972,
-         7: 1030,
-         5: 987,
-         0: 1017})
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Counter({2: 1070,
+          6: 1021,
+          7: 996,
+          5: 1028,
+          3: 964,
+          4: 1011,
+          0: 1010,
+          9: 948,
+          8: 971,
+          1: 981}),
+ 2.069371971961314)
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="ten-atencion-con-el-overhead-en-funciones">
-<h3><span class="section-number">31.1.3. </span>Ten atención con el overhead en funciones<a class="headerlink" href="#ten-atencion-con-el-overhead-en-funciones" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Python tiene un overhead considerable cada vez que se llama una función</p>
+<div class="section" id="atencion-con-el-overhead-en-funciones">
+<h3><span class="section-number">31.1.3. </span>Atención con el overhead en funciones<a class="headerlink" href="#atencion-con-el-overhead-en-funciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Python tiene un <em>overhead</em> considerable cada vez que se llama una función</p>
 <p>Se puede ganar desempeño haciendo <em>inlining</em> de funciones</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cuadradomasuno</span><span class="p">(</span><span class="n">element</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">element</span><span class="o">*</span><span class="n">element</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r7 -n3 [cuadradomasuno(xi) for xi in x]
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r7 -n3 -o [cuadradomasuno(xi) for xi in x]
 <span class="c1">#Inlining: escribo la función textualmente en lugar de evaluarla</span>
-<span class="o">%</span><span class="k">timeit</span> -r7 -n3 [xi*xi + 1 for xi in x] 
-<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="n">cuadradomasuno</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">xi</span><span class="o">*</span><span class="n">xi</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r7 -n3 -o [xi*xi + 1 for xi in x] 
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="n">cuadradomasuno</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">xi</span><span class="o">*</span><span class="n">xi</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.4 ms ± 1.14 ms per loop (mean ± std. dev. of 7 runs, 3 loops each)
-15.6 ms ± 440 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.2 ms ± 948 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+14.1 ms ± 533 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, 1.5813529916309261)
 </pre></div>
 </div>
 </div>
@@ -891,13 +905,13 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resultado</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 sin_pos(x)
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o sin_pos(x)
 <span class="n">resultado1</span> <span class="o">=</span> <span class="n">sin_pos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.4 ms ± 1.73 ms per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.4 ms ± 2.58 ms per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -915,17 +929,17 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resultado</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 sin_pos(x)
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o sin_pos(x)
 <span class="n">resultado2</span> <span class="o">=</span> <span class="n">sin_pos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">resultado1</span><span class="p">,</span> <span class="n">resultado2</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">resultado1</span><span class="p">,</span> <span class="n">resultado2</span><span class="p">),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.6 ms ± 540 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15 ms ± 786 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, 1.7622463292278534)
 </pre></div>
 </div>
 </div>
@@ -948,27 +962,32 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </pre></div>
 </div>
 <p>Sin embargo, ya sabemos que esto es ineficiente en “Python puro”</p>
-<p>No olvidemos que las librerías de cómputo científico vistas en este curso nos ofrecen una mejor alternativa. En particular, <strong>NumPy</strong> nos provee de una estructura de arreglo multidimensional (ndarray) y funciones para operarla que están escritas en C y Fortran. Otras librerías como <strong>Scipy</strong> y <strong>Pandas</strong> se basan en <strong>NumPy</strong></p>
-<blockquote>
-<div><p>Cuando utilizamos estas librerías estamos usando código compilado en lugar de interpretado</p>
-</div></blockquote>
-<p>Usando <strong>NumPy</strong> podemos reemplazar un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> en problemas <em>SIMD</em> por operaciones que trabajan sobre todo el arreglo, estas sa llaman <strong>operaciones vectoriales</strong></p>
-<p>Por ejemplo el código que vimos anteriormente quedaría como (asumiendo que x es una lista)</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Las librerías de cómputo científico vistas en este curso nos ofrecen una mejor alternativa. En particular, <strong>NumPy</strong> nos provee de una estructura de arreglo multidimensional (ndarray) y funciones para operarla que están escritas en C y Fortran. Además librerías como <strong>Scipy</strong> y <strong>Pandas</strong> se basan en <strong>NumPy</strong></p>
+</div>
+<p>Utilizando <strong>NumPy</strong> podemos reemplazar un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> en problemas <em>SIMD</em> por operaciones que trabajan sobre todo el arreglo, estas sa llaman <strong>operaciones vectoriales</strong></p>
+<p>Por ejemplo, asumiendo que <code class="docutils literal notranslate"><span class="pre">x</span></code> es una lista, el código que vimos anteriormente quedaría como:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>NumPy aplica la función exponencial a todo el arreglo x, luego aplica la aritmética (suma y división) a cada elemento del arreglo (broadcasting) y finalmente retorna un nuevo arreglo con el resultado. En general siempre que exista una operación de tipo <em>SIMD</em> podemos mejorar su rendimiento usando</p>
-<blockquote>
-<div><p><strong>Vectorización:</strong> Reemplazar un bucle/ciclo por operaciones vectoriales de <strong>NumPy</strong></p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>NumPy aplica la función exponencial a todo el arreglo x, luego aplica la aritmética (suma y división) a cada elemento del arreglo (broadcasting) y finalmente retorna un nuevo arreglo con el resultado</p>
+</div>
+<p>En general siempre que exista una operación de tipo <em>SIMD</em> podemos mejorar su rendimiento usando, esto se conoce como</p>
+<dl class="simple myst">
+<dt>Vectorización</dt><dd><p>Reemplazar un bucle/ciclo por operaciones vectoriales (en este caso de <strong>NumPy</strong>)</p>
+</dd>
+</dl>
 <p>A continuación revisaremos mediante ejemplos como implementar este y otros conceptos para mejorar el rendimiento</p>
 <div class="section" id="reemplazar-ciclo-for-por-operaciones-vectoriales">
 <h3><span class="section-number">31.2.1. </span>Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales<a class="headerlink" href="#reemplazar-ciclo-for-por-operaciones-vectoriales" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Las operaciones vectoriales son <strong>funciones de NumPy</strong> de tipo <em>element-wise</em> aplicadas sobre un ndarray</p>
 <p>Las funciones <em>element-wise</em> son aquellas que actuan sobre todos los elementos del arreglo de forma independiente</p>
 <ul class="simple">
-<li><p>En la clase de NumPy revisamos algunos ejemplos: exponenciación, raíces, trigonometrícas, etc</p></li>
+<li><p>En capítulos anteriores revisamos algunos ejemplos: exponenciación, raíces, trigonometrícas, etc</p></li>
 <li><p>Las operaciones aritméticas entre ndarrays son por defecto <em>element-wise</em></p></li>
 </ul>
 <p>Luego si tenemos un problema <a class="reference external" href="https://en.wikipedia.org/wiki/Single_instruction,_multiple_data">SIMD</a> escrito con un <code class="docutils literal notranslate"><span class="pre">for</span></code> sobre un conjunto de datos podemos</p>
@@ -976,7 +995,11 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 <li><p>Convertir los datos a ndarray</p></li>
 <li><p>Escribir la operación con funciones de NumPy <em>element-wise</em></p></li>
 </ol>
-<p>y ganar considerablemente en eficiencia de forma directa. Tenga presente que cuando las operaciones de NumPy se ejecutan sobre un ndarray se está usando código compilado</p>
+<p>y ganar considerablemente en eficiencia de forma directa</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Cuando las operaciones de NumPy se ejecutan sobre un ndarray se está usando código compilado</p>
+</div>
 <p>Por ejemplo notemos la diferencia en tiempo de cómputo al hacer aritmética simple</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,26 +1014,26 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
     <span class="k">return</span> <span class="n">resultado</span>
 
 <span class="c1"># Operación usando &quot;for con mejoras&quot;</span>
-<span class="o">%</span><span class="k">timeit</span> -n3 -r7 operacion_simple(x_list)
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -n3 -r7 -o operacion_simple(x_list)
 <span class="c1"># Operación usando numpy sobre un ndarray</span>
-<span class="o">%</span><span class="k">timeit</span> -n3 -r7 x_ndarray*x_ndarray + x_ndarray
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -n3 -r7 -o x_ndarray*x_ndarray + x_ndarray
 <span class="c1"># Comparación entre los resultados</span>
-<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">operacion_simple</span><span class="p">(</span><span class="n">x_list</span><span class="p">),</span> <span class="n">x_ndarray</span><span class="o">*</span><span class="n">x_ndarray</span> <span class="o">+</span> <span class="n">x_ndarray</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">operacion_simple</span><span class="p">(</span><span class="n">x_list</span><span class="p">),</span> <span class="n">x_ndarray</span><span class="o">*</span><span class="n">x_ndarray</span> <span class="o">+</span> <span class="n">x_ndarray</span><span class="p">),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.6 ms ± 1.92 ms per loop (mean ± std. dev. of 7 runs, 3 loops each)
-197 µs ± 43.4 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.5 ms ± 658 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+199 µs ± 68.6 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, 113.1724362681068)
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
 <p>Las funciones de NumPy son lentas cuando operan sobre tipos que no son ndarray</p>
 </div>
 <p>Para el ejemplo de <span class="math notranslate nohighlight">\(y_i = (1 + e^{-x_i})^{-1}, \quad i = 1,2,\ldots, N\)</span></p>
@@ -1029,9 +1052,9 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.2 ms ± 1.38 ms per loop (mean ± std. dev. of 7 runs, 3 loops each)
-7.3 ms ± 66 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
-560 µs ± 37.6 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.1 ms ± 1.14 ms per loop (mean ± std. dev. of 7 runs, 3 loops each)
+7.32 ms ± 124 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
+561 µs ± 15.6 µs per loop (mean ± std. dev. of 7 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1040,17 +1063,17 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <p>Las operación sobre ndarray es casi un orden de magnitud más rápida</p>
-<p><strong>¿Cómo se explica esto?</strong></p>
-<p>Recuerde que una lista puede tener distintos tipos y estar guardada en distintos sectores de memoria. En cambio, el ndarray</p>
+<p><strong>¿POr qué pasa esto?</strong></p>
+<p>Recuerde que una lista puede tener distintos tipos y además puede estar guardada en distintos sectores de memoria. En cambio, el ndarray</p>
 <ul class="simple">
 <li><p>Tiene un tipo definido</p></li>
 <li><p>Está guardado en bloques de memoria contiguos</p></li>
 </ul>
-<p>Por ende el ndarray tiene un overhead de interpretador mucho menor</p>
-<p>Además NumPy está escrito en C/Fortran, hacer un loop en memoría contigua en C es muy eficiente</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>NumPy puede compilarse con librerías de alto desempeño (openblas, MKL) aprovechando mejor las capacidades del hardware (Cache de CPU e instrucciones vectoriales de CPU)</p>
+<p>Por ende el ndarray tiene un <em>overhead</em> de interpretador mucho menor que la lista</p>
+<p>Además NumPy está escrito en C/Fortran, y hacer un loop en memoría contigua en C es muy eficiente</p>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>NumPy puede <a class="reference external" href="https://numpy.org/devdocs/user/building.html#accelerated-blas-lapack-libraries">compilarse con librerías de alto desempeño como openblas o MKL</a>. De esta forma se aprovechan mejor las capacidades del hardware (Cache de CPU e instrucciones vectoriales de CPU)</p>
 </div>
 </div>
 <div class="section" id="convertir-operaciones-logicas-sobre-arreglos-en-mascaras">
@@ -1075,20 +1098,23 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
             <span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">resultado</span>
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 sin_pos(x_list)
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o sin_pos(x_list)
 
-<span class="o">%</span><span class="k">timeit</span> -r5 -n3 x_ndarray[np.sin(x_ndarray) &gt; 0.]
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r5 -n3 -o x_ndarray[np.sin(x_ndarray) &gt; 0.]
 
-<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sin_pos</span><span class="p">(</span><span class="n">x_list</span><span class="p">),</span> <span class="n">x_ndarray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_ndarray</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sin_pos</span><span class="p">(</span><span class="n">x_list</span><span class="p">),</span> <span class="n">x_ndarray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_ndarray</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.4 ms ± 1.09 ms per loop (mean ± std. dev. of 5 runs, 3 loops each)
-3.79 ms ± 30.9 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.3 ms ± 1.42 ms per loop (mean ± std. dev. of 5 runs, 3 loops each)
+3.94 ms ± 135 µs per loop (mean ± std. dev. of 5 runs, 3 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(None, 4.3941734629923745)
 </pre></div>
 </div>
 </div>
@@ -1100,6 +1126,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 </pre></div>
 </div>
+<p>Ocurre lo siguiente:</p>
 <ol class="simple">
 <li><p>Se crea una copia interna de x*x</p></li>
 <li><p>x es direccionado a esa nueva copia</p></li>
@@ -1109,23 +1136,23 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copia interna y cambio de referencia de x_ndarray </span>
-<span class="o">%</span><span class="k">timeit</span> -r10 -n10 x_ndarray = np.zeros(shape=(1000000)); y = x_ndarray*x_ndarray
+<span class="n">reference</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n10 -o x_ndarray = np.zeros(shape=(1000000)); y = x_ndarray*x_ndarray
 <span class="c1"># Sin copia interna</span>
-<span class="o">%</span><span class="k">timeit</span> -r10 -n10 x_ndarray = np.zeros(shape=(1000000)); x_ndarray *= x_ndarray
-<span class="c1"># El resultado es idéntico</span>
+<span class="n">proposal</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n10 -o x_ndarray = np.zeros(shape=(1000000)); x_ndarray *= x_ndarray
+
 <span class="n">x_ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x_ndarray</span><span class="o">*</span><span class="n">x_ndarray</span>
 <span class="n">x_ndarray</span> <span class="o">*=</span> <span class="n">x_ndarray</span>
-<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">x_ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">x_ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">reference</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">proposal</span><span class="o">.</span><span class="n">average</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.54 ms ± 44.2 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
-2.69 ms ± 79.3 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.6 ms ± 33.5 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+2.76 ms ± 80.5 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, 1.3062278578439046)
 </pre></div>
 </div>
 </div>
@@ -1162,8 +1189,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>638 µs ± 220 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
-10.4 ms ± 375 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>605 µs ± 164 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+9.48 ms ± 414 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1189,13 +1216,13 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.3 ms ± 959 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.9 ms ± 1.59 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10000, 1000)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.5 ms ± 1.87 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>83.5 ms ± 514 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1219,13 +1246,13 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.2 ms ± 859 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.5 ms ± 897 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10000, 1000)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114 ms ± 1.76 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114 ms ± 1.29 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1240,9 +1267,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 <div class="section" id="utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">
 <h3><span class="section-number">31.2.5. </span>Utiliza el ordenamiento en memoría más adecuado en cada caso<a class="headerlink" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Los ndarray multidimensionales pueden guardarse en memoria como <em>row-major</em> (filas contiguas) o <em>column-major</em> (columnas contiguas)</p>
-<p>Por defecto las matrices en NumPy son <em>row-major</em> pero podemos forzar la contigüidad usando el atributo <code class="docutils literal notranslate"><span class="pre">order</span></code> o trasponiendo (ojo que trasponer crea una copia)</p>
-<p>Se puede verificar esto con el atributo <code class="docutils literal notranslate"><span class="pre">flag</span></code> de los ndarray</p>
+<p>Los ndarray multidimensionales pueden guardarse en memoria como <em>row-major</em> (filas contiguas) o <em>column-major</em> (columnas contiguas). Por defecto las matrices en NumPy son <em>row-major</em> pero podemos forzar la contigüidad usando el atributo <code class="docutils literal notranslate"><span class="pre">order</span></code> o trasponiendo (ojo que trasponer crea una copia)</p>
+<p>Se puede verificar esto con el atributo <code class="docutils literal notranslate"><span class="pre">flag</span></code> de los ndarray:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -1290,7 +1316,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
 <p>La mayoría de las funciones de NumPy funcionan más rápido en formato <em>row-major</em> (formato C). Pero algunas funciones de scipy (heredadas de Fortran) funcionan más rápido en formato <em>col-major</em> (formato Fortran)</p>
+</div>
 <p>Es recomendable verificar el orden en memoria que espera la función que vas a utilizar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1303,8 +1332,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.9 µs ± 405 ns per loop (mean ± std. dev. of 10 runs, 100 loops each)
-73.5 ms ± 959 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.3 µs ± 306 ns per loop (mean ± std. dev. of 10 runs, 100 loops each)
+77.2 ms ± 1.25 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1319,8 +1348,8 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31 µs ± 6.24 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
-100 ms ± 1 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34.1 µs ± 8.61 µs per loop (mean ± std. dev. of 10 runs, 100 loops each)
+116 ms ± 3.24 ms per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
@@ -1333,22 +1362,12 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.3 ms ± 552 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.8 ms ± 378 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="speed-up">
-<h2><span class="section-number">31.3. </span>Speed-up<a class="headerlink" href="#speed-up" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El <em><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Speedup">speedup</a></strong></em> es un número que mide el desempeño relativo de dos algoritmos, sistemas o rutinas.</p>
-<p>Para este caso podemos escribir
-$<span class="math notranslate nohighlight">\(
-S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
-\)</span><span class="math notranslate nohighlight">\(
-donde \)</span>T_{propuesto}<span class="math notranslate nohighlight">\( y \)</span>T_{referencia}$ son los tiempos de cómputo de nuestra rutina propuesta y de la rutina de referencia, respectivamente</p>
-<p>Este speedup temporal indica cuantas veces más rápido es nuestra rutina propuesta con respecto a la referencia</p>
 </div>
 </div>
 
