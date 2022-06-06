@@ -59,6 +59,7 @@ parts:
   chapters:
     - file: contents/hpc/intro
     - file: contents/hpc/profiling
+    - file: contents/hpc/opti1
 
 
 #- caption: "Aprendizaje de máquinas con Scikit-Learn"
