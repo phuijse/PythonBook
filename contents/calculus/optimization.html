@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>21. Optimización matemática &#8212; Computación Científica con Python</title>
+    <title>22. Optimización matemática &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="22. Ecuaciones Diferenciales Ordinarias" href="ode_integration.html" />
-    <link rel="prev" title="20. Resolviendo sistemas de ecuaciones lineales" href="../linalg/linalg1.html" />
+    <link rel="next" title="23. Ecuaciones Diferenciales Ordinarias" href="ode_integration.html" />
+    <link rel="prev" title="21. Problema de los valores y vectores propios" href="../linalg/linalg2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -246,6 +246,11 @@ const thebe_selector_output = ".output, .cell_output"
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -255,12 +260,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   21. Optimización matemática
+   22. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ode_integration.html">
-   22. Ecuaciones Diferenciales Ordinarias
+   23. Ecuaciones Diferenciales Ordinarias
   </a>
  </li>
 </ul>
@@ -272,32 +277,32 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/intro.html">
-   23. Introducción y fundamentos
+   24. Introducción y fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/distributions.html">
-   24. Distribuciones de probabilidad
+   25. Distribuciones de probabilidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/descriptive.html">
-   25. Estadística descriptiva
+   26. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/model_fitting.html">
-   26. Estadística inferencial: Ajuste de Modelos
+   27. Estadística inferencial: Ajuste de Modelos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/hypothesis.html">
-   27. Test de hipótesis
+   28. Test de hipótesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/bootstrap.html">
-   28. Intervalos de confianza con
+   29. Intervalos de confianza con
    <em>
     Bootstrap
    </em>
@@ -312,17 +317,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/intro.html">
-   29. Python y  Rendimiento
+   30. Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/profiling.html">
-   30. Profiling
+   31. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/opti1.html">
-   31. Optimizando código Python
+   32. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -431,39 +436,39 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modelamiento-matematico-de-un-problema">
-   21.1. Modelamiento matemático de un problema
+   22.1. Modelamiento matemático de un problema
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconocer-y-clasificar-problemas-de-optimizacion">
-   21.2. Reconocer y clasificar problemas de optimización
+   22.2. Reconocer y clasificar problemas de optimización
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resolviendo-problemas-de-optimizacion">
-   21.3. Resolviendo problemas de optimización
+   22.3. Resolviendo problemas de optimización
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
-     21.3.1. Solución de fuerza bruta
+     22.3.1. Solución de fuerza bruta
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-analitica">
-     21.3.2. Solución analítica
+     22.3.2. Solución analítica
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-     21.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
+     22.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
-   21.4. Tutorial de
+   22.4. Tutorial de
    <code class="docutils literal notranslate">
     <span class="pre">
      scipy.optimize
@@ -473,19 +478,19 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
-     21.4.1. Métodos para optimización sin restricciones
+     22.4.1. Métodos para optimización sin restricciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
-     21.4.2. Métodos para optimización con restricciones
+     22.4.2. Métodos para optimización con restricciones
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mas-alla-de-esta-leccion">
-   21.5. Más allá de esta lección
+   22.5. Más allá de esta lección
   </a>
  </li>
 </ul>
@@ -510,39 +515,39 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modelamiento-matematico-de-un-problema">
-   21.1. Modelamiento matemático de un problema
+   22.1. Modelamiento matemático de un problema
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconocer-y-clasificar-problemas-de-optimizacion">
-   21.2. Reconocer y clasificar problemas de optimización
+   22.2. Reconocer y clasificar problemas de optimización
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resolviendo-problemas-de-optimizacion">
-   21.3. Resolviendo problemas de optimización
+   22.3. Resolviendo problemas de optimización
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-de-fuerza-bruta">
-     21.3.1. Solución de fuerza bruta
+     22.3.1. Solución de fuerza bruta
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-analitica">
-     21.3.2. Solución analítica
+     22.3.2. Solución analítica
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-     21.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
+     22.3.3. Solución iterativa: Método de Newton y Gradiente Descedente
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tutorial-de-scipy-optimize">
-   21.4. Tutorial de
+   22.4. Tutorial de
    <code class="docutils literal notranslate">
     <span class="pre">
      scipy.optimize
@@ -552,19 +557,19 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-sin-restricciones">
-     21.4.1. Métodos para optimización sin restricciones
+     22.4.1. Métodos para optimización sin restricciones
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metodos-para-optimizacion-con-restricciones">
-     21.4.2. Métodos para optimización con restricciones
+     22.4.2. Métodos para optimización con restricciones
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mas-alla-de-esta-leccion">
-   21.5. Más allá de esta lección
+   22.5. Más allá de esta lección
   </a>
  </li>
 </ul>
@@ -577,7 +582,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="optimizacion-matematica">
-<h1><span class="section-number">21. </span>Optimización matemática<a class="headerlink" href="#optimizacion-matematica" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">22. </span>Optimización matemática<a class="headerlink" href="#optimizacion-matematica" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>¿Qué significa <a class="reference external" href="https://dle.rae.es/%C3%B3ptimo">óptimo</a>?</p>
 <blockquote>
 <div><p>Sumamente bueno, que no puede ser mejor</p>
@@ -616,7 +621,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="modelamiento-matematico-de-un-problema">
-<h2><span class="section-number">21.1. </span>Modelamiento matemático de un problema<a class="headerlink" href="#modelamiento-matematico-de-un-problema" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.1. </span>Modelamiento matemático de un problema<a class="headerlink" href="#modelamiento-matematico-de-un-problema" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para encontrar la mejor solución de un problema debemos primero modelarlo matemáticamente. En su forma más básica esto significa escribir el criterio de decisión como una función</p>
 <blockquote>
 <div><p>Llamamos a esta función, la <strong>función objetivo</strong> del problema</p>
@@ -661,7 +666,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Por lo que podemos hablar de minimización sin pérdida de generalidad</p>
 </div>
 <div class="section" id="reconocer-y-clasificar-problemas-de-optimizacion">
-<h2><span class="section-number">21.2. </span>Reconocer y clasificar problemas de optimización<a class="headerlink" href="#reconocer-y-clasificar-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.2. </span>Reconocer y clasificar problemas de optimización<a class="headerlink" href="#reconocer-y-clasificar-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Estudiando algunas características del problema podemos seleccionar más fácilmente un algoritmo  apropiado para resolverlo. Algunas preguntas guía que podemos realizar son</p>
 <p>¿Es mi función objetivo de una variable (<span class="math notranslate nohighlight">\(D=1\)</span>) versus multi-variable (<span class="math notranslate nohighlight">\(D&gt;1\)</span>)?</p>
 <blockquote>
@@ -686,9 +691,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div></blockquote>
 </div>
 <div class="section" id="resolviendo-problemas-de-optimizacion">
-<h2><span class="section-number">21.3. </span>Resolviendo problemas de optimización<a class="headerlink" href="#resolviendo-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.3. </span>Resolviendo problemas de optimización<a class="headerlink" href="#resolviendo-problemas-de-optimizacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="solucion-de-fuerza-bruta">
-<h3><span class="section-number">21.3.1. </span>Solución de fuerza bruta<a class="headerlink" href="#solucion-de-fuerza-bruta" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">22.3.1. </span>Solución de fuerza bruta<a class="headerlink" href="#solucion-de-fuerza-bruta" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>La forma más “simple” de resolver un problema de optimización es la <strong>fuerza bruta</strong>, es decir evaluar <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(g_i(x)\)</span> y <span class="math notranslate nohighlight">\(h_j(x)\)</span> exhaustivamente para todos los valores de <span class="math notranslate nohighlight">\(x\)</span> hasta encontrar el mejor</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -701,7 +706,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="solucion-analitica">
-<h3><span class="section-number">21.3.2. </span>Solución analítica<a class="headerlink" href="#solucion-analitica" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">22.3.2. </span>Solución analítica<a class="headerlink" href="#solucion-analitica" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si nuestra función es continua y derivable podemos intentar encontrar una solución analítica igualando su gradiente a cero, es decir</p>
 <div class="math notranslate nohighlight">
 \[
@@ -729,7 +734,7 @@ x^T H(x^*) x &gt; 0 ~ \forall x,
 </div>
 </div>
 <div class="section" id="solucion-iterativa-metodo-de-newton-y-gradiente-descedente">
-<h3><span class="section-number">21.3.3. </span>Solución iterativa: Método de Newton y Gradiente Descedente<a class="headerlink" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">22.3.3. </span>Solución iterativa: Método de Newton y Gradiente Descedente<a class="headerlink" href="#solucion-iterativa-metodo-de-newton-y-gradiente-descedente" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Si evaluar el espacio de soluciones completo es infactible podríamos intentar explorarlo de forma parcial con un método iterativo</p>
 <p>Los métodos iterativos parten de una o varias “soluciones iniciales” y luego aplican criterios que las “mejoran” paso a paso, acercándolas a la solución óptima</p>
 <p>Sea <span class="math notranslate nohighlight">\(x_t\)</span> el valor actual de la variable de decisión. Podemos escribir el valor que tendrá en el siguiente paso como</p>
@@ -775,7 +780,7 @@ x_{t+1} = x_{t} - \eta \nabla f (x_t)
 </div>
 </div>
 <div class="section" id="tutorial-de-scipy-optimize">
-<h2><span class="section-number">21.4. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.4. </span>Tutorial de <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code><a class="headerlink" href="#tutorial-de-scipy-optimize" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Podemos realizar optimización matemática utilizando el módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a>. La función principal de este módulo es <code class="docutils literal notranslate"><span class="pre">minimize</span></code> la cual engloba a una larga lista de métodos de optimización</p>
 <p>Los argumentos esta función son</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
@@ -942,7 +947,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 </div>
 <p>A continuación describiremos algunos de los métodos disponibles a través del argumento <code class="docutils literal notranslate"><span class="pre">method</span></code> de <code class="docutils literal notranslate"><span class="pre">minimize</span></code></p>
 <div class="section" id="metodos-para-optimizacion-sin-restricciones">
-<h3><span class="section-number">21.4.1. </span>Métodos para optimización sin restricciones<a class="headerlink" href="#metodos-para-optimizacion-sin-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">22.4.1. </span>Métodos para optimización sin restricciones<a class="headerlink" href="#metodos-para-optimizacion-sin-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Con estos métodos no se pueden especificar los argumentos <code class="docutils literal notranslate"><span class="pre">constraint</span></code> y/o <code class="docutils literal notranslate"><span class="pre">bounds</span></code>.</p>
 <p>Por ejemplo están</p>
 <ul class="simple">
@@ -958,7 +963,7 @@ f(x) = x^2 - 2x + 5 \sin(2x)
 <p>Los cuales no usan gradientes. Estos métodos pueden usarse cuando la función objetivo es no-derivable o demasiado ruidosa para ser derivada</p>
 </div>
 <div class="section" id="metodos-para-optimizacion-con-restricciones">
-<h3><span class="section-number">21.4.2. </span>Métodos para optimización con restricciones<a class="headerlink" href="#metodos-para-optimizacion-con-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">22.4.2. </span>Métodos para optimización con restricciones<a class="headerlink" href="#metodos-para-optimizacion-con-restricciones" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Con estos métodos se pueden incorporar restricciones al problema ya sea en forma de cotas para las variables o ecuaciones de igualdad/desigualdad que las variables deben cumplir</p>
 <ul class="simple">
 <li><p>Las restricciones de igualdad deben ser siempre de la forma <span class="math notranslate nohighlight">\(g(x) = 0\)</span></p></li>
@@ -1093,7 +1098,7 @@ x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0
 </div>
 </div>
 <div class="section" id="mas-alla-de-esta-leccion">
-<h2><span class="section-number">21.5. </span>Más allá de esta lección<a class="headerlink" href="#mas-alla-de-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">22.5. </span>Más allá de esta lección<a class="headerlink" href="#mas-alla-de-esta-leccion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="admonition seealso">
 <p class="admonition-title">Ver también</p>
 <p>Funcionalidades de SciPy que no se exploraron en esta lección:</p>
@@ -1138,17 +1143,17 @@ x^3 - y = 0 ~\wedge~y-(x-1)^4-2 \geq 0
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../linalg/linalg1.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../linalg/linalg2.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">20. </span>Resolviendo sistemas de ecuaciones lineales</p>
+            <p class="prev-next-title"><span class="section-number">21. </span>Problema de los valores y vectores propios</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="ode_integration.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Ecuaciones Diferenciales Ordinarias</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Ecuaciones Diferenciales Ordinarias</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

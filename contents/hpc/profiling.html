@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>30. Profiling &#8212; Computación Científica con Python</title>
+    <title>31. Profiling &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="31. Optimizando código Python" href="opti1.html" />
-    <link rel="prev" title="29. Python y Rendimiento" href="intro.html" />
+    <link rel="next" title="32. Optimizando código Python" href="opti1.html" />
+    <link rel="prev" title="30. Python y Rendimiento" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -246,6 +246,11 @@ const thebe_selector_output = ".output, .cell_output"
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -255,12 +260,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/optimization.html">
-   21. Optimización matemática
+   22. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/ode_integration.html">
-   22. Ecuaciones Diferenciales Ordinarias
+   23. Ecuaciones Diferenciales Ordinarias
   </a>
  </li>
 </ul>
@@ -272,32 +277,32 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/intro.html">
-   23. Introducción y fundamentos
+   24. Introducción y fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/distributions.html">
-   24. Distribuciones de probabilidad
+   25. Distribuciones de probabilidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/descriptive.html">
-   25. Estadística descriptiva
+   26. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/model_fitting.html">
-   26. Estadística inferencial: Ajuste de Modelos
+   27. Estadística inferencial: Ajuste de Modelos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/hypothesis.html">
-   27. Test de hipótesis
+   28. Test de hipótesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/bootstrap.html">
-   28. Intervalos de confianza con
+   29. Intervalos de confianza con
    <em>
     Bootstrap
    </em>
@@ -312,17 +317,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   29. Python y  Rendimiento
+   30. Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   30. Profiling
+   31. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="opti1.html">
-   31. Optimizando código Python
+   32. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -431,7 +436,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-profiling">
-   30.1. ¿Qué es
+   31.1. ¿Qué es
    <em>
     profiling
    </em>
@@ -440,12 +445,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#midiendo-tiempo-de-ejecucion">
-   30.2. Midiendo tiempo de ejecución
+   31.2. Midiendo tiempo de ejecución
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-time">
-     30.2.1. Magia
+     31.2.1. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %time
@@ -455,7 +460,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-timeit">
-     30.2.2. Magía
+     31.2.2. Magía
      <code class="docutils literal notranslate">
       <span class="pre">
        %timeit
@@ -465,7 +470,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-prun">
-     30.2.3. Magia
+     31.2.3. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %prun
@@ -475,7 +480,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-lprun">
-     30.2.4. Magia
+     31.2.4. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %lprun
@@ -487,12 +492,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#medir-uso-de-memoria">
-   30.3. Medir uso de memoria
+   31.3. Medir uso de memoria
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-memit">
-     30.3.1. Magia
+     31.3.1. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %memit
@@ -502,7 +507,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modulo-tracemalloc">
-     30.3.2. Módulo
+     31.3.2. Módulo
      <code class="docutils literal notranslate">
       <span class="pre">
        tracemalloc
@@ -534,7 +539,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-profiling">
-   30.1. ¿Qué es
+   31.1. ¿Qué es
    <em>
     profiling
    </em>
@@ -543,12 +548,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#midiendo-tiempo-de-ejecucion">
-   30.2. Midiendo tiempo de ejecución
+   31.2. Midiendo tiempo de ejecución
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-time">
-     30.2.1. Magia
+     31.2.1. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %time
@@ -558,7 +563,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-timeit">
-     30.2.2. Magía
+     31.2.2. Magía
      <code class="docutils literal notranslate">
       <span class="pre">
        %timeit
@@ -568,7 +573,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-prun">
-     30.2.3. Magia
+     31.2.3. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %prun
@@ -578,7 +583,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-lprun">
-     30.2.4. Magia
+     31.2.4. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %lprun
@@ -590,12 +595,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#medir-uso-de-memoria">
-   30.3. Medir uso de memoria
+   31.3. Medir uso de memoria
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#magia-memit">
-     30.3.1. Magia
+     31.3.1. Magia
      <code class="docutils literal notranslate">
       <span class="pre">
        %memit
@@ -605,7 +610,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#modulo-tracemalloc">
-     30.3.2. Módulo
+     31.3.2. Módulo
      <code class="docutils literal notranslate">
       <span class="pre">
        tracemalloc
@@ -625,7 +630,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="profiling">
-<h1><span class="section-number">30. </span>Profiling<a class="headerlink" href="#profiling" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">31. </span>Profiling<a class="headerlink" href="#profiling" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>El primer paso antes de optimizar es identificar los sectores críticos o “cuellos de botella” de nuestro programa. A esto lo llamamos hacer un <em>profiling</em> de código</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -637,7 +642,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="que-es-profiling">
-<h2><span class="section-number">30.1. </span>¿Qué es <em>profiling</em>?<a class="headerlink" href="#que-es-profiling" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">31.1. </span>¿Qué es <em>profiling</em>?<a class="headerlink" href="#que-es-profiling" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se refiere a medir</p>
 <ol class="simple">
 <li><p>Tiempo de ejecución, ya sea total, por función o por linea de código</p></li>
@@ -780,9 +785,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>A continuación realizaremos un <em>profiling</em> de cómputo en función del tiempo necesario para calcular el fractal</p>
 </div>
 <div class="section" id="midiendo-tiempo-de-ejecucion">
-<h2><span class="section-number">30.2. </span>Midiendo tiempo de ejecución<a class="headerlink" href="#midiendo-tiempo-de-ejecucion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">31.2. </span>Midiendo tiempo de ejecución<a class="headerlink" href="#midiendo-tiempo-de-ejecucion" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="magia-time">
-<h3><span class="section-number">30.2.1. </span>Magia <code class="docutils literal notranslate"><span class="pre">%time</span></code><a class="headerlink" href="#magia-time" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.2.1. </span>Magia <code class="docutils literal notranslate"><span class="pre">%time</span></code><a class="headerlink" href="#magia-time" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Python tiene un módulo nativo llamado <a class="reference external" href="https://docs.python.org/3/library/timeit.html#module-timeit"><code class="docutils literal notranslate"><span class="pre">timeit</span></code></a> que ofrece funciones para medir tiempo de cómputo. Algunas de estas funciones han sido incorporadas en magias de IPython, lo cual permite utilizarlas de forma simple y conveniente</p>
 <p>La primera que revisaremos es <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time"><code class="docutils literal notranslate"><span class="pre">%time</span></code></a> que se usa anteponiendose a una función como muestra el ejemplo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">mi_resultado</span> <span class="o">=</span> <span class="n">mi_funcion</span><span class="p">(</span><span class="n">mis_argumentos</span><span class="p">)</span>
@@ -854,7 +859,7 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="section" id="magia-timeit">
-<h3><span class="section-number">30.2.2. </span>Magía <code class="docutils literal notranslate"><span class="pre">%timeit</span></code><a class="headerlink" href="#magia-timeit" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.2.2. </span>Magía <code class="docutils literal notranslate"><span class="pre">%timeit</span></code><a class="headerlink" href="#magia-timeit" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos obtener estadísticos del tiempo de cómputo de un script, función o expresión de Python de forma conveniente usando la magia <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit"><code class="docutils literal notranslate"><span class="pre">timeit</span></code></a>.</p>
 <p>Esta magia tiene varios argumentos, a continuación revisamos los más importantes:</p>
 <ul class="simple">
@@ -944,7 +949,7 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="section" id="magia-prun">
-<h3><span class="section-number">30.2.3. </span>Magia <code class="docutils literal notranslate"><span class="pre">%prun</span></code><a class="headerlink" href="#magia-prun" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.2.3. </span>Magia <code class="docutils literal notranslate"><span class="pre">%prun</span></code><a class="headerlink" href="#magia-prun" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>El módulo nativo de Python <a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile</a> mide la cantidad de llamadas y el tiempo de cada función ejecutada por nuestra rutina</p>
 <p>La magia de IPython <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun"><code class="docutils literal notranslate"><span class="pre">%prun</span></code></a> nos da una forma conveniente para usar este módulo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="n">mi_funcion</span><span class="p">()</span>
@@ -1002,7 +1007,7 @@ Wall time: 2.03 s
 <p>Donde el resultado queda grabado en el archivo tabla.prof</p>
 </div>
 <div class="section" id="magia-lprun">
-<h3><span class="section-number">30.2.4. </span>Magia  <code class="docutils literal notranslate"><span class="pre">%lprun</span></code><a class="headerlink" href="#magia-lprun" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.2.4. </span>Magia  <code class="docutils literal notranslate"><span class="pre">%lprun</span></code><a class="headerlink" href="#magia-lprun" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Hemos visto como medir el tiempo total de un código en Python y el tiempo desglosado por cada llamado a función de dicho código. Pero en ocasiones puede resultar más informativo estudiar el tiempo de ejecución de cada linea de nuestro código por separado</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -1030,9 +1035,9 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="section" id="medir-uso-de-memoria">
-<h2><span class="section-number">30.3. </span>Medir uso de memoria<a class="headerlink" href="#medir-uso-de-memoria" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">31.3. </span>Medir uso de memoria<a class="headerlink" href="#medir-uso-de-memoria" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="magia-memit">
-<h3><span class="section-number">30.3.1. </span>Magia <code class="docutils literal notranslate"><span class="pre">%memit</span></code><a class="headerlink" href="#magia-memit" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.3.1. </span>Magia <code class="docutils literal notranslate"><span class="pre">%memit</span></code><a class="headerlink" href="#magia-memit" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Podemos medir la memoria utilizada por un proceso usando la librería externa <a class="reference external" href="https://github.com/pythonprofilers/memory_profiler"><code class="docutils literal notranslate"><span class="pre">memory_profiler</span></code></a>. Se puede instalar facilmente con:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install memory_profiler
 </pre></div>
@@ -1049,7 +1054,7 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="section" id="modulo-tracemalloc">
-<h3><span class="section-number">30.3.2. </span>Módulo <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code><a class="headerlink" href="#modulo-tracemalloc" title="Enlazar permanentemente con este título">¶</a></h3>
+<h3><span class="section-number">31.3.2. </span>Módulo <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code><a class="headerlink" href="#modulo-tracemalloc" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Python tiene un módulo nativo llamado <a class="reference external" href="https://docs.python.org/3/library/tracemalloc.html"><code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code></a> que permite calcular estadísticas sobre la memoria reservada por un proceso o script de Python</p>
 <p>A continuación se muestra un ejemplo de uso</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tracemalloc</span>
@@ -1096,13 +1101,13 @@ Wall time: 2.03 s
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">29. </span>Python y  Rendimiento</p>
+            <p class="prev-next-title"><span class="section-number">30. </span>Python y  Rendimiento</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="opti1.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">31. </span>Optimizando código Python</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>Optimizando código Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

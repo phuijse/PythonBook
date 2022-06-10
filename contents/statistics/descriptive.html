@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>25. Estadística descriptiva &#8212; Computación Científica con Python</title>
+    <title>26. Estadística descriptiva &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="26. Estadística inferencial: Ajuste de Modelos" href="model_fitting.html" />
-    <link rel="prev" title="24. Distribuciones de probabilidad" href="distributions.html" />
+    <link rel="next" title="27. Estadística inferencial: Ajuste de Modelos" href="model_fitting.html" />
+    <link rel="prev" title="25. Distribuciones de probabilidad" href="distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -246,6 +246,11 @@ const thebe_selector_output = ".output, .cell_output"
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -255,12 +260,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/optimization.html">
-   21. Optimización matemática
+   22. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/ode_integration.html">
-   22. Ecuaciones Diferenciales Ordinarias
+   23. Ecuaciones Diferenciales Ordinarias
   </a>
  </li>
 </ul>
@@ -272,32 +277,32 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   23. Introducción y fundamentos
+   24. Introducción y fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="distributions.html">
-   24. Distribuciones de probabilidad
+   25. Distribuciones de probabilidad
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   25. Estadística descriptiva
+   26. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="model_fitting.html">
-   26. Estadística inferencial: Ajuste de Modelos
+   27. Estadística inferencial: Ajuste de Modelos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="hypothesis.html">
-   27. Test de hipótesis
+   28. Test de hipótesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
-   28. Intervalos de confianza con
+   29. Intervalos de confianza con
    <em>
     Bootstrap
    </em>
@@ -312,17 +317,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/intro.html">
-   29. Python y  Rendimiento
+   30. Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/profiling.html">
-   30. Profiling
+   31. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/opti1.html">
-   31. Optimizando código Python
+   32. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -431,17 +436,17 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histogramas">
-   25.1. Histogramas
+   26.1. Histogramas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribucion-acumulada-empirica">
-   25.2. Distribución acumulada empírica
+   26.2. Distribución acumulada empírica
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descriptores-de-la-distribucion">
-   25.3. Descriptores de la distribución
+   26.3. Descriptores de la distribución
   </a>
  </li>
 </ul>
@@ -466,17 +471,17 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histogramas">
-   25.1. Histogramas
+   26.1. Histogramas
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distribucion-acumulada-empirica">
-   25.2. Distribución acumulada empírica
+   26.2. Distribución acumulada empírica
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#descriptores-de-la-distribucion">
-   25.3. Descriptores de la distribución
+   26.3. Descriptores de la distribución
   </a>
  </li>
 </ul>
@@ -489,7 +494,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="estadistica-descriptiva">
-<h1><span class="section-number">25. </span>Estadística descriptiva<a class="headerlink" href="#estadistica-descriptiva" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">26. </span>Estadística descriptiva<a class="headerlink" href="#estadistica-descriptiva" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>La <strong>estadística descriptiva</strong> corresponde a los métodos numéricos y gráficos que nos permiten resumir, describir y visualizar nuestros datos</p>
 <p>También se suele llamar <strong>análisis exploratorio de datos</strong> y es clave para</p>
 <ul class="simple">
@@ -512,7 +517,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="histogramas">
-<h2><span class="section-number">25.1. </span>Histogramas<a class="headerlink" href="#histogramas" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">26.1. </span>Histogramas<a class="headerlink" href="#histogramas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El histograma es una representación aproximada de la <strong>distribución de probabilidad</strong> de una variable</p>
 <p>Asumiendo que tenemos un vector con realizaciones de una variable aleatoria</p>
 <div class="math notranslate nohighlight">
@@ -729,7 +734,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="distribucion-acumulada-empirica">
-<h2><span class="section-number">25.2. </span>Distribución acumulada empírica<a class="headerlink" href="#distribucion-acumulada-empirica" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">26.2. </span>Distribución acumulada empírica<a class="headerlink" href="#distribucion-acumulada-empirica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para calcular probabilidades a partir de neustros datos necesitamos su distribución. En general no conocemos la función de masa/densidad subyacente de los datos, pero podemos calcular su <strong>distribución empírica</strong></p>
 <p>Si tengo <span class="math notranslate nohighlight">\(n\)</span> datos <span class="math notranslate nohighlight">\(X_1, X_2, \ldots, X_n\)</span>, su distribución acumulada empírica es</p>
 <div class="math notranslate nohighlight">
@@ -793,7 +798,7 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
 </div>
 </div>
 <div class="section" id="descriptores-de-la-distribucion">
-<h2><span class="section-number">25.3. </span>Descriptores de la distribución<a class="headerlink" href="#descriptores-de-la-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">26.3. </span>Descriptores de la distribución<a class="headerlink" href="#descriptores-de-la-distribucion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Visualizar la distribución nos da mucha información. Pero en algunos casos sólo interesa comprobar la existencia de ciertas características o atributos de la distribución</p>
 <blockquote>
 <div><p>Podemos resumir una distribución en función de sus <strong>momentos</strong></p>
@@ -973,13 +978,13 @@ F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}(X_i &lt; x)
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">24. </span>Distribuciones de probabilidad</p>
+            <p class="prev-next-title"><span class="section-number">25. </span>Distribuciones de probabilidad</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="model_fitting.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">26. </span>Estadística inferencial: Ajuste de Modelos</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Estadística inferencial: Ajuste de Modelos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

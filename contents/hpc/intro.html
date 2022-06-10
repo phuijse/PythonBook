@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>29. Python y Rendimiento &#8212; Computación Científica con Python</title>
+    <title>30. Python y Rendimiento &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="30. Profiling" href="profiling.html" />
-    <link rel="prev" title="28. Intervalos de confianza con Bootstrap" href="../statistics/bootstrap.html" />
+    <link rel="next" title="31. Profiling" href="profiling.html" />
+    <link rel="prev" title="29. Intervalos de confianza con Bootstrap" href="../statistics/bootstrap.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -244,6 +244,11 @@ const thebe_selector_output = ".output, .cell_output"
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -253,12 +258,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/optimization.html">
-   21. Optimización matemática
+   22. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/ode_integration.html">
-   22. Ecuaciones Diferenciales Ordinarias
+   23. Ecuaciones Diferenciales Ordinarias
   </a>
  </li>
 </ul>
@@ -270,32 +275,32 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/intro.html">
-   23. Introducción y fundamentos
+   24. Introducción y fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/distributions.html">
-   24. Distribuciones de probabilidad
+   25. Distribuciones de probabilidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/descriptive.html">
-   25. Estadística descriptiva
+   26. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/model_fitting.html">
-   26. Estadística inferencial: Ajuste de Modelos
+   27. Estadística inferencial: Ajuste de Modelos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/hypothesis.html">
-   27. Test de hipótesis
+   28. Test de hipótesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../statistics/bootstrap.html">
-   28. Intervalos de confianza con
+   29. Intervalos de confianza con
    <em>
     Bootstrap
    </em>
@@ -310,17 +315,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   29. Python y  Rendimiento
+   30. Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="profiling.html">
-   30. Profiling
+   31. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="opti1.html">
-   31. Optimizando código Python
+   32. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -429,12 +434,12 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">
-   29.1. ¿Qué es la optimización de códigos/software?
+   30.1. ¿Qué es la optimización de códigos/software?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#consejos-antes-de-optimizar">
-   29.2. Consejos antes de optimizar
+   30.2. Consejos antes de optimizar
   </a>
  </li>
 </ul>
@@ -459,12 +464,12 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">
-   29.1. ¿Qué es la optimización de códigos/software?
+   30.1. ¿Qué es la optimización de códigos/software?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#consejos-antes-de-optimizar">
-   29.2. Consejos antes de optimizar
+   30.2. Consejos antes de optimizar
   </a>
  </li>
 </ul>
@@ -477,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="python-y-rendimiento">
-<h1><span class="section-number">29. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">30. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Python es un lenguaje interpretado de alto nivel que es muy conveniente para prototipar y hacer análisis
 exploratorio</p>
 <p>Sin embargo, esta conveniencia tiene un costo:</p>
@@ -492,7 +497,7 @@ exploratorio</p>
 <p>Ambos son factores críticos en algunas aplicaciones, por ejemplo aplicaciones con muchos datos o mucho cómputo</p>
 <p>Existe entonces una necesidad por <strong>mejorar el rendimiento de nuestro código</strong>. En esta serie de lecciones veremos distintas formas de <strong>optimizar</strong> código escrito en Python</p>
 <div class="section" id="que-es-la-optimizacion-de-codigos-software">
-<h2><span class="section-number">29.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">30.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se refiere a modificar una rutina computacional para mejorar su eficiencia, es decir reducir sus tiempos de ejecución y/o consumo de recursos</p>
 <p>El aspecto que se intenta modificar es aquel que limita nuestro programa. Un programa puede estar</p>
 <ul class="simple">
@@ -512,7 +517,7 @@ exploratorio</p>
 </div>
 </div>
 <div class="section" id="consejos-antes-de-optimizar">
-<h2><span class="section-number">29.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">30.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Considera las siguientes preguntas antes de comenzar el (a veces arduo) proceso de optimizar tus códigos</p>
 <p><strong>¿Cuándo optimizar?</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">Si:</span></code></p>
@@ -587,13 +592,13 @@ exploratorio</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">28. </span>Intervalos de confianza con <em>Bootstrap</em></p>
+            <p class="prev-next-title"><span class="section-number">29. </span>Intervalos de confianza con <em>Bootstrap</em></p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="profiling.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">30. </span>Profiling</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Profiling</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

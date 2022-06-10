@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27. Test de hipótesis &#8212; Computación Científica con Python</title>
+    <title>28. Test de hipótesis &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -57,8 +57,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="28. Intervalos de confianza con Bootstrap" href="bootstrap.html" />
-    <link rel="prev" title="26. Estadística inferencial: Ajuste de Modelos" href="model_fitting.html" />
+    <link rel="next" title="29. Intervalos de confianza con Bootstrap" href="bootstrap.html" />
+    <link rel="prev" title="27. Estadística inferencial: Ajuste de Modelos" href="model_fitting.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -246,6 +246,11 @@ const thebe_selector_output = ".output, .cell_output"
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -255,12 +260,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/optimization.html">
-   21. Optimización matemática
+   22. Optimización matemática
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/ode_integration.html">
-   22. Ecuaciones Diferenciales Ordinarias
+   23. Ecuaciones Diferenciales Ordinarias
   </a>
  </li>
 </ul>
@@ -272,32 +277,32 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   23. Introducción y fundamentos
+   24. Introducción y fundamentos
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="distributions.html">
-   24. Distribuciones de probabilidad
+   25. Distribuciones de probabilidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="descriptive.html">
-   25. Estadística descriptiva
+   26. Estadística descriptiva
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="model_fitting.html">
-   26. Estadística inferencial: Ajuste de Modelos
+   27. Estadística inferencial: Ajuste de Modelos
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   27. Test de hipótesis
+   28. Test de hipótesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
-   28. Intervalos de confianza con
+   29. Intervalos de confianza con
    <em>
     Bootstrap
    </em>
@@ -312,17 +317,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/intro.html">
-   29. Python y  Rendimiento
+   30. Python y  Rendimiento
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/profiling.html">
-   30. Profiling
+   31. Profiling
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../hpc/opti1.html">
-   31. Optimizando código Python
+   32. Optimizando código Python
   </a>
  </li>
 </ul>
@@ -431,32 +436,32 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algoritmo-general-de-un-test-de-hipotesis">
-   27.1. Algoritmo general de un test de hipótesis
+   28.1. Algoritmo general de un test de hipótesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#el-t-test-de-una-muestra">
-   27.2. El t-test de una muestra
+   28.2. El t-test de una muestra
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#t-test-de-una-y-dos-muestras-con-scipy">
-   27.3. T-test de una y dos muestras con scipy
+   28.3. T-test de una y dos muestras con scipy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-de-hipotesis-para-la-regresion-lineal">
-   27.4. Test de hipótesis para la regresión lineal
+   28.4. Test de hipótesis para la regresión lineal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reflexion-final">
-   27.5. Reflexión final
+   28.5. Reflexión final
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apendice-interpretacion-probabilistica-de-la-regresion-lineal">
-   27.6. Apéndice: Interpretación probabilística de la regresión lineal
+   28.6. Apéndice: Interpretación probabilística de la regresión lineal
   </a>
  </li>
 </ul>
@@ -481,32 +486,32 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#algoritmo-general-de-un-test-de-hipotesis">
-   27.1. Algoritmo general de un test de hipótesis
+   28.1. Algoritmo general de un test de hipótesis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#el-t-test-de-una-muestra">
-   27.2. El t-test de una muestra
+   28.2. El t-test de una muestra
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#t-test-de-una-y-dos-muestras-con-scipy">
-   27.3. T-test de una y dos muestras con scipy
+   28.3. T-test de una y dos muestras con scipy
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#test-de-hipotesis-para-la-regresion-lineal">
-   27.4. Test de hipótesis para la regresión lineal
+   28.4. Test de hipótesis para la regresión lineal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reflexion-final">
-   27.5. Reflexión final
+   28.5. Reflexión final
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#apendice-interpretacion-probabilistica-de-la-regresion-lineal">
-   27.6. Apéndice: Interpretación probabilística de la regresión lineal
+   28.6. Apéndice: Interpretación probabilística de la regresión lineal
   </a>
  </li>
 </ul>
@@ -519,7 +524,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="test-de-hipotesis">
-<h1><span class="section-number">27. </span>Test de hipótesis<a class="headerlink" href="#test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h1>
+<h1><span class="section-number">28. </span>Test de hipótesis<a class="headerlink" href="#test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Supongamos que existe una nueva y contagiosa enfermedad y que se inventa un nuevo tratamiento médico con el fin de erradicarla. A modo de prueba el tratamiento es aplicado a una muestra de la población.</p>
 <p>Podemos definir <span class="math notranslate nohighlight">\(X\)</span>, una variable aleatoria binaria que indica si el tratamiento fue efectivo o no</p>
 <p>En base a estos resultados, ¿cómo concluir formalmente que el tratamiento fue efectivo? además ¿qué podemos decir sobre la efectividad del tratamiento en la población general?</p>
@@ -556,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>El test de hipótesis también considera el complemento (contrario) de la hipótesis nula, que se denomina: <strong>hipótesis alternativa</strong>, que denotaremos <span class="math notranslate nohighlight">\(H_A\)</span></p>
 <div class="section" id="algoritmo-general-de-un-test-de-hipotesis">
-<h2><span class="section-number">27.1. </span>Algoritmo general de un test de hipótesis<a class="headerlink" href="#algoritmo-general-de-un-test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.1. </span>Algoritmo general de un test de hipótesis<a class="headerlink" href="#algoritmo-general-de-un-test-de-hipotesis" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El siguiente es el algoritmo general de un test de hipótesis paramétrico</p>
 <ol class="simple">
 <li><p>Definir <span class="math notranslate nohighlight">\(H_0\)</span> y <span class="math notranslate nohighlight">\(H_A\)</span></p></li>
@@ -594,7 +599,7 @@ P(H_0 | T&gt; T_{data})
 </div>
 </div>
 <div class="section" id="el-t-test-de-una-muestra">
-<h2><span class="section-number">27.2. </span>El t-test de una muestra<a class="headerlink" href="#el-t-test-de-una-muestra" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.2. </span>El t-test de una muestra<a class="headerlink" href="#el-t-test-de-una-muestra" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sea un conjunto de <span class="math notranslate nohighlight">\(N\)</span> observaciones independientes de una variable aleatoria <span class="math notranslate nohighlight">\(X\)</span>. La media muestral de este conjunto <span class="math notranslate nohighlight">\({x_1, x_2, \ldots, x_N}\)</span> es</p>
 <div class="math notranslate nohighlight">
 \[
@@ -621,7 +626,7 @@ t = \frac{\bar x - \mu}{\hat \sigma /\sqrt{N-1}}
 </div>
 </div>
 <div class="section" id="t-test-de-una-y-dos-muestras-con-scipy">
-<h2><span class="section-number">27.3. </span>T-test de una y dos muestras con scipy<a class="headerlink" href="#t-test-de-una-y-dos-muestras-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.3. </span>T-test de una y dos muestras con scipy<a class="headerlink" href="#t-test-de-una-y-dos-muestras-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Ejemplo 1:</strong> Una investigadora en botánica quiere saber si la áltura promedio de cierta especia de planta es igual a 38 cm (hipótesis nula)</p>
 <p>Para esto colecta una muestra aleatoria de 12 plantas y registra su altura:</p>
 <div class="cell docutils container">
@@ -723,7 +728,7 @@ t = \frac{\bar x - \mu}{\hat \sigma /\sqrt{N-1}}
 </div></blockquote>
 </div>
 <div class="section" id="test-de-hipotesis-para-la-regresion-lineal">
-<h2><span class="section-number">27.4. </span>Test de hipótesis para la regresión lineal<a class="headerlink" href="#test-de-hipotesis-para-la-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.4. </span>Test de hipótesis para la regresión lineal<a class="headerlink" href="#test-de-hipotesis-para-la-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En un modelo de regresión lineal donde tenemos <span class="math notranslate nohighlight">\(N\)</span> ejemplos</p>
 <div class="math notranslate nohighlight">
 \[
@@ -936,7 +941,7 @@ temperatura: 	 Rechazo hipótesis nula: True
 <p>Para las variables ingreso y precio no existe suficiente evidencia para rechazar la hipótesis nula</p>
 </div>
 <div class="section" id="reflexion-final">
-<h2><span class="section-number">27.5. </span>Reflexión final<a class="headerlink" href="#reflexion-final" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.5. </span>Reflexión final<a class="headerlink" href="#reflexion-final" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>En el ejercicio anterior usamos un t-test para una regresión lineal entre dos variables</p>
 <p>¿Qué prueba puedo usar si quiero hacer regresión lineal multivariada?</p>
 <blockquote>
@@ -957,7 +962,7 @@ temperatura: 	 Rechazo hipótesis nula: True
 </div>
 </div>
 <div class="section" id="apendice-interpretacion-probabilistica-de-la-regresion-lineal">
-<h2><span class="section-number">27.6. </span>Apéndice: Interpretación probabilística de la regresión lineal<a class="headerlink" href="#apendice-interpretacion-probabilistica-de-la-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><span class="section-number">28.6. </span>Apéndice: Interpretación probabilística de la regresión lineal<a class="headerlink" href="#apendice-interpretacion-probabilistica-de-la-regresion-lineal" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sea un problema de regresión lineal donde queremos predecir <span class="math notranslate nohighlight">\(y\)</span> en función de <span class="math notranslate nohighlight">\(x\)</span>. Para esto proponemos un modelo de dos parámetros</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1039,13 +1044,13 @@ y_i \sim \mathcal{N}(f_i, \sigma^2)
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">26. </span>Estadística inferencial: Ajuste de Modelos</p>
+            <p class="prev-next-title"><span class="section-number">27. </span>Estadística inferencial: Ajuste de Modelos</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="bootstrap.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Intervalos de confianza con <em>Bootstrap</em></p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Intervalos de confianza con <em>Bootstrap</em></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
