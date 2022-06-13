@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>33. Acelerando Python con Cython &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="34. Computación paralela en Python" href="parallel.html" />
+    <link rel="prev" title="32. Optimizando código Python" href="opti1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   9. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   10. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   11. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   12. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   13. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   14. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   15. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg2.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/optimization.html">
+   22. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/ode_integration.html">
+   23. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/intro.html">
+   24. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/distributions.html">
+   25. Distribuciones de probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/descriptive.html">
+   26. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/model_fitting.html">
+   27. Estadística inferencial: Ajuste de Modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/hypothesis.html">
+   28. Test de hipótesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/bootstrap.html">
+   29. Intervalos de confianza con
+   <em>
+    Bootstrap
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Alto rendimiento en Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   30. Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="profiling.html">
+   31. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="opti1.html">
+   32. Optimizando código Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   33. Acelerando Python con Cython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parallel.html">
+   34. Computación paralela en Python
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/hpc/cython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/hpc/cython.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/hpc/cython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cython-c-extensions-for-python">
+   33.1. Cython: C Extensions for Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">
+   33.2. Cython desde IPython/Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">
+   33.3. Mejora 1: Definiendo tipos en Cython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">
+   33.4. Mejora 2: Llamando funciones de C desde Cython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">
+   33.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">
+   33.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Acelerando Python con Cython</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cython-c-extensions-for-python">
+   33.1. Cython: C Extensions for Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">
+   33.2. Cython desde IPython/Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">
+   33.3. Mejora 1: Definiendo tipos en Cython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">
+   33.4. Mejora 2: Llamando funciones de C desde Cython
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">
+   33.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">
+   33.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="acelerando-python-con-cython">
+<h1><span class="section-number">33. </span>Acelerando Python con Cython<a class="headerlink" href="#acelerando-python-con-cython" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La <a class="reference external" href="https://wiki.python.org/moin/PythonImplementations">implementación</a> más utilizada del interprete/compilador de Python está escrita en C y se llama <a class="reference external" href="https://github.com/python/cpython">CPython</a>. Recordemos que la implementación es aquello que interpreta y corre el código escrito en Python.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>También existen otras implementaciones de Python menos usadas como <a class="reference external" href="https://www.pypy.org/">PyPy</a>, <a class="reference external" href="https://www.jython.org/">Jython</a> o IronPython.</p>
+</div>
+<p>CPython compila el código escrito en Python en un código de máquina (binario) de forma transparente al usuario. Luego CPython interpreta el binario.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Si es de nuestro interés, podemos estudiar dicho código binario usando el módulo <a class="reference external" href="https://docs.python.org/3.7/library/dis.html">dis</a> de Python</p>
+</div>
+<p>Por lo tanto, si sabemos C, podemos usar la <a class="reference external" href="https://docs.python.org/3/c-api/index.html">API de Python/C</a> para</p>
+<ol class="simple">
+<li><p>Escribir módulos de C que puedan llamarse desde Python</p></li>
+<li><p>Hacer interfaces entre código C y Python</p></li>
+</ol>
+<p>Sin embargo la API es un poco complicada, por lo que han surgido alternativas menos tediosas para lograr estos objetivos, como por ejemplo <a class="reference external" href="https://docs.python.org/2/library/ctypes.html">ctypes</a>, <a class="reference external" href="https://cffi.readthedocs.io/en/latest/">CFFI</a>, <a class="reference external" href="http://swig.org/">SWIG</a> y <a class="reference external" href="https://cython.org/">Cython</a></p>
+<p>En este capítulo veremos en detalle esta última</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cython-c-extensions-for-python">
+<h2><span class="section-number">33.1. </span>Cython: C Extensions for Python<a class="headerlink" href="#cython-c-extensions-for-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Recordemos que <strong>Python</strong> es un lenguaje interpretado con tipos dinámicos. Esto hace que cada operación tenga un overhead. Por ejemplo</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="c1"># overhead: Inferir el tipo de x</span>
+    <span class="c1"># overhead: Inferir el tipo de y</span>
+    <span class="c1"># Hacer la operación suma</span>
+    <span class="c1"># overhead: Darle el tipo adecuado a z</span>
+</pre></div>
+</div>
+<p>en cambio, <strong>Cython</strong> es un lenguaje de programación que le agrega a Python algunas propiedades de C y C++, una de ellas son los <strong>tipos estáticos</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="nb">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="nb">int</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="c1"># No hay que inferir el tipo de x, y, z</span>
+</pre></div>
+</div>
+<p>Esto hace que Cython sea menos flexible pero decenas de veces más rápido que Python. En términos de sintaxis Cython es casi tan simple como Python. Sin embargo a diferencia de Python, el lenguaje Cython debe compilarse</p>
+<ul class="simple">
+<li><p>El compilador de Cython convierte el código fuente en código C</p></li>
+<li><p>Luego el código C se compila como un módulo de Python con la implementación <strong>CPython</strong></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Una vez compilado el código escrito en Cython este puede llamarse desde Python.</p>
+</div>
+<p>¿Por qué considerar Cython?</p>
+<ul class="simple">
+<li><p>Cython es casi tan simple como Python y casi tan rápido como C</p></li>
+<li><p>Con Cython se pueden llamar funciones y librerías de C</p></li>
+<li><p>Cython se integra de buena manera con NumPy</p></li>
+</ul>
+<p>Por ende Cython es muy atractivo para proyectos que usen Python y tengan requisitos de alto rendimiento. Estudiemos la sintaxis de Cython mediante algunos ejemplos</p>
+<p><strong>Ejemplo</strong> A lo largo de esta lección utilizaremos como ejemplo el cálculo de la <strong>Distancia euclidiana todos-con-todos</strong></p>
+<p>Sea un conjunto de con <span class="math notranslate nohighlight">\(N\)</span> datos bidimensionales (<span class="math notranslate nohighlight">\(D=2\)</span>) donde queremos calcular la distancia euclidiana de cada dato con todos los demás, es decir una matriz donde el elemento <span class="math notranslate nohighlight">\(ij\)</span> es</p>
+<div class="math notranslate nohighlight">
+\[
+\text{dist}_{ij} = \sqrt {\sum_{k=1}^D (x_{ik} - x_{jk})^2}
+\]</div>
+<p>A continuación se muestran dos códigos que cumplen este proposito y obtienen un resultado equivalente</p>
+<ul class="simple">
+<li><p>El primero usa “Python puro” y calcula las distancias de forma secuencial</p></li>
+<li><p>El segundo usa operaciones vectoriales de NumPy y calcula las distancias “al mismo tiempo”</p></li>
+</ul>
+<p>Estudie ambos códigos y asegúrese de comprenderlos antes de continuar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">distancia_pares</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>    
+    <span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">D</span><span class="p">):</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">dist</span>
+            
+<span class="k">def</span> <span class="nf">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_pure</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares(data)
+<span class="n">time_pure</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1979032973334447
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_numpy(data)
+<span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06458313733310206
+</pre></div>
+</div>
+</div>
+</div>
+<p>NumPy es</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_pure</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.51607229669781
+</pre></div>
+</div>
+</div>
+</div>
+<p>veces más rápido que Python puro</p>
+</div>
+<div class="section" id="cython-desde-ipython-jupyter">
+<h2><span class="section-number">33.2. </span>Cython desde IPython/Jupyter<a class="headerlink" href="#cython-desde-ipython-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Instale cython en su ambiente de conda utilizando</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install cython
+</pre></div>
+</div>
+<p>Luego en IPython podemos cargar la extensión <code class="docutils literal notranslate"><span class="pre">cython</span></code> como se muestra a continuación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> cython
+</pre></div>
+</div>
+</div>
+</div>
+<p>con lo que tendremos disponible la magia de bloque <code class="docutils literal notranslate"><span class="pre">%%cython</span></code></p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Un bloque donde se use esta magia acepta lenguaje cython y se compila al ejecutarlo. Luego podremos llamar las funciones de ese bloque desde otros bloques regulares de Python</p>
+</div>
+<p>Si surgen errores de compulación estos aparecen en la salida del bloque.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El bloque que empieza con <code class="docutils literal notranslate"><span class="pre">%%cython</span></code> está “desconectado” del resto del cuadernillo, por lo que debe tener sus propios <code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+</div>
+<p>La magia tiene las siguientes opciones</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code> (annotate) retorna un profile linea a linea indicando con amarillo las llamadas a CPython (mientras más llamadas más lento es nuestro código)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-+</span></code> Usar C++ en lugar de C</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code> Argumentos de compilación</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> librerías para linkear a nuestro código</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-L</span></code> directorio con librerías</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-I</span></code> directorio con cabeceras (include)</p></li>
+</ul>
+<p>Veamos que ocurre al agregarle la magia al ejemplo anterior</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+
+import numpy as np
+
+def distancia_pares_cython_inocente(data):    
+    N, D = data.shape
+    dist = np.zeros(shape=(N, N))
+    for i in range(N):
+        for j in range(i+1, N):
+            for k in range(D):
+                dist[i, j] += (data[i, k] - data[j, k])**2
+            dist[i, j] = np.sqrt(dist[i, j])
+            dist[j, i] = dist[i, j]
+    return dist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">distancia_pares_cython_inocente</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_cython_naive</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_cython_inocente(data)
+<span class="n">time_cython_naive</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6994761529992197
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_pure</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_naive</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1846384691268539
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_naive</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023924322228721213
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado es idéntico pero como no hemos hecho ningún cambio el tiempo de ejecución es sólo levemente mejor que la versión en Python puro</p>
+<p>A continuación veremos como “cythonizar” nuestro código para ganar rendimiento</p>
+</div>
+<div class="section" id="mejora-1-definiendo-tipos-en-cython">
+<h2><span class="section-number">33.3. </span>Mejora 1: Definiendo tipos en Cython<a class="headerlink" href="#mejora-1-definiendo-tipos-en-cython" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En Cython se definen tipos estáticos con el keyword <code class="docutils literal notranslate"><span class="pre">cdef</span></code> seguido del tipo y luego el nombre. Por ejemplo una variable de tipo <code class="docutils literal notranslate"><span class="pre">double</span></code> llamada <code class="docutils literal notranslate"><span class="pre">mi_variable</span></code>:</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cdef</span> <span class="kt">double</span> <span class="nf">mi_variable</span> 
+</pre></div>
+</div>
+<p>Para los arreglos (ndarray) se usan <a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/memoryviews.html#memoryviews">“memory-views”</a>. Por ejemplo un <em>memory-view</em> para una arreglo de tres dimensiones:</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cdef</span> <span class="kt">double</span> [<span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="n">mi_arreglo</span>
+</pre></div>
+</div>
+<p>Y se puede ganar un poco más de rendimiento usando el operador <code class="docutils literal notranslate"><span class="pre">::1</span></code> para especificar si el arreglo es <em>row-major</em> (estilo C)</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cdef</span> <span class="kt">double</span> [<span class="p">:,</span> <span class="p">:,</span> <span class="p">::</span><span class="mf">1</span><span class="p">]</span> <span class="n">mi_arreglo</span>
+</pre></div>
+</div>
+<p>o <em>column-major</em> (estilo Fortran)</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cdef</span> <span class="kt">double</span> [<span class="p">::</span><span class="mf">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="n">mi_arreglo</span>
+</pre></div>
+</div>
+<p>Veamos como queda el ejemplo introduciendo tipos estáticos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> 
+
+import numpy as np
+
+def distancia_pares_cython_estatico(double [:, ::1] data):
+    # Definimos el tipo de N, D, dist y data
+    cdef int N = data.shape[0]
+    cdef int D = data.shape[1]
+    dist = np.zeros(shape=(N, N), dtype=np.double)
+    cdef double [:, ::1] dist_view = dist
+    # También definimos los índices, se puede usar int o Py_ssize_t 
+    cdef int i, j, k
+    for i in range(N):
+        for j in range(i+1, N):
+            for k in range(D):
+                dist_view[i, j] += (data[i, k] - data[j, k])**2
+            dist_view[i, j] = np.sqrt(dist_view[i, j])
+            dist_view[j, i] = dist_view[i, j]
+    return dist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">distancia_pares_cython_estatico</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_cython_static</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -o -q distancia_pares_cython_estatico(data)
+<span class="n">time_cython_static</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5640108286661416
+</pre></div>
+</div>
+</div>
+</div>
+<p>Speed-up con respecto a Python puro:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_pure</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_static</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.669932445971528
+</pre></div>
+</div>
+</div>
+</div>
+<p>Speed-up con respecto a NumPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_static</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11450691024113502
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con solo definir el tipo de data, dist, <span class="math notranslate nohighlight">\(N\)</span>, <span class="math notranslate nohighlight">\(D\)</span> y los índices hemos obtenido un <em>speed-up</em> importante con respecto a “Python puro” aunque sigue siendo más lento que NumPy</p>
+<p>Si observaramos el código anotado por cython y revisemos la cantidad de llamadas a CPython de cada linea notaríamos que la linea 17 es particularmente conflictiva</p>
+<ul class="simple">
+<li><p>involucra una gran cantidad de instrucciones</p></li>
+<li><p>se llama NxN veces</p></li>
+</ul>
+<p>esto se debe a que estamos usando la función de NumPy <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>. Podemos obtener un rendimiento mucho mejor si usamos la implementación de raíz cuadrada de C</p>
+</div>
+<div class="section" id="mejora-2-llamando-funciones-de-c-desde-cython">
+<h2><span class="section-number">33.4. </span>Mejora 2: Llamando funciones de C desde Cython<a class="headerlink" href="#mejora-2-llamando-funciones-de-c-desde-cython" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es posible llamar funciones de C desde Cython de forma sencilla. Consideremos como ejemplo la función <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> de la <a class="reference external" href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/math.h.html">librería matemática estándar de C</a>.</p>
+<p>Necesitamos dos para usar <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> desde cython:</p>
+<ul class="simple">
+<li><p>Importar la función <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> desde la cabecera <code class="docutils literal notranslate"><span class="pre">math.h</span></code>: Esto se hace con el keyword <code class="docutils literal notranslate"><span class="pre">cdef</span> <span class="pre">extern</span> <span class="pre">from</span></code></p></li>
+<li><p>Compilar contra <code class="docutils literal notranslate"><span class="pre">libm</span></code></p></li>
+</ul>
+<p>Veamos como queda nuestro ejemplo con esta modificación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> -l m
+
+import numpy as np
+
+cdef extern from &quot;math.h&quot;:
+    double sqrt(double)
+
+def distancia_pares_cython_sqrtC(double [:, ::1] data):
+    # Definimos el tipo de N, D, dist y data
+    cdef int N = data.shape[0]
+    cdef int D = data.shape[1]
+    dist = np.zeros(shape=(N, N), dtype=np.double)
+    cdef double [:, ::1] dist_view = dist
+    # También definimos los índices, se puede usar int o Py_ssize_t 
+    cdef Py_ssize_t i, j, k
+    for i in range(N):
+        for j in range(i+1, N):
+            for k in range(D):
+                dist_view[i, j] += (data[i, k] - data[j, k])**2
+            dist_view[i, j] = sqrt(dist_view[i, j])
+            dist_view[j, i] = dist_view[i, j]
+    return dist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">distancia_pares_cython_sqrtC</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_static_cfun</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_cython_sqrtC(data)
+<span class="n">time_static_cfun</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.011810801333316098
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_static_cfun</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.468141873737636
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con esta simple modificación hemos obtenido un tiempo de ejecución incluso menor que la implementación en NumPy, excelente!</p>
+<p>Es <strong>sumamente importante</strong> notar que usando <code class="docutils literal notranslate"><span class="pre">extern</span></code> podemos hacer interfaces <a class="reference external" href="https://cython.readthedocs.io/en/latest/src/tutorial/clibraries.html">entre Python y casi cualquier código escrito en C</a></p>
+</div>
+<div class="section" id="mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">
+<h2><span class="section-number">33.5. </span>Mejora 3: Deshabilitando comprobaciones para ir aun más rápido<a class="headerlink" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos hacer nuestro código más rápido (y más inseguro) deshabilitando las verificaciones que Python realiza por defecto</p>
+<p>En Cython esto se logra usando decoradores que funcionan como directivas de compilación. Las opciones disponibles se encuentrán <a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiler-directives">aquí</a>. En este caso particular deshabilitaremos dos verificaciones: <em>boundscheck</em> y <em>wraparound</em></p>
+<p>Al deshabilitarlas el código no comprobará si escribimos fuera del arreglo y tampoco traducirá índices negativos</p>
+<p>También aprovecharemos de hacer un cambio menor que nos será de utilidad más adelante:</p>
+<ul class="simple">
+<li><p>Definiremos el tipo de data y dist de forma más conveniente usando <code class="docutils literal notranslate"><span class="pre">ctypedef</span></code></p></li>
+<li><p>Para esto incluiremos un modulo de Cython llamado numpy usando <code class="docutils literal notranslate"><span class="pre">cimport</span></code> que contiene definiciones tipo C</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> -l m
+import cython
+cimport numpy as npc
+import numpy as np
+
+# Por conveniencia podemos definir el tipo de data y dist con 
+ctypedef npc.float64_t TIPO_t
+TIPO = np.float64
+
+cdef extern from &quot;math.h&quot;:
+    TIPO_t sqrt(TIPO_t)
+
+# Deshabilitamos las comprobaciones de Python:
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def distancia_pares_cython(TIPO_t [:, ::1] data):
+    cdef int N = data.shape[0]
+    cdef int M = data.shape[1]
+    dist = np.zeros(shape=(N, N), dtype=TIPO)
+    cdef TIPO_t [:, ::1] dist_view = dist
+    cdef Py_ssize_t i, j, k
+    for i in range(N):
+        for j in range(i+1, N):
+            for k in range(M):
+                dist_view[i, j] += (data[i, k] - data[j, k])**2
+            dist_view[i, j] = sqrt(dist_view[i, j])
+            dist_view[j, i] = dist_view[i, j]
+    return dist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">distancia_pares_cython</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_cython_static_cfun_nochecks</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_cython_sqrtC(data)
+<span class="n">time_cython_static_cfun_nochecks</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.009755408999505258
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_static_cfun_nochecks</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.620238816883779
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una modificación marginal en el código que nos da un leve speed-up con respecto al caso anterior</p>
+</div>
+<div class="section" id="mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">
+<h2><span class="section-number">33.6. </span>Mejora 4: Mayor flexibilidad con tipos de Cython fusionados<a class="headerlink" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Lo que hemos perdido al usar Cython con respecto a Python: <strong>Flexibilidad</strong></p>
+<p>Si utilizamos un argumento que no sea <code class="docutils literal notranslate"><span class="pre">double</span></code> nuestra función en Cython retornará un error. Es nuestra responsabilidad evitar que esto ocurra</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_float32</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si ejecutaramos la siguiente instrucción:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">distancia_pares_cython</span><span class="p">(</span><span class="n">data_float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Se nos retornaría una excepción</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">Buffer</span> <span class="n">dtype</span> <span class="n">mismatch</span><span class="p">,</span> <span class="n">expected</span> <span class="s1">&#39;TIPO_t&#39;</span> <span class="n">but</span> <span class="n">got</span> <span class="s1">&#39;float&#39;</span>
+</pre></div>
+</div>
+<p>Podemos resolver este tipo de problemas con los “tipos fusionados” de Cython. Si queremos fusionar dos tipos de datos “tipo1” y “tipo2” bajo el nombre “tipo3”, lo escribimos usando</p>
+<div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">ctypedef</span> <span class="k">fused</span> <span class="n">tipo3</span><span class="p">:</span>
+    <span class="n">tipo1</span>
+    <span class="n">tipo2</span>
+</pre></div>
+</div>
+<p>Con esto Cython creará, de forma transparente, dos funciones en lugar de una</p>
+<p>Modifiquemos la función <code class="docutils literal notranslate"><span class="pre">distancia_pares_cython</span></code> para que acepte los tipos double e float como un tipo fusionado. En este caso no debemos olvidar importar la definición de <code class="docutils literal notranslate"><span class="pre">sqrtf</span></code> de <code class="docutils literal notranslate"><span class="pre">math.h</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> -l m
+import cython
+cimport numpy as npc
+import numpy as np
+
+# Tipo fusionado
+ctypedef fused TIPO_t:
+    npc.float32_t
+    npc.float64_t # double
+    
+cdef extern from &quot;math.h&quot;:
+    npc.float32_t sqrtf(npc.float32_t) #Definición para float32
+    npc.float64_t sqrt(npc.float64_t) # Definición para float64
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
+    cdef int N = data.shape[0]
+    cdef int M = data.shape[1]
+    # Comprobamos el tipo antes de crear el arreglo de numpy
+    if TIPO_t is npc.float32_t:
+        TIPO = np.float32
+    else:
+        TIPO = np.float64
+    dist = np.zeros(shape=(N, N), dtype=TIPO)
+    cdef TIPO_t [:, ::1] dist_view = dist
+    cdef Py_ssize_t i, j, k
+    for i in range(N):
+        for j in range(i+1, N):
+            for k in range(M):
+                dist_view[i, j] += (data[i, k] - data[j, k])**2
+            if TIPO_t is npc.float32_t:
+                dist_view[i, j] = sqrtf(dist_view[i, j])
+            else:
+                dist_view[i, j] = sqrt(dist_view[i, j])
+            dist_view[j, i] = dist_view[i, j]
+    return dist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+            <span class="n">distancia_pares_cython_multitipo</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_numpy</span><span class="p">(</span><span class="n">data_float32</span><span class="p">),</span>
+            <span class="n">distancia_pares_cython_multitipo</span><span class="p">(</span><span class="n">data_float32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy_f32</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_numpy(data_float32)
+<span class="n">time_numpy_f32</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06693277600000631
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_cython_f32</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r3 -n1 -q -o distancia_pares_cython_multitipo(data_float32)
+<span class="n">time_cython_f32</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.011243907666236433
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy_f32</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_f32</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.952803774882837
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado usando <code class="docutils literal notranslate"><span class="pre">float</span></code> es equivalente al de NumPy. Aunque se pierde un poco de rendimiento en comparación a la versión sin tipos fusionados</p>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Lecturas sobre temas específicos de Cython:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/quickstart/build.html#building-a-cython-module-using-distutils">Incluyendo código Cython en un módulo de Python</a></p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/tutorial/profiling_tutorial.html">Haciendo profiling de código Cython</a></p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/tutorial/memory_allocation.html">Malloc/Free en Cython</a></p></li>
+<li><p>Libro <a class="reference external" href="https://pythonbooks.org/cython-a-guide-for-python-programmers/">Cython: A Guide for Python Programmers</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/hpc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="opti1.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">32. </span>Optimizando código Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="parallel.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Computación paralela en Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
