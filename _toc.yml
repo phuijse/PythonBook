@@ -39,7 +39,7 @@ parts:
   chapters:
     - file: contents/linalg/intro
     - file: contents/linalg/linalg1
-    - file: contents/linalg/linalg2
+    - file: contents/linalg/eigvals
 - caption: "Cálculo numérico con Scipy"
   numbered: true
   chapters:
