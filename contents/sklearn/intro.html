@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Otros lenguajes en Jupyter &#8212; Computación Científica con Python</title>
+    <title>35. Machine Learning: Conceptos clave &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="9. DataFrames de pandas" href="../pandas/part1.html" />
-    <link rel="prev" title="7. Módulo IPython.display" href="ipython_display.html" />
+    <link rel="next" title="36. Reducción de dimensionalidad con PCA" href="pca.html" />
+    <link rel="prev" title="34. Computación paralela en Python" href="../hpc/parallel.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -120,19 +120,19 @@ const thebe_selector_output = ".output, .cell_output"
   Ambiente jupyter
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="../jupyter/intro.html">
    5. ¿Qué es Jupyter?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tutorial.html">
+  <a class="reference internal" href="../jupyter/tutorial.html">
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ipython_display.html">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
    7. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -141,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
    </code>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
    8. Otros lenguajes en Jupyter
   </a>
  </li>
@@ -344,19 +344,19 @@ const thebe_selector_output = ".output, .cell_output"
   Aprendizaje de máquinas con Scikit-Learn
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/intro.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    35. Machine Learning: Conceptos clave
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/pca.html">
+  <a class="reference internal" href="pca.html">
    36. Reducción de dimensionalidad con PCA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/kmeans.html">
+  <a class="reference internal" href="kmeans.html">
    37. Clustering con algoritmo K-means
   </a>
  </li>
@@ -401,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/jupyter/beyond_python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/sklearn/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -421,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/jupyter/beyond_python.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/sklearn/intro.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -442,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/jupyter/beyond_python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/sklearn/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -459,6 +459,29 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-machine-learning">
+   35.1. ¿Qué es Machine Learning?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#taxonomia-de-algoritmos-de-machine-learning">
+   35.2. Taxonomía de algoritmos de Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-scikit-learn">
+   35.3. Librería scikit-learn
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -466,75 +489,99 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Otros lenguajes en Jupyter</h1>
+                <h1>Machine Learning: Conceptos clave</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-machine-learning">
+   35.1. ¿Qué es Machine Learning?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#taxonomia-de-algoritmos-de-machine-learning">
+   35.2. Taxonomía de algoritmos de Machine Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libreria-scikit-learn">
+   35.3. Librería scikit-learn
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="otros-lenguajes-en-jupyter">
-<h1><span class="section-number">8. </span>Otros lenguajes en Jupyter<a class="headerlink" href="#otros-lenguajes-en-jupyter" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>A lo largo de este libro se trabaja principalmente con Python y con el kernel de IPython para jupyter</p>
-<p>Sin embargo existe una lista de kernels desarrollados por la <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">comunidad</a> para otros lenguajes</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-conceptos-clave">
+<h1><span class="section-number">35. </span>Machine Learning: Conceptos clave<a class="headerlink" href="#machine-learning-conceptos-clave" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="que-es-machine-learning">
+<h2><span class="section-number">35.1. </span>¿Qué es Machine Learning?<a class="headerlink" href="#que-es-machine-learning" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos definir <em>Machine Learning</em> o Aprendizaje de Máquinas como</p>
+<blockquote>
+<div><p>El estudio de <strong>sistemas</strong> que aprenden reglas o patrones en base a <strong>ejemplos</strong> para resolver una tarea</p>
+</div></blockquote>
+<p>En este contexto con “ejemplos” nos referimos a</p>
+<blockquote>
+<div><p>Datos asociados a la tarea que se quiere resolver</p>
+</div></blockquote>
+<p>Mientras que sistema (o máquina) correspondería a</p>
+<blockquote>
+<div><p>Algoritmo o modelo matemático que mejora su desempeño entrenándose con los ejemplos</p>
+</div></blockquote>
+<p>El esquema conceptual general de ML se muestra en la siguiente figura</p>
+<a class="reference internal image-reference" href="../../_images/intro-ml2.png"><img alt="../../_images/intro-ml2.png" src="../../_images/intro-ml2.png" style="width: 700px;" /></a>
+<p>donde</p>
+<ol class="simple">
+<li><p>Conceptualización: Se refiere a identificar el problema</p></li>
+<li><p>Datos: Se refiere a la recolección, importación, pre-precesamiento y etiquetado de datos</p></li>
+<li><p>Modelamiento: Se referiere a la selección, entrenamiento y validación del o los modelos</p></li>
+<li><p>Inferencia: Se refiere a utilizar el modelo para tomar decisiones sobre ejemplos nuevos</p></li>
+</ol>
+<p>En este último punto yace el objetivo principal de Machine Learning (ML)</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Entrenamos modelos para clasificar/predecir/agrupar ejemplos que el modelo no ha visto aun. Un modelo que realiza inferencias correctas en ejemplos nuevos es un modelo que ha logrado <strong>generalizar lo aprendido</strong>.</p>
+</div>
+<p>Para que el modelo sea capaz de aprender y generalizar ML combina técnicas de estadísticas y optimización computacional</p>
+</div>
+<div class="section" id="taxonomia-de-algoritmos-de-machine-learning">
+<h2><span class="section-number">35.2. </span>Taxonomía de algoritmos de Machine Learning<a class="headerlink" href="#taxonomia-de-algoritmos-de-machine-learning" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos hacer una clasificación gruesa de los algoritmos y modelos de ML en base a las tareas que buscan resolver. La siguiente figura esquematiza las cuatro tareas más típicas que se resuelven usando ML</p>
+<a class="reference internal image-reference" href="../../_images/intro-ml4.png"><img alt="../../_images/intro-ml4.png" src="../../_images/intro-ml4.png" style="width: 800px;" /></a>
+<p>En la figura podemos distinguir cuatro tipos de tareas agrupadas bajo dos paradigmas: Aprendizaje supervisado y Aprendizaje no supervisado.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IRkernel/IRkernel">IRkernel</a></p></li>
-<li><p><a class="reference external" href="https://github.com/JuliaLang/IJulia.jl">IJulia</a></p></li>
-<li><p><a class="reference external" href="https://github.com/n-riesco/ijavascript">Ijavascript</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gibiansky/IHaskell">IHaskell</a></p></li>
-<li><p><a class="reference external" href="https://github.com/sciruby/iruby">IRuby</a></p></li>
-<li><p><a class="reference external" href="https://github.com/pprzetacznik/IElixir">IElixir</a></p></li>
-<li><p><a class="reference external" href="https://github.com/QuantStack/xeus-cling">Xeus Cling</a> (C++)</p></li>
+<li><p>Los modelos de aprendizaje no supervisado buscan revelar estructura en los datos sin utilizar <strong>etiquetas</strong>. Por ejemplo estos métodos pueden usarse para encontrar grupos de similitud, jerarquías entre las variables o nuevas representaciones y visualizaciones de los datos.</p></li>
+<li><p>Los modelos de aprendizaje supervisado buscan aprender una función que prediga un objetivo (categórico, discreto o continuo) en base a los datos. En la jerga de ML este objetivo usualmente se denomina <strong>etiqueta</strong> y debe entregarse al modelo durante su entrenamiento.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Algunos de estos se pueden probar en <a class="reference external" href="https://jupyter.org/try">jupyter.org/try</a></p>
 </div>
-<p>También hay lenguajes que tienen magias oficiales para usarse dentro del kernel de Python. Estos requieren que sus ejecutables respectivos estén disponibles</p>
-<p>Por ejemplo</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
-
-echo &quot;Hello, world!&quot; 
+<div class="section" id="libreria-scikit-learn">
+<h2><span class="section-number">35.3. </span>Librería scikit-learn<a class="headerlink" href="#libreria-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En este capítulo se utilizan métodos de machine learning implementados en la librería de Python <a class="reference external" href="https://scikit-learn.org">scikit-learn</a>. En particular se revisarán:</p>
+<ul class="simple">
+<li><p>Modelos para clasificación: <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes"><code class="docutils literal notranslate"><span class="pre">sklearn.naive</span></code></a></p></li>
+<li><p>Modelos para hacer proyección y reducción de dimensionalidad: <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition"><code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code></a></p></li>
+<li><p>Modelos para hacer agrupamiento: <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster"><code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code></a></p></li>
+<li><p>Funciones para evaluar el desempeño de clasificadores: <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics"><code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code></a></p></li>
+<li><p>Funciones para hacer selección de modelos: <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection"><code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code></a></p></li>
+</ul>
+<p>Para instalar en su ambiente conda utilice</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install scikit-learn
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%perl</span>
-<span class="k">print</span> <span class="s">&quot;Hello, World!\n&quot;</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World!
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%ruby</span>
-
-<span class="nb">puts</span> <span class="s1">&#39;Hello, world!&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
-</pre></div>
-</div>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Para un tratamiento más profundo sobre métodos de aprendizaje supervisado sugiero revisar <a class="reference external" href="https://phuijse.github.io/MachineLearningBook/README.html">el siguiente material</a></p>
 </div>
 </div>
 </div>
@@ -552,7 +599,7 @@ echo &quot;Hello, world!&quot;
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./contents/jupyter"
+            path: "./contents/sklearn"
         },
         predefinedOutput: true
     }
@@ -564,17 +611,17 @@ echo &quot;Hello, world!&quot;
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="ipython_display.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="../hpc/parallel.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></p>
+            <p class="prev-next-title"><span class="section-number">34. </span>Computación paralela en Python</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../pandas/part1.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="pca.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Reducción de dimensionalidad con PCA</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

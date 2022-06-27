@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Otros lenguajes en Jupyter &#8212; Computación Científica con Python</title>
+    <title>21. Problema de los valores y vectores propios &#8212; Computación Científica con Python</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,10 +53,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="9. DataFrames de pandas" href="../pandas/part1.html" />
-    <link rel="prev" title="7. Módulo IPython.display" href="ipython_display.html" />
+    <link rel="next" title="22. Optimización matemática" href="../calculus/optimization.html" />
+    <link rel="prev" title="20. Resolviendo sistemas de ecuaciones lineales" href="linalg1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="es">
     
@@ -120,19 +122,19 @@ const thebe_selector_output = ".output, .cell_output"
   Ambiente jupyter
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
+  <a class="reference internal" href="../jupyter/intro.html">
    5. ¿Qué es Jupyter?
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="tutorial.html">
+  <a class="reference internal" href="../jupyter/tutorial.html">
    6. Breve tutorial de Jupyter/IPython
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ipython_display.html">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
    7. Módulo
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -141,8 +143,8 @@ const thebe_selector_output = ".output, .cell_output"
    </code>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
    8. Otros lenguajes en Jupyter
   </a>
  </li>
@@ -233,19 +235,19 @@ const thebe_selector_output = ".output, .cell_output"
   Algebra lineal con Scipy
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/intro.html">
+  <a class="reference internal" href="intro.html">
    19. Introducción e intuiciones geométricas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/linalg1.html">
+  <a class="reference internal" href="linalg1.html">
    20. Resolviendo sistemas de ecuaciones lineales
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/eigvals.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    21. Problema de los valores y vectores propios
   </a>
  </li>
@@ -401,7 +403,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/jupyter/beyond_python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/contents/linalg/eigvals.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -421,7 +423,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/jupyter/beyond_python.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/linalg/eigvals.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -442,7 +444,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/jupyter/beyond_python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/linalg/eigvals.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -459,6 +461,29 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formulacion-matematica">
+   21.1. Formulación matemática
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculo-de-valores-y-vectores-propios-con-scipy">
+   21.2. Cálculo de valores y vectores propios con scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descomposicion-en-valores-y-vectores-propios">
+   21.3. Descomposición en valores y vectores propios
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -466,76 +491,116 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Otros lenguajes en Jupyter</h1>
+                <h1>Problema de los valores y vectores propios</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formulacion-matematica">
+   21.1. Formulación matemática
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculo-de-valores-y-vectores-propios-con-scipy">
+   21.2. Cálculo de valores y vectores propios con scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descomposicion-en-valores-y-vectores-propios">
+   21.3. Descomposición en valores y vectores propios
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="otros-lenguajes-en-jupyter">
-<h1><span class="section-number">8. </span>Otros lenguajes en Jupyter<a class="headerlink" href="#otros-lenguajes-en-jupyter" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>A lo largo de este libro se trabaja principalmente con Python y con el kernel de IPython para jupyter</p>
-<p>Sin embargo existe una lista de kernels desarrollados por la <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">comunidad</a> para otros lenguajes</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="problema-de-los-valores-y-vectores-propios">
+<h1><span class="section-number">21. </span>Problema de los valores y vectores propios<a class="headerlink" href="#problema-de-los-valores-y-vectores-propios" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Existen <a class="reference external" href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors#Applications">múltiples sistemas en física</a> que <a class="reference external" href="https://hubpages.com/education/What-the-Heck-are-Eigenvalues-and-Eigenvectors">ocurren naturalmente</a> como un problema de valores/vectores propios. En esta lección veremos como resolver un problema de este tipo utilizando Python.</p>
+<div class="section" id="formulacion-matematica">
+<h2><span class="section-number">21.1. </span>Formulación matemática<a class="headerlink" href="#formulacion-matematica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sea una matriz cuadrada <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{D\times D}\)</span>. El siguiente sistema de ecuaciones de <span class="math notranslate nohighlight">\(D\)</span> ecuaciones</p>
+<div class="math notranslate nohighlight">
+\[
+A \vec v = \lambda I \vec v 
+\]</div>
+<p>que se puede escribir de forma equivalente como</p>
+<div class="math notranslate nohighlight">
+\[
+(A - \lambda I) \vec v = 0
+\]</div>
+<p>tiene como resultado</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/IRkernel/IRkernel">IRkernel</a></p></li>
-<li><p><a class="reference external" href="https://github.com/JuliaLang/IJulia.jl">IJulia</a></p></li>
-<li><p><a class="reference external" href="https://github.com/n-riesco/ijavascript">Ijavascript</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gibiansky/IHaskell">IHaskell</a></p></li>
-<li><p><a class="reference external" href="https://github.com/sciruby/iruby">IRuby</a></p></li>
-<li><p><a class="reference external" href="https://github.com/pprzetacznik/IElixir">IElixir</a></p></li>
-<li><p><a class="reference external" href="https://github.com/QuantStack/xeus-cling">Xeus Cling</a> (C++)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span>, los valores propios de <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec v\)</span> los vectores propios de <span class="math notranslate nohighlight">\(A\)</span></p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Algunos de estos se pueden probar en <a class="reference external" href="https://jupyter.org/try">jupyter.org/try</a></p>
+<p>La solución no trivial de este problema (<span class="math notranslate nohighlight">\(\vec v \neq 0\)</span>) se obtiene si <span class="math notranslate nohighlight">\((A - \lambda I)\)</span> es singular, es decir</p>
+<div class="math notranslate nohighlight">
+\[
+|A - \lambda I | = 0
+\]</div>
+<p>que resulta en un polinomio de grado <span class="math notranslate nohighlight">\(D\)</span> cuyas raices son <span class="math notranslate nohighlight">\(\{\lambda_i\}\)</span>, <span class="math notranslate nohighlight">\(i=1,2,\ldots, D\)</span></p>
+<p>Una vez determinado <span class="math notranslate nohighlight">\(\lambda_i\)</span> se pueden usar para despejar <span class="math notranslate nohighlight">\(\vec v_i\)</span></p>
+<p><strong>Ejemplo</strong></p>
+<p>Para la matriz <span class="math notranslate nohighlight">\(A\)</span> del ejemplo, si igualamos su determinante a cero tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+(1 - \lambda)^2 - 1/4 = 3/4 - 2\lambda + \lambda^2 = 0
+\]</div>
+<p>osea <span class="math notranslate nohighlight">\(\lambda_1 = 1.5\)</span> y <span class="math notranslate nohighlight">\(\lambda_2 = 0.5\)</span>. Luego para el primer vector propio tenemos un sistema de ecuaciones</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+-0.5v_{11} +0.5v_{12} &amp;= 0 \\
+0.5 v_{11} -0.5v_{12} &amp;= 0
+\end{split}
+\end{split}\]</div>
+<p>osea <span class="math notranslate nohighlight">\(v_{11} = v_{12}\)</span> con esto podemos construir un vector normalizado genérico <span class="math notranslate nohighlight">\(v_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}\)</span></p>
+<p>De forma equivalente para <span class="math notranslate nohighlight">\(v_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} -1 \\ 1 \end{pmatrix}\)</span></p>
 </div>
-<p>También hay lenguajes que tienen magias oficiales para usarse dentro del kernel de Python. Estos requieren que sus ejecutables respectivos estén disponibles</p>
-<p>Por ejemplo</p>
+<div class="section" id="calculo-de-valores-y-vectores-propios-con-scipy">
+<h2><span class="section-number">21.2. </span>Cálculo de valores y vectores propios con scipy<a class="headerlink" href="#calculo-de-valores-y-vectores-propios-con-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El módulo <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/linalg.html"><code class="docutils literal notranslate"><span class="pre">linalg</span></code></a> de scipy ofrece funciones para obtener vectores y valores propios. Los de aplicación más común son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eig(X)</span></code>: Retorna una tupla con los valores y vectores propios de <code class="docutils literal notranslate"><span class="pre">X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eigvals(X)</span></code>: Retorna los valores propios de <code class="docutils literal notranslate"><span class="pre">X</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eigh(X)</span></code>: Retorna una tupla con los valores y vectores propios de <code class="docutils literal notranslate"><span class="pre">X</span></code>, asumiendo que <code class="docutils literal notranslate"><span class="pre">X</span></code> tiene simetría hermítica</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eigvalsh(X)</span></code>: Retorna los valores propios de <code class="docutils literal notranslate"><span class="pre">X</span></code>, asumiendo que <code class="docutils literal notranslate"><span class="pre">X</span></code> tiene simetría hermítica</p></li>
+</ul>
+<p>Utilicemos <code class="docutils literal notranslate"><span class="pre">eig</span></code> para el ejemplo anterior:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
 
-echo &quot;Hello, world!&quot; 
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1.5+0.j, 0.5+0.j]),
+ array([[ 0.70710678, -0.70710678],
+        [ 0.70710678,  0.70710678]]))
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%perl</span>
-<span class="k">print</span> <span class="s">&quot;Hello, World!\n&quot;</span><span class="p">;</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, World!
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%ruby</span>
-
-<span class="nb">puts</span> <span class="s1">&#39;Hello, world!&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
-</pre></div>
-</div>
-</div>
+<div class="section" id="descomposicion-en-valores-y-vectores-propios">
+<h2><span class="section-number">21.3. </span>Descomposición en valores y vectores propios<a class="headerlink" href="#descomposicion-en-valores-y-vectores-propios" title="Enlazar permanentemente con este título">¶</a></h2>
 </div>
 </div>
 
@@ -552,7 +617,7 @@ echo &quot;Hello, world!&quot;
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./contents/jupyter"
+            path: "./contents/linalg"
         },
         predefinedOutput: true
     }
@@ -564,17 +629,17 @@ echo &quot;Hello, world!&quot;
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="ipython_display.html" title="anterior página">
+    <a class='left-prev' id="prev-link" href="linalg1.html" title="anterior página">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Resolviendo sistemas de ecuaciones lineales</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../pandas/part1.html" title="siguiente página">
+    <a class='right-next' id="next-link" href="../calculus/optimization.html" title="siguiente página">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Optimización matemática</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

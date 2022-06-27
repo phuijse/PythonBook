@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>36. Reducción de dimensionalidad con PCA &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="37. Clustering con algoritmo K-means" href="kmeans.html" />
+    <link rel="prev" title="35. Machine Learning: Conceptos clave" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   9. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   10. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   11. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   12. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   13. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   14. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   15. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/eigvals.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/optimization.html">
+   22. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/ode_integration.html">
+   23. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/intro.html">
+   24. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/distributions.html">
+   25. Distribuciones de probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/descriptive.html">
+   26. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/model_fitting.html">
+   27. Estadística inferencial: Ajuste de Modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/hypothesis.html">
+   28. Test de hipótesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/bootstrap.html">
+   29. Intervalos de confianza con
+   <em>
+    Bootstrap
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Alto rendimiento en Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/intro.html">
+   30. Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/profiling.html">
+   31. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/opti1.html">
+   32. Optimizando código Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/cython.html">
+   33. Acelerando Python con Cython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/parallel.html">
+   34. Computación paralela en Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Aprendizaje de máquinas con Scikit-Learn
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   35. Machine Learning: Conceptos clave
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   36. Reducción de dimensionalidad con PCA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kmeans.html">
+   37. Clustering con algoritmo K-means
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/sklearn/pca.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/sklearn/pca.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/sklearn/pca.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formalismo-matematico">
+   36.1. Formalismo matemático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementacion-utilizando-scipy">
+   36.2. Implementación utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">
+   36.3. Reducción de dimensionalidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">
+   36.4. Implementación de PCA en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sklearn
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reducción de dimensionalidad con PCA</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formalismo-matematico">
+   36.1. Formalismo matemático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementacion-utilizando-scipy">
+   36.2. Implementación utilizando
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scipy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">
+   36.3. Reducción de dimensionalidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">
+   36.4. Implementación de PCA en
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sklearn
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="reduccion-de-dimensionalidad-con-pca">
+<h1><span class="section-number">36. </span>Reducción de dimensionalidad con PCA<a class="headerlink" href="#reduccion-de-dimensionalidad-con-pca" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><em>Principal Component Analysis</em> (PCA) es un método clásico que permite proyectar nuestros datos y reducir su dimensionalidad. Primero se revisa el método de forma teórica y luego su implementación en la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></p>
+<div class="section" id="formalismo-matematico">
+<h2><span class="section-number">36.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>PCA es un procedimiento estadístico que busca una <strong>transformación ortogonal</strong> que <strong>maximice la varianza</strong> de los datos.</p>
+<p>Matemáticamente, podemos escribir un conjunto de datos <span class="math notranslate nohighlight">\(\{x_i\}\)</span> con <span class="math notranslate nohighlight">\(i=1,2,\ldots, N\)</span> y <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}^D\)</span>, como una matriz <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N\times D}\)</span>. La transformación en PCA está representada por una matriz <span class="math notranslate nohighlight">\(W \in \mathbb{R}^{D\times D}\)</span> y los datos transformados se obtienen mediante una multiplicación matricial</p>
+<div class="math notranslate nohighlight">
+\[
+\hat X = X W
+\]</div>
+<p>Una transformación es ortogonal si cumple <span class="math notranslate nohighlight">\(W^T W = I\)</span> es decir que la transformación traspuesta es equivalente a su inversa. Para encontrar una transformación que maximice la varianza de los datos debemos obtener primero la matriz de correlación de <span class="math notranslate nohighlight">\(X\)</span> definida por</p>
+<div class="math notranslate nohighlight">
+\[
+C = \frac{1}{N} X^T X
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(C \in \mathbb{R}^{D\times D}\)</span> y donde asumimos que la media de <span class="math notranslate nohighlight">\(X\)</span> es cero.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>La matriz de correlación de los datos transformados es <span class="math notranslate nohighlight">\(\frac{1}{N} \hat X^T \hat X = \frac{1}{N} W^T X^T X W = W^T C W\)</span></p>
+</div>
+<p>Con lo anterior podemos escribir la siguiente función objetivo</p>
+<div class="math notranslate nohighlight">
+\[
+\max_W W^T C W \text{ sujeto a } W^T W = I
+\]</div>
+<p>Utilizando <em>multiplicadores de Lagrange</em> para incluir la restricción en el objetivo y derivando e igualando a cero se obtiene lo siguiente</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\frac{d}{dW} W^T C W + \Lambda(I- W^T W) &amp;= 0 \nonumber \\ 
+(C - \Lambda) W &amp;= 0 \nonumber
+\end{align}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\Lambda = \lambda I\)</span> y <span class="math notranslate nohighlight">\(\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_D)\)</span></p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Corresponde al problema de los valores y vectores propios (<span class="math notranslate nohighlight">\(\lambda\)</span> y <span class="math notranslate nohighlight">\(W\)</span>) de la matriz <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div>
+</div>
+<div class="section" id="implementacion-utilizando-scipy">
+<h2><span class="section-number">36.2. </span>Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#implementacion-utilizando-scipy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A modo de ejemplo sean los siguientes datos bidimensionales</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilicemos PCA para encontrar los ejes coordenados de máxima varianza y graficarlos. Para resolver el problema de valores propios podemos utilizar <code class="docutils literal notranslate"><span class="pre">scipy.linalg.eigh</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span>
+
+<span class="c1"># Restamos la media</span>
+<span class="n">X_</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Calculamos la covarianza</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X_</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">X_</span><span class="p">)</span>
+<span class="c1"># Calculamos los valores y vectores propios de la covarianza</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="c1"># Proyectamos</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado gráfico es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">arrow_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s1">&#39;length_includes_head&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">}</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                       <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="n">arrow_args</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span> 
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">U</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">U</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Atributo 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Atributo 2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Componente principal 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Componente principal 2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Datos originales&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Datos proyectados&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/pca_7_0.png" src="../../_images/pca_7_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul class="simple">
+<li><p>El eje rojo acumula un 99.5% de la varianza</p></li>
+<li><p>El eje verde es ortogonal al rojo</p></li>
+<li><p>Los nuevos ejes están decorrelacionados c/r a los originales</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="reduccion-de-dimensionalidad">
+<h2><span class="section-number">36.3. </span>Reducción de dimensionalidad<a class="headerlink" href="#reduccion-de-dimensionalidad" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una aplicación típica de PCA es la reducción de dimensionalidad</p>
+<p>Recordemos</p>
+<ul class="simple">
+<li><p>La matriz <span class="math notranslate nohighlight">\(W\)</span> tiene las mismas dimensiones que <span class="math notranslate nohighlight">\(C\)</span></p></li>
+<li><p>Las columnas de <span class="math notranslate nohighlight">\(W\)</span> son los vector propios</p></li>
+<li><p>Cada vector propio tiene un valor propio asociado</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El valor propio <span class="math notranslate nohighlight">\(\lambda_i\)</span> asociado a la columna <span class="math notranslate nohighlight">\(i\)</span> de <span class="math notranslate nohighlight">\(W\)</span> corresponde a la “cantidad de varianza” de dicha columna</p>
+</div>
+<p>Para obtener una proyección que disminuya la dimensionalidad necesitamos una matriz</p>
+<div class="math notranslate nohighlight">
+\[
+\widehat W \in \mathbb{R}^{D\times \hat D}
+\]</div>
+<p>con <span class="math notranslate nohighlight">\(\hat D &lt; D\)</span>. Podemos obtener <span class="math notranslate nohighlight">\(\widehat W\)</span> uniendo un subconjunto de las columnas de <span class="math notranslate nohighlight">\(W\)</span>. En particular nos interesa proyectar a los vectores propios de mayor varianza.</p>
+<p>El valor de <span class="math notranslate nohighlight">\(\hat D\)</span> se escoge de acuerdo a la aplicación:</p>
+<ul class="simple">
+<li><p>Para tareas de visualización de datos: <span class="math notranslate nohighlight">\(\hat D = 2\)</span> o <span class="math notranslate nohighlight">\(3\)</span></p></li>
+<li><p>Para tareas más generales de reducción de dimensionalidad o decorrelación de atributos, un criterio típico es seleccionar <span class="math notranslate nohighlight">\(\hat D\)</span> tal que la suma de varianza acumulada sea al menos un 95%</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Si proyectamos con <span class="math notranslate nohighlight">\(\widehat W\)</span> la transformación no es invertible porque estamos “descartando” información. Es una compresión de tipo <em>lossy</em></p>
+</div>
+</div>
+<div class="section" id="implementacion-de-pca-en-sklearn">
+<h2><span class="section-number">36.4. </span>Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#implementacion-de-pca-en-sklearn" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>PCA está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition"><code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code></a>. El constructor y sus argumentos más importantes son</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Cantidad (int) o porcentaje de varianza (float) a retener</span>
+    <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Si es falso, la data transformada reemplaza la original</span>
+    <span class="n">whiten</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Reescala los datos para que tengan igual dispersión</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Los métodos más importantes de la clase <code class="docutils literal notranslate"><span class="pre">PCA</span></code> son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit(X)</span></code>: Calcula la matriz de correlación y los vectores y valores propios</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform(X)</span></code>: Retorna la proyección de <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_transform(X)</span></code>: <code class="docutils literal notranslate"><span class="pre">fit</span></code> y <code class="docutils literal notranslate"><span class="pre">transform</span></code> en un solo paso</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inverse_transform(hatX)</span></code>: Retorna los datos al espacio original (con pérdidas si <span class="math notranslate nohighlight">\(\hat D &lt; D\)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_covariance()</span></code>: Retorna la matriz de covarianza</p></li>
+</ul>
+<p>Los atributos más importantes son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">components_</span></code>: Los componentes principales (vectores propios)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">singular_values_</span></code>: Los valores propios</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">explained_variance_ratio_</span></code>: El porcentaje de varianza asociado a cada vector propio</p></li>
+</ul>
+<p><strong>Ejemplo</strong> Sea la siguiente base de datos con <strong>cuatro atributos numéricos</strong> asociados a las características de un conjunto de 150 flores del género Iris separadas en 3 clases</p>
+<a class="reference internal image-reference" href="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg"><img alt="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" src="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" style="width: 200px;" /></a>
+<p>A continuación se presenta un gráfico de dispersión para visualizar las relaciones entre los atributos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="n">iris_set</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_names</span> <span class="o">=</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">y_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>            
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal length&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sepal width&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Petal length&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sepal width&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal length&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Petal width&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/pca_13_0.png" src="../../_images/pca_13_0.png" />
+</div>
+</div>
+<p>Para hacer una visualización más concisa podemos usar PCA para reducir la dimensión de los datos de 4 a 2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hatX</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los valores propios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">.</span><span class="n">singular_values_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([25.09996044,  6.01314738])
+</pre></div>
+</div>
+</div>
+</div>
+<p>El porcentaje de varianza de cada valor propio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92461872, 0.05306648])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y finalmente los vectores propios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hatW</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span>
+<span class="n">hatW</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.36138659, -0.08452251,  0.85667061,  0.3582892 ],
+       [ 0.65658877,  0.73016143, -0.17337266, -0.07548102]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos estudiar la contribución de cada atributo a los nuevos ejes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">y_</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_names</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hatX</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hatX</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="k">for</span> <span class="n">ax_</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">ax_</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Vector propio 2&#39;</span><span class="p">);</span> <span class="n">ax_</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Vector propio 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iris_set</span><span class="o">.</span><span class="n">feature_names</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">hatW</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">hatW</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">arrow_args</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">hatW</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">hatW</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/pca_23_0.png" src="../../_images/pca_23_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>La figura de la izquierda son los datos de iris proyectados en los componentes principales más importantes</p></li>
+<li><p>La figura de la derecha muestra la contribución de los atributos originales a cada uno de los vectores propios</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El tipo de flor, es decir las clases de Iris, pueden separarse en el eje del vector propio 1. Podemos ver también que las variables que tienen que ver con el sépalo están alineadas con el vector propio 2 (ángulo menor), en cambio las variables que tienen que ver con el pétalo están alineadas con el vector propio 1. En resumen la clase de la flor tiene mayor relación con el pétalo que con el sépalo</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/sklearn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">35. </span>Machine Learning: Conceptos clave</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="kmeans.html" title="siguiente página">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Clustering con algoritmo K-means</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

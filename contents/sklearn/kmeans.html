@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>37. Clustering con algoritmo K-means &#8212; Computación Científica con Python</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="36. Reducción de dimensionalidad con PCA" href="pca.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="es">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introducción
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/intro.html">
+   1. Computación científica y ciencia de datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/python3.html">
+   2. Repaso de Python 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/env_management.html">
+   3. Administración de ambientes y librerías
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preliminaries/git.html">
+   4. Control de versiones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ambiente jupyter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/intro.html">
+   5. ¿Qué es Jupyter?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/tutorial.html">
+   6. Breve tutorial de Jupyter/IPython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/ipython_display.html">
+   7. Módulo
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     IPython.display
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../jupyter/beyond_python.html">
+   8. Otros lenguajes en Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Análisis de datos con Pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part1.html">
+   9. DataFrames de
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part2.html">
+   10. Importar y exportar datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part3.html">
+   11. Operaciones avanzadas con DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandas/part4.html">
+   12. Tópicos extra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Visualización de datos con Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib1.html">
+   13. Introducción a Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/matplotlib2.html">
+   14. Tipos de gráfico en matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/goodvisualizations.html">
+   15. ¿Cómo hacer buenas visualizaciones?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../visualization/ipywidgets.html">
+   16. Interfaces de usuario en Jupyter con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ipywidgets
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Operando datos numéricos con Numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy1.html">
+   17. Arreglos n-dimensionales con NumPy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../numpy/numpy2.html">
+   18. Operaciones sobre ndarrays
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Algebra lineal con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/intro.html">
+   19. Introducción e intuiciones geométricas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/linalg1.html">
+   20. Resolviendo sistemas de ecuaciones lineales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../linalg/eigvals.html">
+   21. Problema de los valores y vectores propios
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cálculo numérico con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/optimization.html">
+   22. Optimización matemática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../calculus/ode_integration.html">
+   23. Ecuaciones Diferenciales Ordinarias
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Estadística con Scipy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/intro.html">
+   24. Introducción y fundamentos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/distributions.html">
+   25. Distribuciones de probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/descriptive.html">
+   26. Estadística descriptiva
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/model_fitting.html">
+   27. Estadística inferencial: Ajuste de Modelos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/hypothesis.html">
+   28. Test de hipótesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../statistics/bootstrap.html">
+   29. Intervalos de confianza con
+   <em>
+    Bootstrap
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Alto rendimiento en Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/intro.html">
+   30. Python y  Rendimiento
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/profiling.html">
+   31. Profiling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/opti1.html">
+   32. Optimizando código Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/cython.html">
+   33. Acelerando Python con Cython
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hpc/parallel.html">
+   34. Computación paralela en Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Aprendizaje de máquinas con Scikit-Learn
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   35. Machine Learning: Conceptos clave
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pca.html">
+   36. Reducción de dimensionalidad con PCA
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   37. Clustering con algoritmo K-means
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/contents/sklearn/kmeans.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/sklearn/kmeans.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+        title="Modo de pantalla completa"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/sklearn/kmeans.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contenido
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formalismo-matematico">
+   37.1. Formalismo matemático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means-con-scikit-learn">
+   37.2. K-means con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scikit-learn
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detalles-practicos-sobre-k-means">
+   37.3. Detalles prácticos sobre K-means
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clustering con algoritmo K-means</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contenido </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formalismo-matematico">
+   37.1. Formalismo matemático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means-con-scikit-learn">
+   37.2. K-means con
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     scikit-learn
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detalles-practicos-sobre-k-means">
+   37.3. Detalles prácticos sobre K-means
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="clustering-con-algoritmo-k-means">
+<h1><span class="section-number">37. </span>Clustering con algoritmo K-means<a class="headerlink" href="#clustering-con-algoritmo-k-means" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El objetivo general de los métodos de clustering es agrupar los datos en conjuntos (clusters) tal que:</p>
+<ul class="simple">
+<li><p>Los elementos dentro de un mismo cluster sean similares</p></li>
+<li><p>Los elementos dentro de un mismo cluster sean distintos a los elementos pertenecientes a otro cluster</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Los métodos de clustering permiten revelar estructuras escondidas en los datos y son muy importantes para realizar análisis exploratorio de datos</p>
+</div>
+<p>En general, los algoritmos de clustering requieren definir un criterio para medir similitud entre los ejemplos. Lo más típico para datos numéricos es usar métricas de distancia como la <a class="reference external" href="https://es.wikipedia.org/wiki/Distancia_euclidiana">distancia euclidiana</a> o la <a class="reference external" href="https://es.wikipedia.org/wiki/Geometr%C3%ADa_del_taxista">distancia de manhattan/taxista</a></p>
+<p>Una vez definida la noción de distancia a utilizar se debe definir un criterio de agrupación. Dependiendo de la combinación entre estas definiciones surgen distintas familias de algoritmos de clustering</p>
+<ul class="simple">
+<li><p>Algoritmos basados en representantes (centroides)</p></li>
+<li><p>Algoritmos basados en conectividad y jerarquías</p></li>
+<li><p>Algoritmos basados en modelos de densidad</p></li>
+</ul>
+<p>En esta lección nos enfocaremos en un algoritmo clásico de clustering basado en representantes: K-medias o <em>K-means</em>.</p>
+<div class="section" id="formalismo-matematico">
+<h2><span class="section-number">37.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El algoritmo de K-means requiere que el usuario especifique a priori el número de clusters a detectar, es decir que <span class="math notranslate nohighlight">\(K\)</span>, el número de clusters es un hiperparámetro del algoritmo. El algoritmo K-means es bastante simple y se resume en el siguiente diagrama esquemático</p>
+<a class="reference internal image-reference" href="../../_images/kmeans.png"><img alt="../../_images/kmeans.png" src="../../_images/kmeans.png" style="width: 700px;" /></a>
+<p>Detalles:</p>
+<ul class="simple">
+<li><p>Los centroides <span class="math notranslate nohighlight">\(\{c_j\}_{j=1,\ldots,K}\)</span> son los centros de los clusters.</p></li>
+<li><p>En el paso 2, el cluster asociado a la muestra <span class="math notranslate nohighlight">\(i\)</span> se calcula usando la distancia euclidiana</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+y_i &amp;= \text{arg}\min_{j=1,\ldots,K} \| x_i - c_j\|_2^2  \nonumber \\
+&amp;= \text{arg}\min_{j=1,\ldots,K} \sqrt{ \sum_{d=1}^D (x_{id} - c_{jd})^2}  \nonumber 
+\end{align}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>En el paso 3 los el centroide <span class="math notranslate nohighlight">\(j\)</span> se actualiza como</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+c_j = \frac{\sum_{i=1}^N \mathbb{1}(y_i = j) x_i}{\sum_{i=1}^N \mathbb{1}(y_i = j)}
+\]</div>
+<p>donde la función indicadora se define como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{1}(y_i = j) = \begin{cases} 1 &amp; \text{si } y_i = j \\ 0 &amp; \text{si } y_i \neq j \end{cases}
+\end{split}\]</div>
+<p>es decir que el centroide es el promedio de las muestras asociadas a si mismo</p>
+</div>
+<div class="section" id="k-means-con-scikit-learn">
+<h2><span class="section-number">37.2. </span>K-means con <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#k-means-con-scikit-learn" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>K-means está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster"><code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code></a>. El constructor y sus argumentos más importantes son</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="c1"># El número de grupos/clusters</span>
+       <span class="n">init</span><span class="o">=</span><span class="s1">&#39;k-means++&#39;</span><span class="p">,</span> <span class="c1">#El algoritmo de inicialización puede ser random o k-means++</span>
+       <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># El número de inicializaciones que se prueban</span>
+       <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="c1"># El número máximo de iteraciones</span>
+       <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="c1"># Si la diferencia entre los centroides en distintas iteraciones es menor que este valor, el algoritmo se detiene</span>
+       <span class="o">...</span>
+      <span class="p">)</span>
+</pre></div>
+</div>
+<p>Los métodos más importantes de la clase <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans"><code class="docutils literal notranslate"><span class="pre">KMeans</span></code></a> son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit(X)</span></code>: Entrena y obtiene los centroides</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict(X)</span></code>: Retorna el índice del cluster más cercano para cada dato</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_predict(X)</span></code>: <code class="docutils literal notranslate"><span class="pre">fit</span></code> y <code class="docutils literal notranslate"><span class="pre">predict</span></code> en un solo paso</p></li>
+</ul>
+<p>Los atributos más importantes son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cluster_centers_</span></code>: Los centroides de los clusters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inertia_</span></code>: La suma de errores cuadrados</p></li>
+</ul>
+<p><strong>Ejemplo:</strong> A modo de ejemplo se realiza un clustering con KMeans sobre el dataset Iris.</p>
+<p>Para escoger el mejor número de clusters se utiliza el <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">coeficiente de silueta</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="n">iris_set</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_names</span> <span class="o">=</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">],</span> <span class="n">iris_set</span><span class="p">[</span><span class="s1">&#39;target_names&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span><span class="p">,</span> <span class="n">silhouette_samples</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">n_clusters</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+    <span class="c1"># Clustering con kmeans</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">)</span>
+    <span class="n">membership</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1"># Score de silueta promedio y por ejemplo</span>
+    <span class="n">score_promedio</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">membership</span><span class="p">)</span>
+    <span class="n">score_ejemplos</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">membership</span><span class="p">)</span>
+    <span class="n">y_lower</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">membership</span><span class="p">):</span>  
+        <span class="n">scores_cluster_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">score_ejemplos</span><span class="p">[</span><span class="n">membership</span><span class="o">==</span><span class="n">cluster</span><span class="p">])</span>
+        <span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores_cluster_sorted</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">y_upper</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scores_cluster_sorted</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">score_promedio</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;K: </span><span class="si">{</span><span class="n">n_clusters</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_upper</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="n">ax</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Coeficiente de silueta&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kmeans_5_0.png" src="../../_images/kmeans_5_0.png" />
+</div>
+</div>
+<p>Las figuras muestran los coeficientes de silueta de los ejemplos asociados a cada uno de los clusters. La linea punteada negra corresponde al coeficiente de silueta promedio.</p>
+<p>Tanto el caso de <span class="math notranslate nohighlight">\(K=4\)</span> como <span class="math notranslate nohighlight">\(K=5\)</span> presentan algunos clusters cuyos coeficientes de silueta son menores que el promedio. Por otro lado el caso <span class="math notranslate nohighlight">\(K=2\)</span> presenta alta disparidad den el tamaño de los clusters. En el caso <span class="math notranslate nohighlight">\(K=3\)</span> los clusters son de un tamaño más uniforme y todos los clusters tienen ejemplos que superan el coeficiente promedio.</p>
+<p>Otra forma de guiar la selección del número de clusters es visualizar el decaimiento de la función de costo (suma de errores cuadráticos) en función del número de clusters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sse</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_clusters_test</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n_clusters</span> <span class="ow">in</span> <span class="n">n_clusters_test</span><span class="p">:</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">)</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">sse</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_clusters_test</span><span class="p">,</span> <span class="n">sse</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Suma de errores</span><span class="se">\n</span><span class="s1">cuadráticos&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kmeans_7_0.png" src="../../_images/kmeans_7_0.png" />
+</div>
+</div>
+<p>En este caso el mayor decaimiento en error cuadrático ocurre cuando pasamos de <span class="math notranslate nohighlight">\(K=2\)</span> a <span class="math notranslate nohighlight">\(K=3\)</span>, lo cual indica que <span class="math notranslate nohighlight">\(K=3\)</span> es una buena elección</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>En este caso particular el mejor número de clusters coincide con la cantidad de clases del dataset</p>
+</div>
+<p>A continuación se muestran las clases originales versus las agrupaciones encontradas por K-means sobre la proyección a dos dimensiones obtenida con PCA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hatX</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">membership</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">y_</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_names</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hatX</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hatX</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="n">y_</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">membership</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hatX</span><span class="p">[</span><span class="n">membership</span><span class="o">==</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hatX</span><span class="p">[</span><span class="n">membership</span><span class="o">==</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;cluster </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/kmeans_9_0.png" src="../../_images/kmeans_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="detalles-practicos-sobre-k-means">
+<h2><span class="section-number">37.3. </span>Detalles prácticos sobre K-means<a class="headerlink" href="#detalles-practicos-sobre-k-means" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La correctitud de los clusters depende fuertemente de <span class="math notranslate nohighlight">\(K\)</span>. Se recomienda probar con distinto <span class="math notranslate nohighlight">\(K\)</span> y evaluar los resultados usando el método del codo o el coeficiente de silueta.</p>
+<p>El algoritmo de K-means es sensible a los centroides iniciales. Por lo tanto es recomendable probar varias veces con distintas inicializaciones. Por defecto <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> prueba 10 inicializaciones distintas. Esto se puede controlar con el argumento <code class="docutils literal notranslate"><span class="pre">n_init</span></code></p>
+<p>K-means es un algoritmo rápido y que escala bien a datos masivos. Scikit-learn ofrece <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html"><code class="docutils literal notranslate"><span class="pre">MinibatchKMeans</span></code></a> para esos casos</p>
+<p><strong>Variantes de K-means</strong></p>
+<p>Si los datos tiene outliers fuertes se puede reemplazar el promedio en el paso 3 de KMeans por la mediana, obteníendose el algoritmo de las k-medianas</p>
+<p>Si es un requisito que los centroides sean siempre ejemplos del dataset se puede usar el algoritmo de los <a class="reference external" href="https://es.wikipedia.org/wiki/K-medoids">k-medoides</a></p>
+<p><strong>Debilidades de KMeans</strong></p>
+<p>K-means asume que los clusters son</p>
+<ul class="simple">
+<li><p>de “forma esférica”</p></li>
+<li><p>de igual densidad.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Si lo anterior no se cumple puede ser mejor utilizar algoritmos más generales (y más costosos) como <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture">Modelos de mezcla de gaussianas</a> o <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html#sklearn.cluster.DBSCAN">DBSCAN</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./contents/sklearn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="pca.html" title="anterior página">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">anterior</p>
+            <p class="prev-next-title"><span class="section-number">36. </span>Reducción de dimensionalidad con PCA</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      Por Pablo Huijse Heise<br/>
+    
+        &copy; Derechos de autor 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
