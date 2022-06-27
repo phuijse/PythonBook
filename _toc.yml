@@ -69,3 +69,4 @@ parts:
     - file: contents/sklearn/intro
     - file: contents/sklearn/pca
     - file: contents/sklearn/kmeans
+    - file: contents/sklearn/naivebayes
