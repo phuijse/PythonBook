@@ -63,10 +63,9 @@ parts:
     - file: contents/hpc/cython
     - file: contents/hpc/parallel
       #    - file: contents/hpc/appendix
-
-
-
-#- caption: "Aprendizaje de máquinas con Scikit-Learn"
-#  numbered: true
-#  chapters:
-#    - file: contents/sklearn/linear_regression
+- caption: "Aprendizaje de máquinas con Scikit-Learn"
+  numbered: true
+  chapters:
+    - file: contents/sklearn/intro
+    - file: contents/sklearn/pca
+    - file: contents/sklearn/kmeans
