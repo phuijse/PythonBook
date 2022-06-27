@@ -29,20 +29,14 @@ parts:
     - file: contents/visualization/matplotlib2
     - file: contents/visualization/goodvisualizations
     - file: contents/visualization/ipywidgets
-- caption: "Operando datos numéricos con Numpy"
+- caption: "Matemática computacional con Numpy y Scipy"
   numbered: true
   chapters:
     - file: contents/numpy/numpy1
     - file: contents/numpy/numpy2
-- caption: "Algebra lineal con Scipy"
-  numbered: true
-  chapters:
     - file: contents/linalg/intro
     - file: contents/linalg/linalg1
     - file: contents/linalg/eigvals
-- caption: "Cálculo numérico con Scipy"
-  numbered: true
-  chapters:
     - file: contents/calculus/optimization
     - file: contents/calculus/ode_integration
 - caption: "Estadística con Scipy"
