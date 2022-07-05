@@ -215,7 +215,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Operando datos numéricos con Numpy
+  Matemática computacional con Numpy y Scipy
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -229,16 +229,9 @@ const thebe_selector_output = ".output, .cell_output"
    18. Operaciones sobre ndarrays
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Algebra lineal con Scipy
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../linalg/intro.html">
-   19. Introducción e intuiciones geométricas
+   19. Intuiciones geométricas de álgeba lineal
   </a>
  </li>
  <li class="toctree-l1">
@@ -251,13 +244,6 @@ const thebe_selector_output = ".output, .cell_output"
    21. Problema de los valores y vectores propios
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Cálculo numérico con Scipy
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../calculus/optimization.html">
    22. Optimización matemática
@@ -501,6 +487,11 @@ const thebe_selector_output = ".output, .cell_output"
    33.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">
+   33.7. Usando Cython fuera de jupyter
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -549,6 +540,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">
    33.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">
+   33.7. Usando Cython fuera de jupyter
   </a>
  </li>
 </ul>
@@ -669,7 +665,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1979032973334447
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1247437930020774
 </pre></div>
 </div>
 </div>
@@ -682,7 +678,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06458313733310206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07117312733316794
 </pre></div>
 </div>
 </div>
@@ -695,7 +691,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.51607229669781
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>43.90342127829883
 </pre></div>
 </div>
 </div>
@@ -776,7 +772,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6994761529992197
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.907104112334006
 </pre></div>
 </div>
 </div>
@@ -788,7 +784,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1846384691268539
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0748647699766545
 </pre></div>
 </div>
 </div>
@@ -800,7 +796,7 @@ def distancia_pares_cython_inocente(data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023924322228721213
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02448248311135499
 </pre></div>
 </div>
 </div>
@@ -872,7 +868,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5640108286661416
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6682243580022865
 </pre></div>
 </div>
 </div>
@@ -885,7 +881,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.669932445971528
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.676189599468904
 </pre></div>
 </div>
 </div>
@@ -898,7 +894,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11450691024113502
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10651082451700213
 </pre></div>
 </div>
 </div>
@@ -968,7 +964,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.011810801333316098
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.010658876000282666
 </pre></div>
 </div>
 </div>
@@ -980,7 +976,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.468141873737636
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.677357662410228
 </pre></div>
 </div>
 </div>
@@ -1052,7 +1048,7 @@ def distancia_pares_cython(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.009755408999505258
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.008668749332476485
 </pre></div>
 </div>
 </div>
@@ -1064,7 +1060,7 @@ def distancia_pares_cython(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.620238816883779
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.210310922998534
 </pre></div>
 </div>
 </div>
@@ -1175,7 +1171,7 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06693277600000631
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0597245760000078
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1184,7 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.011243907666236433
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.010663292667838201
 </pre></div>
 </div>
 </div>
@@ -1200,12 +1196,76 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.952803774882837
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.600950650088078
 </pre></div>
 </div>
 </div>
 </div>
 <p>El resultado usando <code class="docutils literal notranslate"><span class="pre">float</span></code> es equivalente al de NumPy. Aunque se pierde un poco de rendimiento en comparación a la versión sin tipos fusionados</p>
+</div>
+<div class="section" id="usando-cython-fuera-de-jupyter">
+<h2><span class="section-number">33.7. </span>Usando Cython fuera de jupyter<a class="headerlink" href="#usando-cython-fuera-de-jupyter" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El código en cython se guarda tipicamente con extensión <code class="docutils literal notranslate"><span class="pre">pyx</span></code>. En primer lugar debemos procesar este código utilizando el ejecutable cython como se muestra a continuación:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cython -3 codigo.pyx
+</pre></div>
+</div>
+<p>Lo anterior genera un código en lenguaje C. La opción <code class="docutils literal notranslate"><span class="pre">-3</span></code> indica compatibilidad con Python 3. A modo de ejemplo utilizaremos <a class="reference external" href="https://github.com/phuijse/PythonBook/blob/master/contents/hpc/src/distancia_pares.pyx">distancia_pares.pyx</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+cython -3 src/distancia_pares.pyx
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego usamos nuestro compilador de C preferido apuntando adecuadamente a las cabeceras y librerías de Python 3. Para el script anterior necesitamos también apuntar a las cabeceras de las librerías que estamos importando (numpy).</p>
+<p>A continución se utiliza <a class="reference external" href="https://gcc.gnu.org/">GCC</a> para generar una libreria compartida (shared)</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Las rutas utilizadas se deben ajustar a su ambiente de conda y versión de Python. Lo más recomendable es escribir un <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> que se haga cargo de la compilación</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+export my_conda_env=&quot;/home/phuijse/.conda/envs/info147&quot;
+export python_path=${my_conda_env}&quot;/include/python3.8&quot;
+export numpy_path=${my_conda_env}&quot;/lib/python3.8/site-packages/numpy/core/include&quot;
+gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I${python_path} -I${numpy_path} -L/usr/lib -lm -lpython3  src/distancia_pares.c -o distancia_pares.so
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In file included from /home/phuijse/.conda/envs/info147/lib/python3.8/site-packages/numpy/core/include/numpy/ndarraytypes.h:1969,
+                 from /home/phuijse/.conda/envs/info147/lib/python3.8/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                 from /home/phuijse/.conda/envs/info147/lib/python3.8/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                 from src/distancia_pares.c:681:
+/home/phuijse/.conda/envs/info147/lib/python3.8/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning &quot;Using deprecated NumPy API, disable it with &quot; &quot;#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION&quot; [-Wcpp]
+   17 | #warning &quot;Using deprecated NumPy API, disable it with &quot; \
+      |  ^~~~~~~
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luego podemos importar este librería desde Python y comenzar a utilizalar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload 
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="kn">from</span> <span class="nn">distancia_pares</span> <span class="kn">import</span> <span class="n">distancia_pares_cython_multitipo</span> <span class="k">as</span> <span class="n">distancia_pares_externo</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">distancia_pares_externo</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+            <span class="n">distancia_pares_cython_multitipo</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">Ver también</p>
 <p>Lecturas sobre temas específicos de Cython:</p>
