@@ -1,52 +1,62 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>34. Computación paralela en Python &#8212; Computación Científica con Python</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -55,601 +65,371 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/parallel';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="35. Machine Learning: Conceptos clave" href="../sklearn/intro.html" />
     <link rel="prev" title="33. Acelerando Python con Cython" href="cython.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Computación Científica con Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/intro.html">
-   1. Computación científica y ciencia de datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/python3.html">
-   2. Repaso de Python 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/env_management.html">
-   3. Administración de ambientes y librerías
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/git.html">
-   4. Control de versiones
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/intro.html">1. Computación científica y ciencia de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/python3.html">2. Repaso de Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/env_management.html">3. Administración de ambientes y librerías</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/git.html">4. Control de versiones</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ambiente jupyter
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/intro.html">
-   5. ¿Qué es Jupyter?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/tutorial.html">
-   6. Breve tutorial de Jupyter/IPython
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/ipython_display.html">
-   7. Módulo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     IPython.display
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/beyond_python.html">
-   8. Otros lenguajes en Jupyter
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Análisis de datos con Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de datos con Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part1.html">
-   9. DataFrames de
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part2.html">
-   10. Importar y exportar datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part3.html">
-   11. Operaciones avanzadas con DataFrames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part4.html">
-   12. Tópicos extra
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part1.html">9. DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part2.html">10. Importar y exportar datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part3.html">11. Operaciones avanzadas con DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part4.html">12. Tópicos extra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Visualización de datos con Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualización de datos con Matplotlib</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/matplotlib1.html">
-   13. Introducción a Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/matplotlib2.html">
-   14. Tipos de gráfico en matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/goodvisualizations.html">
-   15. ¿Cómo hacer buenas visualizaciones?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/ipywidgets.html">
-   16. Interfaces de usuario en Jupyter con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ipywidgets
-    </span>
-   </code>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/matplotlib1.html">13. Introducción a Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/matplotlib2.html">14. Tipos de gráfico en matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/goodvisualizations.html">15. ¿Cómo hacer buenas visualizaciones?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/ipywidgets.html">16. Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matemática computacional con Numpy y Scipy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matemática computacional con Numpy y Scipy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/numpy1.html">
-   17. Arreglos n-dimensionales con NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/numpy2.html">
-   18. Operaciones sobre ndarrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/intro.html">
-   19. Intuiciones geométricas de álgeba lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/linalg1.html">
-   20. Resolviendo sistemas de ecuaciones lineales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/eigvals.html">
-   21. Problema de los valores y vectores propios
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../calculus/optimization.html">
-   22. Optimización matemática
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../calculus/ode_integration.html">
-   23. Ecuaciones Diferenciales Ordinarias
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy1.html">17. Arreglos n-dimensionales con NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy2.html">18. Operaciones sobre ndarrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/intro.html">19. Intuiciones geométricas de álgeba lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/linalg1.html">20. Resolviendo sistemas de ecuaciones lineales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/eigvals.html">21. Problema de los valores y vectores propios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus/optimization.html">22. Optimización matemática</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus/ode_integration.html">23. Ecuaciones Diferenciales Ordinarias</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estadística con Scipy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estadística con Scipy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/intro.html">
-   24. Introducción y fundamentos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/distributions.html">
-   25. Distribuciones de probabilidad
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/descriptive.html">
-   26. Estadística descriptiva
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/model_fitting.html">
-   27. Estadística inferencial: Ajuste de Modelos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/hypothesis.html">
-   28. Test de hipótesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/bootstrap.html">
-   29. Intervalos de confianza con
-   <em>
-    Bootstrap
-   </em>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">24. Introducción y fundamentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/distributions.html">25. Distribuciones de probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/descriptive.html">26. Estadística descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/model_fitting.html">27. Estadística inferencial: Ajuste de Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Alto rendimiento en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   30. Python y  Rendimiento
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="profiling.html">
-   31. Profiling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="opti1.html">
-   32. Optimizando código Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cython.html">
-   33. Acelerando Python con Cython
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   34. Computación paralela en Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">31. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opti1.html">32. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">33. Acelerando Python con Cython</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Computación paralela en Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Aprendizaje de máquinas con Scikit-Learn
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/intro.html">
-   35. Machine Learning: Conceptos clave
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/pca.html">
-   36. Reducción de dimensionalidad con PCA
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/kmeans.html">
-   37. Clustering con algoritmo K-means
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/naivebayes.html">
-   38. Clasificador Bayesiano “Ingenuo”
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">35. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">36. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">37. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">38. Clasificador Bayesiano “Ingenuo”</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
-                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/hpc/parallel.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
-                    class="fab fa-github"></i>repositorio</button></a>
-        <a class="issues-button"
-            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/hpc/parallel.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-        title="Modo de pantalla completa"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/hpc/parallel.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenido
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduccion">
-   34.1. Introducción
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">
-   34.2. El Global interpreter lock (GIL) de Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">
-   34.3. Computación multi-hilo con Cython y OpenMP
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">
-   34.4. Computación multi-proceso con IPython:
-   <em>
-    ipyparallel
-   </em>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-un-cliente">
-     34.4.1. Creación de un cliente
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">
-     34.4.2. Enviando trabajos usando interfaz Directa
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">
-     34.4.3. Funciones de Python en paralelo con
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       apply
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">
-     34.4.4. Compartiendo módulos y datos con los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">
-     34.4.5. Traspasando datos a todos los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">
-     34.4.6. Distribuyendo datos a los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#computo-paralelo-con-map">
-     34.4.7. Cómputo paralelo con
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       map
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">
-     34.4.8. Funciones remotas y paralelas con decoradores
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resultado-asincronos">
-     34.4.9. Resultado asíncronos
-    </a>
-   </li>
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phuijse/PythonBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/hpc/parallel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contents/hpc/parallel.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computación paralela en Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">34.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">34.2. El Global interpreter lock (GIL) de Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">34.3. Computación multi-hilo con Cython y OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">34.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">34.4.1. Creación de un cliente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">34.4.2. Enviando trabajos usando interfaz Directa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">34.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">34.4.4. Compartiendo módulos y datos con los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">34.4.5. Traspasando datos a todos los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">34.4.6. Distribuyendo datos a los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">34.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">34.4.8. Funciones remotas y paralelas con decoradores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">34.4.9. Resultado asíncronos</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Computación paralela en Python</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contenido </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduccion">
-   34.1. Introducción
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">
-   34.2. El Global interpreter lock (GIL) de Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">
-   34.3. Computación multi-hilo con Cython y OpenMP
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">
-   34.4. Computación multi-proceso con IPython:
-   <em>
-    ipyparallel
-   </em>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-un-cliente">
-     34.4.1. Creación de un cliente
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">
-     34.4.2. Enviando trabajos usando interfaz Directa
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">
-     34.4.3. Funciones de Python en paralelo con
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       apply
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">
-     34.4.4. Compartiendo módulos y datos con los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">
-     34.4.5. Traspasando datos a todos los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">
-     34.4.6. Distribuyendo datos a los engines
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#computo-paralelo-con-map">
-     34.4.7. Cómputo paralelo con
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       map
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">
-     34.4.8. Funciones remotas y paralelas con decoradores
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resultado-asincronos">
-     34.4.9. Resultado asíncronos
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="computacion-paralela-en-python">
-<h1><span class="section-number">34. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="introduccion">
-<h2><span class="section-number">34.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Enlazar permanentemente con este título">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="computacion-paralela-en-python">
+<h1><span class="section-number">34. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Permalink to this heading">#</a></h1>
+<section id="introduccion">
+<h2><span class="section-number">34.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h2>
 <p>En capítulos anteriores hemos visto como ganar rendimiento en operaciones SIMD usando NumPy. Luego aprendimos a conectar con lenguajes de bajo nivel usando Cython</p>
 <p>En este capítulo veremos una opción para ganar rendimiento en tareas limitados en CPU que sean “separables”.</p>
 <dl class="simple myst">
@@ -674,9 +454,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>¿Existe una estructura de tipo pipeline?</p></li>
 </ul>
 <p>Si alguna de estas respuestas es afirmativa entonces lo que resta es usar alguna herramienta de programación paralela para reescribir dicho sector del programa. A continuación veremos algunas herramientas para Python</p>
-</div>
-<div class="section" id="el-global-interpreter-lock-gil-de-python">
-<h2><span class="section-number">34.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="el-global-interpreter-lock-gil-de-python">
+<h2><span class="section-number">34.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Permalink to this heading">#</a></h2>
 <p>El manejo de memoria de CPython no es <em>thread-safe</em>. Por esta razón todo código escrito en Python está sujeto a un <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a></strong> que lo proteje conocido como <strong>Global Interpreter Lock (GIL)</strong></p>
 <p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU</p>
 <p>En esta lección exploraremos dos alternativas generales</p>
@@ -688,13 +468,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p><strong>3:</strong> Compilar NumPy contra una librería de álgebra lineal de alto rendimiento  como MKL, ATLAS, Openblas. Estas librerías usan código de bajo nivel que levanta el GIL</p></li>
 </ul>
-</div>
-<div class="section" id="computacion-multi-hilo-con-cython-y-openmp">
-<h2><span class="section-number">34.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="computacion-multi-hilo-con-cython-y-openmp">
+<h2><span class="section-number">34.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.openmp.org/">OpenMP</a> es una API multiplataforma para computación paralela en C, C++ y Fortran. Por ejemplo en C/C++ se puede escribir un <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> usando directivas de compilador (pragma) de OpenMP</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel for</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Cython tiene un modulo llamado <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/parallelism.html"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a> que usa OpenMP como backend. Para ocupar OpenMP desde Cython es necesario</p>
@@ -863,18 +643,18 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="computacion-multi-proceso-con-ipython-ipyparallel">
-<h2><span class="section-number">34.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="computacion-multi-proceso-con-ipython-ipyparallel">
+<h2><span class="section-number">34.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/">ipyparallel</a> es un paquete independiente pero complementario de IPython para hacer computación multi-proceso</p>
 <p><strong>Instalación con conda</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install ipyparallel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>ipyparallel
 </pre></div>
 </div>
 <p>Lo anterior debería instalar en su ambiente los ejecutables  <code class="docutils literal notranslate"><span class="pre">ipcluster</span></code>, <code class="docutils literal notranslate"><span class="pre">ipcontroller</span></code> e <code class="docutils literal notranslate"><span class="pre">ipengine</span></code>. Adicionalmente se crea una pestaña llamada “Ipython clusters” en la interfaz de jupyter como muestra la siguiente captura:</p>
 <a class="reference internal image-reference" href="../../_images/ipyparallel1.png"><img alt="../../_images/ipyparallel1.png" src="../../_images/ipyparallel1.png" style="width: 400px;" /></a>
 <p>Si la interfaz no se instaló de forma automática utilice el comando:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster nbextension <span class="nb">enable</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster<span class="w"> </span>nbextension<span class="w"> </span><span class="nb">enable</span>
 </pre></div>
 </div>
 <p><strong>Conceptos y uso básico</strong></p>
@@ -884,14 +664,14 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <li><p>Controller: Es una interfaz para comunicarnos con el/los engine/s. La conexión se hace a través del objeto <code class="docutils literal notranslate"><span class="pre">Client</span></code></p></li>
 </ul>
 <p>Para iniciar un controlador de forma automática podemos abrir un terminal y escribir</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster start -n <span class="m">4</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster<span class="w"> </span>start<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span>
 </pre></div>
 </div>
 <p>o utilizar los controles que se encuentran en la pestaña “IPython clusters”</p>
 <a class="reference internal image-reference" href="../../_images/ipyparallel2.png"><img alt="../../_images/ipyparallel2.png" src="../../_images/ipyparallel2.png" style="width: 700px;" /></a>
 <p>Con esto hemos creado un controlador y cuatro engines, todos en nuestra máquina (localhost)</p>
-<div class="section" id="creacion-de-un-cliente">
-<h3><span class="section-number">34.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Enlazar permanentemente con este título">¶</a></h3>
+<section id="creacion-de-un-cliente">
+<h3><span class="section-number">34.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos ipyparallel</span>
@@ -910,14 +690,14 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <p>Cada engine tiene una id asociada. Para enviarle trabajo a los engines debemos crear una intefaz llamada <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/details.html#views"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></p>
-<p>Existen dos tipos de <code class="docutils literal notranslate"><span class="pre">View</span></code>: <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/direct.html"><em>Direct</em></a> y <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html"><em>Task</em></a></p>
+<p>Existen dos tipos de <code class="docutils literal notranslate"><span class="pre">View</span></code>: <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/direct.html#"><em>Direct</em></a> y <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html#"><em>Task</em></a></p>
 <ul class="simple">
 <li><p>La primera es controlada de forma explicita por el usuario</p></li>
 <li><p>La segunda es controlada por el sistema para <em>balancear la carga</em></p></li>
 </ul>
-</div>
-<div class="section" id="enviando-trabajos-usando-interfaz-directa">
-<h3><span class="section-number">34.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="enviando-trabajos-usando-interfaz-directa">
+<h3><span class="section-number">34.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Permalink to this heading">#</a></h3>
 <p>Una <code class="docutils literal notranslate"><span class="pre">View</span></code> de tipo <em>Direct</em> requiere que el usuario especifique los engines que va a usar. Esto se hace de forma similar a los <em>slices</em> en listas/ndarray</p>
 <p>Por ejemplo para crear una interfaz que utilice todas las engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:]</span></code>. En cambio si sólo queremos utilizar las dos primeras engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:2]</span></code></p>
 <p>La vista puede crearse como bloqueante o no bloqueante (asíncrona) modificando el atributo booleano <code class="docutils literal notranslate"><span class="pre">block</span></code>. Una vista “bloqueante” espera a que el resultado de todos los engines sean retornado para devolver el control</p>
@@ -960,9 +740,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <li><p>Cuando trabajamos en forma síncrona el resultado retorna al final de la ejecuación</p></li>
 <li><p>Cuando trabajamos de forma asíncrona se retorna un objeto <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/asyncresult.html#parallel-asyncresult"><code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code></a> que puede ser consultado más tarde por el resultado</p></li>
 </ul>
-</div>
-<div class="section" id="funciones-de-python-en-paralelo-con-apply">
-<h3><span class="section-number">34.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="funciones-de-python-en-paralelo-con-apply">
+<h3><span class="section-number">34.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Permalink to this heading">#</a></h3>
 <p>Sea una función <code class="docutils literal notranslate"><span class="pre">f</span></code> podemos ejecutarla en todos los engines usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
@@ -980,9 +760,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="compartiendo-modulos-y-datos-con-los-engines">
-<h3><span class="section-number">34.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="compartiendo-modulos-y-datos-con-los-engines">
+<h3><span class="section-number">34.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Es importante tener claro que, al contrario del paralelismo multi-hilo, los procesos en los engines no comparten memoria y no ven las variables de nuestro entorno local</p>
 <p>Por ejemplo si queremos usar una función del módulo <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
 <div class="cell docutils container">
@@ -1044,9 +824,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;os&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="traspasando-datos-a-todos-los-engines">
-<h3><span class="section-number">34.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="traspasando-datos-a-todos-los-engines">
+<h3><span class="section-number">34.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Para enviar un objeto de Python que hayamos definido en el ambiente local podemos usar la función <code class="docutils literal notranslate"><span class="pre">push</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
@@ -1085,9 +865,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="distribuyendo-datos-a-los-engines">
-<h3><span class="section-number">34.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="distribuyendo-datos-a-los-engines">
+<h3><span class="section-number">34.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Si queremos distribuir datos en los engines podemos usar <code class="docutils literal notranslate"><span class="pre">scatter</span></code>. Esto sirve por ejemplo para procesar elementos de una lista en paralelo.</p>
 <p>La función <code class="docutils literal notranslate"><span class="pre">scatter</span></code> recibe un string con el nombre de la variable (tal como lo recibirá cada proceso) y un arreglo con los valores de la variable</p>
 <p>Para recuperar resultados a partir de los engine se utiliza la función <code class="docutils literal notranslate"><span class="pre">gather</span></code></p>
@@ -1176,9 +956,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="computo-paralelo-con-map">
-<h3><span class="section-number">34.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="computo-paralelo-con-map">
+<h3><span class="section-number">34.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Permalink to this heading">#</a></h3>
 <p>La función <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">map</span></code> de Python aplica una función sobre una secuencia de datos uno por uno. En general, si vemos un <code class="docutils literal notranslate"><span class="pre">map</span></code> en nuestro código, paralelizarlo es muy sencillo</p>
 <p>La librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> provee una versión paralela de <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.DirectView.map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a> que se ocupa sobre una vista</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">sequences</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
@@ -1244,9 +1024,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="funciones-remotas-y-paralelas-con-decoradores">
-<h3><span class="section-number">34.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="funciones-remotas-y-paralelas-con-decoradores">
+<h3><span class="section-number">34.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Permalink to this heading">#</a></h3>
 <p>Podemos crear una función que es siempre ejecutada por los engines usando el decorador <code class="docutils literal notranslate"><span class="pre">remote</span></code>. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1304,9 +1084,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="resultado-asincronos">
-<h3><span class="section-number">34.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="resultado-asincronos">
+<h3><span class="section-number">34.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Permalink to this heading">#</a></h3>
 <p>El resultado asíncrono es un objeto de clase <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/asyncresult.html#parallel-asyncresult"><code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code></a>. Sus funciones más relevantes son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code> : Retorna un booleano con el estado de la tarea</p></li>
@@ -1351,14 +1131,14 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <p>Otras funcionalidades de ipyparallel no vistas en esta lección</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/magics.html">Magias de ipyparallel</a></p></li>
-<li><p>Balance de carga automático en ipyparallel con la <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html">interfaz Task</a></p></li>
+<li><p>Balance de carga automático en ipyparallel con la <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html#">interfaz Task</a></p></li>
 <li><p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/dag_dependencies.html">Dependencias entre procesos paralelos</a></p></li>
 <li><p><strong>Computación distribuida</strong> en base a <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/mpi.html">MPI</a>  usando <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/process.html#using-the-ipcontroller-and-ipengine-commands"><code class="docutils literal notranslate"><span class="pre">ipengine</span></code> e <code class="docutils literal notranslate"><span class="pre">ipcontroller</span></code></a></p></li>
 </ul>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1372,7 +1152,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./contents/hpc"
         },
         predefinedOutput: true
@@ -1380,44 +1160,113 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="cython.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">33. </span>Acelerando Python con Cython</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cython.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Acelerando Python con Cython</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../sklearn/intro.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../sklearn/intro.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title"><span class="section-number">35. </span>Machine Learning: Conceptos clave</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Por Pablo Huijse Heise<br/>
-    
-        &copy; Derechos de autor 2022.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">34.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">34.2. El Global interpreter lock (GIL) de Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">34.3. Computación multi-hilo con Cython y OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">34.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">34.4.1. Creación de un cliente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">34.4.2. Enviando trabajos usando interfaz Directa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">34.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">34.4.4. Compartiendo módulos y datos con los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">34.4.5. Traspasando datos a todos los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">34.4.6. Distribuyendo datos a los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">34.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">34.4.8. Funciones remotas y paralelas con decoradores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">34.4.9. Resultado asíncronos</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Pablo Huijse Heise
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

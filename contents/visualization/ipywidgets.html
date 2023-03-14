@@ -1,637 +1,439 @@
 
+
 <!DOCTYPE html>
 
-<html lang="es">
+
+<html lang="es" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>16. Interfaces de usuario en Jupyter con ipywidgets &#8212; Computación Científica con Python</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/visualization/ipywidgets';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="17. Arreglos n-dimensionales con NumPy" href="../numpy/numpy1.html" />
     <link rel="prev" title="15. ¿Cómo hacer buenas visualizaciones?" href="goodvisualizations.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="es">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Computación Científica con Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introducción
- </span>
-</p>
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Computación Científica con Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/intro.html">
-   1. Computación científica y ciencia de datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/python3.html">
-   2. Repaso de Python 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/env_management.html">
-   3. Administración de ambientes y librerías
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../preliminaries/git.html">
-   4. Control de versiones
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/intro.html">1. Computación científica y ciencia de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/python3.html">2. Repaso de Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/env_management.html">3. Administración de ambientes y librerías</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminaries/git.html">4. Control de versiones</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Ambiente jupyter
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/intro.html">
-   5. ¿Qué es Jupyter?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/tutorial.html">
-   6. Breve tutorial de Jupyter/IPython
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/ipython_display.html">
-   7. Módulo
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     IPython.display
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyter/beyond_python.html">
-   8. Otros lenguajes en Jupyter
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Análisis de datos con Pandas
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de datos con Pandas</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part1.html">
-   9. DataFrames de
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part2.html">
-   10. Importar y exportar datos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part3.html">
-   11. Operaciones avanzadas con DataFrames
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/part4.html">
-   12. Tópicos extra
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part1.html">9. DataFrames de <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part2.html">10. Importar y exportar datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part3.html">11. Operaciones avanzadas con DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/part4.html">12. Tópicos extra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Visualización de datos con Matplotlib
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Visualización de datos con Matplotlib</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="matplotlib1.html">
-   13. Introducción a Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matplotlib2.html">
-   14. Tipos de gráfico en matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="goodvisualizations.html">
-   15. ¿Cómo hacer buenas visualizaciones?
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   16. Interfaces de usuario en Jupyter con
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ipywidgets
-    </span>
-   </code>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib1.html">13. Introducción a Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib2.html">14. Tipos de gráfico en matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goodvisualizations.html">15. ¿Cómo hacer buenas visualizaciones?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Matemática computacional con Numpy y Scipy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Matemática computacional con Numpy y Scipy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/numpy1.html">
-   17. Arreglos n-dimensionales con NumPy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../numpy/numpy2.html">
-   18. Operaciones sobre ndarrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/intro.html">
-   19. Intuiciones geométricas de álgeba lineal
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/linalg1.html">
-   20. Resolviendo sistemas de ecuaciones lineales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../linalg/eigvals.html">
-   21. Problema de los valores y vectores propios
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../calculus/optimization.html">
-   22. Optimización matemática
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../calculus/ode_integration.html">
-   23. Ecuaciones Diferenciales Ordinarias
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy1.html">17. Arreglos n-dimensionales con NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy2.html">18. Operaciones sobre ndarrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/intro.html">19. Intuiciones geométricas de álgeba lineal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/linalg1.html">20. Resolviendo sistemas de ecuaciones lineales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linalg/eigvals.html">21. Problema de los valores y vectores propios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus/optimization.html">22. Optimización matemática</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus/ode_integration.html">23. Ecuaciones Diferenciales Ordinarias</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Estadística con Scipy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estadística con Scipy</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/intro.html">
-   24. Introducción y fundamentos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/distributions.html">
-   25. Distribuciones de probabilidad
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/descriptive.html">
-   26. Estadística descriptiva
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/model_fitting.html">
-   27. Estadística inferencial: Ajuste de Modelos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/hypothesis.html">
-   28. Test de hipótesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../statistics/bootstrap.html">
-   29. Intervalos de confianza con
-   <em>
-    Bootstrap
-   </em>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">24. Introducción y fundamentos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/distributions.html">25. Distribuciones de probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/descriptive.html">26. Estadística descriptiva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/model_fitting.html">27. Estadística inferencial: Ajuste de Modelos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Alto rendimiento en Python
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/intro.html">
-   30. Python y  Rendimiento
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/profiling.html">
-   31. Profiling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/opti1.html">
-   32. Optimizando código Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/cython.html">
-   33. Acelerando Python con Cython
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../hpc/parallel.html">
-   34. Computación paralela en Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/intro.html">30. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/profiling.html">31. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/opti1.html">32. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/cython.html">33. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/parallel.html">34. Computación paralela en Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Aprendizaje de máquinas con Scikit-Learn
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/intro.html">
-   35. Machine Learning: Conceptos clave
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/pca.html">
-   36. Reducción de dimensionalidad con PCA
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/kmeans.html">
-   37. Clustering con algoritmo K-means
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sklearn/naivebayes.html">
-   38. Clasificador Bayesiano “Ingenuo”
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">35. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">36. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">37. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">38. Clasificador Bayesiano “Ingenuo”</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
-                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/contents/visualization/ipywidgets.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/phuijse/PythonBook"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
-                    class="fab fa-github"></i>repositorio</button></a>
-        <a class="issues-button"
-            href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/visualization/ipywidgets.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/phuijse/PythonBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/phuijse/PythonBook/issues/new?title=Issue%20on%20page%20%2Fcontents/visualization/ipywidgets.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-        title="Modo de pantalla completa"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/phuijse/PythonBook/master?urlpath=tree/contents/visualization/ipywidgets.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/contents/visualization/ipywidgets.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interfaces de usuario en Jupyter con ipywidgets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contenido
+            <div>
+                <h2> Contenido </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-un-widget">
-   16.1. ¿Qué es un widget?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">
-   16.2. Creación semi-automática de widgets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creacion-manual-de-widgets">
-   16.3. Creación manual de widgets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widgets-numericos">
-     16.3.1. Widgets numéricos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widgets-de-texto">
-     16.3.2. Widgets de texto
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">
-     16.3.3. Objeto Layout y atributo style
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-de-tipo-contenedor">
-     16.3.4. Widget de tipo contenedor
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callbacks-y-eventos">
-   16.4. Callbacks y eventos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">
-     16.4.1. Widget Button y atributo
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       on_click
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#atributo-observe">
-     16.4.2. Atributo
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       observe
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-output">
-     16.4.3. widget Output
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-widget">16.1. ¿Qué es un widget?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">16.2. Creación semi-automática de widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-manual-de-widgets">16.3. Creación manual de widgets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets-numericos">16.3.1. Widgets numéricos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets-de-texto">16.3.2. Widgets de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">16.3.3. Objeto Layout y atributo style</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-de-tipo-contenedor">16.3.4. Widget de tipo contenedor</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callbacks-y-eventos">16.4. Callbacks y eventos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">16.4.1. Widget Button y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributo-observe">16.4.2. Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-output">16.4.3. widget Output</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Interfaces de usuario en Jupyter con ipywidgets</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contenido </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#que-es-un-widget">
-   16.1. ¿Qué es un widget?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">
-   16.2. Creación semi-automática de widgets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creacion-manual-de-widgets">
-   16.3. Creación manual de widgets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widgets-numericos">
-     16.3.1. Widgets numéricos
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widgets-de-texto">
-     16.3.2. Widgets de texto
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">
-     16.3.3. Objeto Layout y atributo style
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-de-tipo-contenedor">
-     16.3.4. Widget de tipo contenedor
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#callbacks-y-eventos">
-   16.4. Callbacks y eventos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">
-     16.4.1. Widget Button y atributo
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       on_click
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#atributo-observe">
-     16.4.2. Atributo
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       observe
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#widget-output">
-     16.4.3. widget Output
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="interfaces-de-usuario-en-jupyter-con-ipywidgets">
-<h1><span class="section-number">16. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#interfaces-de-usuario-en-jupyter-con-ipywidgets" title="Enlazar permanentemente con este título">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interfaces-de-usuario-en-jupyter-con-ipywidgets">
+<h1><span class="section-number">16. </span>Interfaces de usuario en Jupyter con <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code><a class="headerlink" href="#interfaces-de-usuario-en-jupyter-con-ipywidgets" title="Permalink to this heading">#</a></h1>
 <p>Jupyter y IPython permiten no sólo visualizar datos sino también interactuar con ellos en tiempo real</p>
 <p>Para lograr esto estudiaremos los componentes de la librería <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/"><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code></a></p>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
 <p>Los callbacks de los widgets requieren conexión con un intérprete de IPython. Si estás viendo este cuadernillo desde <a class="reference external" href="http://phuijse.github.io/PythonBook">phuijse.github.io/PythonBook</a> entonces los widgets no se visualizarán correctamente</p>
 </div>
-<div class="section" id="que-es-un-widget">
-<h2><span class="section-number">16.1. </span>¿Qué es un widget?<a class="headerlink" href="#que-es-un-widget" title="Enlazar permanentemente con este título">¶</a></h2>
+<section id="que-es-un-widget">
+<h2><span class="section-number">16.1. </span>¿Qué es un widget?<a class="headerlink" href="#que-es-un-widget" title="Permalink to this heading">#</a></h2>
 <p>Un widget es un elemento gráfico que permite interactuar con una aplicación</p>
 <p>Un conjunto de widgets forman una interfaz de usuario gráfica (Graphical user interface o GUI)</p>
 <p>La siguiente imagen muestra los widgets típicos que se encuentran en las aplicaciones de PC</p>
@@ -654,9 +456,9 @@ const thebe_selector_output = ".output, .cell_output"
 jupyter nbextension enable --py widgetsnbextension
 </pre></div>
 </div>
-</div>
-<div class="section" id="creacion-semi-automatica-de-widgets">
-<h2><span class="section-number">16.2. </span>Creación semi-automática de widgets<a class="headerlink" href="#creacion-semi-automatica-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="creacion-semi-automatica-de-widgets">
+<h2><span class="section-number">16.2. </span>Creación semi-automática de widgets<a class="headerlink" href="#creacion-semi-automatica-de-widgets" title="Permalink to this heading">#</a></h2>
 <p>Una manera rápida de implementar widgets es usar el  <strong>decorador <code class="docutils literal notranslate"><span class="pre">interact</span></code></strong></p>
 <blockquote>
 <div><p>Al aplicar el decorador a una función convertiremos sus argumentos de entrada en widgets</p>
@@ -698,17 +500,15 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3687a27618804ad1b7742236c4f5324b", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3687a27618804ad1b7742236c4f5324b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="creacion-manual-de-widgets">
-<h2><span class="section-number">16.3. </span>Creación manual de widgets<a class="headerlink" href="#creacion-manual-de-widgets" title="Enlazar permanentemente con este título">¶</a></h2>
+</section>
+<section id="creacion-manual-de-widgets">
+<h2><span class="section-number">16.3. </span>Creación manual de widgets<a class="headerlink" href="#creacion-manual-de-widgets" title="Permalink to this heading">#</a></h2>
 <p>Para mayor control podemos crear los widgets de nuestra preferencia con sus respectivos constructores y luego enlazarlos a una función usando   manualmente con la <strong>función <code class="docutils literal notranslate"><span class="pre">interact</span></code></strong></p>
 <p>A continuación revisaremos algunos de ellos</p>
-<div class="section" id="widgets-numericos">
-<h3><span class="section-number">16.3.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Numeric-widgets">Widgets numéricos</a><a class="headerlink" href="#widgets-numericos" title="Enlazar permanentemente con este título">¶</a></h3>
+<section id="widgets-numericos">
+<h3><span class="section-number">16.3.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Numeric-widgets">Widgets numéricos</a><a class="headerlink" href="#widgets-numericos" title="Permalink to this heading">#</a></h3>
 <p>Un desplazador o <em>slider</em> es un widget cuyos argumentos son</p>
 <ul class="simple">
 <li><p>min: valor donde inicia</p></li>
@@ -728,9 +528,7 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d8c482f7113d409e9852cae231551252", "version_major": 2, "version_minor": 0}
-</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.&lt;lambda&gt;(a)&gt;
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d8c482f7113d409e9852cae231551252", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.&lt;lambda&gt;(a)&gt;
 </pre></div>
 </div>
 </div>
@@ -750,9 +548,9 @@ jupyter nbextension enable --py widgetsnbextension
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">keys</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="widgets-de-texto">
-<h3><span class="section-number">16.3.2. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#String-widgets">Widgets de texto</a><a class="headerlink" href="#widgets-de-texto" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="widgets-de-texto">
+<h3><span class="section-number">16.3.2. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#String-widgets">Widgets de texto</a><a class="headerlink" href="#widgets-de-texto" title="Permalink to this heading">#</a></h3>
 <p>Sirven para capturar y mostrar strings</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Text</span></code>: Da una linea en blanco para escribir, al apretar Enter se captura el string</p></li>
@@ -773,13 +571,11 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ba9b299397004bc585a9076a85a9751b", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ba9b299397004bc585a9076a85a9751b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="objeto-layout-y-atributo-style">
-<h3><span class="section-number">16.3.3. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Styling.html">Objeto Layout y atributo style</a><a class="headerlink" href="#objeto-layout-y-atributo-style" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="objeto-layout-y-atributo-style">
+<h3><span class="section-number">16.3.3. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Styling.html">Objeto Layout y atributo style</a><a class="headerlink" href="#objeto-layout-y-atributo-style" title="Permalink to this heading">#</a></h3>
 <p>El objeto <code class="docutils literal notranslate"><span class="pre">Layout</span></code> sirve para dar estilo a los <em>widgets</em></p>
 <p>El estilo se explicita usando <a class="reference external" href="https://www.w3schools.com/css/">CSS</a></p>
 <p>Algunos argumentos útiles son</p>
@@ -814,13 +610,11 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "10fbc22ad1cd4a108e22d897edc56556", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "10fbc22ad1cd4a108e22d897edc56556", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="widget-de-tipo-contenedor">
-<h3><span class="section-number">16.3.4. </span>Widget de tipo contenedor<a class="headerlink" href="#widget-de-tipo-contenedor" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="widget-de-tipo-contenedor">
+<h3><span class="section-number">16.3.4. </span>Widget de tipo contenedor<a class="headerlink" href="#widget-de-tipo-contenedor" title="Permalink to this heading">#</a></h3>
 <p>Son widgets que sirven para organizar otros widgets</p>
 <p>Por ejemplo</p>
 <ul class="simple">
@@ -839,16 +633,14 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "bd504fab22414c5abaf1845a1cccf778", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bd504fab22414c5abaf1845a1cccf778", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-</div>
-<div class="section" id="callbacks-y-eventos">
-<h2><span class="section-number">16.4. </span>Callbacks y eventos<a class="headerlink" href="#callbacks-y-eventos" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="section" id="widget-button-y-atributo-on-click">
-<h3><span class="section-number">16.4.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Button">Widget Button</a> y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code><a class="headerlink" href="#widget-button-y-atributo-on-click" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+</section>
+<section id="callbacks-y-eventos">
+<h2><span class="section-number">16.4. </span>Callbacks y eventos<a class="headerlink" href="#callbacks-y-eventos" title="Permalink to this heading">#</a></h2>
+<section id="widget-button-y-atributo-on-click">
+<h3><span class="section-number">16.4.1. </span><a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html#Button">Widget Button</a> y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code><a class="headerlink" href="#widget-button-y-atributo-on-click" title="Permalink to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="c1"># Texto en el botón</span>
                <span class="n">button_style</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1"># Estilo del botón: &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;</span>
                <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="c1"># Icono del botón</span>
@@ -878,13 +670,11 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d6bce92e94af49949a44634cb402db87", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d6bce92e94af49949a44634cb402db87", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="atributo-observe">
-<h3><span class="section-number">16.4.2. </span>Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#atributo-observe" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="atributo-observe">
+<h3><span class="section-number">16.4.2. </span>Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code><a class="headerlink" href="#atributo-observe" title="Permalink to this heading">#</a></h3>
 <p>Podemos agregar acciones a otros widgets con el método <code class="docutils literal notranslate"><span class="pre">observe</span></code></p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
@@ -914,15 +704,13 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d2528c7e2c60476986159b7c700cdf09", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d2528c7e2c60476986159b7c700cdf09", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-<div class="section" id="widget-output">
-<h3><span class="section-number">16.4.3. </span>widget Output<a class="headerlink" href="#widget-output" title="Enlazar permanentemente con este título">¶</a></h3>
+</section>
+<section id="widget-output">
+<h3><span class="section-number">16.4.3. </span>widget Output<a class="headerlink" href="#widget-output" title="Permalink to this heading">#</a></h3>
 <p>Este es un widget especial que puede usarse para redireccionar las salidas de otros widgets</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Primero creamos y mostrarmos Output</p></li>
 <li><p>Luego lo usamos de contexto para la salida de otro widget</p></li>
 </ol>
@@ -935,9 +723,7 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5a07aa00e30f4dcea56dadbe4ab57d5b", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "5a07aa00e30f4dcea56dadbe4ab57d5b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -954,13 +740,11 @@ jupyter nbextension enable --py widgetsnbextension
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "4b2ae194d736470888ce349600d55630", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4b2ae194d736470888ce349600d55630", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -974,7 +758,7 @@ jupyter nbextension enable --py widgetsnbextension
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./contents/visualization"
         },
         predefinedOutput: true
@@ -982,44 +766,113 @@ jupyter nbextension enable --py widgetsnbextension
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="goodvisualizations.html" title="anterior página">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">anterior</p>
-            <p class="prev-next-title"><span class="section-number">15. </span>¿Cómo hacer buenas visualizaciones?</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="goodvisualizations.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>¿Cómo hacer buenas visualizaciones?</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../numpy/numpy1.html" title="siguiente página">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../numpy/numpy1.html"
+       title="siguiente página">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
         <p class="prev-next-title"><span class="section-number">17. </span>Arreglos n-dimensionales con NumPy</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      Por Pablo Huijse Heise<br/>
-    
-        &copy; Derechos de autor 2022.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-un-widget">16.1. ¿Qué es un widget?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-semi-automatica-de-widgets">16.2. Creación semi-automática de widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-manual-de-widgets">16.3. Creación manual de widgets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets-numericos">16.3.1. Widgets numéricos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets-de-texto">16.3.2. Widgets de texto</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objeto-layout-y-atributo-style">16.3.3. Objeto Layout y atributo style</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-de-tipo-contenedor">16.3.4. Widget de tipo contenedor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#callbacks-y-eventos">16.4. Callbacks y eventos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-button-y-atributo-on-click">16.4.1. Widget Button y atributo <code class="docutils literal notranslate"><span class="pre">on_click</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributo-observe">16.4.2. Atributo <code class="docutils literal notranslate"><span class="pre">observe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-output">16.4.3. widget Output</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
 
-      </div>
-    </div>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Pablo Huijse Heise
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
