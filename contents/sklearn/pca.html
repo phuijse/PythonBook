@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>36. Reducción de dimensionalidad con PCA &#8212; Computación Científica con Python</title>
+    <title>31. Reducción de dimensionalidad con PCA &#8212; Computación Científica con Python</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/sklearn/pca';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="37. Clustering con algoritmo K-means" href="kmeans.html" />
-    <link rel="prev" title="35. Machine Learning: Conceptos clave" href="intro.html" />
+    <link rel="next" title="32. Clustering con algoritmo K-means" href="kmeans.html" />
+    <link rel="prev" title="30. Machine Learning: Conceptos clave" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter y IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
@@ -193,20 +193,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../hpc/intro.html">30. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/profiling.html">31. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/opti1.html">32. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/cython.html">33. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/parallel.html">34. Computación paralela en Python</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">35. Machine Learning: Conceptos clave</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Reducción de dimensionalidad con PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kmeans.html">37. Clustering con algoritmo K-means</a></li>
-<li class="toctree-l1"><a class="reference internal" href="naivebayes.html">38. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">31. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kmeans.html">32. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naivebayes.html">33. Clasificador Bayesiano “Ingenuo”</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hpc/intro.html">34. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/profiling.html">35. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/opti1.html">36. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/cython.html">37. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/parallel.html">38. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -400,10 +400,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">36.1. Formalismo matemático</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-utilizando-scipy">36.2. Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">36.3. Reducción de dimensionalidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">36.4. Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">31.1. Formalismo matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-utilizando-scipy">31.2. Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">31.3. Reducción de dimensionalidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">31.4. Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -416,17 +416,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reduccion-de-dimensionalidad-con-pca">
-<h1><span class="section-number">36. </span>Reducción de dimensionalidad con PCA<a class="headerlink" href="#reduccion-de-dimensionalidad-con-pca" title="Permalink to this heading">#</a></h1>
-<p><em>Principal Component Analysis</em> (PCA) es un método clásico que permite proyectar nuestros datos y reducir su dimensionalidad. Primero se revisa el método de forma teórica y luego su implementación en la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></p>
+<h1><span class="section-number">31. </span>Reducción de dimensionalidad con PCA<a class="headerlink" href="#reduccion-de-dimensionalidad-con-pca" title="Permalink to this heading">#</a></h1>
+<p><em>Principal Component Analysis</em> (PCA) es un método clásico que permite proyectar nuestros datos y reducir su dimensionalidad. Primero se revisa el método de forma teórica y luego su implementación en la librería <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <section id="formalismo-matematico">
-<h2><span class="section-number">36.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">31.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
 <p>PCA es un procedimiento estadístico que busca una <strong>transformación ortogonal</strong> que <strong>maximice la varianza</strong> de los datos.</p>
 <p>Matemáticamente, podemos escribir un conjunto de datos <span class="math notranslate nohighlight">\(\{x_i\}\)</span> con <span class="math notranslate nohighlight">\(i=1,2,\ldots, N\)</span> y <span class="math notranslate nohighlight">\(x_i \in \mathbb{R}^D\)</span>, como una matriz <span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N\times D}\)</span>. La transformación en PCA está representada por una matriz <span class="math notranslate nohighlight">\(W \in \mathbb{R}^{D\times D}\)</span> y los datos transformados se obtienen mediante una multiplicación matricial</p>
 <div class="math notranslate nohighlight">
 \[
 \hat X = X W
 \]</div>
-<p>Una transformación es ortogonal si cumple <span class="math notranslate nohighlight">\(W^T W = I\)</span> es decir que la transformación traspuesta es equivalente a su inversa. Para encontrar una transformación que maximice la varianza de los datos debemos obtener primero <span class="math notranslate nohighlight">\(C\)</span> la matriz de covarianza de <span class="math notranslate nohighlight">\(X\)</span>. Asumiendo que las columnas de <span class="math notranslate nohighlight">\(X\)</span> están centradas (su media es cero), la covarianza de <span class="math notranslate nohighlight">\(X\)</span> se define como</p>
+<p>Una transformación es ortogonal si cumple <span class="math notranslate nohighlight">\(W^T W = I\)</span> es decir que la transformación traspuesta es equivalente a su inversa. Para encontrar una transformación que maximice la varianza de los datos debemos obtener primero <span class="math notranslate nohighlight">\(C\)</span> la matriz de covarianza de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Asumiendo que las columnas de <span class="math notranslate nohighlight">\(X\)</span> están centradas (su media es cero), la covarianza de <span class="math notranslate nohighlight">\(X\)</span> se define como</p>
 <div class="math notranslate nohighlight">
 \[
 C = \frac{1}{N} X^T X
@@ -450,14 +451,14 @@ C = \frac{1}{N} X^T X
 (C - \Lambda) W &amp;= 0 \nonumber
 \end{align}
 \end{split}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(\Lambda = \lambda I\)</span> y <span class="math notranslate nohighlight">\(\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_D)\)</span></p>
+<p>donde <span class="math notranslate nohighlight">\(\Lambda = \lambda I\)</span> y <span class="math notranslate nohighlight">\(\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_D)\)</span>.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
 <p>Este problema de optimización corresponde al problema de los valores y vectores propios (<span class="math notranslate nohighlight">\(\lambda\)</span> y <span class="math notranslate nohighlight">\(W\)</span>) de la matriz <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </div>
 </section>
 <section id="implementacion-utilizando-scipy">
-<h2><span class="section-number">36.2. </span>Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#implementacion-utilizando-scipy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">31.2. </span>Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code><a class="headerlink" href="#implementacion-utilizando-scipy" title="Permalink to this heading">#</a></h2>
 <p>A modo de ejemplo sean los siguientes datos bidimensionales</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -514,7 +515,7 @@ C = \frac{1}{N} X^T X
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1ec4138a1cc3786bfcec4e8d73da481b6bff4d1e1acc26f80005abde212ebe35.png" src="../../_images/1ec4138a1cc3786bfcec4e8d73da481b6bff4d1e1acc26f80005abde212ebe35.png" />
+<img alt="../../_images/074543481abad4df27f302afe786e05ff769f18fb77f404af01d43e35885226d.png" src="../../_images/074543481abad4df27f302afe786e05ff769f18fb77f404af01d43e35885226d.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -527,9 +528,8 @@ C = \frac{1}{N} X^T X
 </div>
 </section>
 <section id="reduccion-de-dimensionalidad">
-<h2><span class="section-number">36.3. </span>Reducción de dimensionalidad<a class="headerlink" href="#reduccion-de-dimensionalidad" title="Permalink to this heading">#</a></h2>
-<p>Una aplicación típica de PCA es la reducción de dimensionalidad</p>
-<p>Recordemos</p>
+<h2><span class="section-number">31.3. </span>Reducción de dimensionalidad<a class="headerlink" href="#reduccion-de-dimensionalidad" title="Permalink to this heading">#</a></h2>
+<p>Una aplicación típica de PCA es la reducción de dimensionalidad. Recordemos:</p>
 <ul class="simple">
 <li><p>La matriz <span class="math notranslate nohighlight">\(W\)</span> tiene las mismas dimensiones que <span class="math notranslate nohighlight">\(C\)</span></p></li>
 <li><p>Las columnas de <span class="math notranslate nohighlight">\(W\)</span> son los vector propios</p></li>
@@ -537,7 +537,7 @@ C = \frac{1}{N} X^T X
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>El valor propio <span class="math notranslate nohighlight">\(\lambda_i\)</span> asociado a la columna <span class="math notranslate nohighlight">\(i\)</span> de <span class="math notranslate nohighlight">\(W\)</span> corresponde a la “cantidad de varianza” de dicha columna</p>
+<p>El valor propio <span class="math notranslate nohighlight">\(\lambda_i\)</span> asociado a la columna <span class="math notranslate nohighlight">\(i\)</span> de <span class="math notranslate nohighlight">\(W\)</span> corresponde a la “cantidad de varianza” de dicha columna.</p>
 </div>
 <p>Para obtener una proyección que disminuya la dimensionalidad necesitamos una matriz</p>
 <div class="math notranslate nohighlight">
@@ -552,12 +552,12 @@ C = \frac{1}{N} X^T X
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>Si proyectamos con <span class="math notranslate nohighlight">\(\widehat W\)</span> la transformación no es invertible porque estamos “descartando” información. Es una compresión de tipo <em>lossy</em></p>
+<p>Si proyectamos con <span class="math notranslate nohighlight">\(\widehat W\)</span> la transformación no es invertible porque estamos “descartando” información. Es una compresión de tipo <em>lossy</em> (con pérdida).</p>
 </div>
 </section>
 <section id="implementacion-de-pca-en-sklearn">
-<h2><span class="section-number">36.4. </span>Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#implementacion-de-pca-en-sklearn" title="Permalink to this heading">#</a></h2>
-<p>PCA está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition"><code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code></a>. El constructor y sus argumentos más importantes son</p>
+<h2><span class="section-number">31.4. </span>Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code><a class="headerlink" href="#implementacion-de-pca-en-sklearn" title="Permalink to this heading">#</a></h2>
+<p>PCA está incluido en el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition"><code class="docutils literal notranslate"><span class="pre">sklearn.decomposition</span></code></a>. El constructor y sus argumentos más importantes son:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Cantidad (int) o porcentaje de varianza (float) a retener</span>
     <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Si es falso, la data transformada reemplaza la original</span>
     <span class="n">whiten</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Reescala los datos para que tengan igual dispersión</span>
@@ -565,7 +565,7 @@ C = \frac{1}{N} X^T X
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Los métodos más importantes de la clase <code class="docutils literal notranslate"><span class="pre">PCA</span></code> son</p>
+<p>Los métodos más importantes de la clase <code class="docutils literal notranslate"><span class="pre">PCA</span></code> son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fit(X)</span></code>: Calcula la matriz de covarianza y los vectores y valores propios</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transform(X)</span></code>: Retorna la proyección de <span class="math notranslate nohighlight">\(X\)</span></p></li>
@@ -573,13 +573,14 @@ C = \frac{1}{N} X^T X
 <li><p><code class="docutils literal notranslate"><span class="pre">inverse_transform(hatX)</span></code>: Retorna los datos al espacio original (con pérdidas si <span class="math notranslate nohighlight">\(\hat D &lt; D\)</span>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">get_covariance()</span></code>: Retorna la matriz de covarianza</p></li>
 </ul>
-<p>Los atributos más importantes son</p>
+<p>Los atributos más importantes son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">components_</span></code>: Los componentes principales (vectores propios)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">singular_values_</span></code>: Los valores propios</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">explained_variance_ratio_</span></code>: El porcentaje de varianza asociado a cada vector propio</p></li>
 </ul>
-<p><strong>Ejemplo</strong> Sea la siguiente base de datos con <strong>cuatro atributos numéricos</strong> asociados a las características de un conjunto de 150 flores del género Iris separadas en 3 clases</p>
+<p><strong>Ejemplo</strong></p>
+<p>Sea la siguiente base de datos con <strong>cuatro atributos numéricos</strong> asociados a las características de un conjunto de 150 flores del género Iris separadas en 3 clases.</p>
 <a class="reference internal image-reference" href="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg"><img alt="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" src="https://www.math.umd.edu/~petersd/666/html/iris_with_labels.jpg" style="width: 200px;" /></a>
 <p>A continuación se presenta un gráfico de dispersión para visualizar las relaciones entre los atributos</p>
 <div class="cell docutils container">
@@ -605,7 +606,7 @@ C = \frac{1}{N} X^T X
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/659a7c8419cd6224ed199da3fef870f2fe446fb7ec95ad5d5db37a97398e2750.png" src="../../_images/659a7c8419cd6224ed199da3fef870f2fe446fb7ec95ad5d5db37a97398e2750.png" />
+<img alt="../../_images/b01c1455789f707811f9a903c136a4ab088c5eef7e61f283e2c2cf85b3746142.png" src="../../_images/b01c1455789f707811f9a903c136a4ab088c5eef7e61f283e2c2cf85b3746142.png" />
 </div>
 </div>
 <p>Para hacer una visualización más concisa podemos usar PCA para reducir la dimensión de los datos de 4 a 2</p>
@@ -678,7 +679,7 @@ C = \frac{1}{N} X^T X
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/40f2f064c59c3a30878b86d0201510a078d54f5b9e21869fb79bfe8ba792b091.png" src="../../_images/40f2f064c59c3a30878b86d0201510a078d54f5b9e21869fb79bfe8ba792b091.png" />
+<img alt="../../_images/4a9b9451bf25abbb2b8b020813f690053ddfd2eb46560893f292d91aca3f3162.png" src="../../_images/4a9b9451bf25abbb2b8b020813f690053ddfd2eb46560893f292d91aca3f3162.png" />
 </div>
 </div>
 <ul class="simple">
@@ -687,7 +688,7 @@ C = \frac{1}{N} X^T X
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>El tipo de flor, es decir las clases de Iris, pueden separarse en el eje del vector propio 1. Podemos ver también que las variables que tienen que ver con el sépalo están alineadas con el vector propio 2 (ángulo menor), en cambio las variables que tienen que ver con el pétalo están alineadas con el vector propio 1. En resumen la clase de la flor tiene mayor relación con el pétalo que con el sépalo</p>
+<p>El tipo de flor, es decir las clases de Iris, pueden separarse en el eje del vector propio 1. Podemos ver también que las variables que tienen que ver con el sépalo están alineadas con el vector propio 2 (ángulo menor), en cambio las variables que tienen que ver con el pétalo están alineadas con el vector propio 1. En resumen la clase de la flor tiene mayor relación con el pétalo que con el sépalo.</p>
 </div>
 </section>
 </section>
@@ -718,7 +719,10 @@ C = \frac{1}{N} X^T X
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="intro.html"
@@ -726,7 +730,7 @@ C = \frac{1}{N} X^T X
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">35. </span>Machine Learning: Conceptos clave</p>
+        <p class="prev-next-title"><span class="section-number">30. </span>Machine Learning: Conceptos clave</p>
       </div>
     </a>
     <a class="right-next"
@@ -734,11 +738,14 @@ C = \frac{1}{N} X^T X
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">37. </span>Clustering con algoritmo K-means</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>Clustering con algoritmo K-means</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -753,10 +760,10 @@ C = \frac{1}{N} X^T X
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">36.1. Formalismo matemático</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-utilizando-scipy">36.2. Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">36.3. Reducción de dimensionalidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">36.4. Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">31.1. Formalismo matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-utilizando-scipy">31.2. Implementación utilizando <code class="docutils literal notranslate"><span class="pre">scipy</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduccion-de-dimensionalidad">31.3. Reducción de dimensionalidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pca-en-sklearn">31.4. Implementación de PCA en <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a></li>
 </ul>
   </nav></div>
 
@@ -765,7 +772,7 @@ C = \frac{1}{N} X^T X
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -795,7 +802,7 @@ Por Pablo Huijse Heise
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -804,8 +811,8 @@ Por Pablo Huijse Heise
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

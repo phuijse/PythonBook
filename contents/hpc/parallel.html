@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>34. Computación paralela en Python &#8212; Computación Científica con Python</title>
+    <title>38. Computación paralela en Python &#8212; Computación Científica con Python</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -68,8 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/parallel';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="35. Machine Learning: Conceptos clave" href="../sklearn/intro.html" />
-    <link rel="prev" title="33. Acelerando Python con Cython" href="cython.html" />
+    <link rel="prev" title="37. Acelerando Python con Cython" href="cython.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -156,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter y IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
@@ -193,20 +192,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">31. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opti1.html">32. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cython.html">33. Acelerando Python con Cython</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Computación paralela en Python</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">35. Machine Learning: Conceptos clave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">36. Reducción de dimensionalidad con PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">37. Clustering con algoritmo K-means</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">38. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">30. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">31. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">32. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">33. Clasificador Bayesiano “Ingenuo”</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">34. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">35. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opti1.html">36. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">37. Acelerando Python con Cython</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -400,19 +399,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">34.1. Introducción</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">34.2. El Global interpreter lock (GIL) de Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">34.3. Computación multi-hilo con Cython y OpenMP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">34.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">34.4.1. Creación de un cliente</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">34.4.2. Enviando trabajos usando interfaz Directa</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">34.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">34.4.4. Compartiendo módulos y datos con los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">34.4.5. Traspasando datos a todos los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">34.4.6. Distribuyendo datos a los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">34.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">34.4.8. Funciones remotas y paralelas con decoradores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">34.4.9. Resultado asíncronos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">38.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">38.2. El Global interpreter lock (GIL) de Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">38.3. Computación multi-hilo con Cython y OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">38.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">38.4.1. Creación de un cliente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">38.4.2. Enviando trabajos usando interfaz Directa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">38.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">38.4.4. Compartiendo módulos y datos con los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">38.4.5. Traspasando datos a todos los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">38.4.6. Distribuyendo datos a los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">38.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">38.4.8. Funciones remotas y paralelas con decoradores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">38.4.9. Resultado asíncronos</a></li>
 </ul>
 </li>
 </ul>
@@ -427,9 +426,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computacion-paralela-en-python">
-<h1><span class="section-number">34. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">38. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Permalink to this heading">#</a></h1>
 <section id="introduccion">
-<h2><span class="section-number">34.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h2>
 <p>En capítulos anteriores hemos visto como ganar rendimiento en operaciones SIMD usando NumPy. Luego aprendimos a conectar con lenguajes de bajo nivel usando Cython</p>
 <p>En este capítulo veremos una opción para ganar rendimiento en tareas limitados en CPU que sean “separables”.</p>
 <dl class="simple myst">
@@ -456,7 +455,7 @@ document.write(`
 <p>Si alguna de estas respuestas es afirmativa entonces lo que resta es usar alguna herramienta de programación paralela para reescribir dicho sector del programa. A continuación veremos algunas herramientas para Python</p>
 </section>
 <section id="el-global-interpreter-lock-gil-de-python">
-<h2><span class="section-number">34.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Permalink to this heading">#</a></h2>
 <p>El manejo de memoria de CPython no es <em>thread-safe</em>. Por esta razón todo código escrito en Python está sujeto a un <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a></strong> que lo proteje conocido como <strong>Global Interpreter Lock (GIL)</strong></p>
 <p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU</p>
 <p>En esta lección exploraremos dos alternativas generales</p>
@@ -470,7 +469,7 @@ document.write(`
 </ul>
 </section>
 <section id="computacion-multi-hilo-con-cython-y-openmp">
-<h2><span class="section-number">34.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.openmp.org/">OpenMP</a> es una API multiplataforma para computación paralela en C, C++ y Fortran. Por ejemplo en C/C++ se puede escribir un <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> usando directivas de compilador (pragma) de OpenMP</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel for</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -645,7 +644,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="computacion-multi-proceso-con-ipython-ipyparallel">
-<h2><span class="section-number">34.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/">ipyparallel</a> es un paquete independiente pero complementario de IPython para hacer computación multi-proceso</p>
 <p><strong>Instalación con conda</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>ipyparallel
@@ -671,7 +670,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <a class="reference internal image-reference" href="../../_images/ipyparallel2.png"><img alt="../../_images/ipyparallel2.png" src="../../_images/ipyparallel2.png" style="width: 700px;" /></a>
 <p>Con esto hemos creado un controlador y cuatro engines, todos en nuestra máquina (localhost)</p>
 <section id="creacion-de-un-cliente">
-<h3><span class="section-number">34.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos ipyparallel</span>
@@ -697,7 +696,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </ul>
 </section>
 <section id="enviando-trabajos-usando-interfaz-directa">
-<h3><span class="section-number">34.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Permalink to this heading">#</a></h3>
 <p>Una <code class="docutils literal notranslate"><span class="pre">View</span></code> de tipo <em>Direct</em> requiere que el usuario especifique los engines que va a usar. Esto se hace de forma similar a los <em>slices</em> en listas/ndarray</p>
 <p>Por ejemplo para crear una interfaz que utilice todas las engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:]</span></code>. En cambio si sólo queremos utilizar las dos primeras engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:2]</span></code></p>
 <p>La vista puede crearse como bloqueante o no bloqueante (asíncrona) modificando el atributo booleano <code class="docutils literal notranslate"><span class="pre">block</span></code>. Una vista “bloqueante” espera a que el resultado de todos los engines sean retornado para devolver el control</p>
@@ -742,7 +741,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </ul>
 </section>
 <section id="funciones-de-python-en-paralelo-con-apply">
-<h3><span class="section-number">34.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Permalink to this heading">#</a></h3>
 <p>Sea una función <code class="docutils literal notranslate"><span class="pre">f</span></code> podemos ejecutarla en todos los engines usando</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
@@ -762,7 +761,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="compartiendo-modulos-y-datos-con-los-engines">
-<h3><span class="section-number">34.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Es importante tener claro que, al contrario del paralelismo multi-hilo, los procesos en los engines no comparten memoria y no ven las variables de nuestro entorno local</p>
 <p>Por ejemplo si queremos usar una función del módulo <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
 <div class="cell docutils container">
@@ -826,7 +825,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="traspasando-datos-a-todos-los-engines">
-<h3><span class="section-number">34.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.5. </span>Traspasando datos a todos los engines<a class="headerlink" href="#traspasando-datos-a-todos-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Para enviar un objeto de Python que hayamos definido en el ambiente local podemos usar la función <code class="docutils literal notranslate"><span class="pre">push</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
@@ -867,7 +866,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="distribuyendo-datos-a-los-engines">
-<h3><span class="section-number">34.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Si queremos distribuir datos en los engines podemos usar <code class="docutils literal notranslate"><span class="pre">scatter</span></code>. Esto sirve por ejemplo para procesar elementos de una lista en paralelo.</p>
 <p>La función <code class="docutils literal notranslate"><span class="pre">scatter</span></code> recibe un string con el nombre de la variable (tal como lo recibirá cada proceso) y un arreglo con los valores de la variable</p>
 <p>Para recuperar resultados a partir de los engine se utiliza la función <code class="docutils literal notranslate"><span class="pre">gather</span></code></p>
@@ -958,7 +957,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="computo-paralelo-con-map">
-<h3><span class="section-number">34.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Permalink to this heading">#</a></h3>
 <p>La función <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">map</span></code> de Python aplica una función sobre una secuencia de datos uno por uno. En general, si vemos un <code class="docutils literal notranslate"><span class="pre">map</span></code> en nuestro código, paralelizarlo es muy sencillo</p>
 <p>La librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> provee una versión paralela de <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.DirectView.map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a> que se ocupa sobre una vista</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">sequences</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
@@ -1026,7 +1025,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="funciones-remotas-y-paralelas-con-decoradores">
-<h3><span class="section-number">34.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.8. </span>Funciones remotas y paralelas con decoradores<a class="headerlink" href="#funciones-remotas-y-paralelas-con-decoradores" title="Permalink to this heading">#</a></h3>
 <p>Podemos crear una función que es siempre ejecutada por los engines usando el decorador <code class="docutils literal notranslate"><span class="pre">remote</span></code>. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,7 +1085,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </section>
 <section id="resultado-asincronos">
-<h3><span class="section-number">34.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">38.4.9. </span>Resultado asíncronos<a class="headerlink" href="#resultado-asincronos" title="Permalink to this heading">#</a></h3>
 <p>El resultado asíncrono es un objeto de clase <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/asyncresult.html#parallel-asyncresult"><code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code></a>. Sus funciones más relevantes son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code> : Retorna un booleano con el estado de la tarea</p></li>
@@ -1166,7 +1165,10 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="cython.html"
@@ -1174,19 +1176,13 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">33. </span>Acelerando Python con Cython</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Acelerando Python con Cython</p>
       </div>
     </a>
-    <a class="right-next"
-       href="../sklearn/intro.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">35. </span>Machine Learning: Conceptos clave</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1201,19 +1197,19 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">34.1. Introducción</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">34.2. El Global interpreter lock (GIL) de Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">34.3. Computación multi-hilo con Cython y OpenMP</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">34.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">34.4.1. Creación de un cliente</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">34.4.2. Enviando trabajos usando interfaz Directa</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">34.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">34.4.4. Compartiendo módulos y datos con los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">34.4.5. Traspasando datos a todos los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">34.4.6. Distribuyendo datos a los engines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">34.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">34.4.8. Funciones remotas y paralelas con decoradores</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">34.4.9. Resultado asíncronos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">38.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-global-interpreter-lock-gil-de-python">38.2. El Global interpreter lock (GIL) de Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-hilo-con-cython-y-openmp">38.3. Computación multi-hilo con Cython y OpenMP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computacion-multi-proceso-con-ipython-ipyparallel">38.4. Computación multi-proceso con IPython: <em>ipyparallel</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-un-cliente">38.4.1. Creación de un cliente</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enviando-trabajos-usando-interfaz-directa">38.4.2. Enviando trabajos usando interfaz Directa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-de-python-en-paralelo-con-apply">38.4.3. Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compartiendo-modulos-y-datos-con-los-engines">38.4.4. Compartiendo módulos y datos con los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traspasando-datos-a-todos-los-engines">38.4.5. Traspasando datos a todos los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuyendo-datos-a-los-engines">38.4.6. Distribuyendo datos a los engines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computo-paralelo-con-map">38.4.7. Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones-remotas-y-paralelas-con-decoradores">38.4.8. Funciones remotas y paralelas con decoradores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultado-asincronos">38.4.9. Resultado asíncronos</a></li>
 </ul>
 </li>
 </ul>
@@ -1224,7 +1220,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1254,7 +1250,7 @@ Por Pablo Huijse Heise
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1263,8 +1259,8 @@ Por Pablo Huijse Heise
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

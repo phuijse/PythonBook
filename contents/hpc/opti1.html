@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>32. Optimizando código Python &#8212; Computación Científica con Python</title>
+    <title>36. Optimizando código Python &#8212; Computación Científica con Python</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/opti1';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="33. Acelerando Python con Cython" href="cython.html" />
-    <link rel="prev" title="31. Profiling" href="profiling.html" />
+    <link rel="next" title="37. Acelerando Python con Cython" href="cython.html" />
+    <link rel="prev" title="35. Profiling" href="profiling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter y IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
@@ -193,20 +193,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">31. Profiling</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">32. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cython.html">33. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallel.html">34. Computación paralela en Python</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">35. Machine Learning: Conceptos clave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">36. Reducción de dimensionalidad con PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">37. Clustering con algoritmo K-means</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">38. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/intro.html">30. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">31. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">32. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">33. Clasificador Bayesiano “Ingenuo”</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">34. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">35. Profiling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">37. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">38. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -400,19 +400,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocer-el-lenguaje-para-ganar-eficiencia">32.1. Conocer el lenguaje para ganar eficiencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas">32.1.1. Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos">32.1.2. No reinventes la rueda con las estructuras de datos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">32.1.3. Atención con el overhead en funciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-variables-locales-dentro-de-los-loops">32.1.4. Usa variables locales dentro de los <em>loops</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocer-el-lenguaje-para-ganar-eficiencia">36.1. Conocer el lenguaje para ganar eficiencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas">36.1.1. Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos">36.1.2. No reinventes la rueda con las estructuras de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">36.1.3. Atención con el overhead en funciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-variables-locales-dentro-de-los-loops">36.1.4. Usa variables locales dentro de los <em>loops</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizacion-computo-basado-en-arreglos-con-numpy">32.2. Vectorización: Cómputo basado en arreglos con NumPy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-ciclo-for-por-operaciones-vectoriales">32.2.1. Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras">32.2.2. Convertir operaciones lógicas sobre arreglos en máscaras</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos">32.2.3. Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aprovecha-el-broadcasting-automatico-de-numpy">32.2.4. Aprovecha el <em>broadcasting</em> automático de NumPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">32.2.5. Utiliza el ordenamiento en memoría más adecuado en cada caso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizacion-computo-basado-en-arreglos-con-numpy">36.2. Vectorización: Cómputo basado en arreglos con NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-ciclo-for-por-operaciones-vectoriales">36.2.1. Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras">36.2.2. Convertir operaciones lógicas sobre arreglos en máscaras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos">36.2.3. Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aprovecha-el-broadcasting-automatico-de-numpy">36.2.4. Aprovecha el <em>broadcasting</em> automático de NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">36.2.5. Utiliza el ordenamiento en memoría más adecuado en cada caso</a></li>
 </ul>
 </li>
 </ul>
@@ -427,7 +427,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="optimizando-codigo-python">
-<h1><span class="section-number">32. </span>Optimizando código Python<a class="headerlink" href="#optimizando-codigo-python" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">36. </span>Optimizando código Python<a class="headerlink" href="#optimizando-codigo-python" title="Permalink to this heading">#</a></h1>
 <p>Como ya hemos mencionado <strong>Python</strong> es un lenguaje versátil pero poco eficiente en comparación a lenguajes de bajo nivel (C o Fortran)</p>
 <p>Recordemos que <strong>Python</strong> es un lenguaje <strong>interpretado</strong>. Consideremos la operación</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
@@ -467,7 +467,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </div>
 </div>
 <section id="conocer-el-lenguaje-para-ganar-eficiencia">
-<h2><span class="section-number">32.1. </span>Conocer el lenguaje para ganar eficiencia<a class="headerlink" href="#conocer-el-lenguaje-para-ganar-eficiencia" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">36.1. </span>Conocer el lenguaje para ganar eficiencia<a class="headerlink" href="#conocer-el-lenguaje-para-ganar-eficiencia" title="Permalink to this heading">#</a></h2>
 <p><strong>Python</strong> tiene una curva de aprendizaje suave en comparación a lenguajes de más bajo nivel, es decir que sabiendo muy poco de <strong>Python</strong> ya somos capaces de escribir toda clase de rutinas</p>
 <p>Esto tiene un efecto secundario negativo en algunas personas y especialmente en aquellos que ya saben otros lenguajes</p>
 <div class="admonition error">
@@ -488,7 +488,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </ul>
 <p>A continuación veremos algunos consejos generales enfocados a Python</p>
 <section id="evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas">
-<h3><span class="section-number">32.1.1. </span>Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas<a class="headerlink" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.1.1. </span>Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas<a class="headerlink" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas" title="Permalink to this heading">#</a></h3>
 <p>Muchas veces podemos evitar usar <code class="docutils literal notranslate"><span class="pre">for</span></code> con la estructura de datos o función adecuada</p>
 <p>Para ejemplificar digamos que queremos sumar los valores absolutos de los elementos de una lista</p>
 <div class="cell docutils container">
@@ -594,7 +594,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </div>
 </section>
 <section id="no-reinventes-la-rueda-con-las-estructuras-de-datos">
-<h3><span class="section-number">32.1.2. </span>No reinventes la rueda con las estructuras de datos<a class="headerlink" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.1.2. </span>No reinventes la rueda con las estructuras de datos<a class="headerlink" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos" title="Permalink to this heading">#</a></h3>
 <p>Verifica si la estructura que necesitas está implementada en Python antes de programarla tu</p>
 <p>Como ejemplo digamos que queremos contar la cantidad de elementos de cada tipo en una lista. Podríamos escribir un contador como</p>
 <div class="cell docutils container">
@@ -664,7 +664,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </div>
 </section>
 <section id="atencion-con-el-overhead-en-funciones">
-<h3><span class="section-number">32.1.3. </span>Atención con el overhead en funciones<a class="headerlink" href="#atencion-con-el-overhead-en-funciones" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.1.3. </span>Atención con el overhead en funciones<a class="headerlink" href="#atencion-con-el-overhead-en-funciones" title="Permalink to this heading">#</a></h3>
 <p>Python tiene un <em>overhead</em> considerable cada vez que se llama una función</p>
 <p>Se puede ganar desempeño haciendo <em>inlining</em> de funciones</p>
 <div class="cell docutils container">
@@ -691,7 +691,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </div>
 </section>
 <section id="usa-variables-locales-dentro-de-los-loops">
-<h3><span class="section-number">32.1.4. </span>Usa variables locales dentro de los <em>loops</em><a class="headerlink" href="#usa-variables-locales-dentro-de-los-loops" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.1.4. </span>Usa variables locales dentro de los <em>loops</em><a class="headerlink" href="#usa-variables-locales-dentro-de-los-loops" title="Permalink to this heading">#</a></h3>
 <p>Si estamos obligados a usar <code class="docutils literal notranslate"><span class="pre">for</span></code> podemos ganar algo de rendimiento haciendo copias locales de atributos y funciones</p>
 <p>Por ejemplo, digamos que queremos crear una lista con todos los elementos de otra lista que cumplen la condición</p>
 <div class="math notranslate nohighlight">
@@ -752,7 +752,7 @@ S_{tiempo} = \frac{T_{referencia}}{T_{propuesto}}
 </section>
 </section>
 <section id="vectorizacion-computo-basado-en-arreglos-con-numpy">
-<h2><span class="section-number">32.2. </span>Vectorización: Cómputo basado en arreglos con NumPy<a class="headerlink" href="#vectorizacion-computo-basado-en-arreglos-con-numpy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">36.2. </span>Vectorización: Cómputo basado en arreglos con NumPy<a class="headerlink" href="#vectorizacion-computo-basado-en-arreglos-con-numpy" title="Permalink to this heading">#</a></h2>
 <p>Consideremos el escenario en que tenemos un arreglo de datos de gran tamaño y queremos hacer una operación sobre cada elemento</p>
 <p><strong>Ejemplo:</strong> Dado <span class="math notranslate nohighlight">\(\{x\}_i\)</span> queremos encontrar</p>
 <div class="math notranslate nohighlight">
@@ -788,7 +788,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </dl>
 <p>A continuación revisaremos mediante ejemplos como implementar este y otros conceptos para mejorar el rendimiento</p>
 <section id="reemplazar-ciclo-for-por-operaciones-vectoriales">
-<h3><span class="section-number">32.2.1. </span>Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales<a class="headerlink" href="#reemplazar-ciclo-for-por-operaciones-vectoriales" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.2.1. </span>Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales<a class="headerlink" href="#reemplazar-ciclo-for-por-operaciones-vectoriales" title="Permalink to this heading">#</a></h3>
 <p>Las operaciones vectoriales son <strong>funciones de NumPy</strong> de tipo <em>element-wise</em> aplicadas sobre un ndarray</p>
 <p>Las funciones <em>element-wise</em> son aquellas que actuan sobre todos los elementos del arreglo de forma independiente</p>
 <ul class="simple">
@@ -882,7 +882,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </section>
 <section id="convertir-operaciones-logicas-sobre-arreglos-en-mascaras">
-<h3><span class="section-number">32.2.2. </span>Convertir operaciones lógicas sobre arreglos en máscaras<a class="headerlink" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.2.2. </span>Convertir operaciones lógicas sobre arreglos en máscaras<a class="headerlink" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras" title="Permalink to this heading">#</a></h3>
 <p>Las operaciones lógicas en NumPy también son <em>element-wise</em> (Operaciones booleanas, clase NumPy, unidad 1)</p>
 <p>Si queremos recuperar los elementos de un arreglo que cumplan una cierta condición podemos</p>
 <ol class="arabic simple">
@@ -926,7 +926,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </section>
 <section id="usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos">
-<h3><span class="section-number">32.2.3. </span>Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos<a class="headerlink" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.2.3. </span>Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos<a class="headerlink" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos" title="Permalink to this heading">#</a></h3>
 <p>Cuando en NumPy hacemos</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 </pre></div>
@@ -973,7 +973,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </section>
 <section id="aprovecha-el-broadcasting-automatico-de-numpy">
-<h3><span class="section-number">32.2.4. </span>Aprovecha el <em>broadcasting</em> automático de NumPy<a class="headerlink" href="#aprovecha-el-broadcasting-automatico-de-numpy" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.2.4. </span>Aprovecha el <em>broadcasting</em> automático de NumPy<a class="headerlink" href="#aprovecha-el-broadcasting-automatico-de-numpy" title="Permalink to this heading">#</a></h3>
 <p>Se pueden hacer operaciones vectorizadas con NumPy entre arreglos con tamaños distintos. En ese caso se aplican las reglas de <em>broadcasting</em> que vimos en la clase de NumPy</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -1071,7 +1071,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
 </div>
 </section>
 <section id="utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">
-<h3><span class="section-number">32.2.5. </span>Utiliza el ordenamiento en memoría más adecuado en cada caso<a class="headerlink" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">36.2.5. </span>Utiliza el ordenamiento en memoría más adecuado en cada caso<a class="headerlink" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso" title="Permalink to this heading">#</a></h3>
 <p>Los ndarray multidimensionales pueden guardarse en memoria como <em>row-major</em> (filas contiguas) o <em>column-major</em> (columnas contiguas). Por defecto las matrices en NumPy son <em>row-major</em> pero podemos forzar la contigüidad usando el atributo <code class="docutils literal notranslate"><span class="pre">order</span></code> o trasponiendo (ojo que trasponer crea una copia)</p>
 <p>Se puede verificar esto con el atributo <code class="docutils literal notranslate"><span class="pre">flag</span></code> de los ndarray:</p>
 <div class="cell docutils container">
@@ -1202,7 +1202,10 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="profiling.html"
@@ -1210,7 +1213,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">31. </span>Profiling</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Profiling</p>
       </div>
     </a>
     <a class="right-next"
@@ -1218,11 +1221,14 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">33. </span>Acelerando Python con Cython</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Acelerando Python con Cython</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1237,19 +1243,19 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocer-el-lenguaje-para-ganar-eficiencia">32.1. Conocer el lenguaje para ganar eficiencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas">32.1.1. Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos">32.1.2. No reinventes la rueda con las estructuras de datos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">32.1.3. Atención con el overhead en funciones</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-variables-locales-dentro-de-los-loops">32.1.4. Usa variables locales dentro de los <em>loops</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conocer-el-lenguaje-para-ganar-eficiencia">36.1. Conocer el lenguaje para ganar eficiencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evita-usar-for-siempre-que-se-pueda-en-favor-de-las-funciones-nativas">36.1.1. Evita usar <code class="docutils literal notranslate"><span class="pre">for</span></code> siempre que se pueda en favor de las funciones nativas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-reinventes-la-rueda-con-las-estructuras-de-datos">36.1.2. No reinventes la rueda con las estructuras de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atencion-con-el-overhead-en-funciones">36.1.3. Atención con el overhead en funciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-variables-locales-dentro-de-los-loops">36.1.4. Usa variables locales dentro de los <em>loops</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizacion-computo-basado-en-arreglos-con-numpy">32.2. Vectorización: Cómputo basado en arreglos con NumPy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-ciclo-for-por-operaciones-vectoriales">32.2.1. Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras">32.2.2. Convertir operaciones lógicas sobre arreglos en máscaras</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos">32.2.3. Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aprovecha-el-broadcasting-automatico-de-numpy">32.2.4. Aprovecha el <em>broadcasting</em> automático de NumPy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">32.2.5. Utiliza el ordenamiento en memoría más adecuado en cada caso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorizacion-computo-basado-en-arreglos-con-numpy">36.2. Vectorización: Cómputo basado en arreglos con NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reemplazar-ciclo-for-por-operaciones-vectoriales">36.2.1. Reemplazar ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> por operaciones vectoriales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convertir-operaciones-logicas-sobre-arreglos-en-mascaras">36.2.2. Convertir operaciones lógicas sobre arreglos en máscaras</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usa-operaciones-in-place-y-vistas-de-arreglos-para-evitar-copia-extra-de-datos">36.2.3. Usa operaciónes <em>in-place</em> y vistas de arreglos para evitar copia extra de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aprovecha-el-broadcasting-automatico-de-numpy">36.2.4. Aprovecha el <em>broadcasting</em> automático de NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliza-el-ordenamiento-en-memoria-mas-adecuado-en-cada-caso">36.2.5. Utiliza el ordenamiento en memoría más adecuado en cada caso</a></li>
 </ul>
 </li>
 </ul>
@@ -1260,7 +1266,7 @@ y_i = \frac{1}{1 + e^{-x_i}}, \quad i = 1,2,\ldots, N
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1290,7 +1296,7 @@ Por Pablo Huijse Heise
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1299,8 +1305,8 @@ Por Pablo Huijse Heise
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

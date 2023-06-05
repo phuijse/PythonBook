@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>38. Clasificador Bayesiano “Ingenuo” &#8212; Computación Científica con Python</title>
+    <title>33. Clasificador Bayesiano “Ingenuo” &#8212; Computación Científica con Python</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,8 +39,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -68,7 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/sklearn/naivebayes';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="prev" title="37. Clustering con algoritmo K-means" href="kmeans.html" />
+    <link rel="next" title="34. Python y Rendimiento" href="../hpc/intro.html" />
+    <link rel="prev" title="32. Clustering con algoritmo K-means" href="kmeans.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -155,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ambiente jupyter</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/intro.html">5. ¿Qué es Jupyter?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter/IPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/tutorial.html">6. Breve tutorial de Jupyter y IPython</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/ipython_display.html">7. Módulo  <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter/beyond_python.html">8. Otros lenguajes en Jupyter</a></li>
 </ul>
@@ -192,20 +193,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../statistics/hypothesis.html">28. Test de hipótesis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/bootstrap.html">29. Intervalos de confianza con <em>Bootstrap</em></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../hpc/intro.html">30. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/profiling.html">31. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/opti1.html">32. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/cython.html">33. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/parallel.html">34. Computación paralela en Python</a></li>
-</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Aprendizaje de máquinas con Scikit-Learn</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">35. Machine Learning: Conceptos clave</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pca.html">36. Reducción de dimensionalidad con PCA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kmeans.html">37. Clustering con algoritmo K-means</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Machine Learning: Conceptos clave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">31. Reducción de dimensionalidad con PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kmeans.html">32. Clustering con algoritmo K-means</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">33. Clasificador Bayesiano “Ingenuo”</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hpc/intro.html">34. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/profiling.html">35. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/opti1.html">36. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/cython.html">37. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/parallel.html">38. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -399,13 +400,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">38.1. Formalismo matemático</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-ingenuos">38.2. Supuestos “ingenuos”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias">38.3. Ejemplo: Clasificación de biopsias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-bayesiano-con-scikit-learn">38.4. Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluando-un-clasificador">38.5. Evaluando un clasificador</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">38.5.1. Matriz o tabla de confusión</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-desempeno">38.5.2. Curvas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">33.1. Formalismo matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-ingenuos">33.2. Supuestos “ingenuos”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias">33.3. Ejemplo: Clasificación de biopsias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-bayesiano-con-scikit-learn">33.4. Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluando-un-clasificador">33.5. Evaluando un clasificador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">33.5.1. Matriz o tabla de confusión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-desempeno">33.5.2. Curvas de desempeño</a></li>
 </ul>
 </li>
 </ul>
@@ -420,9 +421,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clasificador-bayesiano-ingenuo">
-<h1><span class="section-number">38. </span>Clasificador Bayesiano “Ingenuo”<a class="headerlink" href="#clasificador-bayesiano-ingenuo" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">33. </span>Clasificador Bayesiano “Ingenuo”<a class="headerlink" href="#clasificador-bayesiano-ingenuo" title="Permalink to this heading">#</a></h1>
 <section id="formalismo-matematico">
-<h2><span class="section-number">38.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">33.1. </span>Formalismo matemático<a class="headerlink" href="#formalismo-matematico" title="Permalink to this heading">#</a></h2>
 <p>El clasificador bayesiano busca la probabilidad de la etiqueta <span class="math notranslate nohighlight">\(y\)</span> dado el ejemplo <span class="math notranslate nohighlight">\(x\)</span>, es decir <span class="math notranslate nohighlight">\(P(y|x)\)</span>. Usando el teorema de Bayes podemos escribir esto como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -452,7 +453,7 @@ p(y=k) = \frac{\text{Cantidad de ejemplos con etiqueta k}}{\text{Cantidad de eje
 <p>En términos prácticos la principal ventaja de este clasificador es que es simple, fácil de entrenar y muy difícil de sobreajustar. Su mayor desventaja es que hace supuestos muy fuertes sobre los datos. Si no se cumplen el desempeño no será bueno.</p>
 </section>
 <section id="supuestos-ingenuos">
-<h2><span class="section-number">38.2. </span>Supuestos “ingenuos”<a class="headerlink" href="#supuestos-ingenuos" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">33.2. </span>Supuestos “ingenuos”<a class="headerlink" href="#supuestos-ingenuos" title="Permalink to this heading">#</a></h2>
 <p>Sea <span class="math notranslate nohighlight">\(x\)</span> un vector que representa <span class="math notranslate nohighlight">\(D\)</span> atributos. El primer supuesto del clasificador bayesiano ingenuo es que los atributos <strong>son independientes</strong>. Por lo tanto la verosimilitud se puede escribir como</p>
 <div class="math notranslate nohighlight">
 \[
@@ -470,7 +471,7 @@ p(x_d|y) = \mathcal{N}(\mu_d, \sigma_d^2)
 </ul>
 </section>
 <section id="ejemplo-clasificacion-de-biopsias">
-<h2><span class="section-number">38.3. </span>Ejemplo: Clasificación de biopsias<a class="headerlink" href="#ejemplo-clasificacion-de-biopsias" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">33.3. </span>Ejemplo: Clasificación de biopsias<a class="headerlink" href="#ejemplo-clasificacion-de-biopsias" title="Permalink to this heading">#</a></h2>
 <p>En este ejemplo implementaremos un clasificador bayesiano ingenuo con verosimilitud gaussiana y lo entrenaremos usando el dataset de <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)">cancer de mama de la Universidad de Wisconsin</a>.</p>
 <p>Para simplificar utilizaremos sólo dos atributos por paciente</p>
 <ul class="simple">
@@ -609,7 +610,7 @@ p(y=0) = \frac{357}{569} \approx 0.59
 <p>Reflexione: En un problema de índole médico como el que acabamos de revisar ¿Cuáles son las repercusiones de cada uno de estos errores? ¿Cuál es más grave?</p>
 </section>
 <section id="clasificador-bayesiano-con-scikit-learn">
-<h2><span class="section-number">38.4. </span>Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#clasificador-bayesiano-con-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">33.4. </span>Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code><a class="headerlink" href="#clasificador-bayesiano-con-scikit-learn" title="Permalink to this heading">#</a></h2>
 <p>A continuación se utiliza el módulo <a class="reference external" href="https://scikit-learn.org/stable/modules/naive_bayes.html"><code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes</span></code></a> que implementa distintos clasificadores bayesianos ingenuos, entre ellos</p>
 <ul class="simple">
 <li><p>Clasificador con verosimilitud Gaussiana: <code class="docutils literal notranslate"><span class="pre">GaussianNB</span></code></p></li>
@@ -671,10 +672,10 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </div>
 </section>
 <section id="evaluando-un-clasificador">
-<h2><span class="section-number">38.5. </span>Evaluando un clasificador<a class="headerlink" href="#evaluando-un-clasificador" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">33.5. </span>Evaluando un clasificador<a class="headerlink" href="#evaluando-un-clasificador" title="Permalink to this heading">#</a></h2>
 <p>A continuación veremos como evaluar de manera cuantitativa el desempeño de un modelo clasificador</p>
 <section id="matriz-o-tabla-de-confusion">
-<h3><span class="section-number">38.5.1. </span>Matriz o tabla de confusión<a class="headerlink" href="#matriz-o-tabla-de-confusion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">33.5.1. </span>Matriz o tabla de confusión<a class="headerlink" href="#matriz-o-tabla-de-confusion" title="Permalink to this heading">#</a></h3>
 <p>Una matriz o tabla de confusión se construye contando los casos que tienen etiqueta real igual a <span class="math notranslate nohighlight">\(i\)</span> y etiqueta predicha igual a <span class="math notranslate nohighlight">\(j\)</span> para <span class="math notranslate nohighlight">\(i \wedge j=1,2,\ldots,C\)</span> donde <span class="math notranslate nohighlight">\(C\)</span> es el número de clases</p>
 <p>La siguiente imagen muestra una matriz de confusión para un problema de <span class="math notranslate nohighlight">\(10\)</span> clases</p>
 <a class="reference internal image-reference" href="../../_images/conf-matrix.png"><img alt="../../_images/conf-matrix.png" src="../../_images/conf-matrix.png" style="width: 400px;" /></a>
@@ -733,7 +734,7 @@ p(y=0) = \frac{357}{569} \approx 0.59
 </ul>
 </section>
 <section id="curvas-de-desempeno">
-<h3><span class="section-number">38.5.2. </span>Curvas de desempeño<a class="headerlink" href="#curvas-de-desempeno" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">33.5.2. </span>Curvas de desempeño<a class="headerlink" href="#curvas-de-desempeno" title="Permalink to this heading">#</a></h3>
 <p>La matriz de confusión y la exactitud son métricas que depende de un umbral de clasificación o punto de operación particular</p>
 <p>En problemas de clasificación binaria es mucho más informativo medir el desempeño utilizando curvas Receiver operating characteristic (ROC)</p>
 <p>Una curva ROC es la tasa de verdaderos positivos</p>
@@ -802,7 +803,10 @@ FPR = \frac{FP}{FP + TN}
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="kmeans.html"
@@ -810,10 +814,22 @@ FPR = \frac{FP}{FP + TN}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">37. </span>Clustering con algoritmo K-means</p>
+        <p class="prev-next-title"><span class="section-number">32. </span>Clustering con algoritmo K-means</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../hpc/intro.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Python y  Rendimiento</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -828,13 +844,13 @@ FPR = \frac{FP}{FP + TN}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">38.1. Formalismo matemático</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-ingenuos">38.2. Supuestos “ingenuos”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias">38.3. Ejemplo: Clasificación de biopsias</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-bayesiano-con-scikit-learn">38.4. Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluando-un-clasificador">38.5. Evaluando un clasificador</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">38.5.1. Matriz o tabla de confusión</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-desempeno">38.5.2. Curvas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formalismo-matematico">33.1. Formalismo matemático</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supuestos-ingenuos">33.2. Supuestos “ingenuos”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-clasificacion-de-biopsias">33.3. Ejemplo: Clasificación de biopsias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificador-bayesiano-con-scikit-learn">33.4. Clasificador bayesiano con  <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluando-un-clasificador">33.5. Evaluando un clasificador</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-o-tabla-de-confusion">33.5.1. Matriz o tabla de confusión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvas-de-desempeno">33.5.2. Curvas de desempeño</a></li>
 </ul>
 </li>
 </ul>
@@ -845,7 +861,7 @@ FPR = \frac{FP}{FP + TN}
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -875,7 +891,7 @@ Por Pablo Huijse Heise
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -884,8 +900,8 @@ Por Pablo Huijse Heise
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
