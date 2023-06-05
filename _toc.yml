@@ -48,6 +48,13 @@ parts:
     - file: contents/statistics/model_fitting
     - file: contents/statistics/hypothesis
     - file: contents/statistics/bootstrap
+- caption: "Aprendizaje de máquinas con Scikit-Learn"
+  numbered: true
+  chapters:
+    - file: contents/sklearn/intro
+    - file: contents/sklearn/pca
+    - file: contents/sklearn/kmeans
+    - file: contents/sklearn/naivebayes
 - caption: "Alto rendimiento en Python"
   numbered: true
   chapters:
@@ -57,10 +64,4 @@ parts:
     - file: contents/hpc/cython
     - file: contents/hpc/parallel
       #    - file: contents/hpc/appendix
-- caption: "Aprendizaje de máquinas con Scikit-Learn"
-  numbered: true
-  chapters:
-    - file: contents/sklearn/intro
-    - file: contents/sklearn/pca
-    - file: contents/sklearn/kmeans
-    - file: contents/sklearn/naivebayes
+
