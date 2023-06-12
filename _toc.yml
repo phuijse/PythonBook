@@ -55,6 +55,7 @@ parts:
     - file: contents/sklearn/pca
     - file: contents/sklearn/kmeans
     - file: contents/sklearn/naivebayes
+    - file: contents/sklearn/metrics
 - caption: "Alto rendimiento en Python"
   numbered: true
   chapters:
