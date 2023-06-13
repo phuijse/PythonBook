@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>37. Acelerando Python con Cython &#8212; Computación Científica con Python</title>
+    <title>38. Acelerando Python con Cython &#8212; Computación Científica con Python</title>
   
   
   
@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/cython';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="38. Computación paralela en Python" href="parallel.html" />
-    <link rel="prev" title="36. Optimizando código Python" href="opti1.html" />
+    <link rel="next" title="39. Computación paralela en Python" href="parallel.html" />
+    <link rel="prev" title="37. Optimizando código Python" href="opti1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -199,14 +199,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">31. Reducción de dimensionalidad con PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">32. Clustering con algoritmo K-means</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">33. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/metrics.html">34. Evaluando un clasificador</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">34. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">35. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opti1.html">36. Optimizando código Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">37. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallel.html">38. Computación paralela en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">35. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">36. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opti1.html">37. Optimizando código Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">39. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -400,13 +401,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-c-extensions-for-python">37.1. Cython: C Extensions for Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">37.2. Cython desde IPython/Jupyter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">37.3. Mejora 1: Definiendo tipos en Cython</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">37.4. Mejora 2: Llamando funciones de C desde Cython</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">37.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">37.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">37.7. Usando Cython fuera de jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-c-extensions-for-python">38.1. Cython: C Extensions for Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">38.2. Cython desde IPython/Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">38.3. Mejora 1: Definiendo tipos en Cython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">38.4. Mejora 2: Llamando funciones de C desde Cython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">38.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">38.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">38.7. Usando Cython fuera de jupyter</a></li>
 </ul>
             </nav>
         </div>
@@ -419,7 +420,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="acelerando-python-con-cython">
-<h1><span class="section-number">37. </span>Acelerando Python con Cython<a class="headerlink" href="#acelerando-python-con-cython" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">38. </span>Acelerando Python con Cython<a class="headerlink" href="#acelerando-python-con-cython" title="Permalink to this heading">#</a></h1>
 <p>La <a class="reference external" href="https://wiki.python.org/moin/PythonImplementations">implementación</a> más utilizada del interprete/compilador de Python está escrita en C y se llama <a class="reference external" href="https://github.com/python/cpython">CPython</a>. Recordemos que la implementación es aquello que interpreta y corre el código escrito en Python.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -447,7 +448,7 @@ document.write(`
 </div>
 </div>
 <section id="cython-c-extensions-for-python">
-<h2><span class="section-number">37.1. </span>Cython: C Extensions for Python<a class="headerlink" href="#cython-c-extensions-for-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.1. </span>Cython: C Extensions for Python<a class="headerlink" href="#cython-c-extensions-for-python" title="Permalink to this heading">#</a></h2>
 <p>Recordemos que <strong>Python</strong> es un lenguaje interpretado con tipos dinámicos. Esto hace que cada operación tenga un overhead. Por ejemplo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
     <span class="c1"># overhead: Inferir el tipo de x</span>
@@ -561,7 +562,7 @@ document.write(`
 <p>veces más rápido que Python puro</p>
 </section>
 <section id="cython-desde-ipython-jupyter">
-<h2><span class="section-number">37.2. </span>Cython desde IPython/Jupyter<a class="headerlink" href="#cython-desde-ipython-jupyter" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.2. </span>Cython desde IPython/Jupyter<a class="headerlink" href="#cython-desde-ipython-jupyter" title="Permalink to this heading">#</a></h2>
 <p>Instale cython en su ambiente de conda utilizando</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install cython
 </pre></div>
@@ -667,7 +668,7 @@ def distancia_pares_cython_inocente(data):
 <p>A continuación veremos como “cythonizar” nuestro código para ganar rendimiento</p>
 </section>
 <section id="mejora-1-definiendo-tipos-en-cython">
-<h2><span class="section-number">37.3. </span>Mejora 1: Definiendo tipos en Cython<a class="headerlink" href="#mejora-1-definiendo-tipos-en-cython" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.3. </span>Mejora 1: Definiendo tipos en Cython<a class="headerlink" href="#mejora-1-definiendo-tipos-en-cython" title="Permalink to this heading">#</a></h2>
 <p>En Cython se definen tipos estáticos con el keyword <code class="docutils literal notranslate"><span class="pre">cdef</span></code> seguido del tipo y luego el nombre. Por ejemplo una variable de tipo <code class="docutils literal notranslate"><span class="pre">double</span></code> llamada <code class="docutils literal notranslate"><span class="pre">mi_variable</span></code>:</p>
 <div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cdef</span> <span class="kt">double</span> <span class="nf">mi_variable</span> 
 </pre></div>
@@ -770,7 +771,7 @@ def distancia_pares_cython_estatico(double [:, ::1] data):
 <p>esto se debe a que estamos usando la función de NumPy <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code>. Podemos obtener un rendimiento mucho mejor si usamos la implementación de raíz cuadrada de C</p>
 </section>
 <section id="mejora-2-llamando-funciones-de-c-desde-cython">
-<h2><span class="section-number">37.4. </span>Mejora 2: Llamando funciones de C desde Cython<a class="headerlink" href="#mejora-2-llamando-funciones-de-c-desde-cython" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.4. </span>Mejora 2: Llamando funciones de C desde Cython<a class="headerlink" href="#mejora-2-llamando-funciones-de-c-desde-cython" title="Permalink to this heading">#</a></h2>
 <p>Es posible llamar funciones de C desde Cython de forma sencilla. Consideremos como ejemplo la función <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> de la <a class="reference external" href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/math.h.html">librería matemática estándar de C</a>.</p>
 <p>Necesitamos dos para usar <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> desde cython:</p>
 <ul class="simple">
@@ -847,7 +848,7 @@ def distancia_pares_cython_sqrtC(double [:, ::1] data):
 <p>Es <strong>sumamente importante</strong> notar que usando <code class="docutils literal notranslate"><span class="pre">extern</span></code> podemos hacer interfaces <a class="reference external" href="https://cython.readthedocs.io/en/latest/src/tutorial/clibraries.html">entre Python y casi cualquier código escrito en C</a></p>
 </section>
 <section id="mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">
-<h2><span class="section-number">37.5. </span>Mejora 3: Deshabilitando comprobaciones para ir aun más rápido<a class="headerlink" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.5. </span>Mejora 3: Deshabilitando comprobaciones para ir aun más rápido<a class="headerlink" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido" title="Permalink to this heading">#</a></h2>
 <p>Podemos hacer nuestro código más rápido (y más inseguro) deshabilitando las verificaciones que Python realiza por defecto</p>
 <p>En Cython esto se logra usando decoradores que funcionan como directivas de compilación. Las opciones disponibles se encuentrán <a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiler-directives">aquí</a>. En este caso particular deshabilitaremos dos verificaciones: <em>boundscheck</em> y <em>wraparound</em></p>
 <p>Al deshabilitarlas el código no comprobará si escribimos fuera del arreglo y tampoco traducirá índices negativos</p>
@@ -930,7 +931,7 @@ def distancia_pares_cython(TIPO_t [:, ::1] data):
 <p>Una modificación marginal en el código que nos da un leve speed-up con respecto al caso anterior</p>
 </section>
 <section id="mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">
-<h2><span class="section-number">37.6. </span>Mejora 4: Mayor flexibilidad con tipos de Cython fusionados<a class="headerlink" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.6. </span>Mejora 4: Mayor flexibilidad con tipos de Cython fusionados<a class="headerlink" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados" title="Permalink to this heading">#</a></h2>
 <p>Lo que hemos perdido al usar Cython con respecto a Python: <strong>Flexibilidad</strong></p>
 <p>Si utilizamos un argumento que no sea <code class="docutils literal notranslate"><span class="pre">double</span></code> nuestra función en Cython retornará un error. Es nuestra responsabilidad evitar que esto ocurra</p>
 <div class="cell docutils container">
@@ -1066,7 +1067,7 @@ def distancia_pares_cython_multitipo(TIPO_t [:, ::1] data):
 <p>El resultado usando <code class="docutils literal notranslate"><span class="pre">float</span></code> es equivalente al de NumPy. Aunque se pierde un poco de rendimiento en comparación a la versión sin tipos fusionados</p>
 </section>
 <section id="usando-cython-fuera-de-jupyter">
-<h2><span class="section-number">37.7. </span>Usando Cython fuera de jupyter<a class="headerlink" href="#usando-cython-fuera-de-jupyter" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">38.7. </span>Usando Cython fuera de jupyter<a class="headerlink" href="#usando-cython-fuera-de-jupyter" title="Permalink to this heading">#</a></h2>
 <p>El código en cython se guarda tipicamente con extensión <code class="docutils literal notranslate"><span class="pre">pyx</span></code>. En primer lugar debemos procesar este código utilizando el ejecutable cython como se muestra a continuación:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cython -3 codigo.pyx
 </pre></div>
@@ -1178,7 +1179,7 @@ gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I${python_pat
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">36. </span>Optimizando código Python</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Optimizando código Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -1186,7 +1187,7 @@ gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I${python_pat
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">38. </span>Computación paralela en Python</p>
+        <p class="prev-next-title"><span class="section-number">39. </span>Computación paralela en Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1208,13 +1209,13 @@ gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I${python_pat
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-c-extensions-for-python">37.1. Cython: C Extensions for Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">37.2. Cython desde IPython/Jupyter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">37.3. Mejora 1: Definiendo tipos en Cython</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">37.4. Mejora 2: Llamando funciones de C desde Cython</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">37.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">37.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">37.7. Usando Cython fuera de jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-c-extensions-for-python">38.1. Cython: C Extensions for Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cython-desde-ipython-jupyter">38.2. Cython desde IPython/Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-1-definiendo-tipos-en-cython">38.3. Mejora 1: Definiendo tipos en Cython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-2-llamando-funciones-de-c-desde-cython">38.4. Mejora 2: Llamando funciones de C desde Cython</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-3-deshabilitando-comprobaciones-para-ir-aun-mas-rapido">38.5. Mejora 3: Deshabilitando comprobaciones para ir aun más rápido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mejora-4-mayor-flexibilidad-con-tipos-de-cython-fusionados">38.6. Mejora 4: Mayor flexibilidad con tipos de Cython fusionados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usando-cython-fuera-de-jupyter">38.7. Usando Cython fuera de jupyter</a></li>
 </ul>
   </nav></div>
 

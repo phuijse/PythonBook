@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>34. Python y Rendimiento &#8212; Computación Científica con Python</title>
+    <title>35. Python y Rendimiento &#8212; Computación Científica con Python</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/intro';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="35. Profiling" href="profiling.html" />
-    <link rel="prev" title="33. Clasificador Bayesiano “Ingenuo”" href="../sklearn/naivebayes.html" />
+    <link rel="next" title="36. Profiling" href="profiling.html" />
+    <link rel="prev" title="34. Evaluando un clasificador" href="../sklearn/metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -197,14 +197,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/pca.html">31. Reducción de dimensionalidad con PCA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/kmeans.html">32. Clustering con algoritmo K-means</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sklearn/naivebayes.html">33. Clasificador Bayesiano “Ingenuo”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/metrics.html">34. Evaluando un clasificador</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">35. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opti1.html">36. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cython.html">37. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallel.html">38. Computación paralela en Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Python y  Rendimiento</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">36. Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opti1.html">37. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">38. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">39. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -398,8 +399,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">34.1. ¿Qué es la optimización de códigos/software?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">34.2. Consejos antes de optimizar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">35.1. ¿Qué es la optimización de códigos/software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">35.2. Consejos antes de optimizar</a></li>
 </ul>
             </nav>
         </div>
@@ -412,7 +413,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-y-rendimiento">
-<h1><span class="section-number">34. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">35. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Permalink to this heading">#</a></h1>
 <p>Python es un lenguaje interpretado de alto nivel que es muy conveniente para prototipar y hacer análisis
 exploratorio</p>
 <p>Sin embargo, esta conveniencia tiene un costo:</p>
@@ -427,7 +428,7 @@ exploratorio</p>
 <p>Ambos son factores críticos en algunas aplicaciones, por ejemplo aplicaciones con muchos datos o mucho cómputo</p>
 <p>Existe entonces una necesidad por <strong>mejorar el rendimiento de nuestro código</strong>. En esta serie de lecciones veremos distintas formas de <strong>optimizar</strong> código escrito en Python</p>
 <section id="que-es-la-optimizacion-de-codigos-software">
-<h2><span class="section-number">34.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">35.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Permalink to this heading">#</a></h2>
 <p>Se refiere a modificar una rutina computacional para mejorar su eficiencia, es decir reducir sus tiempos de ejecución y/o consumo de recursos</p>
 <p>El aspecto que se intenta modificar es aquel que limita nuestro programa. Un programa puede estar</p>
 <ul class="simple">
@@ -447,7 +448,7 @@ exploratorio</p>
 </div>
 </section>
 <section id="consejos-antes-de-optimizar">
-<h2><span class="section-number">34.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">35.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Permalink to this heading">#</a></h2>
 <p>Considera las siguientes preguntas antes de comenzar el (a veces arduo) proceso de optimizar tus códigos</p>
 <p><strong>¿Cuándo optimizar?</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">Si:</span></code></p>
@@ -525,12 +526,12 @@ exploratorio</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../sklearn/naivebayes.html"
+       href="../sklearn/metrics.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title"><span class="section-number">33. </span>Clasificador Bayesiano “Ingenuo”</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Evaluando un clasificador</p>
       </div>
     </a>
     <a class="right-next"
@@ -538,7 +539,7 @@ exploratorio</p>
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">35. </span>Profiling</p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Profiling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -560,8 +561,8 @@ exploratorio</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">34.1. ¿Qué es la optimización de códigos/software?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">34.2. Consejos antes de optimizar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">35.1. ¿Qué es la optimización de códigos/software?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">35.2. Consejos antes de optimizar</a></li>
 </ul>
   </nav></div>
 
