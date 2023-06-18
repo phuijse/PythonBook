@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>36. Profiling &#8212; Computación Científica con Python</title>
+    <title>36. Perfilado (Profiling) de rutinas de Python &#8212; Computación Científica con Python</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/profiling';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="37. Optimizando código Python" href="opti1.html" />
+    <link rel="next" title="37. Optimizando código Python" href="python.html" />
     <link rel="prev" title="35. Python y Rendimiento" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -204,10 +204,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">35. Python y  Rendimiento</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opti1.html">37. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cython.html">38. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallel.html">39. Computación paralela en Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Perfilado (Profiling) de rutinas de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">37. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vectorization.html">38. Vectorización: Cómputo basado en arreglos con NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">39. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">40. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -391,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Profiling</h1>
+    <h1>Perfilado (Profiling) de rutinas de Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,36 +426,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="profiling">
-<h1><span class="section-number">36. </span>Profiling<a class="headerlink" href="#profiling" title="Permalink to this heading">#</a></h1>
-<p>El primer paso antes de optimizar es identificar los sectores críticos o “cuellos de botella” de nuestro programa. A esto lo llamamos hacer un <em>profiling</em> de código</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="perfilado-profiling-de-rutinas-de-python">
+<h1><span class="section-number">36. </span>Perfilado (Profiling) de rutinas de Python<a class="headerlink" href="#perfilado-profiling-de-rutinas-de-python" title="Permalink to this heading">#</a></h1>
+<p>El primer paso antes de optimizar es identificar los sectores críticos o “cuellos de botella” de nuestro programa. A esto lo llamamos hacer un perfilado (<em>profiling</em>) del código.</p>
 <section id="que-es-profiling">
 <h2><span class="section-number">36.1. </span>¿Qué es <em>profiling</em>?<a class="headerlink" href="#que-es-profiling" title="Permalink to this heading">#</a></h2>
 <p>Se refiere a medir</p>
 <ol class="arabic simple">
-<li><p>Tiempo de ejecución, ya sea total, por función o por linea de código</p></li>
-<li><p>Utilización de recursos de hardware como memoria, cpu o disco duro</p></li>
+<li><p>Tiempo de ejecución, ya sea total, por función o por línea de código.</p></li>
+<li><p>Utilización de recursos de hardware como memoria, cpu o disco duro.</p></li>
 </ol>
-<p>de una rutina con el fin de encontrar aquellas secciones más lentas e ineficientes (sectores críticos)</p>
-<p>A continuación veremos como hacer <em>profiling</em> de nuestro código en Python usando el ambiente <em>Jupyter</em> y las magias de <em>IPython</em></p>
-<p><strong>Ejemplo:</strong> Conjunto de Julia</p>
-<p>A modo de ejemplo haremos <em>profiling</em> de un script de Python que calcula el famoso fractal conocido como el <a class="reference external" href="https://es.wikipedia.org/wiki/Conjunto_de_Julia">Conjunto de Julia</a> (Julia Set), llamado así en honor a su descubridor, el matemático francés Gaston Maurice Julia</p>
+<p>de una rutina con el fin de encontrar aquellas secciones más lentas e ineficientes (sectores críticos). A continuación veremos como hacer <em>profiling</em> de nuestro código en Python utilizando las magias de <em>IPython</em>.</p>
+<p>A modo de ejemplo haremos <em>profiling</em> de un script de Python que calcula el famoso fractal conocido como el <a class="reference external" href="https://es.wikipedia.org/wiki/Conjunto_de_Julia">Conjunto de Julia</a> (Julia Set), llamado así en honor a su descubridor, el matemático francés Gaston Maurice Julia.</p>
 <p>El fractal de Julia corresponde a todos los números complejos <span class="math notranslate nohighlight">\(z\)</span> para los que la siguiente ecuación</p>
 <div class="math notranslate nohighlight">
 \[
 f(z) = z^2 + c,
 \]</div>
-<p>no diverge al ser calculada recursivamente. En la ecuación anterior <span class="math notranslate nohighlight">\(c \in \mathbb{C}\)</span></p>
-<p>El <em>script</em> <span class="xref myst">fractal.py</span> tiene una implementación del conjunto de Julia usando Python puro, es decir sin usar librerias</p>
+<p>no diverge al ser calculada recursivamente. En la ecuación anterior <span class="math notranslate nohighlight">\(c \in \mathbb{C}\)</span>.</p>
+<p>El <em>script</em> <span class="xref myst">fractal.py</span> tiene una implementación del conjunto de Julia usando Python puro, es decir sin usar librerias. La implementación se muestra a continuación:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Code</span>
@@ -564,7 +554,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Si ejecutamos la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code> con una resolución de 500 pixeles y 50 iteraciones el resultado es</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.fractal</span> <span class="kn">import</span> <span class="n">make_fractal</span><span class="p">,</span> <span class="n">evaluate_z</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">src.fractal</span> <span class="kn">import</span> <span class="n">make_fractal</span><span class="p">,</span> <span class="n">evaluate_z</span>
 
 <span class="n">fractal_image</span> <span class="o">=</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
@@ -575,37 +568,36 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/85db323c1fcb5021c2659c4b900cfd90b327a1aa1b38d12ef566af9beb1f30c2.png" src="../../_images/85db323c1fcb5021c2659c4b900cfd90b327a1aa1b38d12ef566af9beb1f30c2.png" />
+<img alt="../../_images/f9521c95c2dcb0dedf6b7626aa7166763e29fbbe480dc433ac7f2ca193a9a86e.png" src="../../_images/f9521c95c2dcb0dedf6b7626aa7166763e29fbbe480dc433ac7f2ca193a9a86e.png" />
 </div>
 </div>
-<p>A continuación realizaremos un <em>profiling</em> de cómputo en función del tiempo necesario para calcular el fractal</p>
+<p>A continuación realizaremos un <em>profiling</em> del tiempo computacional necesario para calcular el fractal.</p>
 </section>
 <section id="midiendo-tiempo-de-ejecucion">
 <h2><span class="section-number">36.2. </span>Midiendo tiempo de ejecución<a class="headerlink" href="#midiendo-tiempo-de-ejecucion" title="Permalink to this heading">#</a></h2>
 <section id="magia-time">
 <h3><span class="section-number">36.2.1. </span>Magia <code class="docutils literal notranslate"><span class="pre">%time</span></code><a class="headerlink" href="#magia-time" title="Permalink to this heading">#</a></h3>
-<p>Python tiene un módulo nativo llamado <a class="reference external" href="https://docs.python.org/3/library/timeit.html#module-timeit"><code class="docutils literal notranslate"><span class="pre">timeit</span></code></a> que ofrece funciones para medir tiempo de cómputo. Algunas de estas funciones han sido incorporadas en magias de IPython, lo cual permite utilizarlas de forma simple y conveniente</p>
-<p>La primera que revisaremos es <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time"><code class="docutils literal notranslate"><span class="pre">%time</span></code></a> que se usa anteponiendose a una función como muestra el ejemplo</p>
+<p>Python tiene un módulo nativo llamado <a class="reference external" href="https://docs.python.org/3/library/timeit.html#module-timeit"><code class="docutils literal notranslate"><span class="pre">timeit</span></code></a> que ofrece funciones para medir tiempo de cómputo. Algunas de estas funciones han sido incorporadas en magias de IPython, lo cual permite utilizarlas de forma simple y conveniente.</p>
+<p>La primera que revisaremos es <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time"><code class="docutils literal notranslate"><span class="pre">%time</span></code></a> que se usa anteponiendose a una función como muestra el ejemplo.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">mi_resultado</span> <span class="o">=</span> <span class="n">mi_funcion</span><span class="p">(</span><span class="n">mis_argumentos</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>El resultado de la linea anterior es algo similar a</p>
+<p>El resultado de la línea anterior es algo similar a:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPU</span> <span class="n">times</span><span class="p">:</span> <span class="n">user</span> <span class="mf">2.44</span> <span class="n">s</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="mf">2.41</span> <span class="n">ms</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="mf">2.45</span> <span class="n">s</span>
 <span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.57</span> <span class="n">s</span>
 </pre></div>
 </div>
 <p>donde</p>
 <ul class="simple">
-<li><p><em>Wall time</em>: Es el tiempo total de un proceso/función/expresión desde su principio (lanzamiento) hasta su fin (retorno)</p></li>
-<li><p><em>CPU time (total)</em>: Es el tiempo en que el CPU está dedicado procesando la tarea solicitada, siempre será menor que el <em>Wall-time</em></p></li>
+<li><p><em>Wall time</em>: Es el tiempo total de un proceso/función/expresión desde que se lanza hasta que retorna.</p></li>
+<li><p><em>CPU time (total)</em>: Es el tiempo que el CPU dedica a procesar la tarea solicitada, siempre será menor que el <em>Wall-time</em>.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>La magia <code class="docutils literal notranslate"><span class="pre">%time</span></code> mide el tiempo de una linea de código. Si queremos medir el tiempo total de un bloque de ejecución de jupyter completo podemos agregar  <code class="docutils literal notranslate"><span class="pre">%%time</span></code> al principio del bloque</p>
+<p>La magia <code class="docutils literal notranslate"><span class="pre">%time</span></code> mide el tiempo de una línea de código. Si queremos medir el tiempo total de un bloque de ejecución de Jupyter completo podemos agregar  <code class="docutils literal notranslate"><span class="pre">%%time</span></code> al principio del bloque.</p>
 </div>
 <p><strong>Ejemplos</strong></p>
 <p>Midamos el tiempo que demora en calcularse el fractal de Julia con la magia <code class="docutils literal notranslate"><span class="pre">%time</span></code></p>
-<p>¿Cuánto demora  la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> result1 = make_fractal(N=500, maxiters=50)
@@ -613,8 +605,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.03 s, sys: 3.5 ms, total: 2.04 s
-Wall time: 2.06 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.11 s, sys: 1.13 ms, total: 2.11 s
+Wall time: 2.12 s
 </pre></div>
 </div>
 </div>
@@ -627,8 +619,8 @@ Wall time: 2.06 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.03 s, sys: 41 µs, total: 2.03 s
-Wall time: 2.03 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.08 s, sys: 10.8 ms, total: 2.1 s
+Wall time: 2.11 s
 </pre></div>
 </div>
 </div>
@@ -647,11 +639,11 @@ Wall time: 2.03 s
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>El resultado en ambos casos es idéntico, sin embargo, el tiempo de ejecución es ligeramente distinto</p>
+<p>El resultado en ambos casos es idéntico, sin embargo, el tiempo de ejecución son ligeramente distintos.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p>Cada vez que ejecutamos un código alteramos el estado de nuestro sistema (cache, memoria). Por lo tanto lo más correcto para medir el tiempo de nuestra rutina es ejecutarla varias veces y calcular un promedio</p>
+<p>Cada vez que ejecutamos un código alteramos el estado de nuestro sistema (cache, memoria). Por lo tanto lo más correcto para medir el tiempo de nuestra rutina es ejecutarla varias veces y calcular un promedio.</p>
 </div>
 </section>
 <section id="magia-timeit">
@@ -681,18 +673,18 @@ Wall time: 2.03 s
 <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">tiempos</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">R</span><span class="p">)</span> 
 </pre></div>
 </div>
-<p>Es decir que <code class="docutils literal notranslate"><span class="pre">timeit</span></code> retorna un promedio de promedios. En general</p>
+<p>Es decir que <code class="docutils literal notranslate"><span class="pre">timeit</span></code> retorna un promedio de promedios. En general:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;R&gt;</span></code> debe ser lo suficientemente grande para que los estadísticos que calculemos sean confiables</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> debe ser lo suficientemente grande para que el tiempo medido sea representativo de <code class="docutils literal notranslate"><span class="pre">mi_funcion</span></code></p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p>Si <code class="docutils literal notranslate"><span class="pre">mi_funcion</span></code> toma menos de 10 microsegundos es recomendable subir el <span class="math notranslate nohighlight">\(N\)</span>. De lo contrario el tiempo podría estar dominado por otros procesos, como por ejemplo el <code class="docutils literal notranslate"><span class="pre">garbage</span> <span class="pre">collector</span></code> de Python</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">mi_funcion</span></code> toma menos de 10 microsegundos es recomendable subir el <span class="math notranslate nohighlight">\(N\)</span>. De lo contrario el tiempo podría estar dominado por otros procesos, como por ejemplo el <code class="docutils literal notranslate"><span class="pre">garbage</span> <span class="pre">collector</span></code> de Python.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> la magia buscará de forma automática un valor adecuado</p>
+<p>Si no se especifica <code class="docutils literal notranslate"><span class="pre">&lt;N&gt;</span></code> la magia buscará de forma automática un valor adecuado.</p>
 </div>
 <p><strong>Ejemplo</strong></p>
 <p>Utilicemos <code class="docutils literal notranslate"><span class="pre">timeit</span></code> para hacer profiling de <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code></p>
@@ -704,12 +696,12 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 1.98 s ± 10.5 ms per loop (mean ± std. dev. of 3 runs, 3 loops each)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TimeitResult : 2.12 s ± 43.5 ms per loop (mean ± std. dev. of 3 runs, 3 loops each)&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Los atributos más importantes del objeto <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code> son</p>
+<p>Los atributos más importantes del objeto <code class="docutils literal notranslate"><span class="pre">TimeitResult</span></code> son:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">timings</span></code>: Lista con los tiempos de cada repetición</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">average</span></code>: Promedio de los tiempos</p></li>
@@ -723,10 +715,10 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9759494354444136,
- 0.010476828778578784,
- 1.9611353033333216,
- 1.9835846006665936)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.122926094888903,
+ 0.043487481422218886,
+ 2.076626405000146,
+ 2.1811329733333573)
 </pre></div>
 </div>
 </div>
@@ -738,7 +730,7 @@ Wall time: 2.03 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.9835846, 1.9611353, 1.9831284])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.18113297, 2.11101891, 2.07662641])
 </pre></div>
 </div>
 </div>
@@ -746,12 +738,12 @@ Wall time: 2.03 s
 </section>
 <section id="magia-prun">
 <h3><span class="section-number">36.2.3. </span>Magia <code class="docutils literal notranslate"><span class="pre">%prun</span></code><a class="headerlink" href="#magia-prun" title="Permalink to this heading">#</a></h3>
-<p>El módulo nativo de Python <a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile</a> mide la cantidad de llamadas y el tiempo de cada función ejecutada por nuestra rutina</p>
+<p>El módulo nativo de Python <a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile</a> mide la cantidad de llamadas y el tiempo de cada función ejecutada por nuestra rutina.</p>
 <p>La magia de IPython <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun"><code class="docutils literal notranslate"><span class="pre">%prun</span></code></a> nos da una forma conveniente para usar este módulo</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="n">mi_funcion</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Lo anterior retorna  una tabla con las siguientes filas</p>
+<p>Lo anterior retorna  una tabla con las siguientes filas:</p>
 <ul class="simple">
 <li><p>ncalls: Número de veces que se llama la función</p></li>
 <li><p>tottime: Tiempo total en dicha función (sin contar subfunciones)</p></li>
@@ -759,31 +751,17 @@ Wall time: 2.03 s
 <li><p>cumtime: Tiempo total en dicha función y sus subfunciones (tiempo de función recursiva)</p></li>
 <li><p>percall: cumtime/ncalls</p></li>
 </ul>
-<p>Algunos argumentos importantes de <code class="docutils literal notranslate"><span class="pre">%prun</span></code></p>
+<p>Algunos argumentos importantes de <code class="docutils literal notranslate"><span class="pre">%prun</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code> para que el resultado quede ordenado según una fila en particular</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> si queremos especificar la cantidad de líneas a mostrar en la tabla</p></li>
 </ul>
-<p><strong>Ejemplo</strong></p>
-<p>Usemos <code class="docutils literal notranslate"><span class="pre">prun</span></code> en la función <code class="docutils literal notranslate"><span class="pre">make_fractal</span></code> ordenando según el tiempo acumulado</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">prun</span> <span class="o">-</span><span class="n">s</span> <span class="n">cumtime</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Esto levantará una tabla en tu navegador como la que se muestra a continuación</p>
-<img alt="../../_images/profiling1.png" src="../../_images/profiling1.png" />
-<p>De la tabla vemos que</p>
-<ul class="simple">
-<li><p>La función con mayor tiempo total es <code class="docutils literal notranslate"><span class="pre">evaluate_z</span></code> que está en la linea 1 de <a class="reference external" href="http://fractal.py">fractal.py</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evaluate_z()</span></code> se llama 500.000 veces</p></li>
-</ul>
-<p>En general el tiempo total es mayor que el que medimos con <code class="docutils literal notranslate"><span class="pre">time</span></code> y <code class="docutils literal notranslate"><span class="pre">timeit</span></code>. Esto se debe al overhead de <code class="docutils literal notranslate"><span class="pre">prun</span></code></p>
 <p><strong>Visualizando el resultado de <code class="docutils literal notranslate"><span class="pre">prun</span></code></strong></p>
-<p>Podemos generar una visualización de los resultados de <code class="docutils literal notranslate"><span class="pre">cProfile</span></code> en nuestro navegador usando <a class="reference external" href="https://jiffyclub.github.io/snakeviz/"><code class="docutils literal notranslate"><span class="pre">SnakeViz</span></code></a>. Puedes instalar la librería usando el siguiente comando de conda</p>
+<p>Podemos generar una visualización de los resultados de <code class="docutils literal notranslate"><span class="pre">cProfile</span></code> en nuestro navegador usando <a class="reference external" href="https://jiffyclub.github.io/snakeviz/"><code class="docutils literal notranslate"><span class="pre">SnakeViz</span></code></a>. Puedes instalar la librería usando el siguiente comando de conda.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install snakeviz
 </pre></div>
 </div>
-<p>Esto creará un ejecutable <code class="docutils literal notranslate"><span class="pre">snakeviz</span></code>.</p>
-<p>Antes de utilizar en jupyter es necesario habilitar la magia cargando la extensión, como se muestra a continuación:</p>
+<p>Esto creará un ejecutable <code class="docutils literal notranslate"><span class="pre">snakeviz</span></code>. Antes de utilizar en jupyter es necesario habilitar la magia cargando la extensión, como se muestra a continuación:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">snakeviz</span>
 <span class="o">%</span><span class="n">snakeviz</span> <span class="o">-</span><span class="n">t</span> <span class="n">make_fractal</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxiters</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
@@ -792,9 +770,9 @@ Wall time: 2.03 s
 <a class="reference internal image-reference" href="../../_images/snakeviz.png"><img alt="../../_images/snakeviz.png" src="../../_images/snakeviz.png" style="width: 900px;" /></a>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>La opción <code class="docutils literal notranslate"><span class="pre">-t</span></code> carga el gráfico en una pestaña de navegador nueva</p>
+<p>La opción <code class="docutils literal notranslate"><span class="pre">-t</span></code> carga el gráfico en una pestaña de navegador nueva.</p>
 </div>
-<p>Esta herramienta puede mejorar considerablemente el estudio de nuestro código cuando se tiene una gran cantidad de funciones en distintas jerarquías</p>
+<p>Esta herramienta puede mejorar considerablemente el estudio de nuestro código cuando se tiene una gran cantidad de funciones en distintas jerarquías.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">cProfile</span></code> sin IPython</strong></p>
 <p>Si no contamos con el ambiente IPython podemos usar cProfile directamente sobre un script de Python con</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    python -m cProfile -o tabla.prof script.py
@@ -804,23 +782,20 @@ Wall time: 2.03 s
 </section>
 <section id="magia-lprun">
 <h3><span class="section-number">36.2.4. </span>Magia  <code class="docutils literal notranslate"><span class="pre">%lprun</span></code><a class="headerlink" href="#magia-lprun" title="Permalink to this heading">#</a></h3>
-<p>Hemos visto como medir el tiempo total de un código en Python y el tiempo desglosado por cada llamado a función de dicho código. Pero en ocasiones puede resultar más informativo estudiar el tiempo de ejecución de cada linea de nuestro código por separado</p>
+<p>Hemos visto como medir el tiempo total de un código en Python y el tiempo desglosado por cada llamado a función de dicho código. Pero en ocasiones puede resultar más informativo estudiar el tiempo de ejecución de cada linea de nuestro código por separado.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Esto corresponde a un tipo de <em>profiling</em> llamado <em>line by line</em></p>
+<p>Esto corresponde a un tipo de <em>profiling</em> llamado <em>line by line</em>.</p>
 </div>
-<p>Podemos hacer este tipo de profiling usando la extensión externa <a class="reference external" href="https://github.com/pyutils/line_profiler"><code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a>. Puedes instalar esta extensión con el siguiente comando</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install line_profiler
-</pre></div>
-</div>
+<p>Podemos hacer este tipo de profiling usando la extensión externa <a class="reference external" href="https://github.com/pyutils/line_profiler"><code class="docutils literal notranslate"><span class="pre">line_profiler</span></code></a>.</p>
 <p>Una vez instalada se debe cargar la extensión para habilitar la magia <code class="docutils literal notranslate"><span class="pre">lprun</span></code>, como se muestra a continuación:</p>
 <p><strong>Ejemplo</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">line_profiler</span>
 <span class="o">%</span><span class="n">lprun</span> <span class="o">-</span><span class="n">f</span> <span class="n">mi_método</span> <span class="n">mi_rutina</span>
 </pre></div>
 </div>
-<p>Esta magia requiere que se especifique un método o función dentro de la rutina con el argumento <code class="docutils literal notranslate"><span class="pre">-f</span></code>. Ejecutar la magia levantará una pestaña con una tabla</p>
-<p>La tabla tiene una fila por linea de código y las siguientes columnas</p>
+<p>Esta magia requiere que se especifique un método o función dentro de la rutina con el argumento <code class="docutils literal notranslate"><span class="pre">-f</span></code>. Ejecutar la magia levantará una pestaña con una tabla.</p>
+<p>La tabla tiene una fila por linea de código y las siguientes columnas:</p>
 <ul class="simple">
 <li><p>Line: Número de la linea dentro del código fuente</p></li>
 <li><p>Hits: La cantidad de veces que se llama a esa linea</p></li>
@@ -909,7 +884,7 @@ Wall time: 2.03 s
       </div>
     </a>
     <a class="right-next"
-       href="opti1.html"
+       href="python.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>

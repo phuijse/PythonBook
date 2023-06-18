@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'contents/hpc/intro';</script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="36. Profiling" href="profiling.html" />
+    <link rel="next" title="36. Perfilado (Profiling) de rutinas de Python" href="profiling.html" />
     <link rel="prev" title="34. Evaluando un clasificador" href="../sklearn/metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -202,10 +202,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Alto rendimiento en Python</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Python y  Rendimiento</a></li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">36. Profiling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opti1.html">37. Optimizando código Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cython.html">38. Acelerando Python con Cython</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallel.html">39. Computación paralela en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profiling.html">36. Perfilado (Profiling) de rutinas de Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">37. Optimizando código Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vectorization.html">38. Vectorización: Cómputo basado en arreglos con NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cython.html">39. Acelerando Python con Cython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel.html">40. Computación paralela en Python</a></li>
 </ul>
 
     </div>
@@ -400,7 +401,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">35.1. ¿Qué es la optimización de códigos/software?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">35.2. Consejos antes de optimizar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antes-de-optimizar">35.2. Antes de optimizar</a></li>
 </ul>
             </nav>
         </div>
@@ -415,8 +416,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="python-y-rendimiento">
 <h1><span class="section-number">35. </span>Python y  Rendimiento<a class="headerlink" href="#python-y-rendimiento" title="Permalink to this heading">#</a></h1>
 <p>Python es un lenguaje interpretado de alto nivel que es muy conveniente para prototipar y hacer análisis
-exploratorio</p>
-<p>Sin embargo, esta conveniencia tiene un costo:</p>
+exploratorio. Sin embargo, esta conveniencia tiene un costo:</p>
 <blockquote>
 <div><p>Python tiene un menor <strong>rendimiento</strong> a igual <strong>complejidad</strong> en comparación a lenguajes compilados de bajo nivel</p>
 </div></blockquote>
@@ -425,19 +425,18 @@ exploratorio</p>
 <li><p>Eficiencia temporal: Tiempo para completar una tarea (tiempo en la CPU)</p></li>
 <li><p>Eficiencia espacial: Utilización de espacio (memoria RAM, disco)</p></li>
 </ul>
-<p>Ambos son factores críticos en algunas aplicaciones, por ejemplo aplicaciones con muchos datos o mucho cómputo</p>
-<p>Existe entonces una necesidad por <strong>mejorar el rendimiento de nuestro código</strong>. En esta serie de lecciones veremos distintas formas de <strong>optimizar</strong> código escrito en Python</p>
+<p>Ambos son factores críticos en algunas aplicaciones, por ejemplo aplicaciones con muchos datos o mucho cómputo.</p>
+<p>Existe entonces una necesidad por <strong>mejorar el rendimiento de nuestro código</strong>. En esta serie de lecciones veremos distintas formas de <strong>optimizar</strong> código escrito en Python.</p>
 <section id="que-es-la-optimizacion-de-codigos-software">
 <h2><span class="section-number">35.1. </span>¿Qué es la optimización de códigos/software?<a class="headerlink" href="#que-es-la-optimizacion-de-codigos-software" title="Permalink to this heading">#</a></h2>
-<p>Se refiere a modificar una rutina computacional para mejorar su eficiencia, es decir reducir sus tiempos de ejecución y/o consumo de recursos</p>
-<p>El aspecto que se intenta modificar es aquel que limita nuestro programa. Un programa puede estar</p>
+<p><strong>Optimización</strong> se refiere a modificar una rutina computacional para mejorar su eficiencia, es decir reducir sus tiempos de ejecución y/o consumo de recursos. El aspecto que se intenta modificar es aquel que limita nuestro programa. Un programa puede estar:</p>
 <ul class="simple">
-<li><p>limitado en CPU (compute-bound)</p></li>
-<li><p>limitado en memoria (memory-bound)</p></li>
-<li><p>limitado en ancho de banda (bandwidth-bound)</p></li>
-<li><p>limitado en entrada/salida (I/O bound)</p></li>
+<li><p>limitado en CPU: <em>compute-bound</em></p></li>
+<li><p>limitado en memoria: <em>memory-bound</em></p></li>
+<li><p>limitado en ancho de banda: <em>bandwidth-bound</em></p></li>
+<li><p>limitado en entrada/salida: <em>I/O bound</em></p></li>
 </ul>
-<p>En el ámbito de la computación científica lo más común es enfrentar programas que están <strong>límitados en CPU</strong>, es decir</p>
+<p>En el ámbito de la computación científica lo más común es enfrentar programas que están <strong>límitados en CPU</strong>, es decir:</p>
 <ul class="simple">
 <li><p>programas que utilizan la mayor parte de su tiempo haciendo cálculos</p></li>
 <li><p>programas que mejoran su rendimiento con la velocidad del CPU</p></li>
@@ -447,9 +446,9 @@ exploratorio</p>
 <p>En ciertos casos podemos disminuir el tiempo de ejecución de una rutina incrementando el uso de memoria. Esto podría convertir un programa que es limitado en CPU a uno que es limitado en memoria.</p>
 </div>
 </section>
-<section id="consejos-antes-de-optimizar">
-<h2><span class="section-number">35.2. </span>Consejos antes de optimizar<a class="headerlink" href="#consejos-antes-de-optimizar" title="Permalink to this heading">#</a></h2>
-<p>Considera las siguientes preguntas antes de comenzar el (a veces arduo) proceso de optimizar tus códigos</p>
+<section id="antes-de-optimizar">
+<h2><span class="section-number">35.2. </span>Antes de optimizar<a class="headerlink" href="#antes-de-optimizar" title="Permalink to this heading">#</a></h2>
+<p>Considera las siguientes preguntas antes de comenzar el (a veces arduo) proceso de optimizar tus códigos.</p>
 <p><strong>¿Cuándo optimizar?</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">Si:</span></code></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tu rutina está incompleta o no entrega el resultado esperado
@@ -459,7 +458,7 @@ exploratorio</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No es momento de optimizar 
 </pre></div>
 </div>
-<p>Dicho de otro modo, para casi cualquier rutina que escribamos, deberíamos considerar la secuencia</p>
+<p>Para casi cualquier rutina que escribamos, deberíamos considerar la secuencia:</p>
 <ol class="arabic simple">
 <li><p>que (la rutina) corra</p></li>
 <li><p>que (la rutina) retorne el resultado correcto</p></li>
@@ -481,16 +480,14 @@ exploratorio</p>
 <p class="attribution">—<a class="reference external" href="http://wiki.c2.com/?PrematureOptimization">Donald Knuth</a></p>
 </div></blockquote>
 <p><strong>¿Por qué optimizar?</strong></p>
-<p>En la secuencia mostrada anteriormente, podemos notar que el último punto no es esencial como lo son los dos primeros</p>
-<p>Optimizar solo es necesario si nuestro código:</p>
+<p>En la secuencia mostrada anteriormente, podemos notar que el último punto no es esencial como lo son los dos primeros. Optimizar solo es necesario si nuestro código:</p>
 <ul class="simple">
 <li><p>no entrega el resultado correcto en el tiempo requerido</p></li>
 <li><p>requiere más memoria que la disponible en el hardware donde va a correr</p></li>
 </ul>
 <p><strong>¿Dónde optimizar?</strong></p>
-<p>Se debe evitar gastar tiempo optimizando rutinas que influyan poco en el rendimiento total del programa</p>
-<p>La optimización debería concentrarse en las secciones más lentas y/o costosas: <strong>cuellos de botella</strong></p>
-<p>Previo a optimizar debemos hacer un <em><strong>profiling</strong></em> de nuestro código para encontrar las secciones críticas</p>
+<p>Se debe evitar gastar tiempo optimizando rutinas que influyan poco en el rendimiento total del programa. La optimización debería concentrarse en las secciones más lentas y/o costosas: <strong>cuellos de botella</strong></p>
+<p>Previo a optimizar debemos hacer un <strong>perfilado</strong> (<em><strong>profiling</strong></em>) de nuestro código para encontrar las secciones críticas. Veremos como hacer perfilado con ipython a continuación.</p>
 </section>
 </section>
 
@@ -539,7 +536,7 @@ exploratorio</p>
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title"><span class="section-number">36. </span>Profiling</p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Perfilado (Profiling) de rutinas de Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -562,7 +559,7 @@ exploratorio</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-la-optimizacion-de-codigos-software">35.1. ¿Qué es la optimización de códigos/software?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consejos-antes-de-optimizar">35.2. Consejos antes de optimizar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antes-de-optimizar">35.2. Antes de optimizar</a></li>
 </ul>
   </nav></div>
 
