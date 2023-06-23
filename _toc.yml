@@ -61,7 +61,8 @@ parts:
   chapters:
     - file: contents/hpc/intro
     - file: contents/hpc/profiling
-    - file: contents/hpc/opti1
+    - file: contents/hpc/python
+    - file: contents/hpc/vectorization
     - file: contents/hpc/cython
     - file: contents/hpc/parallel
       #    - file: contents/hpc/appendix
