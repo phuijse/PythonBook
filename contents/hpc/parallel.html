@@ -431,76 +431,75 @@ document.write(`
 <h1><span class="section-number">40. </span>Computación paralela en Python<a class="headerlink" href="#computacion-paralela-en-python" title="Permalink to this heading">#</a></h1>
 <section id="introduccion">
 <h2><span class="section-number">40.1. </span>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h2>
-<p>En capítulos anteriores hemos visto como ganar rendimiento en operaciones SIMD usando NumPy. Luego aprendimos a conectar con lenguajes de bajo nivel usando Cython</p>
+<p>En lecciones anteriores hemos visto como ganar rendimiento en operaciones SIMD usando NumPy. Luego aprendimos a conectar con lenguajes de bajo nivel usando Cython.</p>
 <p>En este capítulo veremos una opción para ganar rendimiento en tareas limitados en CPU que sean “separables”.</p>
 <dl class="simple myst">
 <dt>Tarea separable</dt><dd><p>Tarea que puede dividirse en <strong>subtareas independientes</strong>. Es decir que una subtarea cualquiera no depende de ninguna otra subtarea</p>
 </dd>
 </dl>
-<p>Al ser independientes significa que podemos resolverlas <strong>al mismo tiempo</strong>, es decir resolver cada una sin esperar el resultado de los demás</p>
+<p>Al ser independientes significa que podemos resolverlas <strong>al mismo tiempo</strong>, es decir resolver cada una sin esperar el resultado de los demás.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>(Arquitectura de computadores) Hoy en día incluso los CPU de sobremesa son en realidad <strong>múltiples CPU</strong> unidos</p>
+<p>Hoy en día incluso los CPU de sobremesa son en realidad <strong>múltiples CPU</strong> en un mismo chip.</p>
 </div>
-<p>Es decir que podemos escribir programas que aprovechan los CPU multi-nucleo y así resolver problemas o tareas separables en un menor tiempo. Esto es lo que llamamos <a class="reference external" href="https://computing.llnl.gov/tutorials/parallel_comp/#Whatis"><strong>computación paralela</strong></a></p>
+<p>Es decir que podemos escribir programas que aprovechan los CPU multi-nucleo y así resolver problemas o tareas separables en un menor tiempo. Esto es lo que llamamos <a class="reference external" href="https://computing.llnl.gov/tutorials/parallel_comp/#Whatis"><strong>computación paralela</strong></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>En la práctica muchos problemas de computación científica (modelamiento, simulación) son paralelizables o incluso “masivamente paralelizables”</p>
+<p>En la práctica muchos problemas de computación científica (modelamiento, simulación) son paralelizables o incluso “masivamente paralelizables”.</p>
 </div>
-<p>Asumiendo que el problema al que nos enfrentamos es limitado en CPU el primer paso es hacer <em>profiling</em> para encontrar los cuellos de botella. Luego de esto debemos estudiar las zonas críticas y detectar oportunidades para paralelizar</p>
+<p>Asumiendo que el problema al que nos enfrentamos es limitado en CPU (<em>CPU-bound</em>) el primer paso es hacer <em>profiling</em> para encontrar los cuellos de botella. Luego de esto debemos estudiar las zonas críticas y detectar oportunidades para paralelizar.</p>
 <p>El objetivo es encontrar sectores del programa que sean separables. Algunas preguntas típicas que pueden servir para esto son:</p>
 <ul class="simple">
 <li><p>¿Existen ciclos <code class="docutils literal notranslate"><span class="pre">for</span></code> donde las iteraciones son independientes entre sí?</p></li>
 <li><p>¿Es posible descomponer la operación o los datos?</p></li>
 <li><p>¿Existe una estructura de tipo pipeline?</p></li>
 </ul>
-<p>Si alguna de estas respuestas es afirmativa entonces lo que resta es usar alguna herramienta de programación paralela para reescribir dicho sector del programa. A continuación veremos algunas herramientas para Python</p>
+<p>Si alguna de estas respuestas es afirmativa entonces lo que resta es usar alguna herramienta de programación paralela para reescribir dicho sector del programa. A continuación veremos algunas herramientas para Python.</p>
 </section>
 <section id="el-global-interpreter-lock-gil-de-python">
 <h2><span class="section-number">40.2. </span>El Global interpreter lock (GIL) de Python<a class="headerlink" href="#el-global-interpreter-lock-gil-de-python" title="Permalink to this heading">#</a></h2>
-<p>El manejo de memoria de CPython no es <em>thread-safe</em>. Por esta razón todo código escrito en Python está sujeto a un <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a></strong> que lo proteje conocido como <strong>Global Interpreter Lock (GIL)</strong></p>
-<p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU</p>
-<p>En esta lección exploraremos dos alternativas generales</p>
+<p>El manejo de memoria de CPython no es <em>thread-safe</em>. Por esta razón todo código escrito en Python está sujeto a un <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">mutex</a></strong> que lo protege conocido como <strong>Global Interpreter Lock (GIL)</strong>.</p>
+<p>El <a class="reference external" href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> obliga a ejecutar solo un hilo de código Python a la vez. Además el código escrito en Python no tiene control sobre el GIL. Por esta razón no es directo ni fácil que un proceso Python puedo usar múltiples nucleos de CPU.</p>
+<p>En esta lección exploraremos dos alternativas generales:</p>
 <ul class="simple">
 <li><p><strong>1:</strong> Realizar cómputo paralelo con <strong>múltiples hilos</strong> que comparten memoria. Para esto usaremos <code class="docutils literal notranslate"><span class="pre">cython</span></code> para levantar el GIL y las directivas de <code class="docutils literal notranslate"><span class="pre">OpenMP</span></code> para implementar este tipo de paralelismo</p></li>
 <li><p><strong>2:</strong> Realizar cómputo paralelo con <strong>multiples procesos</strong> (fork). En este escenario los procesos tiene su propio espacio de memoria y su propio GIL, por lo que no es necesario usar <code class="docutils literal notranslate"><span class="pre">cython</span></code>. En general el overhead es mucho mayor que en el caso <strong>1</strong>. Usaremos la librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> para implementar este tipo de  paralelismo</p></li>
 </ul>
-<p>Existe una tercera alternativa más accesible pero exclusiva para hacer <strong>algebra lineal en paralelo</strong> con NumPy</p>
+<p>Existe una tercera alternativa más accesible pero exclusiva para hacer <strong>algebra lineal en paralelo</strong> con NumPy:</p>
 <ul class="simple">
 <li><p><strong>3:</strong> Compilar NumPy contra una librería de álgebra lineal de alto rendimiento  como MKL, ATLAS, Openblas. Estas librerías usan código de bajo nivel que levanta el GIL</p></li>
 </ul>
 </section>
 <section id="computacion-multi-hilo-con-cython-y-openmp">
 <h2><span class="section-number">40.3. </span>Computación multi-hilo con Cython y OpenMP<a class="headerlink" href="#computacion-multi-hilo-con-cython-y-openmp" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://www.openmp.org/">OpenMP</a> es una API multiplataforma para computación paralela en C, C++ y Fortran. Por ejemplo en C/C++ se puede escribir un <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> usando directivas de compilador (pragma) de OpenMP</p>
+<p><a class="reference external" href="https://www.openmp.org/">OpenMP</a> es una API multiplataforma para computación paralela en C, C++ y Fortran. Por ejemplo en C/C++ se puede escribir un <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">for</span></code> usando directivas de compilador (pragma) de OpenMP como se muestran a continuación</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma omp parallel for</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Cython tiene un modulo llamado <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/parallelism.html"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a> que usa OpenMP como backend. Para ocupar OpenMP desde Cython es necesario</p>
+<p>Cython tiene un módulo llamado <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/parallelism.html"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a> que usa OpenMP como <em>backend</em>. Para ocupar OpenMP desde Cython es necesario:</p>
 <ul class="simple">
-<li><p>instalar OpenMP en el sistema</p></li>
-<li><p>compilar el código Cython con <code class="docutils literal notranslate"><span class="pre">--compile-args=-fopenmp</span> <span class="pre">--link-args=-fopenmp</span></code></p></li>
+<li><p>Instalar OpenMP en el sistema (conda se puede encargar)</p></li>
+<li><p>Compilar el código Cython con los siguientes <em>flags</em>: <code class="docutils literal notranslate"><span class="pre">--compile-args=-fopenmp</span> <span class="pre">--link-args=-fopenmp</span></code></p></li>
 </ul>
-<p>El modulo provee tres funciones principales</p>
+<p>El modulo provee tres funciones principales:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">parallel(num_threads=None)</span></code>: Para crear un contexto de cómputo paralelo</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">threadid()</span></code>: Para obtener la id del hilo</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">prange([start,]</span> <span class="pre">stop[,</span> <span class="pre">step][,</span> <span class="pre">nogil=False][,</span> <span class="pre">schedule=None[,</span> <span class="pre">chunksize=None]][,</span> <span class="pre">num_threads=None])</span></code>: Un iterador similar <code class="docutils literal notranslate"><span class="pre">range</span></code> pero que implemente un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> paralelo</p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html#cython.parallel.prange"><code class="docutils literal notranslate"><span class="pre">prange(start,</span> <span class="pre">stop,</span> <span class="pre">step,</span> <span class="pre">nogil=False,</span> <span class="pre">schedule=None,</span> <span class="pre">chunksize=None,</span> <span class="pre">num_threads=None)</span></code></a>: Un iterador similar <code class="docutils literal notranslate"><span class="pre">range</span></code> pero que implemente un ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> paralelo.</p></li>
 </ul>
 <p>También se pueden usar funciones de OpenMP importando</p>
 <div class="highlight-cython notranslate"><div class="highlight"><pre><span></span><span class="k">cimport</span> <span class="nn">openmp</span>
 </pre></div>
 </div>
-<p>El principal requisito es que las funciones paralelas deben liberar el GIL. En Cython podemos liberar el GIL en una sección de código o en una función con el <code class="docutils literal notranslate"><span class="pre">keyword</span></code> <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/external_C_code.html#nogil"><code class="docutils literal notranslate"><span class="pre">nogil</span></code></a></p>
-<p><strong>Ejemplo:</strong> Cálculo paralelo del kernel Gaussiano entre dos vectores</p>
-<p>El kernel Gaussiano se define como</p>
+<p>El principal requisito es que las funciones paralelas deben liberar el GIL. En Cython podemos liberar el GIL en una sección de código o en una función con el <code class="docutils literal notranslate"><span class="pre">keyword</span></code> <a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/external_C_code.html#nogil"><code class="docutils literal notranslate"><span class="pre">nogil</span></code></a>.</p>
+<p><strong>Ejemplo:</strong> Cálculo paralelo del kernel Gaussiano entre dos vectores definido como</p>
 <div class="math notranslate nohighlight">
 \[
 e^{-\gamma \|x-y\|^2}
 \]</div>
-<p>En este ejemplo asumiremos <span class="math notranslate nohighlight">\(\gamma=1\)</span>. Escribamos un código en Cython de referencia y otro paralelo con OpenMP para calcular esta función.</p>
+<p>Escribamos un código en Cython de referencia y otro paralelo con OpenMP para calcular esta función.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> cython
@@ -510,7 +509,7 @@ e^{-\gamma \|x-y\|^2}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> -f -c=-O3 -c=-march=native
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> 
 cimport cython
 
 cdef extern from &quot;math.h&quot;:
@@ -518,123 +517,84 @@ cdef extern from &quot;math.h&quot;:
     
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def suma_vectores_cython(double [::1] x, double [::1] y, double [::1] z):
+def suma_vectores_cython(double gamma, double [::1] x, double [::1] y, double [::1] z):
     cdef:
         Py_ssize_t i
         int N = x.shape[0]
     for i in range(N):
-        z[i] = exp(-(x[i] - y[i])**2)
+        z[i] = exp(-gamma*(x[i] - y[i])**2)
 </pre></div>
 </div>
 </div>
 </div>
-<p>En el código paralelo realizaremos tres cambios</p>
-<ul class="simple">
-<li><p>Modificamos la magia <code class="docutils literal notranslate"><span class="pre">%%cython</span></code> para compilar contra openmp</p></li>
-<li><p>Agregamos <code class="docutils literal notranslate"><span class="pre">nogil</span></code> en las secciones paralelas. Todas las funciones llamadas en la sección paralela deben liberar el GIL</p></li>
-<li><p>Importamos <code class="docutils literal notranslate"><span class="pre">cython.parallel.prange</span></code> para reemplazar el <code class="docutils literal notranslate"><span class="pre">range</span></code> original. En este caso especifiremos <span class="math notranslate nohighlight">\(4\)</span> hilos en <code class="docutils literal notranslate"><span class="pre">prange</span></code></p></li>
-</ul>
+<p>Midamos el rendimiento de esta rutina sobre datos artificiales y comparémosla contra una versión vectorizada</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> --compile-args=-fopenmp --link-args=-fopenmp --force 
-# Compilamos con directivas OpenMP
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10_000_000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Versión numpy</span>
+<span class="n">time_numpy</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n10 -o np.exp(-1*(x-y)**2) 
+<span class="c1"># Versión cython secuencial</span>
+<span class="n">time_cython</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n10 -o suma_vectores_cython(1.0, x, y, z)
+<span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython</span><span class="o">.</span><span class="n">average</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27.2 ms ± 395 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+28.3 ms ± 658 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9593189292790054
+</pre></div>
+</div>
+</div>
+</div>
+<p>A continuación se muestra una versión paralela del código anterior.</p>
+<p>Los cambios principales son:</p>
+<ul class="simple">
+<li><p>Se modifica la magia <code class="docutils literal notranslate"><span class="pre">%%cython</span></code> para compilar con OpenMP.</p></li>
+<li><p>Agregamos <code class="docutils literal notranslate"><span class="pre">nogil</span></code> en las secciones paralelas.</p></li>
+<li><p>Importamos <code class="docutils literal notranslate"><span class="pre">cython.parallel.prange</span></code> para reemplazar el <code class="docutils literal notranslate"><span class="pre">range</span></code> original. Configuramos la cantidad de hilos con el argumento <code class="docutils literal notranslate"><span class="pre">n_threads</span></code> de <code class="docutils literal notranslate"><span class="pre">prange</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Existen varios mecanismos para balancear la carga de trabajo de los hilos. Esto se especifica utilizando los argumentos <code class="docutils literal notranslate"><span class="pre">schedule</span></code> y <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> de <code class="docutils literal notranslate"><span class="pre">prange</span></code>. En este caso ocuparemos un modo semi-automático llamado <code class="docutils literal notranslate"><span class="pre">guided</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span> --compile-args=-fopenmp --link-args=-fopenmp 
 cimport cython
 
-from cython.parallel import prange # Importamos prange
+from cython.parallel cimport prange 
 
 cdef extern from &quot;math.h&quot; nogil: # Liberamos el GIL
     double exp (double)
         
 @cython.boundscheck(False)
 @cython.wraparound(False)
-def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
+def suma_vectores_openmp(double gamma, double [::1] x, double [::1] y, double [::1] z, int n_threads=2):
     cdef:
         Py_ssize_t i
         int N = x.shape[0]
     with nogil: # Liberamos el GIL
-        for i in prange(N, num_threads=4): # For paralelo con 4 hilos
-            z[i] = exp(-(x[i] - y[i])**2)
+        for i in prange(N, num_threads=n_threads, schedule=&#39;guided&#39;): 
+            z[i] = exp(-gamma*(x[i] - y[i])**2)
 </pre></div>
 </div>
 </div>
 </div>
-<p>A continuación se realiza un profiling en base a datos creados artificialmente</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">N</span> <span class="o">=</span> <span class="mi">1000000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># Versión numpy</span>
-<span class="n">time_numpy</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n3 -o np.exp(-(x-y)**2) 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.4 ms ± 117 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Versión cython</span>
-<span class="n">time_cython</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n3 -o suma_vectores_cython(x, y, z)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.1 ms ± 1.03 ms per loop (mean ± std. dev. of 10 runs, 3 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython</span><span class="o">.</span><span class="n">average</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0276477837729663
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Versión cython con openmp</span>
-<span class="n">time_openmap</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n3 -o suma_vectores_openmp(x, y, z)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.27 ms ± 273 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_numpy</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_openmap</span><span class="o">.</span><span class="n">average</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9787374609354715
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finalmente comprobamos que el resultado es idéntico al de NumPy</p>
+<p>Comprobamos que el resultado es idéntico al de NumPy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">suma_vectores_openmp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">suma_vectores_openmp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -644,10 +604,34 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
+<p>Midamos el rendimiento en función del número de hilos utilizados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n_cores</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]:</span>
+    <span class="n">time_cython_openmp</span> <span class="o">=</span> <span class="o">%</span><span class="k">timeit</span> -r10 -n10 -o suma_vectores_openmp(1.0, x, y, z, n_cores)
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed-up </span><span class="si">{</span><span class="n">n_cores</span><span class="si">}</span><span class="s2"> nucleos: </span><span class="si">{</span><span class="n">time_cython</span><span class="o">.</span><span class="n">average</span><span class="o">/</span><span class="n">time_cython_openmp</span><span class="o">.</span><span class="n">average</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.5 ms ± 257 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+Speed-up 2 nucleos: 1.9566
+7.73 ms ± 160 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+Speed-up 4 nucleos: 3.6625
+7.84 ms ± 223 µs per loop (mean ± std. dev. of 10 runs, 10 loops each)
+Speed-up 8 nucleos: 3.6100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Prudencia</p>
+<p>Más hilos no significa necesariamente mayor speed-up. Dividir el trabajo incurre en un overhead. Mientras más dividamos mayor es el overhead.</p>
+</div>
 </section>
 <section id="computacion-multi-proceso-con-ipython-ipyparallel">
 <h2><span class="section-number">40.4. </span>Computación multi-proceso con IPython: <em>ipyparallel</em><a class="headerlink" href="#computacion-multi-proceso-con-ipython-ipyparallel" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/">ipyparallel</a> es un paquete independiente pero complementario de IPython para hacer computación multi-proceso</p>
+<p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/">ipyparallel</a> es un paquete independiente pero complementario de IPython para hacer computación multi-proceso.</p>
 <p><strong>Instalación con conda</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>ipyparallel
 </pre></div>
@@ -661,8 +645,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <p><strong>Conceptos y uso básico</strong></p>
 <p><em>ipyparallel</em> considera varios elementos, los más importantes son:</p>
 <ul class="simple">
-<li><p>Engine: Es el encargado de correr código. Es una extensión del kernel de IPython</p></li>
-<li><p>Controller: Es una interfaz para comunicarnos con el/los engine/s. La conexión se hace a través del objeto <code class="docutils literal notranslate"><span class="pre">Client</span></code></p></li>
+<li><p><em>Engine</em>: Es el encargado de correr código. Es una extensión del kernel de IPython</p></li>
+<li><p><em>Controller</em>: Es una interfaz para comunicarnos con el/los engine/s. La conexión se hace a través del objeto <code class="docutils literal notranslate"><span class="pre">Client</span></code></p></li>
 </ul>
 <p>Para iniciar un controlador de forma automática podemos abrir un terminal y escribir</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ipcluster<span class="w"> </span>start<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span>
@@ -670,7 +654,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 <p>o utilizar los controles que se encuentran en la pestaña “IPython clusters”</p>
 <a class="reference internal image-reference" href="../../_images/ipyparallel2.png"><img alt="../../_images/ipyparallel2.png" src="../../_images/ipyparallel2.png" style="width: 700px;" /></a>
-<p>Con esto hemos creado un controlador y cuatro engines, todos en nuestra máquina (localhost)</p>
+<p>Con esto hemos creado un controlador y cuatro engines, todos en nuestro ambiente local (localhost).</p>
 <section id="creacion-de-un-cliente">
 <h3><span class="section-number">40.4.1. </span>Creación de un cliente<a class="headerlink" href="#creacion-de-un-cliente" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -690,8 +674,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>Cada engine tiene una id asociada. Para enviarle trabajo a los engines debemos crear una intefaz llamada <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/details.html#views"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></p>
-<p>Existen dos tipos de <code class="docutils literal notranslate"><span class="pre">View</span></code>: <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/direct.html#"><em>Direct</em></a> y <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html#"><em>Task</em></a></p>
+<p>Cada engine tiene una id asociada. Para enviarle trabajo a los engines debemos crear una intefaz llamada <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/details.html#views"><code class="docutils literal notranslate"><span class="pre">View</span></code></a>.</p>
+<p>Existen dos tipos de <code class="docutils literal notranslate"><span class="pre">View</span></code>: <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/direct.html#"><em>Direct</em></a> y <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html#"><em>Task</em></a>:</p>
 <ul class="simple">
 <li><p>La primera es controlada de forma explicita por el usuario</p></li>
 <li><p>La segunda es controlada por el sistema para <em>balancear la carga</em></p></li>
@@ -699,9 +683,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </section>
 <section id="enviando-trabajos-usando-interfaz-directa">
 <h3><span class="section-number">40.4.2. </span>Enviando trabajos usando interfaz Directa<a class="headerlink" href="#enviando-trabajos-usando-interfaz-directa" title="Permalink to this heading">#</a></h3>
-<p>Una <code class="docutils literal notranslate"><span class="pre">View</span></code> de tipo <em>Direct</em> requiere que el usuario especifique los engines que va a usar. Esto se hace de forma similar a los <em>slices</em> en listas/ndarray</p>
-<p>Por ejemplo para crear una interfaz que utilice todas las engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:]</span></code>. En cambio si sólo queremos utilizar las dos primeras engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:2]</span></code></p>
-<p>La vista puede crearse como bloqueante o no bloqueante (asíncrona) modificando el atributo booleano <code class="docutils literal notranslate"><span class="pre">block</span></code>. Una vista “bloqueante” espera a que el resultado de todos los engines sean retornado para devolver el control</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">View</span></code> de tipo <em>Direct</em> requiere que el usuario especifique los <em>engines</em> que va a usar. Esto se hace de forma similar a los <em>slices</em> en listas/ndarray.</p>
+<p>Por ejemplo para crear una interfaz que utilice todas las engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:]</span></code>. En cambio si sólo queremos utilizar las dos primeras engines, usamos <code class="docutils literal notranslate"><span class="pre">rc[:2]</span></code>.</p>
+<p>La vista puede crearse como bloqueante o no bloqueante (asíncrona) modificando el atributo booleano <code class="docutils literal notranslate"><span class="pre">block</span></code>. Una vista “bloqueante” espera a que el resultado de todos los engines sean retornado para devolver el control.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos una view con</span>
@@ -731,12 +715,12 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>Los trabajos se envían usando las funciones de la <code class="docutils literal notranslate"><span class="pre">View</span></code> directa</p>
+<p>Los trabajos se envían utilizando las funciones de la <code class="docutils literal notranslate"><span class="pre">View</span></code> directa:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">apply</span></code>, <code class="docutils literal notranslate"><span class="pre">apply_sync</span></code>, <code class="docutils literal notranslate"><span class="pre">apply_async</span></code>: Ejecutan una función con argumentos</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">map_sync</span></code>, <code class="docutils literal notranslate"><span class="pre">map_async</span></code>: Ejecutan una función sobre una secuencia</p></li>
 </ul>
-<p>Los apellidos <code class="docutils literal notranslate"><span class="pre">sync</span></code>  y <code class="docutils literal notranslate"><span class="pre">async</span></code> cambian el flag del view momentaneamente</p>
+<p>Los apellidos <code class="docutils literal notranslate"><span class="pre">sync</span></code>  y <code class="docutils literal notranslate"><span class="pre">async</span></code> cambian el flag del view momentaneamente:</p>
 <ul class="simple">
 <li><p>Cuando trabajamos en forma síncrona el resultado retorna al final de la ejecuación</p></li>
 <li><p>Cuando trabajamos de forma asíncrona se retorna un objeto <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/asyncresult.html#parallel-asyncresult"><code class="docutils literal notranslate"><span class="pre">AsyncResult</span></code></a> que puede ser consultado más tarde por el resultado</p></li>
@@ -744,8 +728,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </section>
 <section id="funciones-de-python-en-paralelo-con-apply">
 <h3><span class="section-number">40.4.3. </span>Funciones de Python en paralelo con <code class="docutils literal notranslate"><span class="pre">apply</span></code><a class="headerlink" href="#funciones-de-python-en-paralelo-con-apply" title="Permalink to this heading">#</a></h3>
-<p>Sea una función <code class="docutils literal notranslate"><span class="pre">f</span></code> podemos ejecutarla en todos los engines usando</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<p>Sea una función <code class="docutils literal notranslate"><span class="pre">foo</span></code> podemos ejecutarla en todos los engines con</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>En el siguiente ejemplo se ejecuta una función anónima en todos los engines</p>
@@ -764,8 +748,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </section>
 <section id="compartiendo-modulos-y-datos-con-los-engines">
 <h3><span class="section-number">40.4.4. </span>Compartiendo módulos y datos con los engines<a class="headerlink" href="#compartiendo-modulos-y-datos-con-los-engines" title="Permalink to this heading">#</a></h3>
-<p>Es importante tener claro que, al contrario del paralelismo multi-hilo, los procesos en los engines no comparten memoria y no ven las variables de nuestro entorno local</p>
-<p>Por ejemplo si queremos usar una función del módulo <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
+<p>Es importante tener claro que, al contrario del paralelismo multi-hilo, los procesos en los engines no comparten memoria y no ven las variables de nuestro entorno local.</p>
+<p>Por ejemplo si queremos usar una función del módulo <code class="docutils literal notranslate"><span class="pre">os</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import os # Este import no lo ven los engines</span>
@@ -780,12 +764,12 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10107, 10108, 10110, 10112]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[501328, 501331, 501334, 501341]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Es posible precargar un módulo en todos los engines con la función <code class="docutils literal notranslate"><span class="pre">sync_imports()</span></code>. Los módulos cargados persisten en el entorno de los engines</p>
+<p>Es posible precargar un módulo en todos los engines con la función <code class="docutils literal notranslate"><span class="pre">sync_imports()</span></code>. Los módulos cargados persisten en el entorno de los engines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">dview</span><span class="o">.</span><span class="n">sync_imports</span><span class="p">(</span><span class="n">local</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> 
@@ -804,7 +788,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>importing os on engine(s)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10107, 10108, 10110, 10112]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[501328, 501331, 501334, 501341]
 </pre></div>
 </div>
 </div>
@@ -831,9 +815,9 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <p>Para enviar un objeto de Python que hayamos definido en el ambiente local podemos usar la función <code class="docutils literal notranslate"><span class="pre">push</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>El objeto tiene que ser un diccionario</p>
+<p>El objeto tiene que ser un diccionario.</p>
 </div>
-<p>También podemos usar <code class="docutils literal notranslate"><span class="pre">pull</span></code> si queremos extraer una variable remota. Ambas funciones tienen un argumento llamado <code class="docutils literal notranslate"><span class="pre">targets</span></code> que permite apuntar los objetos a un subconjunto de <em>engines</em></p>
+<p>También podemos usar <code class="docutils literal notranslate"><span class="pre">pull</span></code> si queremos extraer una variable remota. Ambas funciones tienen un argumento llamado <code class="docutils literal notranslate"><span class="pre">targets</span></code> que permite apuntar los objetos a un subconjunto de <em>engines</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># Esto no existe dentro de los engines</span>
@@ -870,8 +854,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <section id="distribuyendo-datos-a-los-engines">
 <h3><span class="section-number">40.4.6. </span>Distribuyendo datos a los engines<a class="headerlink" href="#distribuyendo-datos-a-los-engines" title="Permalink to this heading">#</a></h3>
 <p>Si queremos distribuir datos en los engines podemos usar <code class="docutils literal notranslate"><span class="pre">scatter</span></code>. Esto sirve por ejemplo para procesar elementos de una lista en paralelo.</p>
-<p>La función <code class="docutils literal notranslate"><span class="pre">scatter</span></code> recibe un string con el nombre de la variable (tal como lo recibirá cada proceso) y un arreglo con los valores de la variable</p>
-<p>Para recuperar resultados a partir de los engine se utiliza la función <code class="docutils literal notranslate"><span class="pre">gather</span></code></p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">scatter</span></code> recibe un string con el nombre de la variable (tal como lo recibirá cada proceso) y un arreglo con los valores de la variable.</p>
+<p>Para recuperar resultados a partir de los engine se utiliza la función <code class="docutils literal notranslate"><span class="pre">gather</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Una lista con 7 elementos que será distribuida en los 4 engines usando scatter</span>
@@ -905,10 +889,10 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>También es posible distribuir arreglos de NumPy usando <code class="docutils literal notranslate"><span class="pre">scatter</span></code></p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Los arreglos de NumPy no se copian, se traspasan <em>read-only</em></p>
+<p>También es posible distribuir arreglos de NumPy usando <code class="docutils literal notranslate"><span class="pre">scatter</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Los arreglos de NumPy no se copian, se traspasan <em>read-only</em>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -930,7 +914,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>Si queremos hacer modificaciones de los arreglos tenemos que hacer una copia local</p>
+<p>Si queremos hacer modificaciones de los arreglos tenemos que hacer una copia local.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -960,8 +944,8 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </section>
 <section id="computo-paralelo-con-map">
 <h3><span class="section-number">40.4.7. </span>Cómputo paralelo con <code class="docutils literal notranslate"><span class="pre">map</span></code><a class="headerlink" href="#computo-paralelo-con-map" title="Permalink to this heading">#</a></h3>
-<p>La función <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">map</span></code> de Python aplica una función sobre una secuencia de datos uno por uno. En general, si vemos un <code class="docutils literal notranslate"><span class="pre">map</span></code> en nuestro código, paralelizarlo es muy sencillo</p>
-<p>La librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> provee una versión paralela de <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.DirectView.map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a> que se ocupa sobre una vista</p>
+<p>La función <em>built-in</em> <code class="docutils literal notranslate"><span class="pre">map</span></code> de Python aplica una función sobre una secuencia de datos uno por uno. En general, si vemos un <code class="docutils literal notranslate"><span class="pre">map</span></code> en nuestro código, paralelizarlo es muy sencillo.</p>
+<p>La librería <code class="docutils literal notranslate"><span class="pre">ipyparallel</span></code> provee una versión paralela de <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/api/ipyparallel.html#ipyparallel.DirectView.map"><code class="docutils literal notranslate"><span class="pre">map</span></code></a> que se ocupa sobre una vista:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">[:]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">sequences</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -984,7 +968,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>Podemos entregar iteradores para más de un argumento. Si los iteradores no son del mismo largo, terminará con el iterador más corto</p>
+<p>Podemos entregar iteradores para más de un argumento. Si los iteradores no son del mismo largo, terminará con el iterador más corto.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dview</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -997,7 +981,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 </div>
-<p>Si tenemos una función con algunos argumentos escalares (no iterables) podemos usar <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.partial">partial</a></p>
+<p>Si tenemos una función con algunos argumentos escalares (no iterables) podemos usar <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.partial"><code class="docutils literal notranslate"><span class="pre">partial</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
@@ -1011,16 +995,16 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0034422057329153723,
- 0.7608609409175867,
- 0.6413116019208527,
- 0.01117953633378967,
- 0.07695570039354538,
- 2.5488970107664846e-06,
- 8.262182175856877e-05,
- 0.024282631830443418,
- 0.8680432554367705,
- 0.2898821363782563]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.1406543678460891e-07,
+ 0.9997142179608428,
+ 6.583814271790809e-05,
+ 0.009550572752754302,
+ 0.010194352228301411,
+ 0.0017683468588368396,
+ 1.1531198228713008e-15,
+ 0.03617615221712183,
+ 0.6076451926216965,
+ 0.24742410433887654]
 </pre></div>
 </div>
 </div>
@@ -1041,13 +1025,13 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10107, 10108, 10110, 10112]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[501328, 501331, 501334, 501341]
 </pre></div>
 </div>
 </div>
 </div>
 <p>La función se ejecutó en los cuatro engines sin llamar a <code class="docutils literal notranslate"><span class="pre">dview.apply</span></code> o <code class="docutils literal notranslate"><span class="pre">dview.map</span></code> explicitamente</p>
-<p>De la misma forma, si tenemos una función que trabaja sobre un arreglo de forma <em>element-wise</em> podemos usar el decorador <code class="docutils literal notranslate"><span class="pre">parallel</span></code> para distribuir su carga a los engines. Por ejemplo</p>
+<p>De la misma forma, si tenemos una función que trabaja sobre un arreglo de forma <em>element-wise</em> podemos usar el decorador <code class="docutils literal notranslate"><span class="pre">parallel</span></code> para distribuir su carga a los engines. Por ejemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dview</span><span class="o">.</span><span class="n">parallel</span><span class="p">(</span><span class="n">block</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -1093,7 +1077,7 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 <li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code> : Retorna un booleano con el estado de la tarea</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">get</span></code> : Retorna el resultado</p></li>
 </ul>
-<p>Así se lanza una tarea asíncrona</p>
+<p>Así se lanza una tarea asíncrona:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_async</span> <span class="o">=</span> <span class="n">dview</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -1129,13 +1113,17 @@ def suma_vectores_openmp(double [::1] x, double [::1] y, double [::1] z):
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">Ver también</p>
-<p>Otras funcionalidades de ipyparallel no vistas en esta lección</p>
+<p>Otras funcionalidades de ipyparallel no vistas en esta lección:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/magics.html">Magias de ipyparallel</a></p></li>
 <li><p>Balance de carga automático en ipyparallel con la <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/task.html#">interfaz Task</a></p></li>
 <li><p><a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/dag_dependencies.html">Dependencias entre procesos paralelos</a></p></li>
 <li><p><strong>Computación distribuida</strong> en base a <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/mpi.html">MPI</a>  usando <a class="reference external" href="https://ipyparallel.readthedocs.io/en/latest/process.html#using-the-ipcontroller-and-ipengine-commands"><code class="docutils literal notranslate"><span class="pre">ipengine</span></code> e <code class="docutils literal notranslate"><span class="pre">ipcontroller</span></code></a></p></li>
 </ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Ver también</p>
+<p>Computación distribuida en base a framework <a class="reference external" href="https://www.ray.io/">Ray</a> en <a class="reference external" href="https://github.com/magister-informatica-uach/hpc-tools-course/blob/main/activities/week7/homework.md">ambiente local</a> y <a class="reference external" href="https://github.com/magister-informatica-uach/hpc-tools-course/blob/main/activities/week8/homework.md">en la nube</a></p>
 </div>
 </section>
 </section>
